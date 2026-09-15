@@ -11,7 +11,7 @@ from sklearn.linear_model import Ridge
 
 from .baselines import configs, save_json
 from .build_basic40 import sha256
-from .evaluator import evaluate
+from .evaluator import evaluate, groups
 from .folds import split_fold
 
 
@@ -44,6 +44,13 @@ def verify(root):
                 assert (expected is None and np.isnan(actual)) or np.isclose(actual, expected, rtol=1e-12, atol=1e-14), metric
             saved_daily = pd.read_csv(folder / "daily_metrics.csv", float_precision="round_trip")
             np.testing.assert_allclose(daily.to_numpy(), saved_daily.to_numpy(), rtol=1e-12, atol=1e-14, equal_nan=True)
+            top_slots = missing_label_slots = 0
+            for _, day in p.groupby("trade_date", sort=True):
+                selected = groups(day.loc[np.isfinite(day.pred) & (day.flag_limit_up != 1)])
+                if selected is not None:
+                    top = selected[0]
+                    top_slots += len(top)
+                    missing_label_slots += int((~np.isfinite(top.y_ret_1d)).sum())
             model_info = None
             if experiment != "E000":
                 artifact = joblib.load(folder / "model.joblib")  # Only project-generated, hash-verified models.
@@ -64,13 +71,22 @@ def verify(root):
             checked.append({"experiment_id": experiment, "fold_id": fold["id"], "rows": len(p),
                             "artifact_hashes": "passed", "full_prediction_key_label_alignment": "passed",
                             "saved_prediction_metric_roundtrip": "passed", "daily_metrics_roundtrip": "passed",
+                            "turnover_top_slots": top_slots, "turnover_top_missing_label_slots": missing_label_slots,
+                            "turnover_top_missing_label_fraction": missing_label_slots / top_slots if top_slots else None,
                             "official_model": model_info})
             print(f"Verified saved {experiment}/{fold['id']}", flush=True)
     log = pd.read_csv(root / "outputs/experiment_log.csv")
     assert len(log) == 9 and not log.duplicated(["experiment_id", "fold_id"]).any()
     assert set(config["experiment_log"]["required_columns"]) <= set(log.columns)
     save_json(root / "outputs/baseline_verification.json", {"status": "passed", "evaluator_status": "provisional",
-                                                            "official_evaluator_parity": "unavailable", "folds": checked})
+                                                            "official_evaluator_parity": "different; see separate official_evaluator_comparison.json", "folds": checked})
+    report = root / "outputs/baseline_report.md"
+    text = report.read_text(encoding="utf-8").split("\n## 换手Top集合的标签覆盖诊断")[0]
+    text += "\n## 换手Top集合的标签覆盖诊断\n\n换手Top集合按冻结规则不排除缺失标签，收益Top集合则排除。下表是各日换手Top记录中缺失标签的占比（按记录数加权），仅用于解释现有分数，未用于训练或修改评分。较低的该指标换手率不能直接解释为可交易组合的低换手。\n\n| 实验/折 | 换手Top中缺失标签占比 |\n|---|---:|\n"
+    for item in checked:
+        text += f"| {item['experiment_id']}/{item['fold_id']} | {item['turnover_top_missing_label_fraction']:.4%} |\n"
+    text += "\n保存预测重新评分、逐日指标重算、完整键/标签对齐及文件指纹均通过。官方模型类型、Ridge训练预处理范围和LightGBM实际800轮已核验；结果见baseline_verification.json。\n"
+    report.write_text(text, encoding="utf-8")
 
 
 if __name__ == "__main__":

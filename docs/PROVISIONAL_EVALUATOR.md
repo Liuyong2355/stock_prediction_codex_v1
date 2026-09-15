@@ -1,6 +1,6 @@
 # Provisional evaluator implementation notes
 
-This is an explicit implementation of unresolved PDF edges, **not a change to the competition specification and not an organizer-verified official evaluator**. The Python `POLICY` object is copied into every fold result. No official evaluate.py is present. It must supersede these conventions once provided and parity-tested.
+This is an explicit implementation of unresolved PDF edges, **not a change to the competition specification and not an organizer-verified official evaluator**. The Python `POLICY` object is copied into every fold result. The official script was absent at implementation start and supplied during execution; the user has now confirmed its provenance. It is archived unchanged. See ../outputs/official_evaluator_comparison.md and evaluator_arrival_review.md for executed differences. Existing provisional results remain unchanged; frozen-rule conflicts require explicit versioned review.
 
 ## Preserved specified rules
 

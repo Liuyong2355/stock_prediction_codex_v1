@@ -1,0 +1,142 @@
+{
+  "status": "passed",
+  "evaluator_status": "provisional",
+  "official_evaluator_parity": "different; see separate official_evaluator_comparison.json",
+  "folds": [
+    {
+      "experiment_id": "E000",
+      "fold_id": "F1",
+      "rows": 1125300,
+      "artifact_hashes": "passed",
+      "full_prediction_key_label_alignment": "passed",
+      "saved_prediction_metric_roundtrip": "passed",
+      "daily_metrics_roundtrip": "passed",
+      "turnover_top_slots": 101237,
+      "turnover_top_missing_label_slots": 86,
+      "turnover_top_missing_label_fraction": 0.000849491786599761,
+      "official_model": null
+    },
+    {
+      "experiment_id": "E000",
+      "fold_id": "F2",
+      "rows": 1125300,
+      "artifact_hashes": "passed",
+      "full_prediction_key_label_alignment": "passed",
+      "saved_prediction_metric_roundtrip": "passed",
+      "daily_metrics_roundtrip": "passed",
+      "turnover_top_slots": 105336,
+      "turnover_top_missing_label_slots": 56,
+      "turnover_top_missing_label_fraction": 0.000531632110579479,
+      "official_model": null
+    },
+    {
+      "experiment_id": "E000",
+      "fold_id": "F3",
+      "rows": 1125300,
+      "artifact_hashes": "passed",
+      "full_prediction_key_label_alignment": "passed",
+      "saved_prediction_metric_roundtrip": "passed",
+      "daily_metrics_roundtrip": "passed",
+      "turnover_top_slots": 107469,
+      "turnover_top_missing_label_slots": 47,
+      "turnover_top_missing_label_fraction": 0.00043733541765532386,
+      "official_model": null
+    },
+    {
+      "experiment_id": "E001",
+      "fold_id": "F1",
+      "rows": 1125300,
+      "artifact_hashes": "passed",
+      "full_prediction_key_label_alignment": "passed",
+      "saved_prediction_metric_roundtrip": "passed",
+      "daily_metrics_roundtrip": "passed",
+      "turnover_top_slots": 110861,
+      "turnover_top_missing_label_slots": 5056,
+      "turnover_top_missing_label_fraction": 0.045606660592994834,
+      "official_model": {
+        "class": "sklearn.linear_model.Ridge",
+        "solver_used": "cholesky"
+      }
+    },
+    {
+      "experiment_id": "E001",
+      "fold_id": "F2",
+      "rows": 1125300,
+      "artifact_hashes": "passed",
+      "full_prediction_key_label_alignment": "passed",
+      "saved_prediction_metric_roundtrip": "passed",
+      "daily_metrics_roundtrip": "passed",
+      "turnover_top_slots": 111642,
+      "turnover_top_missing_label_slots": 673,
+      "turnover_top_missing_label_fraction": 0.0060281972734275635,
+      "official_model": {
+        "class": "sklearn.linear_model.Ridge",
+        "solver_used": "cholesky"
+      }
+    },
+    {
+      "experiment_id": "E001",
+      "fold_id": "F3",
+      "rows": 1125300,
+      "artifact_hashes": "passed",
+      "full_prediction_key_label_alignment": "passed",
+      "saved_prediction_metric_roundtrip": "passed",
+      "daily_metrics_roundtrip": "passed",
+      "turnover_top_slots": 110574,
+      "turnover_top_missing_label_slots": 2164,
+      "turnover_top_missing_label_fraction": 0.019570604301191962,
+      "official_model": {
+        "class": "sklearn.linear_model.Ridge",
+        "solver_used": "cholesky"
+      }
+    },
+    {
+      "experiment_id": "E002",
+      "fold_id": "F1",
+      "rows": 1125300,
+      "artifact_hashes": "passed",
+      "full_prediction_key_label_alignment": "passed",
+      "saved_prediction_metric_roundtrip": "passed",
+      "daily_metrics_roundtrip": "passed",
+      "turnover_top_slots": 110861,
+      "turnover_top_missing_label_slots": 94742,
+      "turnover_top_missing_label_fraction": 0.8546017084457113,
+      "official_model": {
+        "class": "lightgbm.LGBMRegressor",
+        "iterations": 800
+      }
+    },
+    {
+      "experiment_id": "E002",
+      "fold_id": "F2",
+      "rows": 1125300,
+      "artifact_hashes": "passed",
+      "full_prediction_key_label_alignment": "passed",
+      "saved_prediction_metric_roundtrip": "passed",
+      "daily_metrics_roundtrip": "passed",
+      "turnover_top_slots": 111642,
+      "turnover_top_missing_label_slots": 62578,
+      "turnover_top_missing_label_fraction": 0.5605238172014116,
+      "official_model": {
+        "class": "lightgbm.LGBMRegressor",
+        "iterations": 800
+      }
+    },
+    {
+      "experiment_id": "E002",
+      "fold_id": "F3",
+      "rows": 1125300,
+      "artifact_hashes": "passed",
+      "full_prediction_key_label_alignment": "passed",
+      "saved_prediction_metric_roundtrip": "passed",
+      "daily_metrics_roundtrip": "passed",
+      "turnover_top_slots": 110574,
+      "turnover_top_missing_label_slots": 30635,
+      "turnover_top_missing_label_fraction": 0.2770542803914121,
+      "official_model": {
+        "class": "lightgbm.LGBMRegressor",
+        "iterations": 800
+      }
+    }
+  ]
+}

@@ -60,3 +60,6 @@ Read `DECISIONS.md`, record the new decision, update the canonical YAML/spec, an
 - `../outputs/baseline_summary.json` — complete per-fold metrics and provenance.
 - `../outputs/experiment_log.csv` — required experiment log.
 - `../outputs/baselines/` — fold result.json, daily metrics, local prediction/model files and fingerprints.
+
+- `../outputs/official_evaluator_comparison.md` — original organizer script replay; preserved provisional comparison.
+- `../outputs/evaluator_arrival_review.md` — confirmed provenance and semantic differences.

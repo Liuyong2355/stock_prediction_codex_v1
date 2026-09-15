@@ -86,3 +86,7 @@ This file records frozen design decisions. Do not rewrite history; append new de
 **Status:** Authorized in the user's B2 request; official scoring edge cases remain unresolved.
 **Decision:** Implement frozen expanding folds/purge and run only E000–E002. E001 uses official sklearn Ridge and train-only sklearn preprocessing; E002 uses official lightgbm with the existing frozen params. No custom training algorithms, Full147, alternative targets, tuning or ensembles.
 **Provisional implementation:** Record PDF edge conventions separately in PROVISIONAL_EVALUATOR.md and each result. This does not amend the competition rules or claim organizer parity. Preserve validation rows and label-independent turnover eligibility. Stop after results, tests and Git submission for review.
+
+## D018 — Late official evaluator receipt and preserved B2 results (2026-09-15)
+
+User confirmed the root evaluate.py is the unmodified organizer script. Archive identical bytes at reference/evaluate_official.py; replay all nine saved validation predictions and deterministic edge cases without retraining or replacing provisional results. Official ddof=1 differs from user-frozen ddof=0; minimum sample thresholds, Top group rounding, ties and NaN handling also differ. Comparison is recorded separately. No frozen YAML, feature, fold, target or metric definition is changed in this delivery; resolve conflicts explicitly during review before changing versions.

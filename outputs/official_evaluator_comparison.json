@@ -1,0 +1,333 @@
+{
+  "status": "completed",
+  "provenance": "User confirmed unmodified organizer script",
+  "script_sha256": "72dc59987e92ba8ae6b506e114dfe8591b5608c9beccd0769d5d1f778f9189c2",
+  "scope": "Saved validation predictions only; no retraining; not hidden-test results",
+  "nonfinite_encoding": "JSON null means undefined/nonfinite, never zero",
+  "folds": [
+    {
+      "experiment": "E000",
+      "fold": "F1",
+      "rows": 1125300,
+      "official": {
+        "ic_mean": null,
+        "ic_std": null,
+        "icir": 0.0,
+        "ic_positive_ratio": 0.05371900826446281,
+        "annual_excess": -0.6107605957323111,
+        "top1_annual_ret": -0.7418888127970809,
+        "mean_turnover": 0.9191055863114338,
+        "final_score": null
+      },
+      "provisional": {
+        "rank_ic_mean": -0.02963140700061333,
+        "rank_ic_std": 0.13366079211321275,
+        "icir": -0.2216910922951517,
+        "ic_positive_ratio": 0.371900826446281,
+        "annualized_top_excess_return": -0.6113445770598852,
+        "mean_turnover": 0.9234349528162725,
+        "final_score": -0.17228642176309264,
+        "top1_annualized_absolute_return": -0.7409248456491538,
+        "top1_bottom1_annualized_spread": -0.31275722466236927
+      },
+      "official_minus_provisional": {
+        "ic_mean": null,
+        "ic_std": null,
+        "icir": 0.2216910922951517,
+        "ic_positive_ratio": -0.3181818181818182,
+        "annual_excess": 0.0005839813275740902,
+        "top1_annual_ret": -0.000963967147927014,
+        "mean_turnover": -0.0043293665048387275,
+        "final_score": null
+      }
+    },
+    {
+      "experiment": "E000",
+      "fold": "F2",
+      "rows": 1125300,
+      "official": {
+        "ic_mean": null,
+        "ic_std": null,
+        "icir": 0.0,
+        "ic_positive_ratio": 0.10330578512396695,
+        "annual_excess": -0.4214325482432574,
+        "top1_annual_ret": -0.40200931092314013,
+        "mean_turnover": 0.9130937464369199,
+        "final_score": null
+      },
+      "provisional": {
+        "rank_ic_mean": -0.02369915964387072,
+        "rank_ic_std": 0.13627651375607072,
+        "icir": -0.17390494510515017,
+        "ic_positive_ratio": 0.39669421487603307,
+        "annualized_top_excess_return": -0.4234453470505119,
+        "mean_turnover": 0.9158716339150811,
+        "final_score": -0.11127475814722618,
+        "top1_annualized_absolute_return": -0.40184856906353145,
+        "top1_bottom1_annualized_spread": -0.09754901618077409
+      },
+      "official_minus_provisional": {
+        "ic_mean": null,
+        "ic_std": null,
+        "icir": 0.17390494510515017,
+        "ic_positive_ratio": -0.29338842975206614,
+        "annual_excess": 0.0020127988072545233,
+        "top1_annual_ret": -0.00016074185960868181,
+        "mean_turnover": -0.0027778874781612117,
+        "final_score": null
+      }
+    },
+    {
+      "experiment": "E000",
+      "fold": "F3",
+      "rows": 1125300,
+      "official": {
+        "ic_mean": null,
+        "ic_std": null,
+        "icir": 0.0,
+        "ic_positive_ratio": 0.19834710743801653,
+        "annual_excess": -0.44423254385493416,
+        "top1_annual_ret": -0.4582771948552312,
+        "mean_turnover": 0.9175380991547635,
+        "final_score": null
+      },
+      "provisional": {
+        "rank_ic_mean": 0.013491038330950101,
+        "rank_ic_std": 0.2038295884196154,
+        "icir": 0.0661878309010597,
+        "ic_positive_ratio": 0.5371900826446281,
+        "annualized_top_excess_return": -0.44448931172111017,
+        "mean_turnover": 0.9189706001735639,
+        "final_score": -0.1036415582360222,
+        "top1_annualized_absolute_return": -0.45675629825124303,
+        "top1_bottom1_annualized_spread": 0.3405573773802283
+      },
+      "official_minus_provisional": {
+        "ic_mean": null,
+        "ic_std": null,
+        "icir": -0.0661878309010597,
+        "ic_positive_ratio": -0.33884297520661155,
+        "annual_excess": 0.0002567678661760109,
+        "top1_annual_ret": -0.0015208966039881866,
+        "mean_turnover": -0.0014325010188004361,
+        "final_score": null
+      }
+    },
+    {
+      "experiment": "E001",
+      "fold": "F1",
+      "rows": 1125300,
+      "official": {
+        "ic_mean": 0.07507320764875292,
+        "ic_std": 0.09178220127387893,
+        "icir": 0.8179495218766194,
+        "ic_positive_ratio": 0.7975206611570248,
+        "annual_excess": 0.2490629604761965,
+        "top1_annual_ret": 0.11793474341142664,
+        "mean_turnover": 0.8335686338151966,
+        "final_score": 0.15467758105780113
+      },
+      "provisional": {
+        "rank_ic_mean": 0.07507321295317132,
+        "rank_ic_std": 0.09159240452817625,
+        "icir": 0.8196445255466223,
+        "ic_positive_ratio": 0.7975206611570248,
+        "annualized_top_excess_return": 0.249461065221155,
+        "mean_turnover": 0.8296682055203312,
+        "final_score": 0.1559671430915157,
+        "top1_annualized_absolute_return": 0.11833284815638478,
+        "top1_bottom1_annualized_spread": 1.544884958319988
+      },
+      "official_minus_provisional": {
+        "ic_mean": -5.304418404517008e-09,
+        "ic_std": 0.00018979674570267224,
+        "icir": -0.0016950036700028592,
+        "ic_positive_ratio": 0.0,
+        "annual_excess": -0.000398104744958494,
+        "top1_annual_ret": -0.00039810474495814707,
+        "mean_turnover": 0.0039004282948654767,
+        "final_score": -0.001289562033714553
+      }
+    },
+    {
+      "experiment": "E001",
+      "fold": "F2",
+      "rows": 1125300,
+      "official": {
+        "ic_mean": 0.054577785434656884,
+        "ic_std": 0.09924914078177083,
+        "icir": 0.5499068808531311,
+        "ic_positive_ratio": 0.7231404958677686,
+        "annual_excess": 0.07375661590194306,
+        "top1_annual_ret": 0.09317985322206043,
+        "mean_turnover": 0.8450937839529045,
+        "final_score": 0.09042996375857434
+      },
+      "provisional": {
+        "rank_ic_mean": 0.05457783462342518,
+        "rank_ic_std": 0.0990439051819508,
+        "icir": 0.5510468768690184,
+        "ic_positive_ratio": 0.7231404958677686,
+        "annualized_top_excess_return": 0.07385831216847835,
+        "mean_turnover": 0.8446636439096045,
+        "final_score": 0.09058953432703223,
+        "top1_annualized_absolute_return": 0.0932815494885954,
+        "top1_bottom1_annualized_spread": 0.7959962058655012
+      },
+      "official_minus_provisional": {
+        "ic_mean": -4.918876829462793e-08,
+        "ic_std": 0.00020523559982002504,
+        "icir": -0.0011399960158873235,
+        "ic_positive_ratio": 0.0,
+        "annual_excess": -0.00010169626653529218,
+        "top1_annual_ret": -0.00010169626653497299,
+        "mean_turnover": 0.000430140043299998,
+        "final_score": -0.00015957056845788964
+      }
+    },
+    {
+      "experiment": "E001",
+      "fold": "F3",
+      "rows": 1125300,
+      "official": {
+        "ic_mean": 0.06638273294508226,
+        "ic_std": 0.14424023433821298,
+        "icir": 0.46022341304180586,
+        "ic_positive_ratio": 0.6652892561983471,
+        "annual_excess": 0.10827775925362768,
+        "top1_annual_ret": 0.09423310825333074,
+        "mean_turnover": 0.8515577424873487,
+        "final_score": 0.1035690982079166
+      },
+      "provisional": {
+        "rank_ic_mean": 0.06638269232803835,
+        "rank_ic_std": 0.14394214304545916,
+        "icir": 0.46117621235549944,
+        "ic_positive_ratio": 0.6652892561983471,
+        "annualized_top_excess_return": 0.1069730573154358,
+        "mean_turnover": 0.8513632473328013,
+        "final_score": 0.10323601992600567,
+        "top1_annualized_absolute_return": 0.09292840631513866,
+        "top1_bottom1_annualized_spread": 1.469875425165398
+      },
+      "official_minus_provisional": {
+        "ic_mean": 4.0617043908786066e-08,
+        "ic_std": 0.0002980912927538215,
+        "icir": -0.0009527993136935753,
+        "ic_positive_ratio": 0.0,
+        "annual_excess": 0.0013047019381918767,
+        "top1_annual_ret": 0.001304701938192085,
+        "mean_turnover": 0.00019449515454739164,
+        "final_score": 0.0003330782819109257
+      }
+    },
+    {
+      "experiment": "E002",
+      "fold": "F1",
+      "rows": 1125300,
+      "official": {
+        "ic_mean": 0.07566559811985576,
+        "ic_std": 0.07911406555332054,
+        "icir": 0.9564114496032238,
+        "ic_positive_ratio": 0.8264462809917356,
+        "annual_excess": 0.452410055856293,
+        "top1_annual_ret": 0.3212818387915233,
+        "mean_turnover": 0.23089957217573576,
+        "final_score": 0.39671938435210946
+      },
+      "provisional": {
+        "rank_ic_mean": 0.07566561205222526,
+        "rank_ic_std": 0.07895046889465697,
+        "icir": 0.9583934473294304,
+        "ic_positive_ratio": 0.8264462809917356,
+        "annualized_top_excess_return": 0.45388486593621147,
+        "mean_turnover": 0.22929017511112268,
+        "final_score": 0.3976446520684167,
+        "top1_annualized_absolute_return": 0.32275664887144134,
+        "top1_bottom1_annualized_spread": 1.8201432307770584
+      },
+      "official_minus_provisional": {
+        "ic_mean": -1.3932369494207286e-08,
+        "ic_std": 0.0001635966586635701,
+        "icir": -0.0019819977262066635,
+        "ic_positive_ratio": 0.0,
+        "annual_excess": -0.0014748100799184538,
+        "top1_annual_ret": -0.0014748100799180652,
+        "mean_turnover": 0.0016093970646130773,
+        "final_score": -0.0009252677163072431
+      }
+    },
+    {
+      "experiment": "E002",
+      "fold": "F2",
+      "rows": 1125300,
+      "official": {
+        "ic_mean": 0.03773338805504292,
+        "ic_std": 0.07976028280763658,
+        "icir": 0.47308493308689936,
+        "ic_positive_ratio": 0.6983471074380165,
+        "annual_excess": 0.18541387148664007,
+        "top1_annual_ret": 0.2048371088067574,
+        "mean_turnover": 0.4846951058471849,
+        "final_score": 0.2253089849138537
+      },
+      "provisional": {
+        "rank_ic_mean": 0.03773336479516209,
+        "rank_ic_std": 0.07959527482854,
+        "icir": 0.4740653873794059,
+        "ic_positive_ratio": 0.6983471074380165,
+        "annualized_top_excess_return": 0.1855479129933082,
+        "mean_turnover": 0.4856702912293189,
+        "final_score": 0.2250566324472616,
+        "top1_annualized_absolute_return": 0.20497115031342525,
+        "top1_bottom1_annualized_spread": 1.0715223198927764
+      },
+      "official_minus_provisional": {
+        "ic_mean": 2.3259880833903512e-08,
+        "ic_std": 0.00016500797909659026,
+        "icir": -0.0009804542925065385,
+        "ic_positive_ratio": 0.0,
+        "annual_excess": -0.00013404150666812553,
+        "top1_annual_ret": -0.00013404150666784798,
+        "mean_turnover": -0.0009751853821339806,
+        "final_score": 0.0002523524665921095
+      }
+    },
+    {
+      "experiment": "E002",
+      "fold": "F3",
+      "rows": 1125300,
+      "official": {
+        "ic_mean": 0.08622509315984932,
+        "ic_std": 0.13259199554869724,
+        "icir": 0.6503039101495482,
+        "ic_positive_ratio": 0.7520661157024794,
+        "annual_excess": 0.44510663879195245,
+        "top1_annual_ret": 0.43106198779165544,
+        "mean_turnover": 0.721214803379976,
+        "final_score": 0.2516575878875327
+      },
+      "provisional": {
+        "rank_ic_mean": 0.08622511854016104,
+        "rank_ic_std": 0.13231788559600505,
+        "icir": 0.6516512726285913,
+        "ic_positive_ratio": 0.7520661157024794,
+        "annualized_top_excess_return": 0.44498509051078206,
+        "mean_turnover": 0.7213843360486594,
+        "final_score": 0.25157027375470126,
+        "top1_annualized_absolute_return": 0.43094043951048483,
+        "top1_bottom1_annualized_spread": 2.1311072766503396
+      },
+      "official_minus_provisional": {
+        "ic_mean": -2.5380311727274396e-08,
+        "ic_std": 0.0002741099526921975,
+        "icir": -0.0013473624790431016,
+        "ic_positive_ratio": 0.0,
+        "annual_excess": 0.00012154828117039163,
+        "top1_annual_ret": 0.00012154828117061367,
+        "mean_turnover": -0.0001695326686833587,
+        "final_score": 8.731413283141753e-05
+      }
+    }
+  ]
+}

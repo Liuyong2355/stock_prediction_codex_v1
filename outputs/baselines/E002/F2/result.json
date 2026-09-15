@@ -1,0 +1,162 @@
+{
+  "run_id": "B2_E002_F2_20260915T075252Z",
+  "experiment_id": "E002",
+  "fold_id": "F2",
+  "timestamp": "2026-09-15T07:52:52.197337+00:00",
+  "git_commit": "e94b3a5a3c61002ad2c70ed0840cc3e38a795ab5",
+  "data_version": "sha256:6f27670167a0b305ebde0d303a272a0a3215def354c15cc316d287f1444540e2",
+  "feature_spec_version": "1.0.1",
+  "protocol_version": "1.0.1",
+  "feature_set": "Basic40",
+  "n_features": 40,
+  "target": "raw",
+  "model": "lightgbm_reg_v1",
+  "configured_params": {
+    "objective": "regression",
+    "n_estimators": 800,
+    "learning_rate": 0.03,
+    "num_leaves": 63,
+    "max_depth": -1,
+    "min_child_samples": 1000,
+    "subsample": 0.8,
+    "subsample_freq": 1,
+    "colsample_bytree": 0.8,
+    "reg_alpha": 0.0,
+    "reg_lambda": 1.0,
+    "random_state": 42,
+    "n_jobs": -1,
+    "verbosity": -1
+  },
+  "resolved_params": {
+    "boosting_type": "gbdt",
+    "class_weight": null,
+    "colsample_bytree": 0.8,
+    "importance_type": "split",
+    "learning_rate": 0.03,
+    "max_depth": -1,
+    "min_child_samples": 1000,
+    "min_child_weight": 0.001,
+    "min_split_gain": 0.0,
+    "n_estimators": 800,
+    "n_jobs": -1,
+    "num_leaves": 63,
+    "objective": "regression",
+    "random_state": 42,
+    "reg_alpha": 0.0,
+    "reg_lambda": 1.0,
+    "subsample": 0.8,
+    "subsample_for_bin": 200000,
+    "subsample_freq": 1,
+    "verbosity": -1
+  },
+  "seed": 42,
+  "split": {
+    "fold_id": "F2",
+    "configured_periods": {
+      "id": "F2",
+      "train_start": "2018-01-02",
+      "train_end": "2022-12-31",
+      "valid_start": "2023-01-01",
+      "valid_end": "2023-12-31"
+    },
+    "candidate_train_rows": 5649750,
+    "candidate_train_dates": 1215,
+    "candidate_train_start": 20180102,
+    "candidate_train_end": 20221230,
+    "purge_dates": [
+      20221230
+    ],
+    "purge_rows": 4650,
+    "purge_finite_label_rows": 4280,
+    "train_rows_after_purge_before_label_filter": 5645100,
+    "excluded_nonfinite_train_label_rows": 1047315,
+    "train_rows": 4597785,
+    "train_start": 20180102,
+    "train_end": 20221229,
+    "valid_rows": 1125300,
+    "valid_finite_label_rows": 1062411,
+    "valid_start": 20230103,
+    "valid_end": 20231229,
+    "train_dates_after_purge": 1214,
+    "valid_dates": 242,
+    "feature_history": "Full causal Basic40 reused; purge applies to supervised fitting, not historical feature rows."
+  },
+  "train_rows": 4597785,
+  "valid_rows": 1125300,
+  "supervised_fit_rows": 4597785,
+  "preprocessing": null,
+  "dropped_all_nan_features": [],
+  "train_time_sec": 69.09998750000159,
+  "preprocessing_materialization_sec": 2.1418545000015,
+  "prediction_pipeline_sec": 74.36570130000109,
+  "peak_memory_gb": 4.758216857910156,
+  "environment": {
+    "python": "3.14.0",
+    "numpy": "2.3.5",
+    "pandas": "2.3.3",
+    "scipy": "1.17.0",
+    "scikit_learn": "1.8.0",
+    "lightgbm": "4.6.0"
+  },
+  "config_sha256": {
+    "experiments_v1.yaml": "c6dbbefe5fe0a9fa2109f498755310926d03a1597bc13f5214d01e55c9f45679",
+    "features_v1.yaml": "6bd63c4d058def293e96f4e1359df976ffb8abde2111cb251ceabe40fba20987",
+    "folds_v1.yaml": "4b1f773d45b9e886c239bddef5e1176f7d90c593f4a4cfde674f3b43196ff73a"
+  },
+  "artifact_files": {
+    "daily_metrics.csv": {
+      "sha256": "7c8d8a57e906b355b1c9c28814e40675648b73c70ad06231858071a3a845b220",
+      "bytes": 39278
+    },
+    "model.joblib": {
+      "sha256": "44f2e107b5b4918153676c51a0d72ce6aee7f5fb712efe26e10a2db0f406c377",
+      "bytes": 5248144
+    },
+    "model.txt": {
+      "sha256": "b664ea423afcbe03a3491244bce4182c0fe3be443b33edca2418271282a0daf8",
+      "bytes": 5261574
+    },
+    "predictions.csv.gz": {
+      "sha256": "f59638fe74180b3803fcb61255ccbac3965c252e2fd92d5c624f7505959365bc",
+      "bytes": 23262269
+    }
+  },
+  "evaluator_status": "provisional",
+  "policy": {
+    "id": "pdf_provisional_v1",
+    "status": "provisional",
+    "official_parity_verified": false,
+    "nonfinite_predictions": "Exclude from each metric; retain raw predictions in artifacts; report counts. Never fill.",
+    "ic": "Finite pred/label pairs; at least 2 and both nonconstant; average Spearman ties; otherwise NaN.",
+    "sort_ties": "pred descending, then ts_code ascending, stable and label-independent",
+    "groups": "At least 10 eligible rows; numpy.array_split(sorted rows, 10); first=Top1, last=Bottom1.",
+    "return_eligibility": "Finite pred and label, flag_limit_up != 1; market mean on this same eligible universe.",
+    "turnover_eligibility": "Finite pred, flag_limit_up != 1; DO NOT filter missing labels or flag_limit_down.",
+    "turnover_dates": "Within-fold consecutive observed dates only; first date NaN; invalid sets skip pair without bridging gaps.",
+    "small_sample_dates": "Fewer than 10 eligible rows: returns or turnover set undefined for that metric, not zero.",
+    "aggregation": "Mean over finite daily metric values; IC std ddof=0; positive fraction over defined IC days; no defined values -> NaN.",
+    "icir_zero_std": "NaN",
+    "annualization": "Daily arithmetic mean * 252, including auxiliary return metrics.",
+    "empty_turnover_union": "NaN; never count empty-union days as zero turnover",
+    "score": "0.40*rank_ic_mean + 0.30*annualized_top_excess_return + 0.30*(1-mean_turnover); no normalization"
+  },
+  "metrics": {
+    "rank_ic_mean": 0.03773336479516209,
+    "rank_ic_std": 0.07959527482854,
+    "icir": 0.4740653873794059,
+    "ic_positive_ratio": 0.6983471074380165,
+    "annualized_top_excess_return": 0.1855479129933082,
+    "mean_turnover": 0.4856702912293189,
+    "final_score": 0.2250566324472616,
+    "top1_annualized_absolute_return": 0.20497115031342525,
+    "top1_bottom1_annualized_spread": 1.0715223198927764
+  },
+  "coverage": {
+    "validation_dates": 242,
+    "defined_ic_dates": 242,
+    "defined_return_dates": 242,
+    "defined_turnover_pairs": 241,
+    "validation_rows": 1125300,
+    "nonfinite_predictions": 0
+  }
+}

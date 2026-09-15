@@ -256,7 +256,7 @@ def summarize(root):
     save_json(root / "outputs/baseline_summary.json", {"evaluator_status": "provisional", "policy": POLICY, "summary": rows,
                                                        "fold_results": results})
     pd.DataFrame(rows).to_csv(root / "outputs/baseline_summary.csv", index=False, float_format="%.17g")
-    lines = ["# B2 首轮 baseline（全部为 provisional）", "", "官方evaluate.py缺失，以下结果不能称为官方成绩；未修改冻结规范或调参。", "",
+    lines = ["# B2 首轮 baseline（全部为 provisional）", "", "实现开始时官方脚本缺失；运行期间补入并确认来源。以下保留原provisional结果，官方脚本对照见official_evaluator_comparison.md；未修改冻结规范或调参。", "",
              "## 三折汇总", "", "| 实验 | F1 | F2 | F3 | 均值 | 最差折 | 标准差 |", "|---|---:|---:|---:|---:|---:|---:|"]
     for row in rows:
         lines.append("| " + row["experiment_id"] + " | " + " | ".join(f"{row[k]:.8f}" for k in ["Score_F1","Score_F2","Score_F3","MeanScore","WorstScore","StdScore"]) + " |")
