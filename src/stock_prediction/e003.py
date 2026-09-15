@@ -21,6 +21,7 @@ from .build_basic40 import sha256
 from .compare_official import load_official, replay
 from .diagnose_e002 import top_sets, persistence, distribution
 from .folds import split_fold
+from .targets import TARGETS, training_target, array_sha256
 
 METRIC_MAP=dict(ic_mean='rank_ic_mean',ic_std='rank_ic_std',icir='icir',ic_positive_ratio='ic_positive_ratio',
                 annual_excess='annualized_top_excess_return',top1_annual_ret='top1_annualized_absolute_return',
@@ -58,8 +59,14 @@ def official_daily_and_diagnostic(p):
 
 
 def make_e003(config):
-    experiment=next(e for e in config['experiments'] if e['id']=='E003')
-    assert experiment['feature_set']=='Full147' and experiment['target']=='raw' and experiment['model']=='lightgbm_reg_v1'
+    return make_full147_model(config, 'E003')
+
+
+def make_full147_model(config, experiment_id):
+    if experiment_id not in TARGETS:
+        raise ValueError('Only E003/E004/E005 are supported')
+    experiment=next(e for e in config['experiments'] if e['id']==experiment_id)
+    assert experiment['feature_set']=='Full147' and experiment['target']==TARGETS[experiment_id] and experiment['model']=='lightgbm_reg_v1'
     return lgb.LGBMRegressor(**config['model_catalog']['lightgbm_reg_v1']['params'])
 
 
@@ -82,8 +89,10 @@ def verify_inputs(root):
              protected_sha256={str(p.relative_to(root)):sha256(p) for p in protected if p.is_file()}))
 
 
-def run_fold(root,fold_id):
+def run_fold(root,fold_id,experiment_id='E003'):
     foldconfig,config=configs(root)
+    model=make_full147_model(config,experiment_id)
+    target_name=TARGETS[experiment_id]
     fold=next(f for f in foldconfig['folds'] if f['id']==fold_id)
     manifest=json.loads((root/'outputs/full147_manifest.json').read_text(encoding='utf-8'))
     names=manifest['feature_names']; source=manifest['datasets']['train']['files']
@@ -91,21 +100,34 @@ def run_fold(root,fold_id):
     keys=np.load(source['keys']['path'],mmap_mode='r',allow_pickle=False)
     labels=np.load(root/'outputs/baselines/cache/labels.npy',mmap_mode='r',allow_pickle=False)
     train_idx,valid_idx,split=split_fold(keys['trade_date'],labels,fold,foldconfig['purge_rule']['purge_trading_days'])
-    prior=json.loads((root/'outputs/baselines/E002'/fold_id/'result.json').read_text(encoding='utf-8'))
+    control_id='E002' if experiment_id=='E003' else 'E003'
+    prior=json.loads((root/'outputs/baselines'/control_id/fold_id/'result.json').read_text(encoding='utf-8'))
     assert split==prior['split'] and config['model_catalog']['lightgbm_reg_v1']['params']==prior['configured_params']
     assert manifest['data_version']==prior['data_version']
-    out=root/'outputs/baselines/E003'/fold_id; out.mkdir(parents=True,exist_ok=True)
-    if (out/'result.json').exists(): raise FileExistsError('Completed E003 fold exists')
-    print(f'START E003/{fold_id}: {len(train_idx):,} train; {len(valid_idx):,} valid; purge={split["purge_dates"]}',flush=True)
+    if experiment_id!='E003':
+        assert sha256(root/'outputs/full147_manifest.json')==prior['feature_manifest_sha256']
+        assert {p.name:sha256(p) for p in (root/'config').glob('*.yaml')}==prior['config_sha256']
+        assert model.get_params()==prior['resolved_params']
+        assert dict(python=platform.python_version(),numpy=np.__version__,pandas=pd.__version__,lightgbm=lgb.__version__)==prior['environment']
+    out=root/'outputs/baselines'/experiment_id/fold_id; out.mkdir(parents=True,exist_ok=True)
+    if (out/'result.json').exists(): raise FileExistsError(f'Completed {experiment_id} fold exists')
+    print(f'START {experiment_id}/{fold_id}: {len(train_idx):,} train; {len(valid_idx):,} valid; purge={split["purge_dates"]}',flush=True)
     started=time.perf_counter(); np.random.seed(config['seed'])
+    # Slice BEFORE target construction: no validation, purge or test labels enter it.
+    fit_y=training_target(keys['trade_date'][train_idx],labels[train_idx],target_name)
+    target_metadata=dict(name=target_name,definition=config['targets'][target_name],
+                         training_indices_sha256=array_sha256(train_idx),validation_indices_sha256=array_sha256(valid_idx),
+                         raw_training_labels_sha256=array_sha256(labels[train_idx]),values_sha256=array_sha256(fit_y),
+                         rows=len(fit_y),finite_rows=int(np.isfinite(fit_y).sum()),
+                         construction_scope='purged finite supervised training rows only',
+                         distribution=distribution(fit_y))
     training=materialize(matrix,train_idx,out/'training_work.npy')
     prep_seconds=time.perf_counter()-started
-    model=make_e003(config)
     fit_start=time.perf_counter()
-    model.fit(pd.DataFrame(training,columns=names,copy=False),np.asarray(labels[train_idx]))
+    model.fit(pd.DataFrame(training,columns=names,copy=False),fit_y)
     fit_seconds=time.perf_counter()-fit_start
     assert model.booster_.current_iteration()==config['model_catalog']['lightgbm_reg_v1']['params']['n_estimators']
-    print(f'FIT E003/{fold_id}: {fit_seconds:.1f}s; predicting',flush=True)
+    print(f'FIT {experiment_id}/{fold_id}: {fit_seconds:.1f}s; predicting',flush=True)
     pred=predict_batches(model,matrix,valid_idx)
     assert np.isfinite(pred).all()
     joblib.dump({'model':model,'feature_names':names,'preprocessor':None},out/'model.joblib')
@@ -117,12 +139,12 @@ def run_fold(root,fold_id):
     p.to_csv(out/'predictions.csv.gz',index=False,float_format='%.17g',compression={'method':'gzip','mtime':0})
     roundtrip=pd.read_csv(out/'predictions.csv.gz',float_precision='round_trip')
     np.testing.assert_array_equal(roundtrip.pred,pred)
-    with tempfile.TemporaryDirectory(prefix='e003_official_') as temp:
+    with tempfile.TemporaryDirectory(prefix=f'{experiment_id.lower()}_official_') as temp:
         official=replay(roundtrip,temp,load_official(root))
     # Default CSV parser reproduces the original script's numeric/tie behavior.
     saved=pd.read_csv(out/'predictions.csv.gz')
-    e002=pd.read_csv(root/'outputs/baselines/E002'/fold_id/'predictions.csv.gz')
-    pd.testing.assert_frame_equal(saved[['ts_code','trade_date','y_ret_1d','flag_limit_up']],e002[['ts_code','trade_date','y_ret_1d','flag_limit_up']])
+    control=pd.read_csv(root/'outputs/baselines'/control_id/fold_id/'predictions.csv.gz')
+    pd.testing.assert_frame_equal(saved[['ts_code','trade_date','y_ret_1d','flag_limit_up']],control[['ts_code','trade_date','y_ret_1d','flag_limit_up']])
     daily,diag,selected,ties=official_daily_and_diagnostic(saved)
     assert np.isclose(daily.rank_ic.mean(),official['ic_mean'],atol=1e-14,rtol=0)
     assert np.isclose(daily.rank_ic.std(ddof=1),official['ic_std'],atol=1e-14,rtol=0)
@@ -144,19 +166,21 @@ def run_fold(root,fold_id):
     auxiliary=dict(rank_ic_std_ddof0=float(daily.rank_ic.std(ddof=0)),
                    top1_bottom1_annualized_spread=float(daily.auxiliary_floor_top_bottom_spread.mean()*252),
                    spread_status='auxiliary only; floor groups matching official Top sizing; not returned by organizer')
-    result=dict(experiment_id='E003',fold_id=fold_id,run_id=f'E003_{fold_id}_{datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")}',
+    result=dict(experiment_id=experiment_id,fold_id=fold_id,run_id=f'{experiment_id}_{fold_id}_{datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")}',
                 timestamp=datetime.now(timezone.utc).isoformat(),git_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip(),
                 data_version=manifest['data_version'],feature_spec_version=manifest['feature_spec_version'],protocol_version=config['experiment_protocol_version'],
-                feature_set='Full147',n_features=147,target='raw',model='lightgbm_reg_v1',seed=config['seed'],
+                feature_set='Full147',n_features=147,target=target_name,model='lightgbm_reg_v1',seed=config['seed'],
+                target_construction=target_metadata,
                 configured_params=config['model_catalog']['lightgbm_reg_v1']['params'],resolved_params=model.get_params(),actual_iterations=model.booster_.current_iteration(),
                 split=split,train_rows=len(train_idx),valid_rows=len(valid_idx),supervised_fit_rows=len(train_idx),preprocessing=None,
                 train_time_sec=fit_seconds,preprocessing_materialization_sec=prep_seconds,elapsed_seconds=time.perf_counter()-started,peak_memory_gb=peak_memory_gb(),
                 evaluator_status='unmodified_organizer_script_validation_replay',official_script_sha256=sha256(root/'reference/evaluate_official.py'),
                 metrics=metrics,official=official,auxiliary=auxiliary,missing_label_diagnostic=diag,
-                validation=dict(e002_split_params_keys_labels_flags_equal=True,saved_prediction_roundtrip=True,official_daily_aggregation_matches=True,model_reload_predictions_match=True),
+                validation={f'{control_id.lower()}_split_params_keys_labels_flags_equal':True,'saved_prediction_roundtrip':True,'official_daily_aggregation_matches':True,'model_reload_predictions_match':True},
                 environment=dict(python=platform.python_version(),numpy=np.__version__,pandas=pd.__version__,lightgbm=lgb.__version__),
                 config_sha256={p.name:sha256(p) for p in (root/'config').glob('*.yaml')},
                 feature_manifest_sha256=sha256(root/'outputs/full147_manifest.json'),
+                source_sha256={str(p.relative_to(root)):sha256(p) for p in (root/'src/stock_prediction').glob('*.py')},
                 artifact_files={p.name:dict(sha256=sha256(p),bytes=p.stat().st_size) for p in out.iterdir() if p.is_file()})
     save_json(out/'result.json',result)
     fields=config['experiment_log']['required_columns']; row={k:result.get(k,'') for k in fields}
@@ -166,7 +190,7 @@ def run_fold(root,fold_id):
     row['notes']='Official original-script validation replay; IC std ddof=1; frozen ddof=0 separately in auxiliary; spread is auxiliary floor-group convention; missing-y turnover effect preserved'
     with (root/config['experiment_log']['path']).open('a',encoding='utf-8',newline='') as stream:
         csv.DictWriter(stream,fieldnames=fields).writerow(row)
-    print(f'DONE E003/{fold_id}: official Score={official["final_score"]:.9f}; diagnostic turnover={diag["diagnostic_exclude_missing_y_turnover"]:.6f}',flush=True)
+    print(f'DONE {experiment_id}/{fold_id}: official Score={official["final_score"]:.9f}; diagnostic turnover={diag["diagnostic_exclude_missing_y_turnover"]:.6f}',flush=True)
 
 
 def main():

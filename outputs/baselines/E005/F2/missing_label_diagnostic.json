@@ -1,0 +1,125 @@
+{
+  "official_turnover": 0.6766376108082224,
+  "diagnostic_exclude_missing_y_turnover": 0.868157332138435,
+  "diagnostic_minus_official": 0.19151972133021267,
+  "missing_y_rows": 62889,
+  "top_rows": 111424,
+  "missing_top_rows": 49133,
+  "missing_share_of_top": 0.44095526995979323,
+  "missing_top_prediction_distribution": {
+    "min": 0.0026949829872038,
+    "p01": 0.0032048084589537,
+    "p25": 0.0056645610124433,
+    "median": 0.006661095860077,
+    "p75": 0.0077558273139676,
+    "p99": 0.0109195166364674,
+    "max": 0.0151068758183779
+  },
+  "missing_top_duplicate_fraction": 0.9683308570614455,
+  "dates_boundary_splits_tie": 36,
+  "persistence": {
+    "stocks": 596,
+    "runs": 10392,
+    "run_days": {
+      "min": 1.0,
+      "p01": 1.0,
+      "p25": 1.0,
+      "median": 3.0,
+      "p75": 6.0,
+      "p99": 26.0,
+      "max": 33.0
+    },
+    "stock_longest_run_days": {
+      "min": 1.0,
+      "p01": 1.0,
+      "p25": 5.0,
+      "median": 20.0,
+      "p75": 21.0,
+      "p99": 33.0,
+      "max": 33.0
+    },
+    "stocks_run_ge20": 315,
+    "stocks_run_ge60": 0,
+    "stocks_run_full_fold": 0,
+    "longest_examples": [
+      {
+        "ts_code": "301265.SZ",
+        "start": 20230112,
+        "end": 20230306,
+        "days": 33
+      },
+      {
+        "ts_code": "001278.SZ",
+        "start": 20230112,
+        "end": 20230306,
+        "days": 33
+      },
+      {
+        "ts_code": "301251.SZ",
+        "start": 20230112,
+        "end": 20230306,
+        "days": 33
+      },
+      {
+        "ts_code": "301252.SZ",
+        "start": 20230112,
+        "end": 20230306,
+        "days": 33
+      },
+      {
+        "ts_code": "301262.SZ",
+        "start": 20230112,
+        "end": 20230306,
+        "days": 33
+      },
+      {
+        "ts_code": "301232.SZ",
+        "start": 20230112,
+        "end": 20230306,
+        "days": 33
+      },
+      {
+        "ts_code": "301172.SZ",
+        "start": 20230112,
+        "end": 20230306,
+        "days": 33
+      },
+      {
+        "ts_code": "001255.SZ",
+        "start": 20230112,
+        "end": 20230306,
+        "days": 33
+      },
+      {
+        "ts_code": "301246.SZ",
+        "start": 20230112,
+        "end": 20230306,
+        "days": 33
+      },
+      {
+        "ts_code": "301152.SZ",
+        "start": 20230112,
+        "end": 20230306,
+        "days": 33
+      }
+    ]
+  },
+  "missing_y_full147_finite_features": {
+    "min": 20.0,
+    "p01": 20.0,
+    "p25": 20.0,
+    "median": 20.0,
+    "p75": 20.0,
+    "p99": 20.0,
+    "max": 147.0
+  },
+  "missing_y_top_full147_finite_features": {
+    "min": 20.0,
+    "p01": 20.0,
+    "p25": 20.0,
+    "median": 20.0,
+    "p75": 20.0,
+    "p99": 20.0,
+    "max": 147.0
+  }
+}

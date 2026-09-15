@@ -1,8 +1,17 @@
 # Stock prediction V1
 
-Read AGENTS.md and docs/index.md first. Current scope: raw-data audit and frozen Basic40 generation, with no model experiments.
+Read AGENTS.md and docs/index.md first. Completed stages include audits, Basic40,
+Full147 and E000–E005. The latest stage runs only frozen E004/E005 against E003,
+with direct organizer scoring and preserved missing-label diagnostics.
 
-## Windows / PowerShell
+- Results: [E003/E004/E005 comparison](outputs/e003_e004_e005_comparison.md).
+- Validation: [tests and artifact reproduction](outputs/e004_e005_validation.md).
+- Reproduction: [target comparison commands and frozen-byte handling](docs/TARGET_COMPARISON.md).
+- Current model environment: `outputs/e004_e005_environment_lock.txt`.
+
+E006/E007, tuning, ensembles and turnover postprocessing have not been run.
+
+## Initial audit setup — historical Windows / PowerShell instructions
 
 ```powershell
 py -3.14 -m venv .venv

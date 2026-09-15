@@ -1,0 +1,125 @@
+{
+  "official_turnover": 0.8242245193367405,
+  "diagnostic_exclude_missing_y_turnover": 0.821572662410025,
+  "diagnostic_minus_official": -0.0026518569267154346,
+  "missing_y_rows": 31245,
+  "top_rows": 110363,
+  "missing_top_rows": 8209,
+  "missing_share_of_top": 0.07438181274521352,
+  "missing_top_prediction_distribution": {
+    "min": -0.0211610866530359,
+    "p01": 0.0213391602607144,
+    "p25": 0.039699370617033,
+    "median": 0.0472817935512433,
+    "p75": 0.0564206299914297,
+    "p99": 0.0806742584700865,
+    "max": 0.0952434615948735
+  },
+  "missing_top_duplicate_fraction": 0.8991350956267511,
+  "dates_boundary_splits_tie": 13,
+  "persistence": {
+    "stocks": 308,
+    "runs": 5594,
+    "run_days": {
+      "min": 1.0,
+      "p01": 1.0,
+      "p25": 1.0,
+      "median": 1.0,
+      "p75": 2.0,
+      "p99": 4.0,
+      "max": 4.0
+    },
+    "stock_longest_run_days": {
+      "min": 1.0,
+      "p01": 1.0,
+      "p25": 1.0,
+      "median": 4.0,
+      "p75": 4.0,
+      "p99": 4.0,
+      "max": 4.0
+    },
+    "stocks_run_ge20": 0,
+    "stocks_run_ge60": 0,
+    "stocks_run_full_fold": 0,
+    "longest_examples": [
+      {
+        "ts_code": "000005.SZ",
+        "start": 20240926,
+        "end": 20241008,
+        "days": 4
+      },
+      {
+        "ts_code": "603555.SH",
+        "start": 20240424,
+        "end": 20240429,
+        "days": 4
+      },
+      {
+        "ts_code": "002504.SZ",
+        "start": 20240926,
+        "end": 20241008,
+        "days": 4
+      },
+      {
+        "ts_code": "002504.SZ",
+        "start": 20240424,
+        "end": 20240429,
+        "days": 4
+      },
+      {
+        "ts_code": "002499.SZ",
+        "start": 20240424,
+        "end": 20240429,
+        "days": 4
+      },
+      {
+        "ts_code": "002505.SZ",
+        "start": 20240926,
+        "end": 20241008,
+        "days": 4
+      },
+      {
+        "ts_code": "603391.SH",
+        "start": 20240424,
+        "end": 20240429,
+        "days": 4
+      },
+      {
+        "ts_code": "603381.SH",
+        "start": 20240424,
+        "end": 20240429,
+        "days": 4
+      },
+      {
+        "ts_code": "000038.SZ",
+        "start": 20240926,
+        "end": 20241008,
+        "days": 4
+      },
+      {
+        "ts_code": "603395.SH",
+        "start": 20240424,
+        "end": 20240429,
+        "days": 4
+      }
+    ]
+  },
+  "missing_y_full147_finite_features": {
+    "min": 20.0,
+    "p01": 20.0,
+    "p25": 20.0,
+    "median": 20.0,
+    "p75": 20.0,
+    "p99": 147.0,
+    "max": 147.0
+  },
+  "missing_y_top_full147_finite_features": {
+    "min": 20.0,
+    "p01": 20.0,
+    "p25": 20.0,
+    "median": 20.0,
+    "p75": 20.0,
+    "p99": 20.0,
+    "max": 147.0
+  }
+}

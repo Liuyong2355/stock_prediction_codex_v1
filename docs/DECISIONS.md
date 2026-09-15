@@ -94,3 +94,16 @@ User confirmed the root evaluate.py is the unmodified organizer script. Archive 
 ## D019 — Authorized Full147 and E003 only
 
 The user authorized the frozen Full147 implementation and E003 (Full147 + official LightGBM + raw target), with unchanged folds, purge, parameters and predictions. Use the unmodified organizer script for primary validation metrics and compare against the existing E002 official replay. Preserve missing-label Top effects and report ex-post label-filtered turnover only as a diagnostic. Official IC standard deviation (ddof=1) and the user-frozen auxiliary ddof=0 are stored separately; no frozen configuration or formula is amended. The official script does not return Top-Bottom spread; the separately labeled auxiliary statistic uses floor-sized end groups and does not enter Score. No E004–E007, tuning, ensembles or feature ablations are authorized in this stage.
+
+## D020 — Authorized E004/E005 target comparison only
+
+The user authorized continuation from eb9660a for E004 (rank) and E005 (relative),
+holding every E003 condition except the frozen target constant. Reuse the existing
+Full147 artifacts and shared E003 training/evaluation path. Construct targets only
+after the original fold purge and finite-label selection. Keep raw validation
+labels and all validation predictions, with primary scores returned directly by
+the unmodified organizer evaluator. Retain missing-label diagnostic turnover and
+Top missing share. Verify independent target construction, training-only scope,
+official replay, model prediction reproduction and protected artifact hashes.
+No frozen YAML or feature/target formula changes; no E006/E007, tuning, ensembles
+or turnover postprocessing. Commit the code, reports and tests, then await review.

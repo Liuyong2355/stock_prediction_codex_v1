@@ -71,3 +71,11 @@ Read `DECISIONS.md`, record the new decision, update the canonical YAML/spec, an
 - `../outputs/full147_manifest.json` — column order, local files and fingerprints.
 - `../outputs/e002_e003_comparison.md` — paired official metrics and missing-label diagnostics.
 - `../outputs/baselines/E003/` — fold predictions, model, official metrics and diagnostics.
+
+## E004 / E005 target comparison
+
+- `TARGET_COMPARISON.md` — training-only targets, strict E003 controls and reproduction commands.
+- `../outputs/e003_e004_e005_comparison.md` — three-fold official results, stability and Score decomposition.
+- `../outputs/e003_e004_e005_comparison.json` — full-precision results and independent reproduction checks.
+- `../outputs/e004_e005_validation.md` — executed tests, provenance and validation limits.
+- `../outputs/baselines/E004/`, `../outputs/baselines/E005/` — models/predictions locally; metrics and hashes in Git.
