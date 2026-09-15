@@ -1,0 +1,8 @@
+{
+  "protected_prior_tracked_files_unchanged": 129,
+  "new_tracked_artifact_hashes_match": 24,
+  "six_result_json_bytes_preserved": true,
+  "new_training_sources_match_recorded_bytes_or_exact_LF_CRLF_variant": true,
+  "large_model_data_prediction_files_excluded": true,
+  "manifest_matches_staged_files": true
+}

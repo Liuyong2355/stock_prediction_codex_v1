@@ -1,0 +1,101 @@
+{
+  "learner": {
+    "generic_param": {
+      "device": "cpu",
+      "fail_on_invalid_gpu_id": "0",
+      "n_jobs": "-1",
+      "nthread": "-1",
+      "random_state": "42",
+      "rng_state": "f85f1bef 698ef26 5768d0a7 41df47b2 fe45a69 2afd04e2 86c7c24 a2ffdd74 f5fed89c b1281926 7c8b68bc 4055bb71 8d6b1296 3d6c3dd9 7d5ce5b8 ea6edcce bc9dded0 9a864e b1dc45aa 171132cd 934db5c2 c794f0de d883714f b051842b 7118f2c5 75a97a00 df6c55d5 9d2377c1 c60bb799 1aa98a14 bc052863 f9d2b389 faf1bbbe e8882ebd 987c1476 9faf92f8 ae032c84 fad2c09a 22bdabed a23c9827 77488788 1e6f4831 4ba39c7e 9f16c7ad ec3b7102 74e9c4f3 393d3ff 82bf52a8 4285622a 8cd3436e e0682098 6bdf96c5 ae4afcd7 6857d072 615bd223 60821b66 3d9d68d 3b7fbfc6 e05804a0 bcc859a4 fe458740 30d1c1d8 ea14f38e 8ec635d0 eaad80e2 86b4f47e e59cbdc9 a51f1c0 41ee4e8f 47649639 ddc480ef bbd408da 8ea100cb 30880ab1 c32e7851 8c50f0ad a44b5985 b3f800ef d1a23239 60ad22e 54620234 48a5f95b e2e21911 a2ea06de 71de0a17 ec9909d7 5e8c83b5 a26651b0 af7c51a7 fd72ffac 6110d022 bc5da051 7db7dca8 a9f0184f f28a471b 4d9786cd 696773c7 c914c55 3edbe238 7d1c4431 1a11c6a0 571d35f1 76be1c6a 147254dd 3b91a988 abcdee04 2d2983b7 4c2d57ea 1600dd84 78327dbb fa21fb32 5082211 52578a61 2d888ab0 8f6765db 947f7001 8dafee7e 7325c575 b6fadd39 52f7ef7 e8c1cd54 9b198a7e 942c189b b6c07cb8 22011e13 7ca1fa3c de91a22 538227b efde4e2e f95a325e 4699414a e4b32a90 d634e25a 3969005 bd3d4d43 3c0cbd46 cb15ee41 c5f6a812 38315e52 7a297252 133abfcd c696a208 55801e64 b1313340 63b8ce57 ffe2a11b 5c830cf2 7d03f2c 29425bd4 63aaba69 39302f5 24fd3df9 4e6f8225 cf766996 79cf9452 b52b841f e1546a0a a85b0bad c78ca3b1 e07bf31e 9e6955c9 3411cda5 718d76d4 a5d1f94e 77b20600 2e2c9e2 645d9242 baab8efa 11e1f225 ccd89c1f 14c1bf11 71ecc4f3 a972c75a 69ffe90b 43b732e 1e2c76eb eddf7d05 1357e110 90eaaaaf e3a91f57 c0ed0517 a1c59017 f1a07f73 705ccef7 bea9966 dee25a60 d595e2a5 979d9d0d f5ca8e62 443693af 53c13fe1 ee3a14dd e41274ad ffdc3eb5 24b6a7e5 876e55dc 63abe2d4 8490ae19 89897968 540a90b6 ee90440f 93853e04 ae148176 fd63a020 a55c8c86 92086ea4 398448b c7064a4c 73ef8534 c5f579bf 9c0a65e4 b1f88450 87416f8b 6ebab37d 3d183311 47c60a22 36a5fcda 9f465012 33751014 3d5ba9cf 473362db a9735c8a b9eb24eb a6b67b43 d56f095 719b32a2 f9657c5 179d3530 e340f877 a11a7d53 9683b4cf c849f5e5 e23dea05 70a7decc ae22435d 7444dcd8 1adf4904 5e6adacc b3d2f7af fe286c00 f7e53cdd 6d68ca60 f50f7a6c 5fdad654 285f132e 38c3561b d4709543 d95d7fca a684ae42 7b5defec 628ea48 e18be175 bcdb6759 e017e81c ca4f38b6 9ca658c1 f97ba0a0 9d3da2ce e015778f a831da0a 4c0ec340 e7345d64 c179f22d 9559fee4 50ba88e2 509b6c40 4b729d78 11f049f0 69367785 610c1897 3fc8565d b3c01593 e175fcf7 e2dc4f31 c2694162 1c20e8d0 bfd10dec eda02119 111018b9 da68c67c 146c9fc7 303a7280 f1e46d8 47dd525c 375cc2b9 250eca21 5fa1d99e f3dd08bc abcc13d0 5184c68b ce412cc5 1c9392f 53c3b3c1 a7791533 a63902fb 79446383 d924ce6d 2a818aa8 66fa18c9 cbed8b38 53ab6b0e e4747549 ac4421c5 3e65ff8e 25c7dbfa 56e9bed 33d7bbd3 a6627a91 1b801f6d 812269ad ab69b21a 6808b5a9 40eca195 2cf79087 3af0e873 4e2189cf 4e7651e4 627c0f4c 72799087 df5fb045 4647dab8 9ba00b6f 9c463b4d 7e11602 b59c886f 8a7333e6 fd600eb0 9cd9c745 4f9941d 1724b34a 2eb0b6a4 873dfb91 7deedb0b 2bed07eb 3daab32e 7bfa5b5f 116bb677 a9b59f4f a16a98ea 5ae43fa7 4358d1d5 57487453 5b1fd39c 5b82d6c3 d695b54b f4dfa9ac 538c4b46 19da8930 3381fa2 5568ef24 d5825c45 e61701af 282d6bbb 8a3077f1 51a9bcba 402247ef bec887db 7f4cae42 1825206f 504705ce 468e5570 7b5cb3b4 3379c2bb 522d196d 36eae21a 259bfa67 51b0645e bf1623a4 8f719be7 6d505445 23ca68ae 512fbcc3 923b8b15 394943d7 7c14c064 f05c15c6 c174afe0 cc17a912 8ec24efe c8eb9e7d f954625c 4798efe1 bf04656b 33f12d3d a64dcd4 7f9dcdab 3fe617b3 bc1878ba 71ba46c e1f5f518 23883cfe b15bf74b af9a1d81 5d4741d2 1fe58a5d 596e829 16dfcaeb ba50ec04 8198d3c3 e5378976 efc6b6c2 d08deea6 36a2d067 c2fe03aa 2b4a656 4961fa7c c6d1b21e 5c1f2f72 79bb91ee facf827d 74c417f1 4a0ea836 e6fb7898 a3b912e1 4ef22789 5469d895 8850ebda df8b425b 80fe7f58 9a27277d 8b156f46 51b67496 9ad4afbc 1dd6318f 76b7259b 578e6ecd bfbfaa84 25a3524e 94956117 8d3d4fcc b23b4f7a a541ce21 21f129bd 1b693c8f 738017f2 682d86d8 2de27663 31e051fd adc826d1 db83b5ba 54b4a198 b17e6410 499ffa86 59349df7 737607f7 73dbe183 64b53572 c6f3e9bb e46db08f 324d07cf c39419ae 9ce37199 6569d334 423ca11e 26d7382a 64e7fec9 62a95bbe 33dc3902 7d83995b bb6d9226 eca87737 6c94aed4 35d0a525 20e9bf16 6c7ca591 d106c4e7 9eb6d708 6fd2ef7a f4133085 48765a6 39954c60 f404631d ccad5a7a 7be88438 d6deff80 f3ab163a ad1fa6c1 26314fdf f597c22 3b61eed1 55532b8f 6b833476 8057498d a7e97ac3 703faa8 3c33b53c 328fcf5c 1656cc1e 849eb03e 2b5f0322 4a8abdb7 95792d82 e1ea6939 f3ce3da3 7fffb53e 2a78280a d0e70f24 d3e7acd1 9a99dc5f 9740072b e8f431ba 90405343 c24f3ff5 2f114423 e7e8d835 160dfeb2 cc54d676 95f99e58 6a9e8f3 3b5ef1f4 39f90782 8865493c 91426e09 c8e2146c 2dcb1410 e1444a69 32eea633 fff856c2 2981572e 7f8055fd a6186568 98d47ac0 8efbb7b7 1987997 9a8314f abc5876b df5448b f687a9fb 10770b4b 1a0a7bbc 68f90188 6b9877c 9087e59 400ad202 cd1eab8a 12e9f1eb 1a1e2277 729c5b9e 737ca8c2 86a88f38 6716ff8c 9311316 142f32bd 15c04d4f bf2387e0 fb60271b c41d94a1 6bb1f07d dd8f0563 f86d47e6 9549d110 2484d413 5ff22c9d 2bba3092 33c8012c 538aebaf 6d5be739 a0a19d2a bb6af138 ab928552 4fc6308 df03420b a1e9b69c fea525fd 3c9d8c3b 485761fc 46fbf731 df815d1 b8f2183c 6d3f78fb 2e55097b 64991f88 1af0a58e a400e817 d935942e 94552f19 bdcfcf7b d82c006f 6e60797d 537814c8 9a097dbb 55bf4c34 809479d9 c321de05 6fe74ef2 8135653e 74291ebb 6838efd1 b2e1f988 edee6080 9e441259 528f271d baa46d98 18489e8f 73343d6a 98d6e250 af40173 f209a7bd 6a1f788f 85c47f85 f91b2b5a 2912e368 fd50b91a 2e60daaa 366088ca e11b71ec 9980390f b0e34ae9 f57d62f1 ccb86daf bed3ea87 d174450a ef113f61 ce292cd 140520cf b45a8089 d9a25426 d194ff7e ca39f676 66978353 62b58d67 3d636078 112ca369 f3f8f7c3",
+      "seed": "42",
+      "seed_per_iteration": "0",
+      "validate_parameters": "1"
+    },
+    "gradient_booster": {
+      "dart_train_param": {
+        "normalize_type": "tree",
+        "one_drop": "0",
+        "rate_drop": "0",
+        "sample_type": "uniform",
+        "skip_drop": "0"
+      },
+      "gbtree_model_param": {
+        "num_parallel_tree": "1",
+        "num_trees": "800"
+      },
+      "gbtree_train_param": {
+        "process_type": "default",
+        "tree_method": "hist",
+        "updater": "grow_quantile_histmaker",
+        "updater_seq": "grow_quantile_histmaker"
+      },
+      "name": "gbtree",
+      "specified_updater": false,
+      "tree_train_param": {
+        "alpha": "0",
+        "colsample_bylevel": "1",
+        "colsample_bynode": "1",
+        "colsample_bytree": "0.800000012",
+        "eta": "0.0299999993",
+        "gamma": "0",
+        "grow_policy": "depthwise",
+        "interaction_constraints": "",
+        "lambda": "1",
+        "learning_rate": "0.0299999993",
+        "max_bin": "256",
+        "max_cat_threshold": "64",
+        "max_cat_to_onehot": "4",
+        "max_delta_step": "0",
+        "max_depth": "8",
+        "max_leaves": "0",
+        "min_child_weight": "100",
+        "min_split_loss": "0",
+        "monotone_constraints": "()",
+        "refresh_leaf": "1",
+        "reg_alpha": "0",
+        "reg_lambda": "1",
+        "sampling_method": "uniform",
+        "sparse_threshold": "0.20000000000000001",
+        "subsample": "0.800000012"
+      },
+      "updater": [
+        {
+          "hist_train_param": {
+            "debug_synchronize": "0",
+            "max_cached_hist_node": "18446744073709551615"
+          },
+          "name": "grow_quantile_histmaker"
+        }
+      ]
+    },
+    "learner_model_param": {
+      "base_score": "[1.2862295E-4]",
+      "boost_from_average": "1",
+      "num_class": "0",
+      "num_feature": "147",
+      "num_target": "1"
+    },
+    "learner_train_param": {
+      "booster": "gbtree",
+      "disable_default_eval_metric": "0",
+      "multi_strategy": "one_output_per_tree",
+      "objective": "reg:squarederror"
+    },
+    "metrics": [
+      {
+        "name": "rmse"
+      }
+    ],
+    "objective": {
+      "name": "reg:squarederror",
+      "reg_loss_param": {
+        "scale_pos_weight": "1"
+      }
+    }
+  },
+  "version": [
+    3,
+    4,
+    1
+  ]
+}

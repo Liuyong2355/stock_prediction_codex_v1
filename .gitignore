@@ -11,3 +11,4 @@ outputs/baselines/**/training_work.npy
 outputs/baselines/**/predictions.csv.gz
 outputs/baselines/**/model.joblib
 outputs/baselines/**/model.txt
+outputs/baselines/**/model.ubj

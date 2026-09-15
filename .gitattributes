@@ -14,3 +14,5 @@ outputs/full147_manifest.json -text whitespace=cr-at-eol
 outputs/baselines/E003/** -text whitespace=cr-at-eol
 outputs/baselines/E004/** -text whitespace=cr-at-eol
 outputs/baselines/E005/** -text whitespace=cr-at-eol
+outputs/baselines/E006/** -text whitespace=cr-at-eol
+outputs/baselines/E007/** -text whitespace=cr-at-eol

@@ -79,3 +79,10 @@ Read `DECISIONS.md`, record the new decision, update the canonical YAML/spec, an
 - `../outputs/e003_e004_e005_comparison.json` — full-precision results and independent reproduction checks.
 - `../outputs/e004_e005_validation.md` — executed tests, provenance and validation limits.
 - `../outputs/baselines/E004/`, `../outputs/baselines/E005/` — models/predictions locally; metrics and hashes in Git.
+
+## E006 / E007 model comparison
+
+- `MODEL_COMPARISON.md` — strict E004 input control, ranking groups/relevance and reproduction.
+- `../outputs/e006_e007_comparison.md` — all-model official scores, diagnostics and Phase C recommendations.
+- `../outputs/e006_e007_comparison.json` — full-precision results and independent verification.
+- `../outputs/e006_e007_validation.md` — tests, provenance and reproduction evidence.

@@ -107,3 +107,22 @@ Top missing share. Verify independent target construction, training-only scope,
 official replay, model prediction reproduction and protected artifact hashes.
 No frozen YAML or feature/target formula changes; no E006/E007, tuning, ensembles
 or turnover postprocessing. Commit the code, reports and tests, then await review.
+
+## D021 — Authorized E006/E007 frozen model comparison only
+
+Continue from 24e979d using existing Full147, folds, purge and all frozen YAML.
+E006 uses official XGBoost regression with the exact E004 rank labels and row order.
+E007 uses official LightGBM Ranker with finite daily average-rank decile relevance
+and stable contiguous date groups after purge. XGBoost 3.4.1 is a new pinned library
+dependency selected before experiment scores; existing dependencies stay unchanged.
+Use the unmodified organizer script for every primary metric. Preserve all previous
+artifacts and report missing-label diagnostics independently. Compare E000–E007 and
+recommend Phase C candidates, but do not execute tuning, feature ablation, ensembles
+or turnover postprocessing. Commit results, code and tests, then await review.
+
+Observed frozen results: E006 mean official Score 0.233857, above E004 in all three
+folds; E007 mean Score 0.027029, with negative IC and excess return in all three
+folds. The comparison report recommends E002/E005/E006 as Phase C candidates and
+retains the other useful baselines as controls. These are recommendations for
+review; no Phase C work is executed. See `outputs/e006_e007_comparison.md` and
+`outputs/e006_e007_validation.md` for evidence and reproduction limits.

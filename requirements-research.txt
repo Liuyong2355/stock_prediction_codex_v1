@@ -1,0 +1,3 @@
+# E006/E007 execution; existing model dependencies remain unchanged.
+-r requirements-models.txt
+xgboost==3.4.1

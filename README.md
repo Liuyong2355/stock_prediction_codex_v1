@@ -1,15 +1,16 @@
 # Stock prediction V1
 
 Read AGENTS.md and docs/index.md first. Completed stages include audits, Basic40,
-Full147 and E000–E005. The latest stage runs only frozen E004/E005 against E003,
-with direct organizer scoring and preserved missing-label diagnostics.
+Full147 and E000–E007. The latest stage runs only frozen E006/E007, with direct
+official XGBoost/LightGBM training, organizer scoring and preserved missing-label diagnostics.
 
-- Results: [E003/E004/E005 comparison](outputs/e003_e004_e005_comparison.md).
-- Validation: [tests and artifact reproduction](outputs/e004_e005_validation.md).
-- Reproduction: [target comparison commands and frozen-byte handling](docs/TARGET_COMPARISON.md).
-- Current model environment: `outputs/e004_e005_environment_lock.txt`.
+- Results: [E000–E007 comparison and Phase C candidates](outputs/e006_e007_comparison.md).
+- Validation: [tests and artifact reproduction](outputs/e006_e007_validation.md).
+- Reproduction: [model comparison commands and frozen-byte handling](docs/MODEL_COMPARISON.md).
+- Current model environment: `outputs/e006_e007_environment_lock.txt`; new model pin in `requirements-research.txt`.
+- Prior target results: [E003/E004/E005 comparison](outputs/e003_e004_e005_comparison.md).
 
-E006/E007, tuning, ensembles and turnover postprocessing have not been run.
+Phase C, tuning, feature ablations, ensembles and turnover postprocessing have not been run.
 
 ## Initial audit setup — historical Windows / PowerShell instructions
 

@@ -1,0 +1,144 @@
+2026-09-15 20:29:48.839 | INFO     | organizer_evaluator:evaluate:33 - 合并后样本数: 1125300, 交易日数: 242
+2026-09-15 20:29:49.115 | INFO     | organizer_evaluator:evaluate:49 - Rank IC: mean=nan, std=nan, ICIR=0.0000, IC>0占比=5.37%
+2026-09-15 20:29:49.753 | INFO     | organizer_evaluator:evaluate:75 - Top组超额收益: 年化=-0.6108, Top1年化绝对收益=-0.7419
+2026-09-15 20:29:50.231 | INFO     | organizer_evaluator:evaluate:101 - 预测换手率: mean=0.9191, (1-turnover)=0.0809
+2026-09-15 20:29:50.231 | INFO     | organizer_evaluator:evaluate:105 - 综合得分 = nan×0.4 + -0.6108×0.3 + 0.0809×0.3 = nan
+VERIFIED E000/F1: official Score=nan
+2026-09-15 20:29:58.141 | INFO     | organizer_evaluator:evaluate:33 - 合并后样本数: 1125300, 交易日数: 242
+2026-09-15 20:29:58.553 | INFO     | organizer_evaluator:evaluate:49 - Rank IC: mean=0.075073, std=0.091782, ICIR=0.8179, IC>0占比=79.75%
+2026-09-15 20:29:59.192 | INFO     | organizer_evaluator:evaluate:75 - Top组超额收益: 年化=0.2491, Top1年化绝对收益=0.1179
+2026-09-15 20:29:59.699 | INFO     | organizer_evaluator:evaluate:101 - 预测换手率: mean=0.8336, (1-turnover)=0.1664
+2026-09-15 20:29:59.700 | INFO     | organizer_evaluator:evaluate:105 - 综合得分 = 0.075073×0.4 + 0.2491×0.3 + 0.1664×0.3 = 0.154678
+VERIFIED E001/F1: official Score=0.15467758105780113
+2026-09-15 20:30:07.768 | INFO     | organizer_evaluator:evaluate:33 - 合并后样本数: 1125300, 交易日数: 242
+2026-09-15 20:30:08.158 | INFO     | organizer_evaluator:evaluate:49 - Rank IC: mean=0.075666, std=0.079114, ICIR=0.9564, IC>0占比=82.64%
+2026-09-15 20:30:08.714 | INFO     | organizer_evaluator:evaluate:75 - Top组超额收益: 年化=0.4524, Top1年化绝对收益=0.3213
+2026-09-15 20:30:09.185 | INFO     | organizer_evaluator:evaluate:101 - 预测换手率: mean=0.2309, (1-turnover)=0.7691
+2026-09-15 20:30:09.185 | INFO     | organizer_evaluator:evaluate:105 - 综合得分 = 0.075666×0.4 + 0.4524×0.3 + 0.7691×0.3 = 0.396719
+VERIFIED E002/F1: official Score=0.39671938435210946
+2026-09-15 20:30:16.739 | INFO     | organizer_evaluator:evaluate:33 - 合并后样本数: 1125300, 交易日数: 242
+2026-09-15 20:30:17.119 | INFO     | organizer_evaluator:evaluate:49 - Rank IC: mean=0.096035, std=0.105654, ICIR=0.9090, IC>0占比=80.58%
+2026-09-15 20:30:17.689 | INFO     | organizer_evaluator:evaluate:75 - Top组超额收益: 年化=0.5120, Top1年化绝对收益=0.3808
+2026-09-15 20:30:18.176 | INFO     | organizer_evaluator:evaluate:101 - 预测换手率: mean=0.6471, (1-turnover)=0.3529
+2026-09-15 20:30:18.176 | INFO     | organizer_evaluator:evaluate:105 - 综合得分 = 0.096035×0.4 + 0.5120×0.3 + 0.3529×0.3 = 0.297856
+VERIFIED E003/F1: official Score=0.2978558885366591
+2026-09-15 20:30:25.552 | INFO     | organizer_evaluator:evaluate:33 - 合并后样本数: 1125300, 交易日数: 242
+2026-09-15 20:30:25.931 | INFO     | organizer_evaluator:evaluate:49 - Rank IC: mean=0.123693, std=0.118710, ICIR=1.0420, IC>0占比=86.78%
+2026-09-15 20:30:26.493 | INFO     | organizer_evaluator:evaluate:75 - Top组超额收益: 年化=0.5245, Top1年化绝对收益=0.3934
+2026-09-15 20:30:26.962 | INFO     | organizer_evaluator:evaluate:101 - 预测换手率: mean=0.8206, (1-turnover)=0.1794
+2026-09-15 20:30:26.963 | INFO     | organizer_evaluator:evaluate:105 - 综合得分 = 0.123693×0.4 + 0.5245×0.3 + 0.1794×0.3 = 0.260646
+VERIFIED E004/F1: official Score=0.26064616634423393
+2026-09-15 20:30:34.800 | INFO     | organizer_evaluator:evaluate:33 - 合并后样本数: 1125300, 交易日数: 242
+2026-09-15 20:30:35.215 | INFO     | organizer_evaluator:evaluate:49 - Rank IC: mean=0.100966, std=0.105881, ICIR=0.9536, IC>0占比=83.88%
+2026-09-15 20:30:35.774 | INFO     | organizer_evaluator:evaluate:75 - Top组超额收益: 年化=0.5199, Top1年化绝对收益=0.3888
+2026-09-15 20:30:36.267 | INFO     | organizer_evaluator:evaluate:101 - 预测换手率: mean=0.6840, (1-turnover)=0.3160
+2026-09-15 20:30:36.268 | INFO     | organizer_evaluator:evaluate:105 - 综合得分 = 0.100966×0.4 + 0.5199×0.3 + 0.3160×0.3 = 0.291155
+VERIFIED E005/F1: official Score=0.2911545320879924
+2026-09-15 20:30:44.211 | INFO     | organizer_evaluator:evaluate:33 - 合并后样本数: 1125300, 交易日数: 242
+2026-09-15 20:30:44.591 | INFO     | organizer_evaluator:evaluate:49 - Rank IC: mean=0.124796, std=0.116411, ICIR=1.0720, IC>0占比=86.78%
+2026-09-15 20:30:45.157 | INFO     | organizer_evaluator:evaluate:75 - Top组超额收益: 年化=0.5323, Top1年化绝对收益=0.4011
+2026-09-15 20:30:45.679 | INFO     | organizer_evaluator:evaluate:101 - 预测换手率: mean=0.8297, (1-turnover)=0.1703
+2026-09-15 20:30:45.680 | INFO     | organizer_evaluator:evaluate:105 - 综合得分 = 0.124796×0.4 + 0.5323×0.3 + 0.1703×0.3 = 0.260685
+VERIFIED E006/F1: official Score=0.2606854656833918
+2026-09-15 20:31:19.793 | INFO     | organizer_evaluator:evaluate:33 - 合并后样本数: 1125300, 交易日数: 242
+2026-09-15 20:31:20.154 | INFO     | organizer_evaluator:evaluate:49 - Rank IC: mean=-0.056505, std=0.142330, ICIR=-0.3970, IC>0占比=34.30%
+2026-09-15 20:31:20.682 | INFO     | organizer_evaluator:evaluate:75 - Top组超额收益: 年化=-0.4231, Top1年化绝对收益=-0.5542
+2026-09-15 20:31:21.157 | INFO     | organizer_evaluator:evaluate:101 - 预测换手率: mean=0.1723, (1-turnover)=0.8277
+2026-09-15 20:31:21.157 | INFO     | organizer_evaluator:evaluate:105 - 综合得分 = -0.056505×0.4 + -0.4231×0.3 + 0.8277×0.3 = 0.098779
+VERIFIED E007/F1: official Score=0.09877944535269323
+2026-09-15 20:31:35.035 | INFO     | organizer_evaluator:evaluate:33 - 合并后样本数: 1125300, 交易日数: 242
+2026-09-15 20:31:35.299 | INFO     | organizer_evaluator:evaluate:49 - Rank IC: mean=nan, std=nan, ICIR=0.0000, IC>0占比=10.33%
+2026-09-15 20:31:35.896 | INFO     | organizer_evaluator:evaluate:75 - Top组超额收益: 年化=-0.4214, Top1年化绝对收益=-0.4020
+2026-09-15 20:31:36.449 | INFO     | organizer_evaluator:evaluate:101 - 预测换手率: mean=0.9131, (1-turnover)=0.0869
+2026-09-15 20:31:36.449 | INFO     | organizer_evaluator:evaluate:105 - 综合得分 = nan×0.4 + -0.4214×0.3 + 0.0869×0.3 = nan
+VERIFIED E000/F2: official Score=nan
+2026-09-15 20:31:43.648 | INFO     | organizer_evaluator:evaluate:33 - 合并后样本数: 1125300, 交易日数: 242
+2026-09-15 20:31:44.017 | INFO     | organizer_evaluator:evaluate:49 - Rank IC: mean=0.054578, std=0.099249, ICIR=0.5499, IC>0占比=72.31%
+2026-09-15 20:31:44.524 | INFO     | organizer_evaluator:evaluate:75 - Top组超额收益: 年化=0.0738, Top1年化绝对收益=0.0932
+2026-09-15 20:31:44.988 | INFO     | organizer_evaluator:evaluate:101 - 预测换手率: mean=0.8451, (1-turnover)=0.1549
+2026-09-15 20:31:44.988 | INFO     | organizer_evaluator:evaluate:105 - 综合得分 = 0.054578×0.4 + 0.0738×0.3 + 0.1549×0.3 = 0.090430
+VERIFIED E001/F2: official Score=0.09042996375857434
+2026-09-15 20:31:52.131 | INFO     | organizer_evaluator:evaluate:33 - 合并后样本数: 1125300, 交易日数: 242
+2026-09-15 20:31:52.498 | INFO     | organizer_evaluator:evaluate:49 - Rank IC: mean=0.037733, std=0.079760, ICIR=0.4731, IC>0占比=69.83%
+2026-09-15 20:31:53.045 | INFO     | organizer_evaluator:evaluate:75 - Top组超额收益: 年化=0.1854, Top1年化绝对收益=0.2048
+2026-09-15 20:31:53.550 | INFO     | organizer_evaluator:evaluate:101 - 预测换手率: mean=0.4847, (1-turnover)=0.5153
+2026-09-15 20:31:53.550 | INFO     | organizer_evaluator:evaluate:105 - 综合得分 = 0.037733×0.4 + 0.1854×0.3 + 0.5153×0.3 = 0.225309
+VERIFIED E002/F2: official Score=0.2253089849138537
+2026-09-15 20:32:00.752 | INFO     | organizer_evaluator:evaluate:33 - 合并后样本数: 1125300, 交易日数: 242
+2026-09-15 20:32:01.182 | INFO     | organizer_evaluator:evaluate:49 - Rank IC: mean=0.068168, std=0.103313, ICIR=0.6598, IC>0占比=78.10%
+2026-09-15 20:32:01.833 | INFO     | organizer_evaluator:evaluate:75 - Top组超额收益: 年化=0.2505, Top1年化绝对收益=0.2699
+2026-09-15 20:32:02.423 | INFO     | organizer_evaluator:evaluate:101 - 预测换手率: mean=0.8415, (1-turnover)=0.1585
+2026-09-15 20:32:02.423 | INFO     | organizer_evaluator:evaluate:105 - 综合得分 = 0.068168×0.4 + 0.2505×0.3 + 0.1585×0.3 = 0.149968
+VERIFIED E003/F2: official Score=0.14996790484932596
+2026-09-15 20:32:11.541 | INFO     | organizer_evaluator:evaluate:33 - 合并后样本数: 1125300, 交易日数: 242
+2026-09-15 20:32:11.974 | INFO     | organizer_evaluator:evaluate:49 - Rank IC: mean=0.107072, std=0.106761, ICIR=1.0029, IC>0占比=85.54%
+2026-09-15 20:32:12.607 | INFO     | organizer_evaluator:evaluate:75 - Top组超额收益: 年化=0.3384, Top1年化绝对收益=0.3578
+2026-09-15 20:32:13.199 | INFO     | organizer_evaluator:evaluate:101 - 预测换手率: mean=0.8558, (1-turnover)=0.1442
+2026-09-15 20:32:13.199 | INFO     | organizer_evaluator:evaluate:105 - 综合得分 = 0.107072×0.4 + 0.3384×0.3 + 0.1442×0.3 = 0.187605
+VERIFIED E004/F2: official Score=0.18760450286850516
+2026-09-15 20:32:21.418 | INFO     | organizer_evaluator:evaluate:33 - 合并后样本数: 1125300, 交易日数: 242
+2026-09-15 20:32:21.942 | INFO     | organizer_evaluator:evaluate:49 - Rank IC: mean=0.076210, std=0.101978, ICIR=0.7473, IC>0占比=77.69%
+2026-09-15 20:32:22.857 | INFO     | organizer_evaluator:evaluate:75 - Top组超额收益: 年化=0.3099, Top1年化绝对收益=0.3293
+2026-09-15 20:32:23.507 | INFO     | organizer_evaluator:evaluate:101 - 预测换手率: mean=0.6766, (1-turnover)=0.3234
+2026-09-15 20:32:23.508 | INFO     | organizer_evaluator:evaluate:105 - 综合得分 = 0.076210×0.4 + 0.3099×0.3 + 0.3234×0.3 = 0.220454
+VERIFIED E005/F2: official Score=0.2204541465617615
+2026-09-15 20:32:33.079 | INFO     | organizer_evaluator:evaluate:33 - 合并后样本数: 1125300, 交易日数: 242
+2026-09-15 20:32:33.564 | INFO     | organizer_evaluator:evaluate:49 - Rank IC: mean=0.105657, std=0.106080, ICIR=0.9960, IC>0占比=86.36%
+2026-09-15 20:32:34.388 | INFO     | organizer_evaluator:evaluate:75 - Top组超额收益: 年化=0.3606, Top1年化绝对收益=0.3800
+2026-09-15 20:32:35.182 | INFO     | organizer_evaluator:evaluate:101 - 预测换手率: mean=0.8593, (1-turnover)=0.1407
+2026-09-15 20:32:35.182 | INFO     | organizer_evaluator:evaluate:105 - 综合得分 = 0.105657×0.4 + 0.3606×0.3 + 0.1407×0.3 = 0.192637
+VERIFIED E006/F2: official Score=0.19263714735561766
+2026-09-15 20:33:14.584 | INFO     | organizer_evaluator:evaluate:33 - 合并后样本数: 1125300, 交易日数: 242
+2026-09-15 20:33:15.086 | INFO     | organizer_evaluator:evaluate:49 - Rank IC: mean=-0.075417, std=0.136782, ICIR=-0.5514, IC>0占比=30.99%
+2026-09-15 20:33:15.719 | INFO     | organizer_evaluator:evaluate:75 - Top组超额收益: 年化=-0.5317, Top1年化绝对收益=-0.5123
+2026-09-15 20:33:16.258 | INFO     | organizer_evaluator:evaluate:101 - 预测换手率: mean=0.3065, (1-turnover)=0.6935
+2026-09-15 20:33:16.258 | INFO     | organizer_evaluator:evaluate:105 - 综合得分 = -0.075417×0.4 + -0.5317×0.3 + 0.6935×0.3 = 0.018380
+VERIFIED E007/F2: official Score=0.01837999761393619
+2026-09-15 20:33:30.788 | INFO     | organizer_evaluator:evaluate:33 - 合并后样本数: 1125300, 交易日数: 242
+2026-09-15 20:33:31.098 | INFO     | organizer_evaluator:evaluate:49 - Rank IC: mean=nan, std=nan, ICIR=0.0000, IC>0占比=19.83%
+2026-09-15 20:33:31.694 | INFO     | organizer_evaluator:evaluate:75 - Top组超额收益: 年化=-0.4442, Top1年化绝对收益=-0.4583
+2026-09-15 20:33:32.242 | INFO     | organizer_evaluator:evaluate:101 - 预测换手率: mean=0.9175, (1-turnover)=0.0825
+2026-09-15 20:33:32.243 | INFO     | organizer_evaluator:evaluate:105 - 综合得分 = nan×0.4 + -0.4442×0.3 + 0.0825×0.3 = nan
+VERIFIED E000/F3: official Score=nan
+2026-09-15 20:33:40.382 | INFO     | organizer_evaluator:evaluate:33 - 合并后样本数: 1125300, 交易日数: 242
+2026-09-15 20:33:40.894 | INFO     | organizer_evaluator:evaluate:49 - Rank IC: mean=0.066383, std=0.144240, ICIR=0.4602, IC>0占比=66.53%
+2026-09-15 20:33:41.619 | INFO     | organizer_evaluator:evaluate:75 - Top组超额收益: 年化=0.1083, Top1年化绝对收益=0.0942
+2026-09-15 20:33:42.245 | INFO     | organizer_evaluator:evaluate:101 - 预测换手率: mean=0.8516, (1-turnover)=0.1484
+2026-09-15 20:33:42.245 | INFO     | organizer_evaluator:evaluate:105 - 综合得分 = 0.066383×0.4 + 0.1083×0.3 + 0.1484×0.3 = 0.103569
+VERIFIED E001/F3: official Score=0.1035690982079166
+2026-09-15 20:33:51.073 | INFO     | organizer_evaluator:evaluate:33 - 合并后样本数: 1125300, 交易日数: 242
+2026-09-15 20:33:51.554 | INFO     | organizer_evaluator:evaluate:49 - Rank IC: mean=0.086225, std=0.132592, ICIR=0.6503, IC>0占比=75.21%
+2026-09-15 20:33:52.216 | INFO     | organizer_evaluator:evaluate:75 - Top组超额收益: 年化=0.4451, Top1年化绝对收益=0.4311
+2026-09-15 20:33:52.794 | INFO     | organizer_evaluator:evaluate:101 - 预测换手率: mean=0.7212, (1-turnover)=0.2788
+2026-09-15 20:33:52.794 | INFO     | organizer_evaluator:evaluate:105 - 综合得分 = 0.086225×0.4 + 0.4451×0.3 + 0.2788×0.3 = 0.251658
+VERIFIED E002/F3: official Score=0.2516575878875327
+2026-09-15 20:34:01.603 | INFO     | organizer_evaluator:evaluate:33 - 合并后样本数: 1125300, 交易日数: 242
+2026-09-15 20:34:02.051 | INFO     | organizer_evaluator:evaluate:49 - Rank IC: mean=0.111981, std=0.173216, ICIR=0.6465, IC>0占比=78.93%
+2026-09-15 20:34:02.812 | INFO     | organizer_evaluator:evaluate:75 - Top组超额收益: 年化=0.6429, Top1年化绝对收益=0.6289
+2026-09-15 20:34:03.467 | INFO     | organizer_evaluator:evaluate:101 - 预测换手率: mean=0.8737, (1-turnover)=0.1263
+2026-09-15 20:34:03.467 | INFO     | organizer_evaluator:evaluate:105 - 综合得分 = 0.111981×0.4 + 0.6429×0.3 + 0.1263×0.3 = 0.275564
+VERIFIED E003/F3: official Score=0.27556431877548504
+2026-09-15 20:34:12.057 | INFO     | organizer_evaluator:evaluate:33 - 合并后样本数: 1125300, 交易日数: 242
+2026-09-15 20:34:12.489 | INFO     | organizer_evaluator:evaluate:49 - Rank IC: mean=0.123684, std=0.170639, ICIR=0.7248, IC>0占比=79.75%
+2026-09-15 20:34:13.131 | INFO     | organizer_evaluator:evaluate:75 - Top组超额收益: 年化=0.4670, Top1年化绝对收益=0.4530
+2026-09-15 20:34:13.736 | INFO     | organizer_evaluator:evaluate:101 - 预测换手率: mean=0.8242, (1-turnover)=0.1758
+2026-09-15 20:34:13.736 | INFO     | organizer_evaluator:evaluate:105 - 综合得分 = 0.123684×0.4 + 0.4670×0.3 + 0.1758×0.3 = 0.242312
+VERIFIED E004/F3: official Score=0.2423116838367839
+2026-09-15 20:34:22.448 | INFO     | organizer_evaluator:evaluate:33 - 合并后样本数: 1125300, 交易日数: 242
+2026-09-15 20:34:22.902 | INFO     | organizer_evaluator:evaluate:49 - Rank IC: mean=0.112876, std=0.165170, ICIR=0.6834, IC>0占比=78.93%
+2026-09-15 20:34:23.586 | INFO     | organizer_evaluator:evaluate:75 - Top组超额收益: 年化=0.6192, Top1年化绝对收益=0.6052
+2026-09-15 20:34:24.220 | INFO     | organizer_evaluator:evaluate:101 - 预测换手率: mean=0.8572, (1-turnover)=0.1428
+2026-09-15 20:34:24.220 | INFO     | organizer_evaluator:evaluate:105 - 综合得分 = 0.112876×0.4 + 0.6192×0.3 + 0.1428×0.3 = 0.273761
+VERIFIED E005/F3: official Score=0.27376077428361323
+2026-09-15 20:34:33.685 | INFO     | organizer_evaluator:evaluate:33 - 合并后样本数: 1125300, 交易日数: 242
+2026-09-15 20:34:34.155 | INFO     | organizer_evaluator:evaluate:49 - Rank IC: mean=0.124827, std=0.168733, ICIR=0.7398, IC>0占比=79.75%
+2026-09-15 20:34:34.830 | INFO     | organizer_evaluator:evaluate:75 - Top组超额收益: 年化=0.4798, Top1年化绝对收益=0.4657
+2026-09-15 20:34:35.496 | INFO     | organizer_evaluator:evaluate:101 - 预测换手率: mean=0.8187, (1-turnover)=0.1813
+2026-09-15 20:34:35.497 | INFO     | organizer_evaluator:evaluate:105 - 综合得分 = 0.124827×0.4 + 0.4798×0.3 + 0.1813×0.3 = 0.248247
+VERIFIED E006/F3: official Score=0.2482473131585974
+2026-09-15 20:35:18.249 | INFO     | organizer_evaluator:evaluate:33 - 合并后样本数: 1125300, 交易日数: 242
+2026-09-15 20:35:18.671 | INFO     | organizer_evaluator:evaluate:49 - Rank IC: mean=-0.044787, std=0.204192, ICIR=-0.2193, IC>0占比=38.84%
+2026-09-15 20:35:19.285 | INFO     | organizer_evaluator:evaluate:75 - Top组超额收益: 年化=-0.5494, Top1年化绝对收益=-0.5634
+2026-09-15 20:35:20.008 | INFO     | organizer_evaluator:evaluate:101 - 预测换手率: mean=0.5112, (1-turnover)=0.4888
+2026-09-15 20:35:20.008 | INFO     | organizer_evaluator:evaluate:105 - 综合得分 = -0.044787×0.4 + -0.5494×0.3 + 0.4888×0.3 = -0.036072
+VERIFIED E007/F3: official Score=-0.03607237985242687

@@ -1,0 +1,46 @@
+{
+  "experiment": "E007",
+  "fold": "F1",
+  "independent_full_relevance_and_fit_order_match": true,
+  "independent_group_counts_and_dates_match": true,
+  "groups": 972,
+  "rows": 3568878,
+  "relevance_histogram": {
+    "0": 356829,
+    "1": 356476,
+    "2": 357436,
+    "3": 355799,
+    "4": 357235,
+    "5": 357712,
+    "6": 356682,
+    "7": 356001,
+    "8": 357390,
+    "9": 357318
+  },
+  "missing_top_fraction": 0.8632694932258386,
+  "official": {
+    "ic_mean": -0.0565052166312814,
+    "ic_std": 0.14232994805363608,
+    "icir": -0.3970015966702088,
+    "ic_positive_ratio": 0.34297520661157027,
+    "annual_excess": -0.4230909804829626,
+    "top1_annual_ret": -0.5542191975477325,
+    "mean_turnover": 0.17230391283301802,
+    "final_score": 0.09877944535269323
+  },
+  "configured_params": {
+    "objective": "lambdarank",
+    "n_estimators": 800,
+    "learning_rate": 0.03,
+    "num_leaves": 63,
+    "max_depth": -1,
+    "min_child_samples": 1000,
+    "subsample": 0.8,
+    "subsample_freq": 1,
+    "colsample_bytree": 0.8,
+    "reg_lambda": 1.0,
+    "random_state": 42,
+    "n_jobs": -1,
+    "verbosity": -1
+  }
+}
