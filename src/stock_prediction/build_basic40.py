@@ -59,7 +59,7 @@ def audit_matrix(matrix_path, keys_path, names):
     """Exact finite-only quantiles, one persisted float64 column at a time."""
     matrix = np.load(matrix_path, mmap_mode="r", allow_pickle=False)
     keys = np.load(keys_path, mmap_mode="r", allow_pickle=False)
-    if matrix.shape != (len(keys), 40):
+    if matrix.shape != (len(keys), len(names)):
         raise AssertionError("Feature/key shape mismatch")
     rows = len(keys)
     statistics = {}

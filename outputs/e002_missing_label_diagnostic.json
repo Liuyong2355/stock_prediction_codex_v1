@@ -1,0 +1,1624 @@
+{
+  "scope": "Read-only saved E002 validation predictions; diagnostic label filter is ex-post, not a deployable strategy or score change",
+  "protected_sha256": {
+    "evaluate.py": "72dc59987e92ba8ae6b506e114dfe8591b5608c9beccd0769d5d1f778f9189c2",
+    "reference\\evaluate_official.py": "72dc59987e92ba8ae6b506e114dfe8591b5608c9beccd0769d5d1f778f9189c2",
+    "config\\experiments_v1.yaml": "c6dbbefe5fe0a9fa2109f498755310926d03a1597bc13f5214d01e55c9f45679",
+    "config\\features_v1.yaml": "6bd63c4d058def293e96f4e1359df976ffb8abde2111cb251ceabe40fba20987",
+    "config\\folds_v1.yaml": "4b1f773d45b9e886c239bddef5e1176f7d90c593f4a4cfde674f3b43196ff73a",
+    "outputs\\baselines\\E002\\F1\\daily_metrics.csv": "1ca2b446c4c9e61e386a410c20ef715c6eade38616ea16552b32061b77a7bfcf",
+    "outputs\\baselines\\E002\\F1\\model.joblib": "95e5e55f4dacdf44b697cb9bd936e80f6b2da626264a7e2ce75c1195279e094f",
+    "outputs\\baselines\\E002\\F1\\model.txt": "9b11eb600bb771c1f23308a628c3082bd910fd9926371cc677b6fffaacc4c835",
+    "outputs\\baselines\\E002\\F1\\predictions.csv.gz": "e6046687ce3b531c00acafa14fa70e3e7180b5847736c2ff223a45c5a466d660",
+    "outputs\\baselines\\E002\\F1\\result.json": "47c65712402474f762ebaacda9df2b036845a09fe3e370ea2fded12c8b0b33af",
+    "outputs\\baselines\\E002\\F2\\daily_metrics.csv": "7c8d8a57e906b355b1c9c28814e40675648b73c70ad06231858071a3a845b220",
+    "outputs\\baselines\\E002\\F2\\model.joblib": "44f2e107b5b4918153676c51a0d72ce6aee7f5fb712efe26e10a2db0f406c377",
+    "outputs\\baselines\\E002\\F2\\model.txt": "b664ea423afcbe03a3491244bce4182c0fe3be443b33edca2418271282a0daf8",
+    "outputs\\baselines\\E002\\F2\\predictions.csv.gz": "f59638fe74180b3803fcb61255ccbac3965c252e2fd92d5c624f7505959365bc",
+    "outputs\\baselines\\E002\\F2\\result.json": "6325ff49bbbaffdaee7569c8e77357fc63c707ad4d9d3778b978aea2e6a5175a",
+    "outputs\\baselines\\E002\\F3\\daily_metrics.csv": "2547498ad73ce1f3501523d1692bb0994950830189acd2cd2ea5537d9395f395",
+    "outputs\\baselines\\E002\\F3\\model.joblib": "0ec122d7f29d4206a1a9971099c5e5535520409ecfd9a089c3fd35c97183b924",
+    "outputs\\baselines\\E002\\F3\\model.txt": "164be0f21ed19404d929ec5df3b95d3978e40aafc090dcf97cc162fb9a23a770",
+    "outputs\\baselines\\E002\\F3\\predictions.csv.gz": "adf801b296632a6d92706ab15b13cf44536739f5af030cde0162b36db5a92487",
+    "outputs\\baselines\\E002\\F3\\result.json": "26f3085a80d56c5d98c62f0accc59af30cd3b787baee763f716b3d4abed69afb",
+    "outputs\\official_evaluator_comparison.json": "728a61698803ee8df9303026e49cccd3b93633ee17fd22c24e43e9879760ded3",
+    "outputs\\official_evaluator_comparison.md": "7617d06cf28caea6012f0055cbcbe4fc15a84693e4a53dceb0802320dff2b4d3",
+    "outputs\\baseline_summary.json": "49d8ee4e2ba3d13cb151bb4200647d96a5076b78371be1e369a31f19c7edfbbf",
+    "outputs\\experiment_log.csv": "c0f119e8571615fc72040665b9d0a758a692f3987f63e651cfe486b0e8c5a74b"
+  },
+  "protected_unchanged": true,
+  "folds": [
+    {
+      "fold": "F1",
+      "rows": 1125300,
+      "missing_y": 96283,
+      "missing_y_fraction": 0.08556207233626588,
+      "top_rows": 110641,
+      "missing_top_rows": 94715,
+      "missing_share_of_top": 0.8560569770699831,
+      "missing_eligible_selection_rate": 0.9842871543329834,
+      "daily_missing_share_of_top": {
+        "min": 0.0,
+        "p01": 0.6949630088144994,
+        "p25": 0.8005453975848713,
+        "median": 0.8114035087719298,
+        "p75": 0.9229920190185091,
+        "p99": 1.0,
+        "max": 1.0
+      },
+      "populations": {
+        "all_missing_y": {
+          "rows": 96283,
+          "ohlc_all_missing": 95860,
+          "ohlc_partial_missing": 0,
+          "ohlc_all_present": 423,
+          "ohlc_missing_by_column": {
+            "open": 95860,
+            "high": 95860,
+            "low": 95860,
+            "close": 95860
+          },
+          "finite_features": {
+            "min": 2.0,
+            "p01": 2.0,
+            "p25": 2.0,
+            "median": 2.0,
+            "p75": 2.0,
+            "p99": 2.0,
+            "max": 40.0
+          },
+          "finite_feature_histogram": {
+            "2": 95860,
+            "18": 1,
+            "23": 1,
+            "25": 1,
+            "26": 2,
+            "27": 5,
+            "29": 2,
+            "30": 1,
+            "31": 1,
+            "33": 2,
+            "34": 2,
+            "35": 6,
+            "36": 8,
+            "40": 391
+          },
+          "predictions": {
+            "min": -0.0571247784231718,
+            "p01": 0.0205045584670067,
+            "p25": 0.0205045584670067,
+            "median": 0.0205045584670067,
+            "p75": 0.0205045584670067,
+            "p99": 0.0205045584670067,
+            "max": 0.0414039565229757
+          },
+          "price_context": {
+            "before_first_finite_close_in_train": 90147,
+            "no_finite_close_in_train": 3388,
+            "internal_missing_close": 2091,
+            "current_close_present": 423,
+            "after_last_finite_close_in_train": 234
+          }
+        },
+        "missing_y_in_top": {
+          "rows": 94715,
+          "ohlc_all_missing": 94703,
+          "ohlc_partial_missing": 0,
+          "ohlc_all_present": 12,
+          "ohlc_missing_by_column": {
+            "open": 94703,
+            "high": 94703,
+            "low": 94703,
+            "close": 94703
+          },
+          "finite_features": {
+            "min": 2.0,
+            "p01": 2.0,
+            "p25": 2.0,
+            "median": 2.0,
+            "p75": 2.0,
+            "p99": 2.0,
+            "max": 40.0
+          },
+          "finite_feature_histogram": {
+            "2": 94703,
+            "29": 1,
+            "40": 11
+          },
+          "predictions": {
+            "min": 0.0056650781190547,
+            "p01": 0.0205045584670067,
+            "p25": 0.0205045584670067,
+            "median": 0.0205045584670067,
+            "p75": 0.0205045584670067,
+            "p99": 0.0205045584670067,
+            "max": 0.0290224915725343
+          },
+          "price_context": {
+            "before_first_finite_close_in_train": 89092,
+            "no_finite_close_in_train": 3352,
+            "internal_missing_close": 2025,
+            "after_last_finite_close_in_train": 234,
+            "current_close_present": 12
+          }
+        },
+        "labeled_eligible": {
+          "rows": 1011292,
+          "ohlc_all_missing": 0,
+          "ohlc_partial_missing": 0,
+          "ohlc_all_present": 1011292,
+          "ohlc_missing_by_column": {
+            "open": 0,
+            "high": 0,
+            "low": 0,
+            "close": 0
+          },
+          "finite_features": {
+            "min": 11.0,
+            "p01": 33.0,
+            "p25": 40.0,
+            "median": 40.0,
+            "p75": 40.0,
+            "p99": 40.0,
+            "max": 40.0
+          },
+          "finite_feature_histogram": {
+            "11": 27,
+            "12": 7,
+            "13": 4,
+            "14": 34,
+            "15": 116,
+            "16": 23,
+            "17": 68,
+            "18": 304,
+            "19": 79,
+            "20": 91,
+            "21": 406,
+            "22": 318,
+            "23": 623,
+            "24": 123,
+            "25": 310,
+            "26": 685,
+            "27": 928,
+            "28": 1108,
+            "29": 455,
+            "30": 967,
+            "31": 2605,
+            "32": 14,
+            "33": 1644,
+            "34": 1160,
+            "35": 8656,
+            "36": 9578,
+            "38": 538,
+            "40": 980421
+          },
+          "predictions": {
+            "min": -0.0731362299752577,
+            "p01": -0.014897617301680254,
+            "p25": -0.0012768476062297,
+            "median": 0.00031667250761299997,
+            "p75": 0.001978346089390625,
+            "p99": 0.011756566290275862,
+            "max": 0.0432223874715708
+          },
+          "price_context": {
+            "current_close_present": 1011292
+          }
+        },
+        "labeled_in_top": {
+          "rows": 15926,
+          "ohlc_all_missing": 0,
+          "ohlc_partial_missing": 0,
+          "ohlc_all_present": 15926,
+          "ohlc_missing_by_column": {
+            "open": 0,
+            "high": 0,
+            "low": 0,
+            "close": 0
+          },
+          "finite_features": {
+            "min": 12.0,
+            "p01": 31.0,
+            "p25": 40.0,
+            "median": 40.0,
+            "p75": 40.0,
+            "p99": 40.0,
+            "max": 40.0
+          },
+          "finite_feature_histogram": {
+            "12": 1,
+            "15": 1,
+            "21": 3,
+            "22": 11,
+            "23": 2,
+            "25": 7,
+            "26": 14,
+            "27": 3,
+            "28": 34,
+            "29": 58,
+            "30": 25,
+            "31": 97,
+            "33": 32,
+            "34": 14,
+            "35": 542,
+            "36": 475,
+            "38": 12,
+            "40": 14595
+          },
+          "predictions": {
+            "min": 0.0035516500621145,
+            "p01": 0.00412704813144455,
+            "p25": 0.0061110279676896,
+            "median": 0.007916400098080499,
+            "p75": 0.011146327884981549,
+            "p99": 0.03093329103570315,
+            "max": 0.0432223874715708
+          },
+          "price_context": {
+            "current_close_present": 15926
+          }
+        }
+      },
+      "only_zero_flags_vector": {
+        "rows": 95860,
+        "unique_predictions": 1,
+        "predictions": {
+          "min": 0.0205045584670067,
+          "p01": 0.0205045584670067,
+          "p25": 0.0205045584670067,
+          "median": 0.0205045584670067,
+          "p75": 0.0205045584670067,
+          "p99": 0.0205045584670067,
+          "max": 0.0205045584670067
+        },
+        "missing_y": 95860,
+        "selected_rows": 94703
+      },
+      "supervised_training": {
+        "rows": 3568878,
+        "finite_features": {
+          "min": 11.0,
+          "p01": 23.0,
+          "p25": 40.0,
+          "median": 40.0,
+          "p75": 40.0,
+          "p99": 40.0,
+          "max": 40.0
+        },
+        "rows_with_le2_finite_features": 0
+      },
+      "ties": {
+        "dates_boundary_splits_tie": 28,
+        "largest_daily_equal_prediction_group": {
+          "min": 362.0,
+          "p01": 363.41,
+          "p25": 367.0,
+          "median": 372.5,
+          "p75": 421.0,
+          "p99": 473.18,
+          "max": 475.0
+        },
+        "missing_top_rows_in_same_day_equal_prediction_groups": 94703,
+        "missing_top_duplicate_fraction": 0.999873304122895
+      },
+      "persistence": {
+        "stocks": 810,
+        "runs": 1755,
+        "run_days": {
+          "min": 1.0,
+          "p01": 1.0,
+          "p25": 2.0,
+          "median": 15.0,
+          "p75": 72.0,
+          "p99": 169.0,
+          "max": 169.0
+        },
+        "stock_longest_run_days": {
+          "min": 1.0,
+          "p01": 1.0,
+          "p25": 4.0,
+          "median": 61.5,
+          "p75": 166.0,
+          "p99": 169.0,
+          "max": 169.0
+        },
+        "stocks_run_ge20": 457,
+        "stocks_run_ge60": 409,
+        "stocks_run_full_fold": 0,
+        "longest_examples": [
+          {
+            "ts_code": "301522.SZ",
+            "start": 20220426,
+            "end": 20221230,
+            "days": 169
+          },
+          {
+            "ts_code": "301520.SZ",
+            "start": 20220426,
+            "end": 20221230,
+            "days": 169
+          },
+          {
+            "ts_code": "301536.SZ",
+            "start": 20220426,
+            "end": 20221230,
+            "days": 169
+          },
+          {
+            "ts_code": "301519.SZ",
+            "start": 20220426,
+            "end": 20221230,
+            "days": 169
+          },
+          {
+            "ts_code": "001376.SZ",
+            "start": 20220426,
+            "end": 20221230,
+            "days": 169
+          },
+          {
+            "ts_code": "001378.SZ",
+            "start": 20220426,
+            "end": 20221230,
+            "days": 169
+          },
+          {
+            "ts_code": "001380.SZ",
+            "start": 20220426,
+            "end": 20221230,
+            "days": 169
+          },
+          {
+            "ts_code": "001379.SZ",
+            "start": 20220426,
+            "end": 20221230,
+            "days": 169
+          },
+          {
+            "ts_code": "001366.SZ",
+            "start": 20220426,
+            "end": 20221230,
+            "days": 169
+          },
+          {
+            "ts_code": "001367.SZ",
+            "start": 20220426,
+            "end": 20221230,
+            "days": 169
+          }
+        ]
+      },
+      "official_turnover": 0.23089957217573576,
+      "diagnostic_exclude_missing_y_turnover": 0.8474014587025546,
+      "diagnostic_minus_official": 0.6165018865268188,
+      "examples": [
+        {
+          "ts_code": "605090.SH",
+          "trade_date": 20220104,
+          "open": null,
+          "high": null,
+          "low": null,
+          "close": null,
+          "vol": null,
+          "amount": null,
+          "flag_limit_up": 0,
+          "flag_limit_down": 0.0,
+          "y_ret_1d": null,
+          "finite_features": 2,
+          "pred": 0.0205045584670067,
+          "price_context": "internal_missing_close"
+        },
+        {
+          "ts_code": "301558.SZ",
+          "trade_date": 20220104,
+          "open": null,
+          "high": null,
+          "low": null,
+          "close": null,
+          "vol": null,
+          "amount": null,
+          "flag_limit_up": 0,
+          "flag_limit_down": 0.0,
+          "y_ret_1d": null,
+          "finite_features": 2,
+          "pred": 0.0205045584670067,
+          "price_context": "before_first_finite_close_in_train"
+        },
+        {
+          "ts_code": "301559.SZ",
+          "trade_date": 20220104,
+          "open": null,
+          "high": null,
+          "low": null,
+          "close": null,
+          "vol": null,
+          "amount": null,
+          "flag_limit_up": 0,
+          "flag_limit_down": 0.0,
+          "y_ret_1d": null,
+          "finite_features": 2,
+          "pred": 0.0205045584670067,
+          "price_context": "before_first_finite_close_in_train"
+        },
+        {
+          "ts_code": "301565.SZ",
+          "trade_date": 20220104,
+          "open": null,
+          "high": null,
+          "low": null,
+          "close": null,
+          "vol": null,
+          "amount": null,
+          "flag_limit_up": 0,
+          "flag_limit_down": 0.0,
+          "y_ret_1d": null,
+          "finite_features": 2,
+          "pred": 0.0205045584670067,
+          "price_context": "before_first_finite_close_in_train"
+        },
+        {
+          "ts_code": "301566.SZ",
+          "trade_date": 20220104,
+          "open": null,
+          "high": null,
+          "low": null,
+          "close": null,
+          "vol": null,
+          "amount": null,
+          "flag_limit_up": 0,
+          "flag_limit_down": 0.0,
+          "y_ret_1d": null,
+          "finite_features": 2,
+          "pred": 0.0205045584670067,
+          "price_context": "before_first_finite_close_in_train"
+        },
+        {
+          "ts_code": "301600.SZ",
+          "trade_date": 20220104,
+          "open": null,
+          "high": null,
+          "low": null,
+          "close": null,
+          "vol": null,
+          "amount": null,
+          "flag_limit_up": 0,
+          "flag_limit_down": 0.0,
+          "y_ret_1d": null,
+          "finite_features": 2,
+          "pred": 0.0205045584670067,
+          "price_context": "before_first_finite_close_in_train"
+        },
+        {
+          "ts_code": "301601.SZ",
+          "trade_date": 20220104,
+          "open": null,
+          "high": null,
+          "low": null,
+          "close": null,
+          "vol": null,
+          "amount": null,
+          "flag_limit_up": 0,
+          "flag_limit_down": 0.0,
+          "y_ret_1d": null,
+          "finite_features": 2,
+          "pred": 0.0205045584670067,
+          "price_context": "no_finite_close_in_train"
+        },
+        {
+          "ts_code": "301602.SZ",
+          "trade_date": 20220104,
+          "open": null,
+          "high": null,
+          "low": null,
+          "close": null,
+          "vol": null,
+          "amount": null,
+          "flag_limit_up": 0,
+          "flag_limit_down": 0.0,
+          "y_ret_1d": null,
+          "finite_features": 2,
+          "pred": 0.0205045584670067,
+          "price_context": "no_finite_close_in_train"
+        },
+        {
+          "ts_code": "301603.SZ",
+          "trade_date": 20220104,
+          "open": null,
+          "high": null,
+          "low": null,
+          "close": null,
+          "vol": null,
+          "amount": null,
+          "flag_limit_up": 0,
+          "flag_limit_down": 0.0,
+          "y_ret_1d": null,
+          "finite_features": 2,
+          "pred": 0.0205045584670067,
+          "price_context": "before_first_finite_close_in_train"
+        },
+        {
+          "ts_code": "301567.SZ",
+          "trade_date": 20220104,
+          "open": null,
+          "high": null,
+          "low": null,
+          "close": null,
+          "vol": null,
+          "amount": null,
+          "flag_limit_up": 0,
+          "flag_limit_down": 0.0,
+          "y_ret_1d": null,
+          "finite_features": 2,
+          "pred": 0.0205045584670067,
+          "price_context": "before_first_finite_close_in_train"
+        }
+      ]
+    },
+    {
+      "fold": "F2",
+      "rows": 1125300,
+      "missing_y": 62889,
+      "missing_y_fraction": 0.05588643028525726,
+      "top_rows": 111424,
+      "missing_top_rows": 62578,
+      "missing_share_of_top": 0.5616204767375071,
+      "missing_eligible_selection_rate": 0.9955455152884279,
+      "daily_missing_share_of_top": {
+        "min": 0.27765726681127983,
+        "p01": 0.28054945889500665,
+        "p25": 0.3297180043383948,
+        "median": 0.41458193219600453,
+        "p75": 0.8050891624644336,
+        "p99": 0.8801742919389978,
+        "max": 0.960352422907489
+      },
+      "populations": {
+        "all_missing_y": {
+          "rows": 62889,
+          "ohlc_all_missing": 62553,
+          "ohlc_partial_missing": 0,
+          "ohlc_all_present": 336,
+          "ohlc_missing_by_column": {
+            "open": 62553,
+            "high": 62553,
+            "low": 62553,
+            "close": 62553
+          },
+          "finite_features": {
+            "min": 2.0,
+            "p01": 2.0,
+            "p25": 2.0,
+            "median": 2.0,
+            "p75": 2.0,
+            "p99": 2.0,
+            "max": 40.0
+          },
+          "finite_feature_histogram": {
+            "2": 62553,
+            "20": 1,
+            "22": 1,
+            "23": 1,
+            "27": 1,
+            "28": 2,
+            "29": 20,
+            "31": 5,
+            "33": 1,
+            "35": 16,
+            "36": 1,
+            "40": 287
+          },
+          "predictions": {
+            "min": -0.0656054128006137,
+            "p01": 0.0188074458802866,
+            "p25": 0.0188074458802866,
+            "median": 0.0188074458802866,
+            "p75": 0.0188074458802866,
+            "p99": 0.0188074458802866,
+            "max": 0.0336562227742079
+          },
+          "price_context": {
+            "before_first_finite_close_in_train": 50836,
+            "after_last_finite_close_in_train": 6601,
+            "no_finite_close_in_train": 3388,
+            "internal_missing_close": 1728,
+            "current_close_present": 336
+          }
+        },
+        "missing_y_in_top": {
+          "rows": 62578,
+          "ohlc_all_missing": 62553,
+          "ohlc_partial_missing": 0,
+          "ohlc_all_present": 25,
+          "ohlc_missing_by_column": {
+            "open": 62553,
+            "high": 62553,
+            "low": 62553,
+            "close": 62553
+          },
+          "finite_features": {
+            "min": 2.0,
+            "p01": 2.0,
+            "p25": 2.0,
+            "median": 2.0,
+            "p75": 2.0,
+            "p99": 2.0,
+            "max": 40.0
+          },
+          "finite_feature_histogram": {
+            "2": 62553,
+            "29": 3,
+            "35": 1,
+            "40": 21
+          },
+          "predictions": {
+            "min": 0.0025773265832887,
+            "p01": 0.0188074458802866,
+            "p25": 0.0188074458802866,
+            "median": 0.0188074458802866,
+            "p75": 0.0188074458802866,
+            "p99": 0.0188074458802866,
+            "max": 0.0193522976024907
+          },
+          "price_context": {
+            "before_first_finite_close_in_train": 50836,
+            "after_last_finite_close_in_train": 6601,
+            "no_finite_close_in_train": 3388,
+            "internal_missing_close": 1728,
+            "current_close_present": 25
+          }
+        },
+        "labeled_eligible": {
+          "rows": 1052475,
+          "ohlc_all_missing": 0,
+          "ohlc_partial_missing": 0,
+          "ohlc_all_present": 1052475,
+          "ohlc_missing_by_column": {
+            "open": 0,
+            "high": 0,
+            "low": 0,
+            "close": 0
+          },
+          "finite_features": {
+            "min": 11.0,
+            "p01": 33.0,
+            "p25": 40.0,
+            "median": 40.0,
+            "p75": 40.0,
+            "p99": 40.0,
+            "max": 40.0
+          },
+          "finite_feature_histogram": {
+            "11": 283,
+            "12": 12,
+            "13": 7,
+            "14": 20,
+            "15": 310,
+            "16": 24,
+            "17": 299,
+            "18": 439,
+            "19": 59,
+            "20": 63,
+            "21": 489,
+            "22": 232,
+            "23": 1250,
+            "24": 116,
+            "25": 216,
+            "26": 634,
+            "27": 660,
+            "28": 2454,
+            "29": 347,
+            "30": 612,
+            "31": 1964,
+            "32": 2,
+            "33": 2686,
+            "34": 880,
+            "35": 10166,
+            "36": 6771,
+            "38": 515,
+            "40": 1020965
+          },
+          "predictions": {
+            "min": -0.069903782017108,
+            "p01": -0.012023558125415487,
+            "p25": -0.0011166225665163502,
+            "median": -6.61410830634809e-05,
+            "p75": 0.0011187708464160998,
+            "p99": 0.006482472557240063,
+            "max": 0.0366681675898076
+          },
+          "price_context": {
+            "current_close_present": 1052475
+          }
+        },
+        "labeled_in_top": {
+          "rows": 48846,
+          "ohlc_all_missing": 0,
+          "ohlc_partial_missing": 0,
+          "ohlc_all_present": 48846,
+          "ohlc_missing_by_column": {
+            "open": 0,
+            "high": 0,
+            "low": 0,
+            "close": 0
+          },
+          "finite_features": {
+            "min": 11.0,
+            "p01": 28.0,
+            "p25": 40.0,
+            "median": 40.0,
+            "p75": 40.0,
+            "p99": 40.0,
+            "max": 40.0
+          },
+          "finite_feature_histogram": {
+            "11": 147,
+            "15": 1,
+            "16": 1,
+            "17": 1,
+            "19": 2,
+            "20": 3,
+            "21": 10,
+            "22": 8,
+            "23": 10,
+            "24": 5,
+            "25": 10,
+            "26": 101,
+            "27": 33,
+            "28": 167,
+            "29": 91,
+            "30": 46,
+            "31": 105,
+            "33": 63,
+            "34": 18,
+            "35": 2489,
+            "36": 620,
+            "38": 20,
+            "40": 44895
+          },
+          "predictions": {
+            "min": 0.0013503223801002,
+            "p01": 0.00186471678505166,
+            "p25": 0.0033036087869565,
+            "median": 0.00440844349029065,
+            "p75": 0.005887889591717375,
+            "p99": 0.014919559754914642,
+            "max": 0.0366681675898076
+          },
+          "price_context": {
+            "current_close_present": 48846
+          }
+        }
+      },
+      "only_zero_flags_vector": {
+        "rows": 62553,
+        "unique_predictions": 1,
+        "predictions": {
+          "min": 0.0188074458802866,
+          "p01": 0.0188074458802866,
+          "p25": 0.0188074458802866,
+          "median": 0.0188074458802866,
+          "p75": 0.0188074458802866,
+          "p99": 0.0188074458802866,
+          "max": 0.0188074458802866
+        },
+        "missing_y": 62553,
+        "selected_rows": 62553
+      },
+      "supervised_training": {
+        "rows": 4597785,
+        "finite_features": {
+          "min": 11.0,
+          "p01": 26.0,
+          "p25": 40.0,
+          "median": 40.0,
+          "p75": 40.0,
+          "p99": 40.0,
+          "max": 40.0
+        },
+        "rows_with_le2_finite_features": 0
+      },
+      "ties": {
+        "dates_boundary_splits_tie": 0,
+        "largest_daily_equal_prediction_group": {
+          "min": 127.0,
+          "p01": 128.82,
+          "p25": 151.25,
+          "median": 190.0,
+          "p75": 371.0,
+          "p99": 403.18,
+          "max": 436.0
+        },
+        "missing_top_rows_in_same_day_equal_prediction_groups": 62553,
+        "missing_top_duplicate_fraction": 0.9996004985777749
+      },
+      "persistence": {
+        "stocks": 630,
+        "runs": 703,
+        "run_days": {
+          "min": 1.0,
+          "p01": 1.0,
+          "p25": 3.0,
+          "median": 110.0,
+          "p75": 125.5,
+          "p99": 242.0,
+          "max": 242.0
+        },
+        "stock_longest_run_days": {
+          "min": 1.0,
+          "p01": 1.0,
+          "p25": 5.0,
+          "median": 110.0,
+          "p75": 135.75,
+          "p99": 242.0,
+          "max": 242.0
+        },
+        "stocks_run_ge20": 408,
+        "stocks_run_ge60": 405,
+        "stocks_run_full_fold": 78,
+        "longest_examples": [
+          {
+            "ts_code": "603395.SH",
+            "start": 20230103,
+            "end": 20231229,
+            "days": 242
+          },
+          {
+            "ts_code": "603409.SH",
+            "start": 20230103,
+            "end": 20231229,
+            "days": 242
+          },
+          {
+            "ts_code": "603391.SH",
+            "start": 20230103,
+            "end": 20231229,
+            "days": 242
+          },
+          {
+            "ts_code": "603381.SH",
+            "start": 20230103,
+            "end": 20231229,
+            "days": 242
+          },
+          {
+            "ts_code": "603350.SH",
+            "start": 20230103,
+            "end": 20231229,
+            "days": 242
+          },
+          {
+            "ts_code": "603375.SH",
+            "start": 20230103,
+            "end": 20231229,
+            "days": 242
+          },
+          {
+            "ts_code": "600555.SH",
+            "start": 20230103,
+            "end": 20231229,
+            "days": 242
+          },
+          {
+            "ts_code": "301173.SZ",
+            "start": 20230103,
+            "end": 20231229,
+            "days": 242
+          },
+          {
+            "ts_code": "603205.SH",
+            "start": 20230103,
+            "end": 20231229,
+            "days": 242
+          },
+          {
+            "ts_code": "603285.SH",
+            "start": 20230103,
+            "end": 20231229,
+            "days": 242
+          }
+        ]
+      },
+      "official_turnover": 0.4846951058471849,
+      "diagnostic_exclude_missing_y_turnover": 0.8427303153846598,
+      "diagnostic_minus_official": 0.3580352095374749,
+      "examples": [
+        {
+          "ts_code": "300330.SZ",
+          "trade_date": 20230103,
+          "open": null,
+          "high": null,
+          "low": null,
+          "close": null,
+          "vol": null,
+          "amount": null,
+          "flag_limit_up": 0,
+          "flag_limit_down": 0.0,
+          "y_ret_1d": null,
+          "finite_features": 2,
+          "pred": 0.0188074458802866,
+          "price_context": "internal_missing_close"
+        },
+        {
+          "ts_code": "300084.SZ",
+          "trade_date": 20230103,
+          "open": null,
+          "high": null,
+          "low": null,
+          "close": null,
+          "vol": null,
+          "amount": null,
+          "flag_limit_up": 0,
+          "flag_limit_down": 0.0,
+          "y_ret_1d": null,
+          "finite_features": 2,
+          "pred": 0.0188074458802866,
+          "price_context": "internal_missing_close"
+        },
+        {
+          "ts_code": "300804.SZ",
+          "trade_date": 20230103,
+          "open": null,
+          "high": null,
+          "low": null,
+          "close": null,
+          "vol": null,
+          "amount": null,
+          "flag_limit_up": 0,
+          "flag_limit_down": 0.0,
+          "y_ret_1d": null,
+          "finite_features": 2,
+          "pred": 0.0188074458802866,
+          "price_context": "before_first_finite_close_in_train"
+        },
+        {
+          "ts_code": "300784.SZ",
+          "trade_date": 20230103,
+          "open": null,
+          "high": null,
+          "low": null,
+          "close": null,
+          "vol": null,
+          "amount": null,
+          "flag_limit_up": 0,
+          "flag_limit_down": 0.0,
+          "y_ret_1d": null,
+          "finite_features": 2,
+          "pred": 0.0188074458802866,
+          "price_context": "before_first_finite_close_in_train"
+        },
+        {
+          "ts_code": "300850.SZ",
+          "trade_date": 20230103,
+          "open": null,
+          "high": null,
+          "low": null,
+          "close": null,
+          "vol": null,
+          "amount": null,
+          "flag_limit_up": 0,
+          "flag_limit_down": 0.0,
+          "y_ret_1d": null,
+          "finite_features": 2,
+          "pred": 0.0188074458802866,
+          "price_context": "internal_missing_close"
+        },
+        {
+          "ts_code": "300904.SZ",
+          "trade_date": 20230103,
+          "open": null,
+          "high": null,
+          "low": null,
+          "close": null,
+          "vol": null,
+          "amount": null,
+          "flag_limit_up": 0,
+          "flag_limit_down": 0.0,
+          "y_ret_1d": null,
+          "finite_features": 2,
+          "pred": 0.0188074458802866,
+          "price_context": "before_first_finite_close_in_train"
+        },
+        {
+          "ts_code": "301095.SZ",
+          "trade_date": 20230103,
+          "open": null,
+          "high": null,
+          "low": null,
+          "close": null,
+          "vol": null,
+          "amount": null,
+          "flag_limit_up": 0,
+          "flag_limit_down": 0.0,
+          "y_ret_1d": null,
+          "finite_features": 2,
+          "pred": 0.0188074458802866,
+          "price_context": "before_first_finite_close_in_train"
+        },
+        {
+          "ts_code": "301105.SZ",
+          "trade_date": 20230103,
+          "open": null,
+          "high": null,
+          "low": null,
+          "close": null,
+          "vol": null,
+          "amount": null,
+          "flag_limit_up": 0,
+          "flag_limit_down": 0.0,
+          "y_ret_1d": null,
+          "finite_features": 2,
+          "pred": 0.0188074458802866,
+          "price_context": "before_first_finite_close_in_train"
+        },
+        {
+          "ts_code": "301121.SZ",
+          "trade_date": 20230103,
+          "open": null,
+          "high": null,
+          "low": null,
+          "close": null,
+          "vol": null,
+          "amount": null,
+          "flag_limit_up": 0,
+          "flag_limit_down": 0.0,
+          "y_ret_1d": null,
+          "finite_features": 2,
+          "pred": 0.0188074458802866,
+          "price_context": "before_first_finite_close_in_train"
+        },
+        {
+          "ts_code": "301115.SZ",
+          "trade_date": 20230103,
+          "open": null,
+          "high": null,
+          "low": null,
+          "close": null,
+          "vol": null,
+          "amount": null,
+          "flag_limit_up": 0,
+          "flag_limit_down": 0.0,
+          "y_ret_1d": null,
+          "finite_features": 2,
+          "pred": 0.0188074458802866,
+          "price_context": "before_first_finite_close_in_train"
+        }
+      ]
+    },
+    {
+      "fold": "F3",
+      "rows": 1125300,
+      "missing_y": 31245,
+      "missing_y_fraction": 0.02776592908557718,
+      "top_rows": 110363,
+      "missing_top_rows": 30635,
+      "missing_share_of_top": 0.2775839728894648,
+      "missing_eligible_selection_rate": 0.9824263220344418,
+      "daily_missing_share_of_top": {
+        "min": 0.0,
+        "p01": 0.23367625080232193,
+        "p25": 0.26493448481238835,
+        "median": 0.2801403820336367,
+        "p75": 0.29475982532751094,
+        "p99": 0.3529697916666667,
+        "max": 0.36542669584245074
+      },
+      "populations": {
+        "all_missing_y": {
+          "rows": 31245,
+          "ohlc_all_missing": 30853,
+          "ohlc_partial_missing": 0,
+          "ohlc_all_present": 392,
+          "ohlc_missing_by_column": {
+            "open": 30853,
+            "high": 30853,
+            "low": 30853,
+            "close": 30853
+          },
+          "finite_features": {
+            "min": 2.0,
+            "p01": 2.0,
+            "p25": 2.0,
+            "median": 2.0,
+            "p75": 2.0,
+            "p99": 40.0,
+            "max": 40.0
+          },
+          "finite_feature_histogram": {
+            "2": 30853,
+            "11": 1,
+            "17": 1,
+            "20": 1,
+            "22": 3,
+            "25": 1,
+            "27": 2,
+            "28": 2,
+            "29": 12,
+            "31": 1,
+            "33": 3,
+            "35": 19,
+            "36": 17,
+            "40": 329
+          },
+          "predictions": {
+            "min": -0.0653485941921386,
+            "p01": 0.00303412005206432,
+            "p25": 0.0171806215445787,
+            "median": 0.0171806215445787,
+            "p75": 0.0171806215445787,
+            "p99": 0.0171806215445787,
+            "max": 0.0741427100100072
+          },
+          "price_context": {
+            "after_last_finite_close_in_train": 18259,
+            "before_first_finite_close_in_train": 7677,
+            "no_finite_close_in_train": 3388,
+            "internal_missing_close": 1529,
+            "current_close_present": 392
+          }
+        },
+        "missing_y_in_top": {
+          "rows": 30635,
+          "ohlc_all_missing": 30593,
+          "ohlc_partial_missing": 0,
+          "ohlc_all_present": 42,
+          "ohlc_missing_by_column": {
+            "open": 30593,
+            "high": 30593,
+            "low": 30593,
+            "close": 30593
+          },
+          "finite_features": {
+            "min": 2.0,
+            "p01": 2.0,
+            "p25": 2.0,
+            "median": 2.0,
+            "p75": 2.0,
+            "p99": 2.0,
+            "max": 40.0
+          },
+          "finite_feature_histogram": {
+            "2": 30593,
+            "22": 1,
+            "28": 1,
+            "29": 3,
+            "35": 3,
+            "36": 1,
+            "40": 33
+          },
+          "predictions": {
+            "min": 0.0017850551159073,
+            "p01": 0.0171806215445787,
+            "p25": 0.0171806215445787,
+            "median": 0.0171806215445787,
+            "p75": 0.0171806215445787,
+            "p99": 0.0171806215445787,
+            "max": 0.0306807939880247
+          },
+          "price_context": {
+            "after_last_finite_close_in_train": 18159,
+            "before_first_finite_close_in_train": 7548,
+            "no_finite_close_in_train": 3360,
+            "internal_missing_close": 1526,
+            "current_close_present": 42
+          }
+        },
+        "labeled_eligible": {
+          "rows": 1073491,
+          "ohlc_all_missing": 0,
+          "ohlc_partial_missing": 0,
+          "ohlc_all_present": 1073491,
+          "ohlc_missing_by_column": {
+            "open": 0,
+            "high": 0,
+            "low": 0,
+            "close": 0
+          },
+          "finite_features": {
+            "min": 11.0,
+            "p01": 35.0,
+            "p25": 40.0,
+            "median": 40.0,
+            "p75": 40.0,
+            "p99": 40.0,
+            "max": 40.0
+          },
+          "finite_feature_histogram": {
+            "11": 19,
+            "12": 5,
+            "13": 4,
+            "14": 16,
+            "15": 29,
+            "16": 19,
+            "17": 43,
+            "18": 214,
+            "19": 35,
+            "20": 66,
+            "21": 313,
+            "22": 237,
+            "23": 409,
+            "24": 104,
+            "25": 292,
+            "26": 361,
+            "27": 816,
+            "28": 564,
+            "29": 379,
+            "30": 540,
+            "31": 2146,
+            "32": 4,
+            "33": 923,
+            "34": 590,
+            "35": 4638,
+            "36": 6976,
+            "37": 16,
+            "38": 302,
+            "40": 1053431
+          },
+          "predictions": {
+            "min": -0.0754821010094681,
+            "p01": -0.01927705581768862,
+            "p25": -0.00145784511651215,
+            "median": -9.519242487437072e-05,
+            "p75": 0.0015361900534022498,
+            "p99": 0.011970518342225815,
+            "max": 0.0558460025656627
+          },
+          "price_context": {
+            "current_close_present": 1073491
+          }
+        },
+        "labeled_in_top": {
+          "rows": 79728,
+          "ohlc_all_missing": 0,
+          "ohlc_partial_missing": 0,
+          "ohlc_all_present": 79728,
+          "ohlc_missing_by_column": {
+            "open": 0,
+            "high": 0,
+            "low": 0,
+            "close": 0
+          },
+          "finite_features": {
+            "min": 11.0,
+            "p01": 31.0,
+            "p25": 40.0,
+            "median": 40.0,
+            "p75": 40.0,
+            "p99": 40.0,
+            "max": 40.0
+          },
+          "finite_feature_histogram": {
+            "11": 1,
+            "14": 1,
+            "17": 1,
+            "18": 5,
+            "19": 1,
+            "21": 14,
+            "22": 13,
+            "23": 18,
+            "24": 6,
+            "25": 20,
+            "26": 34,
+            "27": 54,
+            "28": 103,
+            "29": 127,
+            "30": 112,
+            "31": 301,
+            "33": 59,
+            "34": 35,
+            "35": 966,
+            "36": 1639,
+            "37": 4,
+            "38": 30,
+            "40": 76184
+          },
+          "predictions": {
+            "min": -8.514200738090905e-05,
+            "p01": 0.00091639305598154,
+            "p25": 0.003130418572352175,
+            "median": 0.0045230968451561,
+            "p75": 0.006848747513754575,
+            "p99": 0.02631052942104717,
+            "max": 0.0558460025656627
+          },
+          "price_context": {
+            "current_close_present": 79728
+          }
+        }
+      },
+      "only_zero_flags_vector": {
+        "rows": 30828,
+        "unique_predictions": 1,
+        "predictions": {
+          "min": 0.0171806215445787,
+          "p01": 0.0171806215445787,
+          "p25": 0.0171806215445787,
+          "median": 0.0171806215445787,
+          "p75": 0.0171806215445787,
+          "p99": 0.0171806215445787,
+          "max": 0.0171806215445787
+        },
+        "missing_y": 30828,
+        "selected_rows": 30593
+      },
+      "supervised_training": {
+        "rows": 5659954,
+        "finite_features": {
+          "min": 11.0,
+          "p01": 27.0,
+          "p25": 40.0,
+          "median": 40.0,
+          "p75": 40.0,
+          "p99": 40.0,
+          "max": 40.0
+        },
+        "rows_with_le2_finite_features": 0
+      },
+      "ties": {
+        "dates_boundary_splits_tie": 0,
+        "largest_daily_equal_prediction_group": {
+          "min": 108.0,
+          "p01": 108.0,
+          "p25": 121.0,
+          "median": 127.5,
+          "p75": 134.75,
+          "p99": 140.0,
+          "max": 167.0
+        },
+        "missing_top_rows_in_same_day_equal_prediction_groups": 30593,
+        "missing_top_duplicate_fraction": 0.9986290190958055
+      },
+      "persistence": {
+        "stocks": 420,
+        "runs": 750,
+        "run_days": {
+          "min": 1.0,
+          "p01": 1.0,
+          "p25": 2.0,
+          "median": 5.0,
+          "p75": 23.0,
+          "p99": 215.0,
+          "max": 215.0
+        },
+        "stock_longest_run_days": {
+          "min": 1.0,
+          "p01": 1.0,
+          "p25": 1.0,
+          "median": 10.0,
+          "p75": 132.25,
+          "p99": 215.0,
+          "max": 215.0
+        },
+        "stocks_run_ge20": 171,
+        "stocks_run_ge60": 150,
+        "stocks_run_full_fold": 0,
+        "longest_examples": [
+          {
+            "ts_code": "000038.SZ",
+            "start": 20240208,
+            "end": 20241231,
+            "days": 215
+          },
+          {
+            "ts_code": "000150.SZ",
+            "start": 20240208,
+            "end": 20241231,
+            "days": 215
+          },
+          {
+            "ts_code": "300089.SZ",
+            "start": 20240208,
+            "end": 20241231,
+            "days": 215
+          },
+          {
+            "ts_code": "301275.SZ",
+            "start": 20240208,
+            "end": 20241231,
+            "days": 215
+          },
+          {
+            "ts_code": "301173.SZ",
+            "start": 20240208,
+            "end": 20241231,
+            "days": 215
+          },
+          {
+            "ts_code": "300273.SZ",
+            "start": 20240208,
+            "end": 20241231,
+            "days": 215
+          },
+          {
+            "ts_code": "300297.SZ",
+            "start": 20240208,
+            "end": 20241231,
+            "days": 215
+          },
+          {
+            "ts_code": "301458.SZ",
+            "start": 20240208,
+            "end": 20241231,
+            "days": 215
+          },
+          {
+            "ts_code": "301479.SZ",
+            "start": 20240208,
+            "end": 20241231,
+            "days": 215
+          },
+          {
+            "ts_code": "600555.SH",
+            "start": 20240208,
+            "end": 20241231,
+            "days": 215
+          }
+        ]
+      },
+      "official_turnover": 0.721214803379976,
+      "diagnostic_exclude_missing_y_turnover": 0.8534403375404892,
+      "diagnostic_minus_official": 0.1322255341605132,
+      "examples": [
+        {
+          "ts_code": "600555.SH",
+          "trade_date": 20240102,
+          "open": null,
+          "high": null,
+          "low": null,
+          "close": null,
+          "vol": null,
+          "amount": null,
+          "flag_limit_up": 0,
+          "flag_limit_down": 0.0,
+          "y_ret_1d": null,
+          "finite_features": 2,
+          "pred": 0.0171806215445787,
+          "price_context": "after_last_finite_close_in_train"
+        },
+        {
+          "ts_code": "600260.SH",
+          "trade_date": 20240102,
+          "open": null,
+          "high": null,
+          "low": null,
+          "close": null,
+          "vol": null,
+          "amount": null,
+          "flag_limit_up": 0,
+          "flag_limit_down": 0.0,
+          "y_ret_1d": null,
+          "finite_features": 2,
+          "pred": 0.0171806215445787,
+          "price_context": "after_last_finite_close_in_train"
+        },
+        {
+          "ts_code": "600532.SH",
+          "trade_date": 20240102,
+          "open": null,
+          "high": null,
+          "low": null,
+          "close": null,
+          "vol": null,
+          "amount": null,
+          "flag_limit_up": 0,
+          "flag_limit_down": 0.0,
+          "y_ret_1d": null,
+          "finite_features": 2,
+          "pred": 0.0171806215445787,
+          "price_context": "after_last_finite_close_in_train"
+        },
+        {
+          "ts_code": "600311.SH",
+          "trade_date": 20240102,
+          "open": null,
+          "high": null,
+          "low": null,
+          "close": null,
+          "vol": null,
+          "amount": null,
+          "flag_limit_up": 0,
+          "flag_limit_down": 0.0,
+          "y_ret_1d": null,
+          "finite_features": 2,
+          "pred": 0.0171806215445787,
+          "price_context": "after_last_finite_close_in_train"
+        },
+        {
+          "ts_code": "600290.SH",
+          "trade_date": 20240102,
+          "open": null,
+          "high": null,
+          "low": null,
+          "close": null,
+          "vol": null,
+          "amount": null,
+          "flag_limit_up": 0,
+          "flag_limit_down": 0.0,
+          "y_ret_1d": null,
+          "finite_features": 2,
+          "pred": 0.0171806215445787,
+          "price_context": "after_last_finite_close_in_train"
+        },
+        {
+          "ts_code": "000540.SZ",
+          "trade_date": 20240102,
+          "open": null,
+          "high": null,
+          "low": null,
+          "close": null,
+          "vol": null,
+          "amount": null,
+          "flag_limit_up": 0,
+          "flag_limit_down": 0.0,
+          "y_ret_1d": null,
+          "finite_features": 2,
+          "pred": 0.0171806215445787,
+          "price_context": "after_last_finite_close_in_train"
+        },
+        {
+          "ts_code": "002118.SZ",
+          "trade_date": 20240102,
+          "open": null,
+          "high": null,
+          "low": null,
+          "close": null,
+          "vol": null,
+          "amount": null,
+          "flag_limit_up": 0,
+          "flag_limit_down": 0.0,
+          "y_ret_1d": null,
+          "finite_features": 2,
+          "pred": 0.0171806215445787,
+          "price_context": "after_last_finite_close_in_train"
+        },
+        {
+          "ts_code": "001359.SZ",
+          "trade_date": 20240102,
+          "open": null,
+          "high": null,
+          "low": null,
+          "close": null,
+          "vol": null,
+          "amount": null,
+          "flag_limit_up": 0,
+          "flag_limit_down": 0.0,
+          "y_ret_1d": null,
+          "finite_features": 2,
+          "pred": 0.0171806215445787,
+          "price_context": "before_first_finite_close_in_train"
+        },
+        {
+          "ts_code": "001387.SZ",
+          "trade_date": 20240102,
+          "open": null,
+          "high": null,
+          "low": null,
+          "close": null,
+          "vol": null,
+          "amount": null,
+          "flag_limit_up": 0,
+          "flag_limit_down": 0.0,
+          "y_ret_1d": null,
+          "finite_features": 2,
+          "pred": 0.0171806215445787,
+          "price_context": "before_first_finite_close_in_train"
+        },
+        {
+          "ts_code": "600122.SH",
+          "trade_date": 20240102,
+          "open": null,
+          "high": null,
+          "low": null,
+          "close": null,
+          "vol": null,
+          "amount": null,
+          "flag_limit_up": 0,
+          "flag_limit_down": 0.0,
+          "y_ret_1d": null,
+          "finite_features": 2,
+          "pred": 0.0171806215445787,
+          "price_context": "after_last_finite_close_in_train"
+        }
+      ]
+    }
+  ]
+}
