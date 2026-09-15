@@ -43,3 +43,12 @@ Read `DECISIONS.md`, record the new decision, update the canonical YAML/spec, an
 - `../outputs/data_audit_summary.json` — machine-readable full audit.
 - `../outputs/data_manifest.json` — raw-file migration provenance and stable SHA-256.
 - `../README.md` — environment and audit commands.
+
+## Basic40 implementation outputs
+
+- `BASIC40_IMPLEMENTATION.md` — causal implementation, scope, storage and validation.
+- `../outputs/basic40_audit_report.md` — full feature distributions and manual-review examples.
+- `../outputs/basic40_audit_summary.json` — machine-readable feature audit.
+- `../outputs/basic40_manifest.json` — local feature/key artifacts and fingerprints.
+- `../outputs/basic40_test_results.txt` — pytest results for the Basic40 stage.
+- `../outputs/basic40_validation.md` — full-data checks and independent return-extreme rechecks.

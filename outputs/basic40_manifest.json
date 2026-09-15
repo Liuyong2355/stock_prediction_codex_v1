@@ -1,0 +1,82 @@
+{
+  "feature_set": "Basic40",
+  "feature_spec_version": "1.0.1",
+  "data_version": "sha256:6f27670167a0b305ebde0d303a272a0a3215def354c15cc316d287f1444540e2",
+  "feature_names": [
+    "ret_1",
+    "ret_2",
+    "ret_3",
+    "ret_5",
+    "ret_10",
+    "ret_20",
+    "ret_30",
+    "ret_60",
+    "kmid",
+    "klen",
+    "kmid2",
+    "kup",
+    "kup2",
+    "klow",
+    "klow2",
+    "ksft",
+    "ksft2",
+    "madev_3",
+    "madev_5",
+    "madev_10",
+    "madev_20",
+    "madev_30",
+    "madev_60",
+    "stdret_5",
+    "stdret_10",
+    "stdret_20",
+    "stdret_60",
+    "volratio_5",
+    "volratio_10",
+    "volratio_20",
+    "volratio_60",
+    "amtratio_5",
+    "amtratio_10",
+    "amtratio_20",
+    "amtratio_60",
+    "gap_open",
+    "gap_high",
+    "gap_low",
+    "flag_limit_up",
+    "flag_limit_down"
+  ],
+  "storage": "float64 Fortran-order NumPy matrix plus aligned structured NumPy keys; allow_pickle=False",
+  "datasets": {
+    "train": {
+      "rows": 7900350,
+      "columns": 40,
+      "files": {
+        "matrix": {
+          "path": "D:\\Virtual C_Drive\\金融建模\\stock_prediction_codex_v1\\outputs\\features\\basic40\\train_basic40.npy",
+          "sha256": "6f474836a7f58bfb6ba21b456f752fd6e4354e94a3345fdd1b88f88684f8691b",
+          "size_bytes": 2528112128
+        },
+        "keys": {
+          "path": "D:\\Virtual C_Drive\\金融建模\\stock_prediction_codex_v1\\outputs\\features\\basic40\\train_keys.npy",
+          "sha256": "d40a86fcaa8096efc14d5361c37e4df81e094fa390191ff914306e1094e21e85",
+          "size_bytes": 568825328
+        }
+      }
+    },
+    "test": {
+      "rows": 1599600,
+      "columns": 40,
+      "files": {
+        "matrix": {
+          "path": "D:\\Virtual C_Drive\\金融建模\\stock_prediction_codex_v1\\outputs\\features\\basic40\\test_basic40.npy",
+          "sha256": "e8d0ccc9eac95b7913b223f6c947b0e5b422dcb667814b718639ac371450cb24",
+          "size_bytes": 511872128
+        },
+        "keys": {
+          "path": "D:\\Virtual C_Drive\\金融建模\\stock_prediction_codex_v1\\outputs\\features\\basic40\\test_keys.npy",
+          "sha256": "b080285a89acbae0e7a3629d7b77b089fe0ad6edbf45cf205e9f2c1fffbdfcb8",
+          "size_bytes": 115171328
+        }
+      }
+    }
+  }
+}

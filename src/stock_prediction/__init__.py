@@ -1,1 +1,1 @@
-"""Data audit utilities; no feature or model implementation yet."""
+"""Raw-data audit and frozen Basic40 features; no model implementation."""

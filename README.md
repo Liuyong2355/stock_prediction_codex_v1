@@ -1,6 +1,6 @@
 # Stock prediction V1
 
-Read AGENTS.md and docs/index.md first. Current scope: initialization and full raw-data audit only.
+Read AGENTS.md and docs/index.md first. Current scope: raw-data audit and frozen Basic40 generation, with no model experiments.
 
 ## Windows / PowerShell
 
@@ -19,3 +19,14 @@ To reproduce the exact audited environment including transitive dependencies, in
 Raw files live in `data/raw/` and are excluded from Git. The audit reads every row, preserves all raw values, and writes `outputs/data_audit_report.md` and `outputs/data_audit_summary.json`. `outputs/data_manifest.json` records raw-file provenance. `outputs/environment-lock.txt` records the installed environment. No missing trading dates or values are filled.
 
 The reader uses chunks; only identifiers, close, label and missingness masks are retained for temporal checks. The observed union of dates is an empirical market calendar, not an externally verified exchange calendar. No labels are reconstructed for training.
+
+## Basic40 generation (user stage B1)
+
+```powershell
+$env:PYTHONPATH = 'src'
+.venv/Scripts/python.exe -m stock_prediction.build_basic40 --root .
+```
+
+This reads the accepted raw-data audit and verifies its data fingerprints. Complete stock histories span CSV chunks and the train/test boundary. Generated matrices and aligned keys are in `outputs/features/basic40/`; column order, shapes and SHA-256 values are in `outputs/basic40_manifest.json`. The builder refuses to overwrite completed artifacts. Generation uses only NumPy/pandas already installed, and no labels, fits, clipping or calendar filling.
+
+Read `docs/BASIC40_IMPLEMENTATION.md` for implementation details and loading instructions. Descriptive statistics and manual-check examples are in `outputs/basic40_audit_report.md` and `outputs/basic40_audit_summary.json`.

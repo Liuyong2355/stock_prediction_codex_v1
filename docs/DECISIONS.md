@@ -76,3 +76,8 @@ This file records frozen design decisions. Do not rewrite history; append new de
 ## D015 — Initialize audit-only engineering stage
 **Status:** Accepted, explicitly authorized by user on 2026-09-15.
 **Decision:** Initialize Git and Python src/tests/outputs structure; archive unchanged CSV bytes from data/ into data/raw/ with before/after SHA-256 provenance. Perform full read-only audit and minimal tests only. No E000-E007, model training, Full147 implementation, label replacement or automatic specification repair based on audit findings.
+
+## D016 — Implement Basic40 without changing frozen definitions
+**Status:** Accepted, explicitly authorized in the user's Basic40 B1 request.
+**Decision:** Implement only the frozen 40 features, causal train/test generation, tests and descriptive feature audit. Preserve V1.0.1 definitions and all rows/flags. The user's B1 name denotes the Basic40 implementation step, not authorization for the protocol's Full147 phase. No E000-E007, model training or tuning.
+**Implementation:** Store float64 NumPy matrices and aligned keys locally, track metadata/fingerprints and reports in Git, and stop after the reviewable commit. Basic40 has no EMA or cross-sectional feature; verify same-day stock independence without adding Full147 functionality.

@@ -1,0 +1,12 @@
+Command: .venv/Scripts/python.exe -m pytest -q
+Result: 66 passed in 2.21s
+Scope: full test suite (15 data-audit tests + 51 Basic40 test cases).
+
+Basic40 validation covers all 40 features against independent scalar/window
+calculations, first valid rows, complete rolling windows, NaN propagation,
+observed-row lag, absence of look-ahead or label dependence, cross-sectional
+independence and stock isolation, train/test warm-up, unchanged dual flags,
+zero-volume/flat-price behavior, inf handling, CSV chunk boundaries, exact
+persisted quantiles, and full small-file generation/reload alignment.
+
+No models, experiments or scores were run.
