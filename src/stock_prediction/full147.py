@@ -17,6 +17,9 @@ def paired_correlation(a, b, window):
     av = np.lib.stride_tricks.sliding_window_view(np.asarray(a, dtype=float), window)
     bv = np.lib.stride_tricks.sliding_window_view(np.asarray(b, dtype=float), window)
     valid = np.isfinite(av).all(axis=1) & np.isfinite(bv).all(axis=1)
+    # Equality of input values is exact; subtracting a rounded mean can create
+    # tiny nonzero residuals even for a constant decimal-valued window.
+    valid &= (np.max(av, axis=1) != np.min(av, axis=1)) & (np.max(bv, axis=1) != np.min(bv, axis=1))
     ac = av[valid] - av[valid].mean(axis=1, keepdims=True)
     bc = bv[valid] - bv[valid].mean(axis=1, keepdims=True)
     denom = np.sqrt((ac * ac).sum(axis=1) * (bc * bc).sum(axis=1))
@@ -36,11 +39,13 @@ def ols_trend(close, window):
         xx = np.dot(x, x)
         xy = yc @ x
         yy = (yc * yc).sum(axis=1)
+        constant = np.max(y, axis=1) == np.min(y, axis=1)
         pos = np.flatnonzero(valid) + window - 1
         slope[pos] = xy / xx / (y[:, -1] + EPSILON)
+        slope[pos[constant]] = 0.
         with np.errstate(divide="ignore", invalid="ignore"):
             rsq[pos] = xy * xy / (xx * yy)
-        rsq[pos[yy == 0]] = np.nan
+        rsq[pos[constant | (yy == 0)]] = np.nan
     return finite(pd.Series(slope, index=close.index)), finite(pd.Series(rsq, index=close.index))
 
 

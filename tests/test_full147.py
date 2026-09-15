@@ -154,6 +154,18 @@ def test_complete_pairs_zero_variance_and_invalid_inputs():
     assert not np.isinf(out[NAMES].to_numpy()).any()
 
 
+@pytest.mark.parametrize('value',[.1,2.3,100.123456789])
+@pytest.mark.parametrize('window',[5,10,20,60])
+def test_decimal_constant_windows_have_exact_zero_variance(value,window):
+    constant=pd.Series([value]*(window+2))
+    varying=pd.Series(np.linspace(1,2,window+2))
+    assert paired_correlation(constant,varying,window).isna().all()
+    assert paired_correlation(varying,constant,window).isna().all()
+    slope,rsq=ols_trend(constant,window)
+    assert rsq.isna().all()
+    assert (slope.iloc[window-1:]==0).all()
+
+
 def test_streaming_builder_matches_panel_and_preserves_test_history(tmp_path, monkeypatch):
     import json
     import shutil
