@@ -1,0 +1,8 @@
+# Remaining Phase A dependencies. Install only when implementing baseline models.
+-r requirements.txt
+scipy==1.17.0
+scikit-learn==1.8.0
+lightgbm==4.6.0
+joblib==1.6.0
+threadpoolctl==3.6.0
+cloudpickle==3.1.2

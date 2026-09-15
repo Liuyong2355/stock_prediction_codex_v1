@@ -1,0 +1,38 @@
+schema_version: '1.0'
+protocol_version: '1.0.1'
+label_horizon_trading_days: 1
+split_type: expanding_window
+purge_rule:
+  purge_trading_days: 1
+  implementation: After selecting candidate training dates, remove the last 1 distinct trade_date from training before fitting.
+  reason: y_ret_1d at date t uses close at t+1; purge prevents a training label from consuming a validation-period close.
+feature_computation_rule:
+  mode: compute causally on the full chronological raw panel, then slice folds
+  validation_warmup: validation features may use pre-validation historical observations because they were observable at prediction
+    time
+  future_information: prohibited
+folds:
+- id: F1
+  train_start: '2018-01-02'
+  train_end: '2021-12-31'
+  valid_start: '2022-01-01'
+  valid_end: '2022-12-31'
+- id: F2
+  train_start: '2018-01-02'
+  train_end: '2022-12-31'
+  valid_start: '2023-01-01'
+  valid_end: '2023-12-31'
+- id: F3
+  train_start: '2018-01-02'
+  train_end: '2023-12-31'
+  valid_start: '2024-01-01'
+  valid_end: '2024-12-31'
+official_test_period:
+  start: '2025-01-02'
+  end: '2026-06-08'
+
+raw_panel_policy:
+  lag_unit: per-stock ascending observed row
+  calendar_reindex: prohibited
+  forward_fill: prohibited
+  backfill: prohibited

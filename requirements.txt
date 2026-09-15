@@ -1,0 +1,5 @@
+# Audit and tests; Python 3.14 on Windows validated in this repository.
+numpy==2.3.5
+pandas==2.3.3
+PyYAML==6.0.3
+pytest==9.0.2

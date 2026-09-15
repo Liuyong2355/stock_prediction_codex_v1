@@ -1,0 +1,168 @@
+schema_version: '1.0'
+experiment_protocol_version: '1.0.1'
+seed: 42
+evaluator_status: provisional
+rank_ic_std_ddof: 0
+primary_selection_metric: final_score
+required_report_metrics:
+- rank_ic_mean
+- rank_ic_std
+- icir
+- ic_positive_ratio
+- annualized_top_excess_return
+- mean_turnover
+- final_score
+- top1_annualized_absolute_return
+- top1_bottom1_annualized_spread
+targets:
+  raw:
+    formula: y_ret_1d
+    training_only: true
+  rank:
+    formula: rank_pct(y_ret_1d within trade_date, method='average') - 0.5
+    training_only: true
+    notes: Compute only among rows with finite y_ret_1d on that date.
+  relative:
+    formula: y_ret_1d - median(y_ret_1d within trade_date)
+    training_only: true
+  rank_decile:
+    formula: min(floor(rank_pct(y_ret_1d within trade_date, method='average') * 10), 9)
+    training_only: true
+    notes: Finite daily labels only; equal y_ret_1d always has equal relevance.
+model_catalog:
+  ridge_v1:
+    library: sklearn.linear_model.Ridge
+    params:
+      alpha: 10.0
+    all_nan_training_feature_policy: Drop that feature for this fold and record dropped names in the log.
+    preprocessing: Median-impute and StandardScaler; fit imputer/scaler on training data only.
+  lightgbm_reg_v1:
+    library: lightgbm.LGBMRegressor
+    params:
+      objective: regression
+      n_estimators: 800
+      learning_rate: 0.03
+      num_leaves: 63
+      max_depth: -1
+      min_child_samples: 1000
+      subsample: 0.8
+      subsample_freq: 1
+      colsample_bytree: 0.8
+      reg_alpha: 0.0
+      reg_lambda: 1.0
+      random_state: 42
+      n_jobs: -1
+      verbosity: -1
+    notes: Frozen baseline parameters; not claimed optimal. Do not tune before baseline pipeline passes tests.
+  xgboost_reg_v1:
+    library: xgboost.XGBRegressor
+    params:
+      objective: reg:squarederror
+      n_estimators: 800
+      learning_rate: 0.03
+      max_depth: 8
+      min_child_weight: 100
+      subsample: 0.8
+      colsample_bytree: 0.8
+      reg_alpha: 0.0
+      reg_lambda: 1.0
+      tree_method: hist
+      random_state: 42
+      n_jobs: -1
+    notes: Frozen baseline parameters; not claimed optimal.
+  lightgbm_ranker_v1:
+    library: lightgbm.LGBMRanker
+    params:
+      objective: lambdarank
+      n_estimators: 800
+      learning_rate: 0.03
+      num_leaves: 63
+      max_depth: -1
+      min_child_samples: 1000
+      subsample: 0.8
+      subsample_freq: 1
+      colsample_bytree: 0.8
+      reg_lambda: 1.0
+      random_state: 42
+      n_jobs: -1
+      verbosity: -1
+    grouping: sort by trade_date; one ranking group per trade_date
+    label: rank_decile
+experiments:
+- id: E000
+  feature_set: ret_1_only
+  model: identity
+  target: raw
+  prediction: pred = ret_1
+  purpose: metric and pipeline smoke test
+- id: E001
+  feature_set: Basic40
+  model: ridge_v1
+  target: raw
+  purpose: linear baseline
+- id: E002
+  feature_set: Basic40
+  model: lightgbm_reg_v1
+  target: raw
+  purpose: primary baseline
+- id: E003
+  feature_set: Full147
+  model: lightgbm_reg_v1
+  target: raw
+  purpose: test expanded feature value
+- id: E004
+  feature_set: Full147
+  model: lightgbm_reg_v1
+  target: rank
+  purpose: test rank target
+- id: E005
+  feature_set: Full147
+  model: lightgbm_reg_v1
+  target: relative
+  purpose: test market-relative target
+- id: E006
+  feature_set: Full147
+  model: xgboost_reg_v1
+  target: rank
+  purpose: second GBDT family for comparison/future ensemble
+- id: E007
+  feature_set: Full147
+  model: lightgbm_ranker_v1
+  target: rank_decile
+  purpose: learning-to-rank experiment
+experiment_log:
+  path: outputs/experiment_log.csv
+  required_columns:
+  - run_id
+  - experiment_id
+  - timestamp
+  - git_commit
+  - data_version
+  - feature_spec_version
+  - protocol_version
+  - feature_set
+  - n_features
+  - target
+  - model
+  - params_json
+  - seed
+  - fold_id
+  - train_start
+  - train_end
+  - valid_start
+  - valid_end
+  - train_rows
+  - valid_rows
+  - rank_ic_mean
+  - rank_ic_std
+  - icir
+  - ic_positive_ratio
+  - annualized_top_excess_return
+  - mean_turnover
+  - final_score
+  - top1_annualized_absolute_return
+  - top1_bottom1_annualized_spread
+  - train_time_sec
+  - peak_memory_gb
+  - notes
+  - dropped_all_nan_features_json

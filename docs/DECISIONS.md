@@ -1,0 +1,78 @@
+# Research Decisions
+
+This file records frozen design decisions. Do not rewrite history; append new decisions when the plan changes.
+
+## D001 — Use an agent-first repository contract
+**Status:** Accepted  
+**Decision:** `AGENTS.md` is the entry point; detailed rules live in versioned Markdown and YAML.  
+**Reason:** Codex should receive a compact map plus machine-readable implementation contracts, not a monolithic document.
+
+## D002 — Organizer evaluator has highest metric precedence
+**Status:** Accepted  
+**Decision:** The organizer-provided `evaluate.py`, once obtained, is the source of truth for metric implementation details.  
+**Reason:** The PDF does not fully specify ties, group sizes and several edge cases.
+
+## D003 — Use time-based expanding-window validation
+**Status:** Accepted  
+**Decision:** V1 uses F1=2022, F2=2023, F3=2024 validation with expanding historical training. Random split is prohibited for official research runs.  
+**Reason:** The held-out competition period is later in time, so validation must emulate forward prediction.
+
+## D004 — Purge one final training trading date
+**Status:** Accepted  
+**Decision:** Remove the final distinct training date before each fold fit.  
+**Reason:** `y_ret_1d(t)` consumes `close(t+1)` and would otherwise cross the train/validation boundary.
+
+## D005 — `ts_code` is not a V1 model feature
+**Status:** Accepted  
+**Decision:** Keep `ts_code` as an identifier/grouping key only.  
+**Reason:** V1 prioritizes transferable state signals and avoids identity memorization. Revisit only through a controlled later experiment.
+
+## D006 — Raw absolute OHLC values are not V1 model features
+**Status:** Accepted  
+**Decision:** Use relative/normalized transformations instead of raw price levels.  
+**Reason:** Absolute price level is not naturally comparable across stocks and time; V1 focuses on scale-free signals.
+
+## D007 — Implement Basic40 before Full147
+**Status:** Accepted  
+**Decision:** Baseline correctness must be established on Basic40 and E000-E002 before Full147 is implemented.  
+**Reason:** This isolates pipeline bugs from feature-complexity bugs.
+
+## D008 — Full147 combines time-series and same-day cross-sectional state
+**Status:** Accepted  
+**Decision:** Same-day market aggregates, relative features and percentile ranks are allowed.  
+**Reason:** At end of date t, all date-t source fields are observable while the target is t+1 return.
+
+## D009 — Compare raw, rank and market-relative training targets
+**Status:** Accepted  
+**Decision:** V1 includes separate target experiments instead of assuming raw-return regression is optimal.  
+**Reason:** The official evaluation is heavily rank-oriented while Top1 excess return also depends on tail selection.
+
+## D010 — Final score, not RMSE, governs research decisions
+**Status:** Accepted  
+**Decision:** Out-of-time official score and stability across folds are primary.  
+**Reason:** The organizer score explicitly combines Rank IC, Top excess return and turnover.
+
+## D011 — Feature-family evidence requires ablation and cross-fold stability
+**Status:** Accepted  
+**Decision:** LightGBM feature importance alone cannot justify keeping or removing a family.  
+**Reason:** Financial predictors are correlated and unstable; out-of-time contribution is the relevant evidence.
+
+## D012 — No hyperparameter search before pipeline acceptance
+**Status:** Accepted  
+**Decision:** E000-E002 use frozen baseline settings.  
+**Reason:** Tuning an unverified pipeline can optimize bugs or leakage.
+
+## D013 — Freeze observed-row and finite-value semantics
+**Status:** Accepted, explicitly authorized by user on 2026-09-15.
+**Version:** Feature/protocol V1.0.1; YAML structural schema remains 1.0.
+**Decision:** Per-stock lag/rolling count ascending observed rows. Ordinary rolling requires the full window of finite values; correlation requires w finite pairs; EMA min_periods=window. Cross-sectional statistics use finite same-date values only; breadth denominator counts finite ret_1. Zero-variance dependent-variable windows yield NaN OLS R-squared. Calendar row insertion, forward fill and backfill are prohibited.
+**Reason:** Resolve implementation ambiguity without inferring missing-day semantics or modifying raw observations.
+
+## D014 — Freeze evaluation and training edge cases
+**Status:** Accepted, explicitly authorized by user on 2026-09-15.
+**Decision:** IC standard deviation uses ddof=0. E007 uses average percentile rank among finite daily labels and min(floor(rank_pct*10),9); tied labels share relevance. Ridge drops all-NaN supervised-training columns per fold and logs names; median/scaler fit only training data. Every internal evaluator remains provisional while official evaluate.py is missing.
+**Reason:** Deterministic implementations; no silent changes to frozen folds, feature membership, baseline parameters or experiment order.
+
+## D015 — Initialize audit-only engineering stage
+**Status:** Accepted, explicitly authorized by user on 2026-09-15.
+**Decision:** Initialize Git and Python src/tests/outputs structure; archive unchanged CSV bytes from data/ into data/raw/ with before/after SHA-256 provenance. Perform full read-only audit and minimal tests only. No E000-E007, model training, Full147 implementation, label replacement or automatic specification repair based on audit findings.

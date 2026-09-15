@@ -1,0 +1,2066 @@
+schema_version: '1.0'
+feature_spec_version: '1.0.1'
+global_conventions:
+  key_columns:
+  - ts_code
+  - trade_date
+  raw_source_columns:
+  - open
+  - high
+  - low
+  - close
+  - vol
+  - amount
+  - flag_limit_up
+  - flag_limit_down
+  target_column: y_ret_1d
+  epsilon: 1.0e-12
+  rolling_order: ascending trade_date within each ts_code
+  lag_unit: observed rows within ts_code, never filled market-calendar rows
+  rolling_min_periods: window
+  rolling_finite_requirement: exactly window finite values in the trailing window
+  rolling_correlation_finite_requirement: exactly window paired finite values
+  ema_min_periods: window
+  cross_section_finite_only: true
+  market_breadth_up_denominator: count of finite ret_1 on the same trade_date
+  ols_r_squared_zero_variance: NaN
+  missing_date_reindex_allowed: false
+  forward_fill_allowed: false
+  backfill_allowed: false
+  rolling_windows_include_current_day: true
+  std_ddof: 0
+  cross_section: same trade_date only
+  future_data_allowed: false
+  inf_policy: replace +inf/-inf with NaN
+  raw_ts_code_as_model_feature: false
+  raw_absolute_ohlc_as_model_features: false
+feature_sets:
+  Basic40:
+  - ret_1
+  - ret_2
+  - ret_3
+  - ret_5
+  - ret_10
+  - ret_20
+  - ret_30
+  - ret_60
+  - kmid
+  - klen
+  - kmid2
+  - kup
+  - kup2
+  - klow
+  - klow2
+  - ksft
+  - ksft2
+  - madev_3
+  - madev_5
+  - madev_10
+  - madev_20
+  - madev_30
+  - madev_60
+  - stdret_5
+  - stdret_10
+  - stdret_20
+  - stdret_60
+  - volratio_5
+  - volratio_10
+  - volratio_20
+  - volratio_60
+  - amtratio_5
+  - amtratio_10
+  - amtratio_20
+  - amtratio_60
+  - gap_open
+  - gap_high
+  - gap_low
+  - flag_limit_up
+  - flag_limit_down
+  Full147:
+  - ret_1
+  - ret_2
+  - ret_3
+  - ret_5
+  - ret_10
+  - ret_20
+  - ret_30
+  - ret_60
+  - ret_5_minus_20
+  - ret_20_minus_60
+  - kmid
+  - klen
+  - kmid2
+  - kup
+  - kup2
+  - klow
+  - klow2
+  - ksft
+  - ksft2
+  - gap_open
+  - gap_high
+  - gap_low
+  - madev_3
+  - madev_5
+  - madev_10
+  - madev_20
+  - madev_30
+  - madev_60
+  - emadev_5
+  - emadev_10
+  - emadev_20
+  - emadev_60
+  - ma_5_over_20
+  - ma_10_over_20
+  - ma_20_over_60
+  - slope_5
+  - slope_10
+  - slope_20
+  - slope_60
+  - rsq_5
+  - rsq_10
+  - rsq_20
+  - rsq_60
+  - distmax_5
+  - distmax_20
+  - distmax_60
+  - distmin_5
+  - distmin_20
+  - distmin_60
+  - rsv_5
+  - rsv_10
+  - rsv_20
+  - rsv_60
+  - stdret_5
+  - stdret_10
+  - stdret_20
+  - stdret_60
+  - downvol_5
+  - downvol_10
+  - downvol_20
+  - downvol_60
+  - parkinson_5
+  - parkinson_10
+  - parkinson_20
+  - parkinson_60
+  - gkvol_5
+  - gkvol_10
+  - gkvol_20
+  - gkvol_60
+  - atr_5
+  - atr_10
+  - atr_20
+  - atr_60
+  - volratio_3
+  - volratio_5
+  - volratio_10
+  - volratio_20
+  - volratio_60
+  - amtratio_3
+  - amtratio_5
+  - amtratio_10
+  - amtratio_20
+  - amtratio_60
+  - volchg_1
+  - volchg_5
+  - volchg_20
+  - amtchg_1
+  - amtchg_5
+  - amtchg_20
+  - logvol_std_5
+  - logvol_std_20
+  - logvol_std_60
+  - logamt_std_5
+  - logamt_std_20
+  - logamt_std_60
+  - corr_ret_dlogvol_5
+  - corr_ret_dlogvol_20
+  - corr_ret_dlogamt_5
+  - corr_ret_dlogamt_20
+  - illiq_1
+  - illiq_5
+  - illiq_20
+  - illiq_60
+  - flag_limit_up
+  - flag_limit_down
+  - limit_up_count_5
+  - limit_up_count_20
+  - limit_up_count_60
+  - limit_down_count_5
+  - limit_down_count_20
+  - limit_down_count_60
+  - days_since_limit_up
+  - days_since_limit_down
+  - market_mean_ret_1
+  - market_median_ret_1
+  - market_median_ret_5
+  - market_median_ret_20
+  - market_breadth_up
+  - market_dispersion_ret_1
+  - market_dispersion_ret_5
+  - market_limit_up_ratio
+  - market_limit_down_ratio
+  - market_amount_ratio_20
+  - relret_1
+  - relret_5
+  - relret_20
+  - relret_60
+  - relstd_20
+  - relvolratio_20
+  - relamtratio_20
+  - relilliq_20
+  - csr_ret_1
+  - csr_ret_3
+  - csr_ret_5
+  - csr_ret_10
+  - csr_ret_20
+  - csr_ret_60
+  - csr_madev_5
+  - csr_madev_20
+  - csr_stdret_5
+  - csr_stdret_20
+  - csr_volratio_5
+  - csr_volratio_20
+  - csr_amtratio_5
+  - csr_amtratio_20
+  - csr_illiq_20
+  - csr_rsv_20
+features:
+- name: ret_1
+  category: return
+  description: 1-trading-day close-to-close return.
+  formula: close_t / lag(close,1) - 1
+  inputs:
+  - close
+  window: 1
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: ret_2
+  category: return
+  description: 2-trading-day close-to-close return.
+  formula: close_t / lag(close,2) - 1
+  inputs:
+  - close
+  window: 2
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: ret_3
+  category: return
+  description: 3-trading-day close-to-close return.
+  formula: close_t / lag(close,3) - 1
+  inputs:
+  - close
+  window: 3
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: ret_5
+  category: return
+  description: 5-trading-day close-to-close return.
+  formula: close_t / lag(close,5) - 1
+  inputs:
+  - close
+  window: 5
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: ret_10
+  category: return
+  description: 10-trading-day close-to-close return.
+  formula: close_t / lag(close,10) - 1
+  inputs:
+  - close
+  window: 10
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: ret_20
+  category: return
+  description: 20-trading-day close-to-close return.
+  formula: close_t / lag(close,20) - 1
+  inputs:
+  - close
+  window: 20
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: ret_30
+  category: return
+  description: 30-trading-day close-to-close return.
+  formula: close_t / lag(close,30) - 1
+  inputs:
+  - close
+  window: 30
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: ret_60
+  category: return
+  description: 60-trading-day close-to-close return.
+  formula: close_t / lag(close,60) - 1
+  inputs:
+  - close
+  window: 60
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: ret_5_minus_20
+  category: return
+  description: Short-vs-medium return spread.
+  formula: ret_5 - ret_20
+  inputs: []
+  window: null
+  groupby: ts_code
+  depends_on:
+  - ret_5
+  - ret_20
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: ret_20_minus_60
+  category: return
+  description: Medium-vs-long return spread.
+  formula: ret_20 - ret_60
+  inputs: []
+  window: null
+  groupby: ts_code
+  depends_on:
+  - ret_20
+  - ret_60
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: kmid
+  category: kbar
+  description: Signed open-to-close body scaled by open.
+  formula: (close-open)/(open+1e-12)
+  inputs:
+  - open
+  - high
+  - low
+  - close
+  window: 1
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: klen
+  category: kbar
+  description: Daily high-low range scaled by open.
+  formula: (high-low)/(open+1e-12)
+  inputs:
+  - open
+  - high
+  - low
+  - close
+  window: 1
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: kmid2
+  category: kbar
+  description: Signed candle body scaled by total range.
+  formula: (close-open)/(high-low+1e-12)
+  inputs:
+  - open
+  - high
+  - low
+  - close
+  window: 1
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: kup
+  category: kbar
+  description: Upper shadow scaled by open.
+  formula: (high-max(open,close))/(open+1e-12)
+  inputs:
+  - open
+  - high
+  - low
+  - close
+  window: 1
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: kup2
+  category: kbar
+  description: Upper shadow as fraction of daily range.
+  formula: (high-max(open,close))/(high-low+1e-12)
+  inputs:
+  - open
+  - high
+  - low
+  - close
+  window: 1
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: klow
+  category: kbar
+  description: Lower shadow scaled by open.
+  formula: (min(open,close)-low)/(open+1e-12)
+  inputs:
+  - open
+  - high
+  - low
+  - close
+  window: 1
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: klow2
+  category: kbar
+  description: Lower shadow as fraction of daily range.
+  formula: (min(open,close)-low)/(high-low+1e-12)
+  inputs:
+  - open
+  - high
+  - low
+  - close
+  window: 1
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: ksft
+  category: kbar
+  description: Close location shift scaled by open.
+  formula: (2*close-high-low)/(open+1e-12)
+  inputs:
+  - open
+  - high
+  - low
+  - close
+  window: 1
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: ksft2
+  category: kbar
+  description: Close location shift scaled by daily range.
+  formula: (2*close-high-low)/(high-low+1e-12)
+  inputs:
+  - open
+  - high
+  - low
+  - close
+  window: 1
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: gap_open
+  category: kbar
+  description: open relative to previous close.
+  formula: open_t / lag(close,1) - 1
+  inputs:
+  - open
+  - close
+  window: 1
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: gap_high
+  category: kbar
+  description: high relative to previous close.
+  formula: high_t / lag(close,1) - 1
+  inputs:
+  - high
+  - close
+  window: 1
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: gap_low
+  category: kbar
+  description: low relative to previous close.
+  formula: low_t / lag(close,1) - 1
+  inputs:
+  - low
+  - close
+  window: 1
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: madev_3
+  category: trend
+  description: Close deviation from 3-day simple moving average.
+  formula: close_t / rolling_mean(close,3) - 1
+  inputs:
+  - close
+  window: 3
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: madev_5
+  category: trend
+  description: Close deviation from 5-day simple moving average.
+  formula: close_t / rolling_mean(close,5) - 1
+  inputs:
+  - close
+  window: 5
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: madev_10
+  category: trend
+  description: Close deviation from 10-day simple moving average.
+  formula: close_t / rolling_mean(close,10) - 1
+  inputs:
+  - close
+  window: 10
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: madev_20
+  category: trend
+  description: Close deviation from 20-day simple moving average.
+  formula: close_t / rolling_mean(close,20) - 1
+  inputs:
+  - close
+  window: 20
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: madev_30
+  category: trend
+  description: Close deviation from 30-day simple moving average.
+  formula: close_t / rolling_mean(close,30) - 1
+  inputs:
+  - close
+  window: 30
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: madev_60
+  category: trend
+  description: Close deviation from 60-day simple moving average.
+  formula: close_t / rolling_mean(close,60) - 1
+  inputs:
+  - close
+  window: 60
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: emadev_5
+  category: trend
+  description: Close deviation from 5-day EMA.
+  formula: close_t / ema(close,span=5,adjust=False,min_periods=5) - 1
+  inputs:
+  - close
+  window: 5
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: EMA must be computed causally within ts_code.
+- name: emadev_10
+  category: trend
+  description: Close deviation from 10-day EMA.
+  formula: close_t / ema(close,span=10,adjust=False,min_periods=10) - 1
+  inputs:
+  - close
+  window: 10
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: EMA must be computed causally within ts_code.
+- name: emadev_20
+  category: trend
+  description: Close deviation from 20-day EMA.
+  formula: close_t / ema(close,span=20,adjust=False,min_periods=20) - 1
+  inputs:
+  - close
+  window: 20
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: EMA must be computed causally within ts_code.
+- name: emadev_60
+  category: trend
+  description: Close deviation from 60-day EMA.
+  formula: close_t / ema(close,span=60,adjust=False,min_periods=60) - 1
+  inputs:
+  - close
+  window: 60
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: EMA must be computed causally within ts_code.
+- name: ma_5_over_20
+  category: trend
+  description: Short/long SMA ratio (5/20).
+  formula: rolling_mean(close,5) / rolling_mean(close,20) - 1
+  inputs:
+  - close
+  window: 20
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: ma_10_over_20
+  category: trend
+  description: Short/long SMA ratio (10/20).
+  formula: rolling_mean(close,10) / rolling_mean(close,20) - 1
+  inputs:
+  - close
+  window: 20
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: ma_20_over_60
+  category: trend
+  description: Short/long SMA ratio (20/60).
+  formula: rolling_mean(close,20) / rolling_mean(close,60) - 1
+  inputs:
+  - close
+  window: 60
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: slope_5
+  category: trend
+  description: Normalized OLS slope of close over the last 5 trading days.
+  formula: ols_slope(close over chronological x=0..4) / (close_t + 1e-12)
+  inputs:
+  - close
+  window: 5
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: Use exactly w observations; chronological x increases toward t.
+- name: slope_10
+  category: trend
+  description: Normalized OLS slope of close over the last 10 trading days.
+  formula: ols_slope(close over chronological x=0..9) / (close_t + 1e-12)
+  inputs:
+  - close
+  window: 10
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: Use exactly w observations; chronological x increases toward t.
+- name: slope_20
+  category: trend
+  description: Normalized OLS slope of close over the last 20 trading days.
+  formula: ols_slope(close over chronological x=0..19) / (close_t + 1e-12)
+  inputs:
+  - close
+  window: 20
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: Use exactly w observations; chronological x increases toward t.
+- name: slope_60
+  category: trend
+  description: Normalized OLS slope of close over the last 60 trading days.
+  formula: ols_slope(close over chronological x=0..59) / (close_t + 1e-12)
+  inputs:
+  - close
+  window: 60
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: Use exactly w observations; chronological x increases toward t.
+- name: rsq_5
+  category: trend
+  description: OLS R-squared of close trend over the last 5 trading days.
+  formula: ols_r_squared(close over chronological x=0..4)
+  inputs:
+  - close
+  window: 5
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: rsq_10
+  category: trend
+  description: OLS R-squared of close trend over the last 10 trading days.
+  formula: ols_r_squared(close over chronological x=0..9)
+  inputs:
+  - close
+  window: 10
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: rsq_20
+  category: trend
+  description: OLS R-squared of close trend over the last 20 trading days.
+  formula: ols_r_squared(close over chronological x=0..19)
+  inputs:
+  - close
+  window: 20
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: rsq_60
+  category: trend
+  description: OLS R-squared of close trend over the last 60 trading days.
+  formula: ols_r_squared(close over chronological x=0..59)
+  inputs:
+  - close
+  window: 60
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: distmax_5
+  category: trend
+  description: Current close relative to rolling 5-day high.
+  formula: close_t / rolling_max(high,5) - 1
+  inputs:
+  - close
+  - high
+  window: 5
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: distmax_20
+  category: trend
+  description: Current close relative to rolling 20-day high.
+  formula: close_t / rolling_max(high,20) - 1
+  inputs:
+  - close
+  - high
+  window: 20
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: distmax_60
+  category: trend
+  description: Current close relative to rolling 60-day high.
+  formula: close_t / rolling_max(high,60) - 1
+  inputs:
+  - close
+  - high
+  window: 60
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: distmin_5
+  category: trend
+  description: Current close relative to rolling 5-day low.
+  formula: close_t / rolling_min(low,5) - 1
+  inputs:
+  - close
+  - low
+  window: 5
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: distmin_20
+  category: trend
+  description: Current close relative to rolling 20-day low.
+  formula: close_t / rolling_min(low,20) - 1
+  inputs:
+  - close
+  - low
+  window: 20
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: distmin_60
+  category: trend
+  description: Current close relative to rolling 60-day low.
+  formula: close_t / rolling_min(low,60) - 1
+  inputs:
+  - close
+  - low
+  window: 60
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: rsv_5
+  category: trend
+  description: Close position within rolling 5-day high-low range.
+  formula: (close_t - rolling_min(low,5)) / (rolling_max(high,5) - rolling_min(low,5) + 1e-12)
+  inputs:
+  - close
+  - high
+  - low
+  window: 5
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: rsv_10
+  category: trend
+  description: Close position within rolling 10-day high-low range.
+  formula: (close_t - rolling_min(low,10)) / (rolling_max(high,10) - rolling_min(low,10) + 1e-12)
+  inputs:
+  - close
+  - high
+  - low
+  window: 10
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: rsv_20
+  category: trend
+  description: Close position within rolling 20-day high-low range.
+  formula: (close_t - rolling_min(low,20)) / (rolling_max(high,20) - rolling_min(low,20) + 1e-12)
+  inputs:
+  - close
+  - high
+  - low
+  window: 20
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: rsv_60
+  category: trend
+  description: Close position within rolling 60-day high-low range.
+  formula: (close_t - rolling_min(low,60)) / (rolling_max(high,60) - rolling_min(low,60) + 1e-12)
+  inputs:
+  - close
+  - high
+  - low
+  window: 60
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: stdret_5
+  category: volatility
+  description: Population standard deviation of 1-day returns over 5 days.
+  formula: rolling_std(ret_1,5,ddof=0)
+  inputs: []
+  window: 5
+  groupby: ts_code
+  depends_on:
+  - ret_1
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: stdret_10
+  category: volatility
+  description: Population standard deviation of 1-day returns over 10 days.
+  formula: rolling_std(ret_1,10,ddof=0)
+  inputs: []
+  window: 10
+  groupby: ts_code
+  depends_on:
+  - ret_1
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: stdret_20
+  category: volatility
+  description: Population standard deviation of 1-day returns over 20 days.
+  formula: rolling_std(ret_1,20,ddof=0)
+  inputs: []
+  window: 20
+  groupby: ts_code
+  depends_on:
+  - ret_1
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: stdret_60
+  category: volatility
+  description: Population standard deviation of 1-day returns over 60 days.
+  formula: rolling_std(ret_1,60,ddof=0)
+  inputs: []
+  window: 60
+  groupby: ts_code
+  depends_on:
+  - ret_1
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: downvol_5
+  category: volatility
+  description: Downside RMS return over 5 days.
+  formula: sqrt(rolling_mean(min(ret_1,0)^2,5))
+  inputs: []
+  window: 5
+  groupby: ts_code
+  depends_on:
+  - ret_1
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: downvol_10
+  category: volatility
+  description: Downside RMS return over 10 days.
+  formula: sqrt(rolling_mean(min(ret_1,0)^2,10))
+  inputs: []
+  window: 10
+  groupby: ts_code
+  depends_on:
+  - ret_1
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: downvol_20
+  category: volatility
+  description: Downside RMS return over 20 days.
+  formula: sqrt(rolling_mean(min(ret_1,0)^2,20))
+  inputs: []
+  window: 20
+  groupby: ts_code
+  depends_on:
+  - ret_1
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: downvol_60
+  category: volatility
+  description: Downside RMS return over 60 days.
+  formula: sqrt(rolling_mean(min(ret_1,0)^2,60))
+  inputs: []
+  window: 60
+  groupby: ts_code
+  depends_on:
+  - ret_1
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: parkinson_5
+  category: volatility
+  description: Parkinson high-low volatility over 5 days.
+  formula: sqrt(rolling_mean(log(high/low)^2,5) / (4*ln(2)))
+  inputs:
+  - high
+  - low
+  window: 5
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: If high<=0 or low<=0, set daily term NaN.
+- name: parkinson_10
+  category: volatility
+  description: Parkinson high-low volatility over 10 days.
+  formula: sqrt(rolling_mean(log(high/low)^2,10) / (4*ln(2)))
+  inputs:
+  - high
+  - low
+  window: 10
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: If high<=0 or low<=0, set daily term NaN.
+- name: parkinson_20
+  category: volatility
+  description: Parkinson high-low volatility over 20 days.
+  formula: sqrt(rolling_mean(log(high/low)^2,20) / (4*ln(2)))
+  inputs:
+  - high
+  - low
+  window: 20
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: If high<=0 or low<=0, set daily term NaN.
+- name: parkinson_60
+  category: volatility
+  description: Parkinson high-low volatility over 60 days.
+  formula: sqrt(rolling_mean(log(high/low)^2,60) / (4*ln(2)))
+  inputs:
+  - high
+  - low
+  window: 60
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: If high<=0 or low<=0, set daily term NaN.
+- name: gkvol_5
+  category: volatility
+  description: Garman-Klass OHLC volatility over 5 days.
+  formula: sqrt(max(rolling_mean(0.5*log(high/low)^2 - (2*ln(2)-1)*log(close/open)^2,5),0))
+  inputs:
+  - open
+  - high
+  - low
+  - close
+  window: 5
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: Clamp rolling variance estimate at zero before sqrt; invalid non-positive prices -> NaN.
+- name: gkvol_10
+  category: volatility
+  description: Garman-Klass OHLC volatility over 10 days.
+  formula: sqrt(max(rolling_mean(0.5*log(high/low)^2 - (2*ln(2)-1)*log(close/open)^2,10),0))
+  inputs:
+  - open
+  - high
+  - low
+  - close
+  window: 10
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: Clamp rolling variance estimate at zero before sqrt; invalid non-positive prices -> NaN.
+- name: gkvol_20
+  category: volatility
+  description: Garman-Klass OHLC volatility over 20 days.
+  formula: sqrt(max(rolling_mean(0.5*log(high/low)^2 - (2*ln(2)-1)*log(close/open)^2,20),0))
+  inputs:
+  - open
+  - high
+  - low
+  - close
+  window: 20
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: Clamp rolling variance estimate at zero before sqrt; invalid non-positive prices -> NaN.
+- name: gkvol_60
+  category: volatility
+  description: Garman-Klass OHLC volatility over 60 days.
+  formula: sqrt(max(rolling_mean(0.5*log(high/low)^2 - (2*ln(2)-1)*log(close/open)^2,60),0))
+  inputs:
+  - open
+  - high
+  - low
+  - close
+  window: 60
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: Clamp rolling variance estimate at zero before sqrt; invalid non-positive prices -> NaN.
+- name: atr_5
+  category: volatility
+  description: Average true range over 5 days normalized by current close.
+  formula: rolling_mean(max(high-low, abs(high-lag(close,1)), abs(low-lag(close,1))),5) / (close_t + 1e-12)
+  inputs:
+  - high
+  - low
+  - close
+  window: 5
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: atr_10
+  category: volatility
+  description: Average true range over 10 days normalized by current close.
+  formula: rolling_mean(max(high-low, abs(high-lag(close,1)), abs(low-lag(close,1))),10) / (close_t + 1e-12)
+  inputs:
+  - high
+  - low
+  - close
+  window: 10
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: atr_20
+  category: volatility
+  description: Average true range over 20 days normalized by current close.
+  formula: rolling_mean(max(high-low, abs(high-lag(close,1)), abs(low-lag(close,1))),20) / (close_t + 1e-12)
+  inputs:
+  - high
+  - low
+  - close
+  window: 20
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: atr_60
+  category: volatility
+  description: Average true range over 60 days normalized by current close.
+  formula: rolling_mean(max(high-low, abs(high-lag(close,1)), abs(low-lag(close,1))),60) / (close_t + 1e-12)
+  inputs:
+  - high
+  - low
+  - close
+  window: 60
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: volratio_3
+  category: volume
+  description: Current volume divided by 3-day mean volume.
+  formula: vol_t / (rolling_mean(vol,3) + 1e-12)
+  inputs:
+  - vol
+  window: 3
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: volratio_5
+  category: volume
+  description: Current volume divided by 5-day mean volume.
+  formula: vol_t / (rolling_mean(vol,5) + 1e-12)
+  inputs:
+  - vol
+  window: 5
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: volratio_10
+  category: volume
+  description: Current volume divided by 10-day mean volume.
+  formula: vol_t / (rolling_mean(vol,10) + 1e-12)
+  inputs:
+  - vol
+  window: 10
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: volratio_20
+  category: volume
+  description: Current volume divided by 20-day mean volume.
+  formula: vol_t / (rolling_mean(vol,20) + 1e-12)
+  inputs:
+  - vol
+  window: 20
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: volratio_60
+  category: volume
+  description: Current volume divided by 60-day mean volume.
+  formula: vol_t / (rolling_mean(vol,60) + 1e-12)
+  inputs:
+  - vol
+  window: 60
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: amtratio_3
+  category: amount
+  description: Current amount divided by 3-day mean amount.
+  formula: amount_t / (rolling_mean(amount,3) + 1e-12)
+  inputs:
+  - amount
+  window: 3
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: amtratio_5
+  category: amount
+  description: Current amount divided by 5-day mean amount.
+  formula: amount_t / (rolling_mean(amount,5) + 1e-12)
+  inputs:
+  - amount
+  window: 5
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: amtratio_10
+  category: amount
+  description: Current amount divided by 10-day mean amount.
+  formula: amount_t / (rolling_mean(amount,10) + 1e-12)
+  inputs:
+  - amount
+  window: 10
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: amtratio_20
+  category: amount
+  description: Current amount divided by 20-day mean amount.
+  formula: amount_t / (rolling_mean(amount,20) + 1e-12)
+  inputs:
+  - amount
+  window: 20
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: amtratio_60
+  category: amount
+  description: Current amount divided by 60-day mean amount.
+  formula: amount_t / (rolling_mean(amount,60) + 1e-12)
+  inputs:
+  - amount
+  window: 60
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: volchg_1
+  category: volume
+  description: Log-volume change over 1 trading days.
+  formula: log1p(vol_t) - log1p(lag(vol,1))
+  inputs:
+  - vol
+  window: 1
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: volchg_5
+  category: volume
+  description: Log-volume change over 5 trading days.
+  formula: log1p(vol_t) - log1p(lag(vol,5))
+  inputs:
+  - vol
+  window: 5
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: volchg_20
+  category: volume
+  description: Log-volume change over 20 trading days.
+  formula: log1p(vol_t) - log1p(lag(vol,20))
+  inputs:
+  - vol
+  window: 20
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: amtchg_1
+  category: amount
+  description: Log-amount change over 1 trading days.
+  formula: log1p(amount_t) - log1p(lag(amount,1))
+  inputs:
+  - amount
+  window: 1
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: amtchg_5
+  category: amount
+  description: Log-amount change over 5 trading days.
+  formula: log1p(amount_t) - log1p(lag(amount,5))
+  inputs:
+  - amount
+  window: 5
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: amtchg_20
+  category: amount
+  description: Log-amount change over 20 trading days.
+  formula: log1p(amount_t) - log1p(lag(amount,20))
+  inputs:
+  - amount
+  window: 20
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: logvol_std_5
+  category: volume
+  description: Population standard deviation of log1p(volume) over 5 days.
+  formula: rolling_std(log1p(vol),5,ddof=0)
+  inputs:
+  - vol
+  window: 5
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: logvol_std_20
+  category: volume
+  description: Population standard deviation of log1p(volume) over 20 days.
+  formula: rolling_std(log1p(vol),20,ddof=0)
+  inputs:
+  - vol
+  window: 20
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: logvol_std_60
+  category: volume
+  description: Population standard deviation of log1p(volume) over 60 days.
+  formula: rolling_std(log1p(vol),60,ddof=0)
+  inputs:
+  - vol
+  window: 60
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: logamt_std_5
+  category: amount
+  description: Population standard deviation of log1p(amount) over 5 days.
+  formula: rolling_std(log1p(amount),5,ddof=0)
+  inputs:
+  - amount
+  window: 5
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: logamt_std_20
+  category: amount
+  description: Population standard deviation of log1p(amount) over 20 days.
+  formula: rolling_std(log1p(amount),20,ddof=0)
+  inputs:
+  - amount
+  window: 20
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: logamt_std_60
+  category: amount
+  description: Population standard deviation of log1p(amount) over 60 days.
+  formula: rolling_std(log1p(amount),60,ddof=0)
+  inputs:
+  - amount
+  window: 60
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: corr_ret_dlogvol_5
+  category: volume_price
+  description: Rolling correlation between ret_1 and one-day log-volume change over 5 days.
+  formula: rolling_corr(ret_1, volchg_1,5)
+  inputs: []
+  window: 5
+  groupby: ts_code
+  depends_on:
+  - ret_1
+  - volchg_1
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: corr_ret_dlogvol_20
+  category: volume_price
+  description: Rolling correlation between ret_1 and one-day log-volume change over 20 days.
+  formula: rolling_corr(ret_1, volchg_1,20)
+  inputs: []
+  window: 20
+  groupby: ts_code
+  depends_on:
+  - ret_1
+  - volchg_1
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: corr_ret_dlogamt_5
+  category: volume_price
+  description: Rolling correlation between ret_1 and one-day log-amount change over 5 days.
+  formula: rolling_corr(ret_1, amtchg_1,5)
+  inputs: []
+  window: 5
+  groupby: ts_code
+  depends_on:
+  - ret_1
+  - amtchg_1
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: corr_ret_dlogamt_20
+  category: volume_price
+  description: Rolling correlation between ret_1 and one-day log-amount change over 20 days.
+  formula: rolling_corr(ret_1, amtchg_1,20)
+  inputs: []
+  window: 20
+  groupby: ts_code
+  depends_on:
+  - ret_1
+  - amtchg_1
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: illiq_1
+  category: liquidity
+  description: Log-scaled Amihud-style one-day illiquidity.
+  formula: log1p(1e8 * abs(ret_1) / amount_t) if amount_t>0 else NaN
+  inputs:
+  - amount
+  window: 1
+  groupby: ts_code
+  depends_on:
+  - ret_1
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: illiq_5
+  category: liquidity
+  description: 5-day mean of illiq_1.
+  formula: rolling_mean(illiq_1,5)
+  inputs: []
+  window: 5
+  groupby: ts_code
+  depends_on:
+  - illiq_1
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: illiq_20
+  category: liquidity
+  description: 20-day mean of illiq_1.
+  formula: rolling_mean(illiq_1,20)
+  inputs: []
+  window: 20
+  groupby: ts_code
+  depends_on:
+  - illiq_1
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: illiq_60
+  category: liquidity
+  description: 60-day mean of illiq_1.
+  formula: rolling_mean(illiq_1,60)
+  inputs: []
+  window: 60
+  groupby: ts_code
+  depends_on:
+  - illiq_1
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: flag_limit_up
+  category: limit
+  description: Official same-day limit-up flag.
+  formula: raw flag_limit_up
+  inputs:
+  - flag_limit_up
+  window: 1
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: flag_limit_down
+  category: limit
+  description: Official same-day limit-down flag.
+  formula: raw flag_limit_down
+  inputs:
+  - flag_limit_down
+  window: 1
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: limit_up_count_5
+  category: limit
+  description: Number of limit-up days in trailing 5 trading days, including t.
+  formula: rolling_sum(flag_limit_up,5)
+  inputs:
+  - flag_limit_up
+  window: 5
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: limit_up_count_20
+  category: limit
+  description: Number of limit-up days in trailing 20 trading days, including t.
+  formula: rolling_sum(flag_limit_up,20)
+  inputs:
+  - flag_limit_up
+  window: 20
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: limit_up_count_60
+  category: limit
+  description: Number of limit-up days in trailing 60 trading days, including t.
+  formula: rolling_sum(flag_limit_up,60)
+  inputs:
+  - flag_limit_up
+  window: 60
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: limit_down_count_5
+  category: limit
+  description: Number of limit-down days in trailing 5 trading days, including t.
+  formula: rolling_sum(flag_limit_down,5)
+  inputs:
+  - flag_limit_down
+  window: 5
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: limit_down_count_20
+  category: limit
+  description: Number of limit-down days in trailing 20 trading days, including t.
+  formula: rolling_sum(flag_limit_down,20)
+  inputs:
+  - flag_limit_down
+  window: 20
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: limit_down_count_60
+  category: limit
+  description: Number of limit-down days in trailing 60 trading days, including t.
+  formula: rolling_sum(flag_limit_down,60)
+  inputs:
+  - flag_limit_down
+  window: 60
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: days_since_limit_up
+  category: limit
+  description: Trading days since most recent limit-up, including 0 if today; capped at 61.
+  formula: min(trading_days_since_last(flag_limit_up==1),61)
+  inputs:
+  - flag_limit_up
+  window: 61
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: If no event is observed in available history, use 61.
+- name: days_since_limit_down
+  category: limit
+  description: Trading days since most recent limit-down, including 0 if today; capped at 61.
+  formula: min(trading_days_since_last(flag_limit_down==1),61)
+  inputs:
+  - flag_limit_down
+  window: 61
+  groupby: ts_code
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: If no event is observed in available history, use 61.
+- name: market_mean_ret_1
+  category: market
+  description: Cross-sectional mean 1-day return on trade_date.
+  formula: mean_i(ret_1[i,t])
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - ret_1
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: market_median_ret_1
+  category: market
+  description: Cross-sectional median 1-day return.
+  formula: median_i(ret_1[i,t])
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - ret_1
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: market_median_ret_5
+  category: market
+  description: Cross-sectional median 5-day return.
+  formula: median_i(ret_5[i,t])
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - ret_5
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: market_median_ret_20
+  category: market
+  description: Cross-sectional median 20-day return.
+  formula: median_i(ret_20[i,t])
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - ret_20
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: market_breadth_up
+  category: market
+  description: Fraction of stocks with positive 1-day return.
+  formula: mean_i(1[ret_1[i,t] > 0]) over finite ret_1 only
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - ret_1
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: market_dispersion_ret_1
+  category: market
+  description: Cross-sectional population std of 1-day return.
+  formula: std_i(ret_1[i,t],ddof=0)
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - ret_1
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: market_dispersion_ret_5
+  category: market
+  description: Cross-sectional population std of 5-day return.
+  formula: std_i(ret_5[i,t],ddof=0)
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - ret_5
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: market_limit_up_ratio
+  category: market
+  description: Fraction of stocks flagged limit-up on trade_date.
+  formula: mean_i(flag_limit_up[i,t])
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - flag_limit_up
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: market_limit_down_ratio
+  category: market
+  description: Fraction of stocks flagged limit-down on trade_date.
+  formula: mean_i(flag_limit_down[i,t])
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - flag_limit_down
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: market_amount_ratio_20
+  category: market
+  description: Total market amount relative to its trailing 20-day mean.
+  formula: market_amount_t / (rolling_mean(market_amount,20) + 1e-12); market_amount_t=sum_i(amount[i,t])
+  inputs:
+  - amount
+  window: 20
+  groupby: trade_date
+  depends_on: []
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: First aggregate amount by trade_date, then compute causal 20-day rolling mean on the date series and join back.
+- name: relret_1
+  category: relative
+  description: Stock 1-day return minus same-date cross-sectional median.
+  formula: ret_1[i,t] - median_i(ret_1[i,t])
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - ret_1
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: relret_5
+  category: relative
+  description: Stock 5-day return minus same-date cross-sectional median.
+  formula: ret_5[i,t] - median_i(ret_5[i,t])
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - ret_5
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: relret_20
+  category: relative
+  description: Stock 20-day return minus same-date cross-sectional median.
+  formula: ret_20[i,t] - median_i(ret_20[i,t])
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - ret_20
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: relret_60
+  category: relative
+  description: Stock 60-day return minus same-date cross-sectional median.
+  formula: ret_60[i,t] - median_i(ret_60[i,t])
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - ret_60
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: relstd_20
+  category: relative
+  description: stdret_20 minus same-date cross-sectional median stdret_20.
+  formula: stdret_20[i,t] - median_i(stdret_20[i,t])
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - stdret_20
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: relvolratio_20
+  category: relative
+  description: volratio_20 minus same-date cross-sectional median volratio_20.
+  formula: volratio_20[i,t] - median_i(volratio_20[i,t])
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - volratio_20
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: relamtratio_20
+  category: relative
+  description: amtratio_20 minus same-date cross-sectional median amtratio_20.
+  formula: amtratio_20[i,t] - median_i(amtratio_20[i,t])
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - amtratio_20
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: relilliq_20
+  category: relative
+  description: illiq_20 minus same-date cross-sectional median illiq_20.
+  formula: illiq_20[i,t] - median_i(illiq_20[i,t])
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - illiq_20
+  causal: true
+  missing_rule: NaN if required history/input is unavailable or invalid.
+  notes: ''
+- name: csr_ret_1
+  category: cross_section_rank
+  description: Same-date percentile rank of ret_1; average ties; finite values only.
+  formula: rank_pct(ret_1 within trade_date, method='average')
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - ret_1
+  causal: true
+  missing_rule: NaN where ret_1 is NaN; ranks computed only over finite same-date values.
+  notes: ''
+- name: csr_ret_3
+  category: cross_section_rank
+  description: Same-date percentile rank of ret_3; average ties; finite values only.
+  formula: rank_pct(ret_3 within trade_date, method='average')
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - ret_3
+  causal: true
+  missing_rule: NaN where ret_3 is NaN; ranks computed only over finite same-date values.
+  notes: ''
+- name: csr_ret_5
+  category: cross_section_rank
+  description: Same-date percentile rank of ret_5; average ties; finite values only.
+  formula: rank_pct(ret_5 within trade_date, method='average')
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - ret_5
+  causal: true
+  missing_rule: NaN where ret_5 is NaN; ranks computed only over finite same-date values.
+  notes: ''
+- name: csr_ret_10
+  category: cross_section_rank
+  description: Same-date percentile rank of ret_10; average ties; finite values only.
+  formula: rank_pct(ret_10 within trade_date, method='average')
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - ret_10
+  causal: true
+  missing_rule: NaN where ret_10 is NaN; ranks computed only over finite same-date values.
+  notes: ''
+- name: csr_ret_20
+  category: cross_section_rank
+  description: Same-date percentile rank of ret_20; average ties; finite values only.
+  formula: rank_pct(ret_20 within trade_date, method='average')
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - ret_20
+  causal: true
+  missing_rule: NaN where ret_20 is NaN; ranks computed only over finite same-date values.
+  notes: ''
+- name: csr_ret_60
+  category: cross_section_rank
+  description: Same-date percentile rank of ret_60; average ties; finite values only.
+  formula: rank_pct(ret_60 within trade_date, method='average')
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - ret_60
+  causal: true
+  missing_rule: NaN where ret_60 is NaN; ranks computed only over finite same-date values.
+  notes: ''
+- name: csr_madev_5
+  category: cross_section_rank
+  description: Same-date percentile rank of madev_5; average ties; finite values only.
+  formula: rank_pct(madev_5 within trade_date, method='average')
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - madev_5
+  causal: true
+  missing_rule: NaN where madev_5 is NaN; ranks computed only over finite same-date values.
+  notes: ''
+- name: csr_madev_20
+  category: cross_section_rank
+  description: Same-date percentile rank of madev_20; average ties; finite values only.
+  formula: rank_pct(madev_20 within trade_date, method='average')
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - madev_20
+  causal: true
+  missing_rule: NaN where madev_20 is NaN; ranks computed only over finite same-date values.
+  notes: ''
+- name: csr_stdret_5
+  category: cross_section_rank
+  description: Same-date percentile rank of stdret_5; average ties; finite values only.
+  formula: rank_pct(stdret_5 within trade_date, method='average')
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - stdret_5
+  causal: true
+  missing_rule: NaN where stdret_5 is NaN; ranks computed only over finite same-date values.
+  notes: ''
+- name: csr_stdret_20
+  category: cross_section_rank
+  description: Same-date percentile rank of stdret_20; average ties; finite values only.
+  formula: rank_pct(stdret_20 within trade_date, method='average')
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - stdret_20
+  causal: true
+  missing_rule: NaN where stdret_20 is NaN; ranks computed only over finite same-date values.
+  notes: ''
+- name: csr_volratio_5
+  category: cross_section_rank
+  description: Same-date percentile rank of volratio_5; average ties; finite values only.
+  formula: rank_pct(volratio_5 within trade_date, method='average')
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - volratio_5
+  causal: true
+  missing_rule: NaN where volratio_5 is NaN; ranks computed only over finite same-date values.
+  notes: ''
+- name: csr_volratio_20
+  category: cross_section_rank
+  description: Same-date percentile rank of volratio_20; average ties; finite values only.
+  formula: rank_pct(volratio_20 within trade_date, method='average')
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - volratio_20
+  causal: true
+  missing_rule: NaN where volratio_20 is NaN; ranks computed only over finite same-date values.
+  notes: ''
+- name: csr_amtratio_5
+  category: cross_section_rank
+  description: Same-date percentile rank of amtratio_5; average ties; finite values only.
+  formula: rank_pct(amtratio_5 within trade_date, method='average')
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - amtratio_5
+  causal: true
+  missing_rule: NaN where amtratio_5 is NaN; ranks computed only over finite same-date values.
+  notes: ''
+- name: csr_amtratio_20
+  category: cross_section_rank
+  description: Same-date percentile rank of amtratio_20; average ties; finite values only.
+  formula: rank_pct(amtratio_20 within trade_date, method='average')
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - amtratio_20
+  causal: true
+  missing_rule: NaN where amtratio_20 is NaN; ranks computed only over finite same-date values.
+  notes: ''
+- name: csr_illiq_20
+  category: cross_section_rank
+  description: Same-date percentile rank of illiq_20; average ties; finite values only.
+  formula: rank_pct(illiq_20 within trade_date, method='average')
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - illiq_20
+  causal: true
+  missing_rule: NaN where illiq_20 is NaN; ranks computed only over finite same-date values.
+  notes: ''
+- name: csr_rsv_20
+  category: cross_section_rank
+  description: Same-date percentile rank of rsv_20; average ties; finite values only.
+  formula: rank_pct(rsv_20 within trade_date, method='average')
+  inputs: []
+  window: null
+  groupby: trade_date
+  depends_on:
+  - rsv_20
+  causal: true
+  missing_rule: NaN where rsv_20 is NaN; ranks computed only over finite same-date values.
+  notes: ''

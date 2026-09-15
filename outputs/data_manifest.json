@@ -1,0 +1,20 @@
+{
+  "operation": "Byte-preserving archive into data/raw",
+  "files": [
+    {
+      "original_path": "D:\\Virtual C_Drive\\金融建模\\stock_prediction_codex_v1\\data\\训练集.csv",
+      "bytes_unchanged": true,
+      "sha256_after": "e9d23e87f7e1f9439f28f7dd951d129ea49eaacda5ad650da8576a830a6deac9",
+      "sha256_before": "e9d23e87f7e1f9439f28f7dd951d129ea49eaacda5ad650da8576a830a6deac9",
+      "path": "D:\\Virtual C_Drive\\金融建模\\stock_prediction_codex_v1\\data\\raw\\训练集.csv"
+    },
+    {
+      "original_path": "D:\\Virtual C_Drive\\金融建模\\stock_prediction_codex_v1\\data\\测试集_X.csv",
+      "bytes_unchanged": true,
+      "sha256_after": "dceffbf68bbab07a254bc6caa4d8a1e33de8de9c15489d936c5d15020dbfa90f",
+      "sha256_before": "dceffbf68bbab07a254bc6caa4d8a1e33de8de9c15489d936c5d15020dbfa90f",
+      "path": "D:\\Virtual C_Drive\\金融建模\\stock_prediction_codex_v1\\data\\raw\\测试集_X.csv"
+    }
+  ],
+  "data_version": "sha256:6f27670167a0b305ebde0d303a272a0a3215def354c15cc316d287f1444540e2"
+}

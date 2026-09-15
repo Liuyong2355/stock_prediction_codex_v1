@@ -1,0 +1,33 @@
+{
+  "package": "stock_prediction_codex_v1",
+  "version": "1.0.1",
+  "files": [
+    ".gitattributes",
+    ".gitignore",
+    "AGENTS.md",
+    "README.md",
+    "config/experiments_v1.yaml",
+    "config/features_v1.yaml",
+    "config/folds_v1.yaml",
+    "docs/COMPETITION_SPEC.md",
+    "docs/DECISIONS.md",
+    "docs/EXPERIMENT_PROTOCOL_V1.md",
+    "docs/FEATURE_SPEC_V1.md",
+    "docs/index.md",
+    "outputs/data_audit_report.md",
+    "outputs/data_audit_summary.json",
+    "outputs/data_manifest.json",
+    "outputs/environment-lock.txt",
+    "outputs/validation.md",
+    "pyproject.toml",
+    "reference/README.md",
+    "reference/赛题五-更新.pdf",
+    "requirements-models.txt",
+    "requirements.txt",
+    "src/stock_prediction/__init__.py",
+    "src/stock_prediction/audit.py",
+    "tests/test_audit.py"
+  ],
+  "raw_data_manifest": "outputs/data_manifest.json",
+  "raw_data_in_git": false
+}
