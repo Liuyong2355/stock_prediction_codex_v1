@@ -27,8 +27,11 @@ Official IC std ddof=1 and frozen auxiliary ddof=0 are separate fields. Auxiliar
 $env:PYTHONPATH='src'
 .venv/Scripts/python.exe -m pytest -q
 .venv/Scripts/python.exe -m stock_prediction.build_full147
+.venv/Scripts/python.exe -m stock_prediction.verify_full147
 .venv/Scripts/python.exe -m stock_prediction.e003
 .venv/Scripts/python.exe -m stock_prediction.compare_e003
 ```
 
 Generation/training refuses to overwrite completed feature/fold artifacts. The build is run once; existing outputs are verified, not regenerated during comparison. Individual fold command: `python -m stock_prediction.e003 --fold F1` after input verification.
+
+Exact constant-valued decimal windows are identified from their input range, avoiding false nonzero variance caused by rounded means. The interrupted pre-correction attempt is recorded in outputs/e003_run_notes.md. Independent real-data cross-section/rank and full-date market-amount checks are saved in outputs/full147_verification.json.
