@@ -1,0 +1,3 @@
+Command: .venv/Scripts/python.exe -m pytest -q
+176 passed in 6.36s (final run after all changes)
+Includes 40 Basic40 scalar references, Full147 independent stock formulas, finite cross sections, causality/observed gaps/train-test history, decimal zero-variance regression cases, streaming build parity, and frozen official LightGBM 147-column smoke test.

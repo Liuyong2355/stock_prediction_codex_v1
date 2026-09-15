@@ -124,7 +124,7 @@ def build(root):
         for name,st in dataset['features'].items():
             vals=' | '.join('NaN' if st['quantiles'][q] is None else f"{st['quantiles'][q]:.8g}" for q in ['min','p01','p50','p99','max'])
             lines.append(f"| {name} | {st['finite_ratio']:.4%} | {st['nan_ratio']:.4%} | {vals} |")
-    lines += ['', '## 核验', '', '所有输出均为 finite 或 NaN，inf=0；4 条训练涨跌停同时为 1 的记录保留，测试集为 0。完整分位数/极值键/样例见 full147_audit_summary.json；文件指纹见 full147_manifest.json。', '']
+    lines += ['', '## 核验', '', f"所有输出均为 finite 或 NaN，inf=0；涨跌停同时为 1 的记录原样保留：训练 {datasets['train']['both_limit_flags_equal_one']} 条，测试 {datasets['test']['both_limit_flags_equal_one']} 条。完整分位数/极值键/样例见 full147_audit_summary.json；文件指纹见 full147_manifest.json。", '']
     (root/'outputs/full147_audit_report.md').write_text('\n'.join(lines),encoding='utf-8')
     print(f'Full147 complete in {time.perf_counter()-start:.1f}s',flush=True)
 

@@ -1,0 +1,63 @@
+{
+  "status": "passed",
+  "matrix_hashes_verified": true,
+  "all_rows_market_amount_ratio_independent_raw_recomputation": true,
+  "date_checks": [
+    {
+      "split": "train",
+      "trade_date": 20180102,
+      "rows": 4650,
+      "all_33_same_date_features_independently_verified": true
+    },
+    {
+      "split": "train",
+      "trade_date": 20180129,
+      "rows": 4650,
+      "all_33_same_date_features_independently_verified": true
+    },
+    {
+      "split": "train",
+      "trade_date": 20210702,
+      "rows": 4650,
+      "all_33_same_date_features_independently_verified": true
+    },
+    {
+      "split": "train",
+      "trade_date": 20241231,
+      "rows": 4650,
+      "all_33_same_date_features_independently_verified": true
+    },
+    {
+      "split": "test",
+      "trade_date": 20250102,
+      "rows": 4650,
+      "all_33_same_date_features_independently_verified": true
+    },
+    {
+      "split": "test",
+      "trade_date": 20250206,
+      "rows": 4650,
+      "all_33_same_date_features_independently_verified": true
+    },
+    {
+      "split": "test",
+      "trade_date": 20250916,
+      "rows": 4650,
+      "all_33_same_date_features_independently_verified": true
+    },
+    {
+      "split": "test",
+      "trade_date": 20260608,
+      "rows": 4650,
+      "all_33_same_date_features_independently_verified": true
+    }
+  ],
+  "numerical_zero_variance_correction_changed_rows": {
+    "train/rsq_5": 3715,
+    "train/rsq_10": 9937,
+    "train/rsq_20": 14877,
+    "train/rsq_60": 6568,
+    "test/rsq_5": 5
+  },
+  "correction_scope": "Only exact constant-window OLS/correlation outputs changed; frozen formulas unchanged"
+}

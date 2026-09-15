@@ -1,0 +1,289 @@
+{
+  "experiment_id": "E003",
+  "fold_id": "F1",
+  "run_id": "E003_F1_20260915T084618Z",
+  "timestamp": "2026-09-15T08:46:18.703747+00:00",
+  "git_commit": "161e86e36e83554446830198c7c08ecbccd9ee19",
+  "data_version": "sha256:6f27670167a0b305ebde0d303a272a0a3215def354c15cc316d287f1444540e2",
+  "feature_spec_version": "1.0.1",
+  "protocol_version": "1.0.1",
+  "feature_set": "Full147",
+  "n_features": 147,
+  "target": "raw",
+  "model": "lightgbm_reg_v1",
+  "seed": 42,
+  "configured_params": {
+    "objective": "regression",
+    "n_estimators": 800,
+    "learning_rate": 0.03,
+    "num_leaves": 63,
+    "max_depth": -1,
+    "min_child_samples": 1000,
+    "subsample": 0.8,
+    "subsample_freq": 1,
+    "colsample_bytree": 0.8,
+    "reg_alpha": 0.0,
+    "reg_lambda": 1.0,
+    "random_state": 42,
+    "n_jobs": -1,
+    "verbosity": -1
+  },
+  "resolved_params": {
+    "boosting_type": "gbdt",
+    "class_weight": null,
+    "colsample_bytree": 0.8,
+    "importance_type": "split",
+    "learning_rate": 0.03,
+    "max_depth": -1,
+    "min_child_samples": 1000,
+    "min_child_weight": 0.001,
+    "min_split_gain": 0.0,
+    "n_estimators": 800,
+    "n_jobs": -1,
+    "num_leaves": 63,
+    "objective": "regression",
+    "random_state": 42,
+    "reg_alpha": 0.0,
+    "reg_lambda": 1.0,
+    "subsample": 0.8,
+    "subsample_for_bin": 200000,
+    "subsample_freq": 1,
+    "verbosity": -1
+  },
+  "actual_iterations": 800,
+  "split": {
+    "fold_id": "F1",
+    "configured_periods": {
+      "id": "F1",
+      "train_start": "2018-01-02",
+      "train_end": "2021-12-31",
+      "valid_start": "2022-01-01",
+      "valid_end": "2022-12-31"
+    },
+    "candidate_train_rows": 4524450,
+    "candidate_train_dates": 973,
+    "candidate_train_start": 20180102,
+    "candidate_train_end": 20211231,
+    "purge_dates": [
+      20211231
+    ],
+    "purge_rows": 4650,
+    "purge_finite_label_rows": 4170,
+    "train_rows_after_purge_before_label_filter": 4519800,
+    "excluded_nonfinite_train_label_rows": 950922,
+    "train_rows": 3568878,
+    "train_start": 20180102,
+    "train_end": 20211230,
+    "valid_rows": 1125300,
+    "valid_finite_label_rows": 1029017,
+    "valid_start": 20220104,
+    "valid_end": 20221230,
+    "train_dates_after_purge": 972,
+    "valid_dates": 242,
+    "feature_history": "Full causal Basic40 reused; purge applies to supervised fitting, not historical feature rows."
+  },
+  "train_rows": 3568878,
+  "valid_rows": 1125300,
+  "supervised_fit_rows": 3568878,
+  "preprocessing": null,
+  "train_time_sec": 173.3211654000006,
+  "preprocessing_materialization_sec": 40.08496080000259,
+  "elapsed_seconds": 271.75756209999963,
+  "peak_memory_gb": 8.171070098876953,
+  "evaluator_status": "unmodified_organizer_script_validation_replay",
+  "official_script_sha256": "72dc59987e92ba8ae6b506e114dfe8591b5608c9beccd0769d5d1f778f9189c2",
+  "metrics": {
+    "rank_ic_mean": 0.09603465168812635,
+    "rank_ic_std": 0.1056536208713248,
+    "icir": 0.9089575056314126,
+    "ic_positive_ratio": 0.8057851239669421,
+    "annualized_top_excess_return": 0.511952848078728,
+    "top1_annualized_absolute_return": 0.38082463101395814,
+    "mean_turnover": 0.6471460885406993,
+    "final_score": 0.2978558885366591
+  },
+  "official": {
+    "ic_mean": 0.09603465168812635,
+    "ic_std": 0.1056536208713248,
+    "icir": 0.9089575056314126,
+    "ic_positive_ratio": 0.8057851239669421,
+    "annual_excess": 0.511952848078728,
+    "top1_annual_ret": 0.38082463101395814,
+    "mean_turnover": 0.6471460885406993,
+    "final_score": 0.2978558885366591
+  },
+  "auxiliary": {
+    "rank_ic_std_ddof0": 0.10543510229019491,
+    "top1_bottom1_annualized_spread": 2.0360871467187183,
+    "spread_status": "auxiliary only; floor groups matching official Top sizing; not returned by organizer"
+  },
+  "missing_label_diagnostic": {
+    "official_turnover": 0.6471460885406993,
+    "diagnostic_exclude_missing_y_turnover": 0.871850643643243,
+    "diagnostic_minus_official": 0.22470455510254372,
+    "missing_y_rows": 96283,
+    "top_rows": 110641,
+    "missing_top_rows": 60403,
+    "missing_share_of_top": 0.5459368588497935,
+    "missing_top_prediction_distribution": {
+      "min": -0.0102205702751214,
+      "p01": -0.0040813952125167,
+      "p25": 0.0027484162470518,
+      "median": 0.0054466060614099,
+      "p75": 0.0090207056805308,
+      "p99": 0.0167807772571187,
+      "max": 0.0346276910088556
+    },
+    "missing_top_duplicate_fraction": 0.9900667185404698,
+    "dates_boundary_splits_tie": 55,
+    "persistence": {
+      "stocks": 723,
+      "runs": 19204,
+      "run_days": {
+        "min": 1.0,
+        "p01": 1.0,
+        "p25": 1.0,
+        "median": 2.0,
+        "p75": 3.0,
+        "p99": 15.0,
+        "max": 19.0
+      },
+      "stock_longest_run_days": {
+        "min": 1.0,
+        "p01": 1.0,
+        "p25": 2.0,
+        "median": 13.0,
+        "p75": 15.0,
+        "p99": 19.0,
+        "max": 19.0
+      },
+      "stocks_run_ge20": 0,
+      "stocks_run_ge60": 0,
+      "stocks_run_full_fold": 0,
+      "longest_examples": [
+        {
+          "ts_code": "301277.SZ",
+          "start": 20221115,
+          "end": 20221209,
+          "days": 19
+        },
+        {
+          "ts_code": "600896.SH",
+          "start": 20221115,
+          "end": 20221209,
+          "days": 19
+        },
+        {
+          "ts_code": "301571.SZ",
+          "start": 20221115,
+          "end": 20221209,
+          "days": 19
+        },
+        {
+          "ts_code": "301469.SZ",
+          "start": 20221115,
+          "end": 20221209,
+          "days": 19
+        },
+        {
+          "ts_code": "603391.SH",
+          "start": 20221115,
+          "end": 20221209,
+          "days": 19
+        },
+        {
+          "ts_code": "001222.SZ",
+          "start": 20221115,
+          "end": 20221209,
+          "days": 19
+        },
+        {
+          "ts_code": "301505.SZ",
+          "start": 20221115,
+          "end": 20221209,
+          "days": 19
+        },
+        {
+          "ts_code": "000670.SZ",
+          "start": 20221115,
+          "end": 20221209,
+          "days": 19
+        },
+        {
+          "ts_code": "301105.SZ",
+          "start": 20221115,
+          "end": 20221209,
+          "days": 19
+        },
+        {
+          "ts_code": "603409.SH",
+          "start": 20221115,
+          "end": 20221209,
+          "days": 19
+        }
+      ]
+    },
+    "missing_y_full147_finite_features": {
+      "min": 20.0,
+      "p01": 20.0,
+      "p25": 20.0,
+      "median": 20.0,
+      "p75": 20.0,
+      "p99": 20.0,
+      "max": 147.0
+    },
+    "missing_y_top_full147_finite_features": {
+      "min": 20.0,
+      "p01": 20.0,
+      "p25": 20.0,
+      "median": 20.0,
+      "p75": 20.0,
+      "p99": 20.0,
+      "max": 147.0
+    }
+  },
+  "validation": {
+    "e002_split_params_keys_labels_flags_equal": true,
+    "saved_prediction_roundtrip": true,
+    "official_daily_aggregation_matches": true,
+    "model_reload_predictions_match": true
+  },
+  "environment": {
+    "python": "3.14.0",
+    "numpy": "2.3.5",
+    "pandas": "2.3.3",
+    "lightgbm": "4.6.0"
+  },
+  "config_sha256": {
+    "experiments_v1.yaml": "c6dbbefe5fe0a9fa2109f498755310926d03a1597bc13f5214d01e55c9f45679",
+    "features_v1.yaml": "6bd63c4d058def293e96f4e1359df976ffb8abde2111cb251ceabe40fba20987",
+    "folds_v1.yaml": "4b1f773d45b9e886c239bddef5e1176f7d90c593f4a4cfde674f3b43196ff73a"
+  },
+  "feature_manifest_sha256": "a2c90f3183ff649141d5ed2ccdf3e051e53f5b3724508f6891d84b21d8d7d14f",
+  "artifact_files": {
+    "daily_metrics.csv": {
+      "sha256": "bc9bd3f924752987b1d5a557d8050dd8cd7cb42059d7af33cd4be99695c4217c",
+      "bytes": 28172
+    },
+    "missing_label_diagnostic.json": {
+      "sha256": "bdf7c779f2ea4177c5729a562299bd45ed351c0c9c00a7f823908fddb689b6f8",
+      "bytes": 2809
+    },
+    "model.joblib": {
+      "sha256": "eab5c8fb71fe891d90430220881b5d4cb5a5b1a0b29e6b32cececa05dd456e85",
+      "bytes": 5312431
+    },
+    "model.txt": {
+      "sha256": "29f06c21d493d0a30da24fb3f97e39ba5c6f897d4b4ff52427df482f484c5133",
+      "bytes": 5324403
+    },
+    "predictions.csv.gz": {
+      "sha256": "c8b4381239054942e7b1e21a17b68280ccda8291513a60fca5eeffa9c115639c",
+      "bytes": 23126327
+    },
+    "top_diagnostic_daily.csv": {
+      "sha256": "5acb6e3f36d9cf3820d6e94ad7e7cf0e8445fa70db9de1b12887bd05aa2720ba",
+      "bytes": 10101
+    }
+  }
+}

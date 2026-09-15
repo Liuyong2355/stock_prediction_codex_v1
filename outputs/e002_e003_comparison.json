@@ -1,0 +1,258 @@
+{
+  "scope": "Official validation scores, not hidden-test competition results",
+  "official_script_sha256": "72dc59987e92ba8ae6b506e114dfe8591b5608c9beccd0769d5d1f778f9189c2",
+  "paired_rows": [
+    {
+      "experiment": "E002",
+      "fold": "F1",
+      "ic_mean": 0.07566559811985576,
+      "ic_std": 0.07911406555332054,
+      "icir": 0.9564114496032238,
+      "ic_positive_ratio": 0.8264462809917356,
+      "annual_excess": 0.452410055856293,
+      "top1_annual_ret": 0.3212818387915233,
+      "mean_turnover": 0.23089957217573576,
+      "final_score": 0.39671938435210946,
+      "diagnostic_turnover": 0.8474014587025546,
+      "missing_top_fraction": 0.8560569770699831,
+      "missing_top_rows": 94715,
+      "top_rows": 110641,
+      "missing_top_duplicate_fraction": 0.999873304122895,
+      "longest_missing_top_run": 169.0,
+      "missing_top_finite_feature_distribution": {
+        "min": 2.0,
+        "p01": 2.0,
+        "p25": 2.0,
+        "median": 2.0,
+        "p75": 2.0,
+        "p99": 2.0,
+        "max": 40.0
+      }
+    },
+    {
+      "experiment": "E003",
+      "fold": "F1",
+      "ic_mean": 0.09603465168812635,
+      "ic_std": 0.1056536208713248,
+      "icir": 0.9089575056314126,
+      "ic_positive_ratio": 0.8057851239669421,
+      "annual_excess": 0.511952848078728,
+      "top1_annual_ret": 0.38082463101395814,
+      "mean_turnover": 0.6471460885406993,
+      "final_score": 0.2978558885366591,
+      "diagnostic_turnover": 0.871850643643243,
+      "missing_top_fraction": 0.5459368588497935,
+      "missing_top_rows": 60403,
+      "top_rows": 110641,
+      "missing_top_duplicate_fraction": 0.9900667185404698,
+      "longest_missing_top_run": 19.0,
+      "missing_top_finite_feature_distribution": {
+        "min": 20.0,
+        "p01": 20.0,
+        "p25": 20.0,
+        "median": 20.0,
+        "p75": 20.0,
+        "p99": 20.0,
+        "max": 147.0
+      }
+    },
+    {
+      "experiment": "E002",
+      "fold": "F2",
+      "ic_mean": 0.03773338805504292,
+      "ic_std": 0.07976028280763658,
+      "icir": 0.47308493308689936,
+      "ic_positive_ratio": 0.6983471074380165,
+      "annual_excess": 0.18541387148664007,
+      "top1_annual_ret": 0.2048371088067574,
+      "mean_turnover": 0.4846951058471849,
+      "final_score": 0.2253089849138537,
+      "diagnostic_turnover": 0.8427303153846598,
+      "missing_top_fraction": 0.5616204767375071,
+      "missing_top_rows": 62578,
+      "top_rows": 111424,
+      "missing_top_duplicate_fraction": 0.9996004985777749,
+      "longest_missing_top_run": 242.0,
+      "missing_top_finite_feature_distribution": {
+        "min": 2.0,
+        "p01": 2.0,
+        "p25": 2.0,
+        "median": 2.0,
+        "p75": 2.0,
+        "p99": 2.0,
+        "max": 40.0
+      }
+    },
+    {
+      "experiment": "E003",
+      "fold": "F2",
+      "ic_mean": 0.06816822809400452,
+      "ic_std": 0.10331315428574259,
+      "icir": 0.6598213805907567,
+      "ic_positive_ratio": 0.78099173553719,
+      "annual_excess": 0.25048818325878686,
+      "top1_annual_ret": 0.2699114205789042,
+      "mean_turnover": 0.841486137886373,
+      "final_score": 0.14996790484932596,
+      "diagnostic_turnover": 0.8931890267447345,
+      "missing_top_fraction": 0.24718193566915567,
+      "missing_top_rows": 27542,
+      "top_rows": 111424,
+      "missing_top_duplicate_fraction": 0.9751652022365841,
+      "longest_missing_top_run": 7.0,
+      "missing_top_finite_feature_distribution": {
+        "min": 20.0,
+        "p01": 20.0,
+        "p25": 20.0,
+        "median": 20.0,
+        "p75": 20.0,
+        "p99": 20.0,
+        "max": 147.0
+      }
+    },
+    {
+      "experiment": "E002",
+      "fold": "F3",
+      "ic_mean": 0.08622509315984932,
+      "ic_std": 0.13259199554869724,
+      "icir": 0.6503039101495482,
+      "ic_positive_ratio": 0.7520661157024794,
+      "annual_excess": 0.44510663879195245,
+      "top1_annual_ret": 0.43106198779165544,
+      "mean_turnover": 0.721214803379976,
+      "final_score": 0.2516575878875327,
+      "diagnostic_turnover": 0.8534403375404892,
+      "missing_top_fraction": 0.2775839728894648,
+      "missing_top_rows": 30635,
+      "top_rows": 110363,
+      "missing_top_duplicate_fraction": 0.9986290190958055,
+      "longest_missing_top_run": 215.0,
+      "missing_top_finite_feature_distribution": {
+        "min": 2.0,
+        "p01": 2.0,
+        "p25": 2.0,
+        "median": 2.0,
+        "p75": 2.0,
+        "p99": 2.0,
+        "max": 40.0
+      }
+    },
+    {
+      "experiment": "E003",
+      "fold": "F3",
+      "ic_mean": 0.11198095127148332,
+      "ic_std": 0.17321612912553544,
+      "icir": 0.646481086009762,
+      "ic_positive_ratio": 0.7892561983471075,
+      "annual_excess": 0.642901338539667,
+      "top1_annual_ret": 0.6288566875393701,
+      "mean_turnover": 0.8736615443166946,
+      "final_score": 0.27556431877548504,
+      "diagnostic_turnover": 0.8758724177685091,
+      "missing_top_fraction": 0.03228437066770566,
+      "missing_top_rows": 3563,
+      "top_rows": 110363,
+      "missing_top_duplicate_fraction": 0.9435868650014033,
+      "longest_missing_top_run": 6.0,
+      "missing_top_finite_feature_distribution": {
+        "min": 20.0,
+        "p01": 20.0,
+        "p25": 20.0,
+        "median": 20.0,
+        "p75": 20.0,
+        "p99": 20.0,
+        "max": 147.0
+      }
+    }
+  ],
+  "score_summary": [
+    {
+      "experiment": "E002",
+      "MeanScore": 0.29122865238449863,
+      "WorstScore": 0.2253089849138537,
+      "StdScore": 0.07536481547761695
+    },
+    {
+      "experiment": "E003",
+      "MeanScore": 0.24112937072049004,
+      "WorstScore": 0.14996790484932596,
+      "StdScore": 0.06510011861453036
+    }
+  ],
+  "score_difference_decomposition": [
+    {
+      "fold": "F1",
+      "delta_score": -0.09886349581545034,
+      "ic_contribution": 0.008147621427308233,
+      "excess_contribution": 0.01786283766673049,
+      "turnover_contribution": -0.12487395490948906
+    },
+    {
+      "fold": "F2",
+      "delta_score": -0.07534108006452775,
+      "ic_contribution": 0.012173936015584641,
+      "excess_contribution": 0.019522293531644034,
+      "turnover_contribution": -0.10703730961175645
+    },
+    {
+      "fold": "F3",
+      "delta_score": 0.023906730887952365,
+      "ic_contribution": 0.010302343244653601,
+      "excess_contribution": 0.05933840992431437,
+      "turnover_contribution": -0.045734022281015585
+    }
+  ],
+  "verification": [
+    {
+      "fold": "F1",
+      "artifact_hashes": "passed",
+      "official_saved_prediction_replay": "passed",
+      "train_rows": 3568878,
+      "valid_rows": 1125300,
+      "purge": [
+        20211231
+      ],
+      "actual_iterations": 800,
+      "e002_split_params_keys_labels_flags_equal": true,
+      "saved_prediction_roundtrip": true,
+      "official_daily_aggregation_matches": true,
+      "model_reload_predictions_match": true
+    },
+    {
+      "fold": "F2",
+      "artifact_hashes": "passed",
+      "official_saved_prediction_replay": "passed",
+      "train_rows": 4597785,
+      "valid_rows": 1125300,
+      "purge": [
+        20221230
+      ],
+      "actual_iterations": 800,
+      "e002_split_params_keys_labels_flags_equal": true,
+      "saved_prediction_roundtrip": true,
+      "official_daily_aggregation_matches": true,
+      "model_reload_predictions_match": true
+    },
+    {
+      "fold": "F3",
+      "artifact_hashes": "passed",
+      "official_saved_prediction_replay": "passed",
+      "train_rows": 5659954,
+      "valid_rows": 1125300,
+      "purge": [
+        20231229
+      ],
+      "actual_iterations": 800,
+      "e002_split_params_keys_labels_flags_equal": true,
+      "saved_prediction_roundtrip": true,
+      "official_daily_aggregation_matches": true,
+      "model_reload_predictions_match": true
+    }
+  ],
+  "protected_e002_and_frozen_definitions_unchanged": true,
+  "notes": [
+    "diagnostic turnover filters unavailable y ex-post; not a score replacement",
+    "official IC std ddof=1; frozen ddof=0 saved separately in each E003 auxiliary",
+    "no E004-E007, tuning, ensembles, prediction filtering or missing-sample correction"
+  ]
+}

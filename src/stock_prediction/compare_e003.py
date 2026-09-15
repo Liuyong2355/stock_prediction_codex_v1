@@ -90,6 +90,10 @@ def compare(root):
               '- 不能仅凭一次特征包对照归因到某个特征族；本阶段未消融、调参、融合或运行 E004–E007。','']
     delta=summary[1]['MeanScore']-summary[0]['MeanScore']
     lines += ['## 简要结论','',f"Full147 的三折平均 Official Score 为 {summary[1]['MeanScore']:.6f}，较 Basic40 {'提高' if delta>0 else '降低'} {abs(delta):.6f}。各折收益/IC/换手变化见上表，缺失样本效应单独保留，不据此改变评分。",'']
+    ic_gains=sum(r['ic_contribution']>0 for r in differences)
+    excess_gains=sum(r['excess_contribution']>0 for r in differences)
+    turnover_losses=sum(r['turnover_contribution']<0 for r in differences)
+    lines += [f"Rank IC 在 {ic_gains}/3 折提高，Top10% 超额收益在 {excess_gains}/3 折提高；换手项在 {turnover_losses}/3 折降低 Score。预测信号指标与综合分数分开判断。",'']
     (root/'outputs/e002_e003_comparison.md').write_text('\n'.join(lines),encoding='utf-8')
 
 

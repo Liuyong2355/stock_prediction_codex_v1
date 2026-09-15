@@ -1,0 +1,289 @@
+{
+  "experiment_id": "E003",
+  "fold_id": "F2",
+  "run_id": "E003_F2_20260915T085145Z",
+  "timestamp": "2026-09-15T08:51:45.844861+00:00",
+  "git_commit": "161e86e36e83554446830198c7c08ecbccd9ee19",
+  "data_version": "sha256:6f27670167a0b305ebde0d303a272a0a3215def354c15cc316d287f1444540e2",
+  "feature_spec_version": "1.0.1",
+  "protocol_version": "1.0.1",
+  "feature_set": "Full147",
+  "n_features": 147,
+  "target": "raw",
+  "model": "lightgbm_reg_v1",
+  "seed": 42,
+  "configured_params": {
+    "objective": "regression",
+    "n_estimators": 800,
+    "learning_rate": 0.03,
+    "num_leaves": 63,
+    "max_depth": -1,
+    "min_child_samples": 1000,
+    "subsample": 0.8,
+    "subsample_freq": 1,
+    "colsample_bytree": 0.8,
+    "reg_alpha": 0.0,
+    "reg_lambda": 1.0,
+    "random_state": 42,
+    "n_jobs": -1,
+    "verbosity": -1
+  },
+  "resolved_params": {
+    "boosting_type": "gbdt",
+    "class_weight": null,
+    "colsample_bytree": 0.8,
+    "importance_type": "split",
+    "learning_rate": 0.03,
+    "max_depth": -1,
+    "min_child_samples": 1000,
+    "min_child_weight": 0.001,
+    "min_split_gain": 0.0,
+    "n_estimators": 800,
+    "n_jobs": -1,
+    "num_leaves": 63,
+    "objective": "regression",
+    "random_state": 42,
+    "reg_alpha": 0.0,
+    "reg_lambda": 1.0,
+    "subsample": 0.8,
+    "subsample_for_bin": 200000,
+    "subsample_freq": 1,
+    "verbosity": -1
+  },
+  "actual_iterations": 800,
+  "split": {
+    "fold_id": "F2",
+    "configured_periods": {
+      "id": "F2",
+      "train_start": "2018-01-02",
+      "train_end": "2022-12-31",
+      "valid_start": "2023-01-01",
+      "valid_end": "2023-12-31"
+    },
+    "candidate_train_rows": 5649750,
+    "candidate_train_dates": 1215,
+    "candidate_train_start": 20180102,
+    "candidate_train_end": 20221230,
+    "purge_dates": [
+      20221230
+    ],
+    "purge_rows": 4650,
+    "purge_finite_label_rows": 4280,
+    "train_rows_after_purge_before_label_filter": 5645100,
+    "excluded_nonfinite_train_label_rows": 1047315,
+    "train_rows": 4597785,
+    "train_start": 20180102,
+    "train_end": 20221229,
+    "valid_rows": 1125300,
+    "valid_finite_label_rows": 1062411,
+    "valid_start": 20230103,
+    "valid_end": 20231229,
+    "train_dates_after_purge": 1214,
+    "valid_dates": 242,
+    "feature_history": "Full causal Basic40 reused; purge applies to supervised fitting, not historical feature rows."
+  },
+  "train_rows": 4597785,
+  "valid_rows": 1125300,
+  "supervised_fit_rows": 4597785,
+  "preprocessing": null,
+  "train_time_sec": 222.1074273000013,
+  "preprocessing_materialization_sec": 41.127624200002174,
+  "elapsed_seconds": 323.6233306000031,
+  "peak_memory_gb": 8.144515991210938,
+  "evaluator_status": "unmodified_organizer_script_validation_replay",
+  "official_script_sha256": "72dc59987e92ba8ae6b506e114dfe8591b5608c9beccd0769d5d1f778f9189c2",
+  "metrics": {
+    "rank_ic_mean": 0.06816822809400452,
+    "rank_ic_std": 0.10331315428574259,
+    "icir": 0.6598213805907567,
+    "ic_positive_ratio": 0.78099173553719,
+    "annualized_top_excess_return": 0.25048818325878686,
+    "top1_annualized_absolute_return": 0.2699114205789042,
+    "mean_turnover": 0.841486137886373,
+    "final_score": 0.14996790484932596
+  },
+  "official": {
+    "ic_mean": 0.06816822809400452,
+    "ic_std": 0.10331315428574259,
+    "icir": 0.6598213805907567,
+    "ic_positive_ratio": 0.78099173553719,
+    "annual_excess": 0.25048818325878686,
+    "top1_annual_ret": 0.2699114205789042,
+    "mean_turnover": 0.841486137886373,
+    "final_score": 0.14996790484932596
+  },
+  "auxiliary": {
+    "rank_ic_std_ddof0": 0.10309947638525616,
+    "top1_bottom1_annualized_spread": 1.268646965900338,
+    "spread_status": "auxiliary only; floor groups matching official Top sizing; not returned by organizer"
+  },
+  "missing_label_diagnostic": {
+    "official_turnover": 0.841486137886373,
+    "diagnostic_exclude_missing_y_turnover": 0.8931890267447345,
+    "diagnostic_minus_official": 0.051702888858361495,
+    "missing_y_rows": 62889,
+    "top_rows": 111424,
+    "missing_top_rows": 27542,
+    "missing_share_of_top": 0.24718193566915567,
+    "missing_top_prediction_distribution": {
+      "min": -0.005054338564262,
+      "p01": -0.0041433392421973,
+      "p25": -0.000712010537674,
+      "median": 0.0022855225956238,
+      "p75": 0.0052277642687282,
+      "p99": 0.0164330342264206,
+      "max": 0.0208271294408252
+    },
+    "missing_top_duplicate_fraction": 0.9751652022365841,
+    "dates_boundary_splits_tie": 14,
+    "persistence": {
+      "stocks": 558,
+      "runs": 14989,
+      "run_days": {
+        "min": 1.0,
+        "p01": 1.0,
+        "p25": 1.0,
+        "median": 1.0,
+        "p75": 2.0,
+        "p99": 7.0,
+        "max": 7.0
+      },
+      "stock_longest_run_days": {
+        "min": 1.0,
+        "p01": 1.0,
+        "p25": 3.0,
+        "median": 5.0,
+        "p75": 7.0,
+        "p99": 7.0,
+        "max": 7.0
+      },
+      "stocks_run_ge20": 0,
+      "stocks_run_ge60": 0,
+      "stocks_run_full_fold": 0,
+      "longest_examples": [
+        {
+          "ts_code": "301536.SZ",
+          "start": 20230207,
+          "end": 20230215,
+          "days": 7
+        },
+        {
+          "ts_code": "001259.SZ",
+          "start": 20230207,
+          "end": 20230215,
+          "days": 7
+        },
+        {
+          "ts_code": "001255.SZ",
+          "start": 20230207,
+          "end": 20230215,
+          "days": 7
+        },
+        {
+          "ts_code": "603276.SH",
+          "start": 20230207,
+          "end": 20230215,
+          "days": 7
+        },
+        {
+          "ts_code": "301358.SZ",
+          "start": 20230207,
+          "end": 20230215,
+          "days": 7
+        },
+        {
+          "ts_code": "001258.SZ",
+          "start": 20230207,
+          "end": 20230215,
+          "days": 7
+        },
+        {
+          "ts_code": "301360.SZ",
+          "start": 20230207,
+          "end": 20230215,
+          "days": 7
+        },
+        {
+          "ts_code": "301510.SZ",
+          "start": 20230207,
+          "end": 20230215,
+          "days": 7
+        },
+        {
+          "ts_code": "300784.SZ",
+          "start": 20230207,
+          "end": 20230215,
+          "days": 7
+        },
+        {
+          "ts_code": "301626.SZ",
+          "start": 20230207,
+          "end": 20230215,
+          "days": 7
+        }
+      ]
+    },
+    "missing_y_full147_finite_features": {
+      "min": 20.0,
+      "p01": 20.0,
+      "p25": 20.0,
+      "median": 20.0,
+      "p75": 20.0,
+      "p99": 20.0,
+      "max": 147.0
+    },
+    "missing_y_top_full147_finite_features": {
+      "min": 20.0,
+      "p01": 20.0,
+      "p25": 20.0,
+      "median": 20.0,
+      "p75": 20.0,
+      "p99": 20.0,
+      "max": 147.0
+    }
+  },
+  "validation": {
+    "e002_split_params_keys_labels_flags_equal": true,
+    "saved_prediction_roundtrip": true,
+    "official_daily_aggregation_matches": true,
+    "model_reload_predictions_match": true
+  },
+  "environment": {
+    "python": "3.14.0",
+    "numpy": "2.3.5",
+    "pandas": "2.3.3",
+    "lightgbm": "4.6.0"
+  },
+  "config_sha256": {
+    "experiments_v1.yaml": "c6dbbefe5fe0a9fa2109f498755310926d03a1597bc13f5214d01e55c9f45679",
+    "features_v1.yaml": "6bd63c4d058def293e96f4e1359df976ffb8abde2111cb251ceabe40fba20987",
+    "folds_v1.yaml": "4b1f773d45b9e886c239bddef5e1176f7d90c593f4a4cfde674f3b43196ff73a"
+  },
+  "feature_manifest_sha256": "a2c90f3183ff649141d5ed2ccdf3e051e53f5b3724508f6891d84b21d8d7d14f",
+  "artifact_files": {
+    "daily_metrics.csv": {
+      "sha256": "89db8e09ba180d66f7508aa6f87c7e862df0af6b1d58922b81a8df5855167c7d",
+      "bytes": 28403
+    },
+    "missing_label_diagnostic.json": {
+      "sha256": "3bf561ab228c22c8371571303eb30d1138e65fa69901ac1002370ab6844ac458",
+      "bytes": 2794
+    },
+    "model.joblib": {
+      "sha256": "909380a4eb3b3f8f56269b25d9539f85e7cd8d5e19b3e8090ccc0738338d7338",
+      "bytes": 5318906
+    },
+    "model.txt": {
+      "sha256": "94b65856e3ff6b96514e0e29ea6c40b6fa9fe18e973c2d24309a8fb7d22e3689",
+      "bytes": 5330878
+    },
+    "predictions.csv.gz": {
+      "sha256": "6d659cfb904f3c593357c16c5255216ef295d54a035cadbe43f6fb12fd5f1fb2",
+      "bytes": 23226205
+    },
+    "top_diagnostic_daily.csv": {
+      "sha256": "377ec89586edfbf7a1095b14dbc7f706e4b7cf9b6c6da6587b22096be443d588",
+      "bytes": 9856
+    }
+  }
+}

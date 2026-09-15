@@ -9,3 +9,6 @@
 *.csv -text whitespace=cr-at-eol
 evaluate.py -text whitespace=cr-at-eol
 reference/evaluate_official.py -text whitespace=cr-at-eol
+# Preserve exact bytes for new metadata whose hashes are recorded in E003.
+outputs/full147_manifest.json -text whitespace=cr-at-eol
+outputs/baselines/E003/** -text whitespace=cr-at-eol
