@@ -52,6 +52,44 @@ def test_duplicate_cross_chunk_boundary(tmp_path):
     assert result["label_check_internal"]["status"].startswith("blocked")
 
 
+@pytest.mark.parametrize("training", [True, False])
+def test_cross_field_flags_capture_and_preserve(tmp_path, training):
+    frame = raw_frame().iloc[[0] * 14].reset_index(drop=True)
+    frame["ts_code"] = [f"{i:06d}.SZ" for i in range(len(frame))]
+    frame["flag_limit_up"] = [1] * 12 + [0, 1]
+    frame["flag_limit_down"] = [1] * 12 + [1, 0]
+    if not training:
+        frame = frame.drop(columns=[TARGET])
+    path = tmp_path / "flags.csv"
+    frame.to_csv(path, index=False)
+    before = path.read_bytes()
+    result, _ = audit_file(path, training, chunksize=3)
+    assert all(s["abnormal_count"] == 0 for s in result["flags"].values())
+    assert all(set(s["value_counts"]) <= {"0.0", "1.0"} for s in result["flags"].values())
+    cross = result["flag_cross_field_consistency"]["both_limit_flags_equal_one"]
+    assert cross["count"] == 12
+    assert len(cross["samples"]) == 10
+    assert cross["classification"] == "warning / unresolved observation"
+    assert all(set(sample) == set(frame.columns) for sample in cross["samples"])
+    assert all(sample["flag_limit_up"] == sample["flag_limit_down"] == 1 for sample in cross["samples"])
+    assert path.read_bytes() == before
+    reread = pd.concat(read_chunks(path, training), ignore_index=True)
+    assert len(reread) == len(frame)
+    np.testing.assert_array_equal(reread[["flag_limit_up", "flag_limit_down"]],
+                                  frame[["flag_limit_up", "flag_limit_down"]])
+
+
+@pytest.mark.parametrize("flag", ["flag_limit_up", "flag_limit_down"])
+def test_cross_field_audit_does_not_replace_single_column_checks(tmp_path, flag):
+    frame = raw_frame().iloc[:2].copy()
+    frame.loc[0, flag] = 2
+    path = tmp_path / "flags.csv"
+    frame.to_csv(path, index=False)
+    result, _ = audit_file(path, True)
+    assert result["flags"][flag]["abnormal_count"] == 1
+    assert result["flag_cross_field_consistency"]["both_limit_flags_equal_one"]["count"] == 0
+
+
 def test_market_gap_is_not_price_nan_and_next_row_is_not_next_day():
     p = panel(raw_frame())
     p.loc[1, "trade_date"] = 20240104
@@ -101,6 +139,7 @@ def test_end_to_end_report_and_data_version(tmp_path):
     raw = tmp_path / "data/raw"
     raw.mkdir(parents=True)
     frame = raw_frame().iloc[:2].copy()
+    frame.loc[0, ["flag_limit_up", "flag_limit_down"]] = 1
     frame.to_csv(raw / "训练集.csv", index=False)
     test = frame.drop(columns=[TARGET]).copy()
     test.trade_date = [20250102, 20250103]
@@ -112,6 +151,11 @@ def test_end_to_end_report_and_data_version(tmp_path):
     report = (tmp_path / "outputs/data_audit_report.md").read_text(encoding="utf-8")
     for section in ["confirmed_facts", "warnings", "unresolved_questions", "blockers"]:
         assert f"## {section}" in report
+    assert any("同时为1" in warning for warning in saved["warnings"])
+    assert any("同时为1" in question for question in saved["unresolved_questions"])
+    assert not any("同时为1" in blocker for blocker in saved["blockers"])
+    assert saved["basic40_ready"]
+    assert "both_limit_flags_equal_one" in report
 
 
 def test_ohlc_eligible_denominators():

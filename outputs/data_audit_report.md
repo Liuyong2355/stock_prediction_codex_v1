@@ -1,6 +1,6 @@
 # 数据全量审计报告
 
-生成时间：2026-09-15T06:41:29.514610+00:00
+生成时间：2026-09-15T07:04:18.751702+00:00
 data_version：`sha256:6f27670167a0b305ebde0d303a272a0a3215def354c15cc316d287f1444540e2`
 
 仅工程初始化与只读全量审计；未生成特征、修改标签、填充数据、训练或运行 E000–E007。
@@ -19,6 +19,7 @@ data_version：`sha256:6f27670167a0b305ebde0d303a272a0a3215def354c15cc316d287f14
 
 ## warnings
 
+- train有4行flag_limit_up与flag_limit_down同时为1；仅标记warning / unresolved observation，不认定为数据错误，不修改、删除或重编码，最多10个样例见字段交叉审计。
 - train有38,468行OHLC有限但vol/amount均为0；保留原值，不能自动认定其业务原因。
 - train有40行OHLC全NaN但vol有限，详见样例。
 - test有13行OHLC全NaN但vol有限，详见样例。
@@ -26,6 +27,7 @@ data_version：`sha256:6f27670167a0b305ebde0d303a272a0a3215def354c15cc316d287f14
 
 ## unresolved_questions
 
+- train两个涨跌停标志同时为1的记录，其业务含义尚未明确；保留原始观测。
 - 缺失价格区段分别属于停牌、未上市还是其他数据处理？仅凭现有字段无法逐段定性。
 - 观测日期并集是否完整覆盖交易所日历？禁止引入外部数据或自行补齐。
 - 官方evaluate.py仍未提供，评分边界无法完成官方一致性验证；任何自实现评分器只能标为provisional。
@@ -169,6 +171,72 @@ SHA-256：`e9d23e87f7e1f9439f28f7dd951d129ea49eaacda5ad650da8576a830a6deac9`
     "eligible": 6760370,
     "count": 0,
     "samples": []
+  }
+}
+```
+
+### 涨跌停字段交叉一致性（仅观察，不判定为数据错误）
+
+```json
+{
+  "both_limit_flags_equal_one": {
+    "count": 4,
+    "samples": [
+      {
+        "ts_code": "300890.SZ",
+        "trade_date": 20200918,
+        "open": 61.900001525878906,
+        "high": 67.62999725341797,
+        "low": 59.880001068115234,
+        "close": 60.0,
+        "vol": 14263238.0,
+        "amount": 901307600.71,
+        "flag_limit_up": 1.0,
+        "flag_limit_down": 1.0,
+        "y_ret_1d": 0.051999982198079
+      },
+      {
+        "ts_code": "300967.SZ",
+        "trade_date": 20210416,
+        "open": 22.34000015258789,
+        "high": 23.200000762939453,
+        "low": 21.8799991607666,
+        "close": 22.36000061035156,
+        "vol": 15493089.0,
+        "amount": 349950940.27,
+        "flag_limit_up": 1.0,
+        "flag_limit_down": 1.0,
+        "y_ret_1d": -0.056350634816106
+      },
+      {
+        "ts_code": "301083.SZ",
+        "trade_date": 20211026,
+        "open": 18.64999961853028,
+        "high": 20.989999771118164,
+        "low": 18.39999961853028,
+        "close": 20.0,
+        "vol": 20555941.0,
+        "amount": 399738564.17,
+        "flag_limit_up": 1.0,
+        "flag_limit_down": 1.0,
+        "y_ret_1d": -0.097000026702881
+      },
+      {
+        "ts_code": "301180.SZ",
+        "trade_date": 20211119,
+        "open": 38.0,
+        "high": 40.27000045776367,
+        "low": 36.630001068115234,
+        "close": 36.630001068115234,
+        "vol": 20037974.0,
+        "amount": 770918822.62,
+        "flag_limit_up": 1.0,
+        "flag_limit_down": 1.0,
+        "y_ret_1d": 0.001910993523971
+      }
+    ],
+    "classification": "warning / unresolved observation",
+    "policy": "Not classified as a data error; preserve rows and original flags without modification, deletion or recoding."
   }
 }
 ```
@@ -619,6 +687,19 @@ SHA-256：`dceffbf68bbab07a254bc6caa4d8a1e33de8de9c15489d936c5d15020dbfa90f`
     "eligible": 1554756,
     "count": 0,
     "samples": []
+  }
+}
+```
+
+### 涨跌停字段交叉一致性（仅观察，不判定为数据错误）
+
+```json
+{
+  "both_limit_flags_equal_one": {
+    "count": 0,
+    "samples": [],
+    "classification": "warning / unresolved observation",
+    "policy": "Not classified as a data error; preserve rows and original flags without modification, deletion or recoding."
   }
 }
 ```

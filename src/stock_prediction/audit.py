@@ -187,6 +187,9 @@ def audit_file(path: Path, training: bool, chunksize=200_000):
     result = fingerprint(path)
     stats, checks, flags, pieces = {}, {}, {}, []
     patterns, pattern_samples = Counter(), {}
+    simultaneous_limits = {"count": 0, "samples": [],
+                           "classification": "warning / unresolved observation",
+                           "policy": "Not classified as a data error; preserve rows and original flags without modification, deletion or recoding."}
     rows, invalid_dates, invalid_codes = 0, 0, 0
     last_key, sorted_input = None, True
     for chunk in read_chunks(path, training, chunksize):
@@ -220,6 +223,11 @@ def audit_file(path: Path, training: bool, chunksize=200_000):
         for name in ["flag_limit_up", "flag_limit_down"]:
             total = flags.setdefault(name, Counter())
             total.update({str(k): int(v) for k, v in chunk[name].value_counts(dropna=False).items()})
+        both_limits = (chunk.flag_limit_up == 1) & (chunk.flag_limit_down == 1)
+        simultaneous_limits["count"] += int(both_limits.sum())
+        simultaneous_limits["samples"] = (
+            simultaneous_limits["samples"] + examples(chunk, both_limits, limit=10)
+        )[:10]
         price_nan = chunk[PRICES].isna()
         all_nan = price_nan.all(axis=1)
         all_finite = np.isfinite(chunk[PRICES]).all(axis=1)
@@ -245,6 +253,7 @@ def audit_file(path: Path, training: bool, chunksize=200_000):
         item["nan_ratio"] = item["nan"] / rows
         item["inf_ratio"] = item["inf"] / rows
     result.update({"rows": rows, "column_statistics": stats, "ohlc_checks": checks,
+                   "flag_cross_field_consistency": {"both_limit_flags_equal_one": simultaneous_limits},
                    "flags": {name: {"value_counts": values,
                                     "abnormal_count": sum(n for value, n in values.items() if value not in ["0.0", "1.0"])}
                              for name, values in flags.items()},
@@ -280,6 +289,7 @@ def render_report(summary: dict) -> str:
         panel = {k: v for k, v in data["panel"].items() if k != "observations_per_stock"}
         for title, payload in [("规模、唯一性、观测分布、缺行与缺失形态", panel),
                                ("涨跌停标志", data["flags"]), ("OHLC合法性", data["ohlc_checks"]),
+                               ("涨跌停字段交叉一致性（仅观察，不判定为数据错误）", data["flag_cross_field_consistency"]),
                                ("非正价格", data["price_nonpositive_counts"]),
                                ("其他观测形态", {"counts": data["observation_patterns"], "samples": data["observation_pattern_samples"]}),
                                ("成交量额：负数、零、缺失、无穷及有限范围", data["volume_amount_anomalies"])]:
@@ -336,6 +346,10 @@ def run(root: Path, chunksize=200_000) -> dict:
             warnings.append(f"{name}存在inf，详见逐列统计。")
         if any(v["abnormal_count"] for v in data["flags"].values()):
             warnings.append(f"{name}涨跌停标志存在非0/1值或缺失。")
+        both_count = data["flag_cross_field_consistency"]["both_limit_flags_equal_one"]["count"]
+        if both_count:
+            warnings.append(f"{name}有{both_count}行flag_limit_up与flag_limit_down同时为1；仅标记warning / unresolved observation，不认定为数据错误，不修改、删除或重编码，最多10个样例见字段交叉审计。")
+            questions.append(f"{name}两个涨跌停标志同时为1的记录，其业务含义尚未明确；保留原始观测。")
         if any(v["negative"] for v in data["volume_amount_anomalies"].values()):
             warnings.append(f"{name}成交量或成交额存在负数。")
     missing = results["train"]["label_missing"]
