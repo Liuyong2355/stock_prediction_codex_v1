@@ -6,3 +6,8 @@ data/**/*.csv
 outputs/*.tmp
 outputs/models/
 outputs/features/
+outputs/baselines/cache/
+outputs/baselines/**/training_work.npy
+outputs/baselines/**/predictions.csv.gz
+outputs/baselines/**/model.joblib
+outputs/baselines/**/model.txt

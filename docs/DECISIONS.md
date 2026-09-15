@@ -81,3 +81,8 @@ This file records frozen design decisions. Do not rewrite history; append new de
 **Status:** Accepted, explicitly authorized in the user's Basic40 B1 request.
 **Decision:** Implement only the frozen 40 features, causal train/test generation, tests and descriptive feature audit. Preserve V1.0.1 definitions and all rows/flags. The user's B1 name denotes the Basic40 implementation step, not authorization for the protocol's Full147 phase. No E000-E007, model training or tuning.
 **Implementation:** Store float64 NumPy matrices and aligned keys locally, track metadata/fingerprints and reports in Git, and stop after the reviewable commit. Basic40 has no EMA or cross-sectional feature; verify same-day stock independence without adding Full147 functionality.
+
+## D017 — B2 frozen baseline execution with provisional scoring
+**Status:** Authorized in the user's B2 request; official scoring edge cases remain unresolved.
+**Decision:** Implement frozen expanding folds/purge and run only E000–E002. E001 uses official sklearn Ridge and train-only sklearn preprocessing; E002 uses official lightgbm with the existing frozen params. No custom training algorithms, Full147, alternative targets, tuning or ensembles.
+**Provisional implementation:** Record PDF edge conventions separately in PROVISIONAL_EVALUATOR.md and each result. This does not amend the competition rules or claim organizer parity. Preserve validation rows and label-independent turnover eligibility. Stop after results, tests and Git submission for review.

@@ -30,3 +30,14 @@ $env:PYTHONPATH = 'src'
 This reads the accepted raw-data audit and verifies its data fingerprints. Complete stock histories span CSV chunks and the train/test boundary. Generated matrices and aligned keys are in `outputs/features/basic40/`; column order, shapes and SHA-256 values are in `outputs/basic40_manifest.json`. The builder refuses to overwrite completed artifacts. Generation uses only NumPy/pandas already installed, and no labels, fits, clipping or calendar filling.
 
 Read `docs/BASIC40_IMPLEMENTATION.md` for implementation details and loading instructions. Descriptive statistics and manual-check examples are in `outputs/basic40_audit_report.md` and `outputs/basic40_audit_summary.json`.
+
+## Frozen B2 baselines
+
+```powershell
+.venv/Scripts/python.exe -m pip install -r requirements-models.txt
+.venv/Scripts/python.exe -m pytest -q
+$env:PYTHONPATH = 'src'
+.venv/Scripts/python.exe -m stock_prediction.baselines --root .
+```
+
+Run only after the baseline tests and official-library smoke tests pass. The command verifies training input artifacts and runs E000, E001, E002 sequentially on F1–F3. It refuses to overwrite completed folds. `--experiment E001 --fold F2` selects one unfinished fold after input verification. Scores are provisional; read `docs/PROVISIONAL_EVALUATOR.md` for exact edge assumptions. Frozen config files remain unchanged. Predictions/model binaries are stored locally under outputs/baselines, with hashes in tracked per-fold result.json files. Summary and experiment logs are tracked.

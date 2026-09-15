@@ -52,3 +52,11 @@ Read `DECISIONS.md`, record the new decision, update the canonical YAML/spec, an
 - `../outputs/basic40_manifest.json` — local feature/key artifacts and fingerprints.
 - `../outputs/basic40_test_results.txt` — pytest results for the Basic40 stage.
 - `../outputs/basic40_validation.md` — full-data checks and independent return-extreme rechecks.
+
+## B2 baseline implementation and results
+
+- `PROVISIONAL_EVALUATOR.md` — preserved rules and explicitly provisional unresolved edges.
+- `../outputs/baseline_report.md` — E000/E001/E002 scores, fold counts and limitations.
+- `../outputs/baseline_summary.json` — complete per-fold metrics and provenance.
+- `../outputs/experiment_log.csv` — required experiment log.
+- `../outputs/baselines/` — fold result.json, daily metrics, local prediction/model files and fingerprints.
