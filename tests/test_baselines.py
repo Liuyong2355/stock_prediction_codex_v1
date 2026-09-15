@@ -9,7 +9,7 @@ import lightgbm as lgb
 from stock_prediction.folds import split_fold
 from stock_prediction.preprocessing import RidgePreprocessor
 from stock_prediction.evaluator import evaluate, groups
-from stock_prediction.baselines import configs, make_model, materialize, predict_batches
+from stock_prediction.baselines import configs, make_model, materialize, predict_batches, save_lightgbm_text
 from pathlib import Path
 
 
@@ -159,4 +159,9 @@ def test_official_model_smoke_with_frozen_configuration(tmp_path, experiment):
     prediction = predict_batches(model,matrix,valid,pre,batch_size=80)
     assert np.isfinite(prediction).all() and len(prediction)==200
     assert np.std(prediction)>0
+    if experiment == "E002":
+        destination = tmp_path / "中文模型.txt"
+        save_lightgbm_text(model, destination)
+        loaded = lgb.Booster(model_str=destination.read_text(encoding="utf-8"))
+        np.testing.assert_allclose(loaded.predict(matrix[valid]), prediction)
     training._mmap.close()

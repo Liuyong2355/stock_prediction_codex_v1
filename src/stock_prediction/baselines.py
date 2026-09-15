@@ -112,6 +112,12 @@ def make_model(experiment_id, config):
     raise ValueError("Only the frozen E001/E002 models are allowed")
 
 
+def save_lightgbm_text(model, path):
+    # Native Windows file APIs can reject Unicode paths. Keep official model
+    # serialization, but let Python handle the Unicode filename.
+    Path(path).write_text(model.booster_.model_to_string(), encoding="utf-8")
+
+
 def materialize(matrix, indices, path, preprocessing=None, batch_size=100_000):
     ncols = len(preprocessing.kept_indices_) if preprocessing else matrix.shape[1]
     target = np.lib.format.open_memmap(path, mode="w+", dtype="float64", shape=(len(indices), ncols))
@@ -181,7 +187,7 @@ def run_fold(root, experiment_id, fold_id):
         predictions = predict_batches(model, matrix, valid_idx, preprocessor)
         joblib.dump({"model": model, "preprocessor": preprocessor, "feature_names": names}, out / "model.joblib")
         if experiment_id == "E002":
-            model.booster_.save_model(str(out / "model.txt"))
+            save_lightgbm_text(model, out / "model.txt")
         training._mmap.close()
         del training
         train_file.unlink()  # Only this known, generated, per-fold scratch file.
