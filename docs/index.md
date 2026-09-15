@@ -63,3 +63,11 @@ Read `DECISIONS.md`, record the new decision, update the canonical YAML/spec, an
 
 - `../outputs/official_evaluator_comparison.md` — original organizer script replay; preserved provisional comparison.
 - `../outputs/evaluator_arrival_review.md` — confirmed provenance and semantic differences.
+
+## Full147 / E003
+
+- `FULL147_IMPLEMENTATION.md` — frozen implementation and reproducible commands.
+- `../outputs/full147_audit_report.md` — full train/test feature audit.
+- `../outputs/full147_manifest.json` — column order, local files and fingerprints.
+- `../outputs/e002_e003_comparison.md` — paired official metrics and missing-label diagnostics.
+- `../outputs/baselines/E003/` — fold predictions, model, official metrics and diagnostics.

@@ -90,3 +90,7 @@ This file records frozen design decisions. Do not rewrite history; append new de
 ## D018 — Late official evaluator receipt and preserved B2 results (2026-09-15)
 
 User confirmed the root evaluate.py is the unmodified organizer script. Archive identical bytes at reference/evaluate_official.py; replay all nine saved validation predictions and deterministic edge cases without retraining or replacing provisional results. Official ddof=1 differs from user-frozen ddof=0; minimum sample thresholds, Top group rounding, ties and NaN handling also differ. Comparison is recorded separately. No frozen YAML, feature, fold, target or metric definition is changed in this delivery; resolve conflicts explicitly during review before changing versions.
+
+## D019 — Authorized Full147 and E003 only
+
+The user authorized the frozen Full147 implementation and E003 (Full147 + official LightGBM + raw target), with unchanged folds, purge, parameters and predictions. Use the unmodified organizer script for primary validation metrics and compare against the existing E002 official replay. Preserve missing-label Top effects and report ex-post label-filtered turnover only as a diagnostic. Official IC standard deviation (ddof=1) and the user-frozen auxiliary ddof=0 are stored separately; no frozen configuration or formula is amended. The official script does not return Top-Bottom spread; the separately labeled auxiliary statistic uses floor-sized end groups and does not enter Score. No E004–E007, tuning, ensembles or feature ablations are authorized in this stage.
