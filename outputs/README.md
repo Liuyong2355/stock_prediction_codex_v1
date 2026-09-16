@@ -76,6 +76,14 @@ New stages should use their own subdirectory, beginning with `phase_c0/`.
 - Fusion grid: [phase_c1_fusion_grid.csv](phase_c1/phase_c1_fusion_grid.csv)
 - Validation: [phase_c1_validation.md](phase_c1/phase_c1_validation.md)
 
+## Phase C2 — LambdaRank redesign
+
+- Stage directory: [phase_c2](phase_c2/)
+- E007 audit: [phase_c2_e007_audit.md](phase_c2/phase_c2_e007_audit.md)
+- Results: [phase_c2_comparison.md](phase_c2/phase_c2_comparison.md)
+- Full-precision results: [phase_c2_comparison.json](phase_c2/phase_c2_comparison.json)
+- Validation: [phase_c2_validation.md](phase_c2/phase_c2_validation.md)
+
 ## Naming convention for future stages
 
 Use `outputs/phase_<id>/` and keep the minimum standard set:

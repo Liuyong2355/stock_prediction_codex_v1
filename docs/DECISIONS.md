@@ -157,3 +157,13 @@ after blending (`alpha=0.30`, `exit_fraction=0.25`). Select weight using F1/F2
 only; use F3 only for post-selection robustness.  
 **Reason:** Measure whether the two frozen models contain complementary ordering
 signal without reopening model training or turnover parameter search.
+
+## D022 — C2 redesigns LambdaRank with an explicit bounded protocol
+**Status:** Accepted for the C2 experiment.  
+**Decision:** Compare exactly two Full147 LambdaRank candidates using linear
+0–9 gains, truncation 500, normalization, 100 rounds and corrected average-rank
+deciles. R1 uses raw features; R2 ranks every non-market feature cross-sectionally
+using feature metadata while preserving date-level market features. Select on
+F1/F2 and use F3 only for robustness. Apply the locked C0b postprocess unchanged.
+**Reason:** Isolate E007 protocol design from input representation without broad
+tuning, feature selection, fusion or renewed turnover search.

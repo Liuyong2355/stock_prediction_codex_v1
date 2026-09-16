@@ -108,3 +108,10 @@ Read `DECISIONS.md`, record the new decision, update the canonical YAML/spec, an
 - `../outputs/phase_c1/phase_c1_comparison.json` — full diagnostics, metrics and provenance.
 - `../outputs/phase_c1/phase_c1_fusion_grid.csv` — five-weight fold grid.
 - `../outputs/phase_c1/phase_c1_validation.md` — endpoint and protected-artifact verification.
+
+## Phase C2 LambdaRank redesign
+
+- `../outputs/phase_c2/phase_c2_e007_audit.md` — historical E007 protocol audit.
+- `../outputs/phase_c2/phase_c2_comparison.md` — R1/R2 raw and fixed-postprocess comparison.
+- `../outputs/phase_c2/phase_c2_comparison.json` — full training, metrics, robustness and provenance.
+- `../outputs/phase_c2/phase_c2_validation.md` — executed protocol and protection checks.
