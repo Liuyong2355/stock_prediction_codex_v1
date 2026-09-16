@@ -1,0 +1,21 @@
+phase: C0b
+scope: saved_validation_predictions_only
+experiments: [E005, E006]
+folds:
+  selection: [F1, F2]
+  robustness: F3
+grid:
+  alphas: [0.50, 0.40, 0.30]
+  exit_fractions: [0.15, 0.175, 0.20, 0.225, 0.25]
+anchor: {alpha: 0.50, exit_fraction: 0.15}
+selection_order:
+  - mean_f1_f2_final_score_desc
+  - worst_f1_f2_final_score_desc
+  - mean_f1_f2_turnover_asc
+  - alpha_desc
+  - exit_fraction_asc
+stop_rule:
+  expand_automatically: false
+  alpha_min: 0.30
+  exit_fraction_max: 0.25
+f3_role: robustness_temporal_consistency_only

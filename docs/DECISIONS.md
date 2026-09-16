@@ -126,3 +126,25 @@ folds. The comparison report recommends E002/E005/E006 as Phase C candidates and
 retains the other useful baselines as controls. These are recommendations for
 review; no Phase C work is executed. See `outputs/e006_e007_comparison.md` and
 `outputs/e006_e007_validation.md` for evidence and reproduction limits.
+
+## D019 — Phase C0 uses prediction-only causal turnover control
+**Status:** Accepted for the C0 experiment.  
+**Decision:** Keep E005/E006 models and saved fold predictions frozen. Within each
+validation fold, apply same-date average percentile rank, per-stock causal EMA
+initialized from that fold's first observation, and exact-size Top hysteresis.
+Select alpha/exit_fraction independently per model using F1/F2 only, in the
+predeclared score/worst-score/turnover/alpha/exit order; use F3 only once for
+confirmation after parameters are frozen.  
+**Reason:** Isolate whether causal prediction post-processing can improve the
+official turnover/Score trade-off without retraining or using confirmation data
+for parameter choice.
+
+## D020 — C0b performs one bounded extension and then stops turnover search
+**Status:** Accepted for the C0b experiment.  
+**Decision:** Reuse the verified C0 implementation and expand once to alpha
+`[0.50, 0.40, 0.30]` and exit fraction `[0.15, 0.175, 0.20, 0.225, 0.25]`.
+Select independently for E005/E006 using F1/F2 only. Because F3 was observed in
+C0, use it only as a post-selection robustness/temporal-consistency check. Stop
+after this grid even if a selected parameter remains on the boundary.  
+**Reason:** Test whether C0's active boundaries hid a nearby stable region while
+limiting repeated adaptation to the same validation years.

@@ -1,0 +1,26 @@
+phase: C0
+scope: saved_validation_predictions_only
+experiments: [E005, E006]
+folds:
+  selection: [F1, F2]
+  confirmation: F3
+daily_rank:
+  method: average
+ema:
+  alphas: [1.0, 0.9, 0.8, 0.7, 0.6, 0.5]
+  initialization: first_rank_within_fold
+  train_tail_warm_start: false
+hysteresis:
+  exit_fractions: [0.10, 0.125, 0.15]
+  minimum_pool_size: 100
+  top_size: floor_eligible_div_10
+  exclude_flag_limit_up: true
+selection_order:
+  - mean_f1_f2_final_score_desc
+  - worst_f1_f2_final_score_desc
+  - mean_f1_f2_turnover_asc
+  - alpha_desc
+  - exit_fraction_asc
+controls:
+  rank_only: {alpha: 1.0, exit_fraction: 0.10}
+  external_reference: {alpha: 0.5, exit_fraction: 0.15}

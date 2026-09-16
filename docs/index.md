@@ -86,3 +86,17 @@ Read `DECISIONS.md`, record the new decision, update the canonical YAML/spec, an
 - `../outputs/e006_e007_comparison.md` — all-model official scores, diagnostics and Phase C recommendations.
 - `../outputs/e006_e007_comparison.json` — full-precision results and independent verification.
 - `../outputs/e006_e007_validation.md` — tests, provenance and reproduction evidence.
+
+## Phase C0 turnover optimization
+
+- `../outputs/phase_c0/phase_c0_turnover_comparison.md` — E005/E006 causal turnover results and conclusions.
+- `../outputs/phase_c0/phase_c0_turnover_comparison.json` — full-precision selection, metrics and verification.
+- `../outputs/phase_c0/phase_c0_turnover_grid.csv` — complete F1/F2 parameter grid plus frozen F3 confirmations.
+- `../outputs/phase_c0/phase_c0_turnover_validation.md` — executed tests and protected-artifact checks.
+
+## Phase C0b boundary extension
+
+- `../outputs/phase_c0b/phase_c0b_turnover_comparison.md` — bounded alpha/exit extension and V1 lock decision.
+- `../outputs/phase_c0b/phase_c0b_turnover_comparison.json` — complete grid, surfaces, robustness and provenance.
+- `../outputs/phase_c0b/phase_c0b_turnover_grid.csv` — complete F1/F2 grid.
+- `../outputs/phase_c0b/phase_c0b_turnover_validation.md` — anchor and protected-artifact verification.
