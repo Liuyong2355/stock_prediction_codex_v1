@@ -1,0 +1,16 @@
+phase: C1
+experiments: [E005, E006]
+folds:
+  selection: [F1, F2]
+  robustness: F3
+weights_e005: [0.00, 0.25, 0.50, 0.75, 1.00]
+postprocess:
+  alpha: 0.30
+  exit_fraction: 0.25
+selection_order:
+  - mean_f1_f2_final_score_desc
+  - worst_f1_f2_final_score_desc
+  - mean_f1_f2_turnover_asc
+  - distance_to_0_5_asc
+f3_role: robustness_only_after_weight_lock
+turnover_parameter_search: prohibited

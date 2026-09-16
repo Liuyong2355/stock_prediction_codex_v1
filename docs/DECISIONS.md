@@ -148,3 +148,12 @@ C0, use it only as a post-selection robustness/temporal-consistency check. Stop
 after this grid even if a selected parameter remains on the boundary.  
 **Reason:** Test whether C0's active boundaries hid a nearby stable region while
 limiting repeated adaptation to the same validation years.
+
+## D021 — C1 tests only raw daily-rank fusion under locked postprocessing
+**Status:** Accepted for the C1 experiment.  
+**Decision:** Blend same-date percentile ranks of saved E005/E006 raw predictions
+at five predeclared E005 weights. Apply the locked C0b postprocess exactly once
+after blending (`alpha=0.30`, `exit_fraction=0.25`). Select weight using F1/F2
+only; use F3 only for post-selection robustness.  
+**Reason:** Measure whether the two frozen models contain complementary ordering
+signal without reopening model training or turnover parameter search.

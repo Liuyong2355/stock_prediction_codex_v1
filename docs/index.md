@@ -100,3 +100,11 @@ Read `DECISIONS.md`, record the new decision, update the canonical YAML/spec, an
 - `../outputs/phase_c0b/phase_c0b_turnover_comparison.json` — complete grid, surfaces, robustness and provenance.
 - `../outputs/phase_c0b/phase_c0b_turnover_grid.csv` — complete F1/F2 grid.
 - `../outputs/phase_c0b/phase_c0b_turnover_validation.md` — anchor and protected-artifact verification.
+
+## Phase C1 rank fusion
+
+- `../outputs/phase_c1/phase_c1_complementarity.md` — rank, Top overlap and group-return diagnostics.
+- `../outputs/phase_c1/phase_c1_comparison.md` — fixed-postprocess fusion results.
+- `../outputs/phase_c1/phase_c1_comparison.json` — full diagnostics, metrics and provenance.
+- `../outputs/phase_c1/phase_c1_fusion_grid.csv` — five-weight fold grid.
+- `../outputs/phase_c1/phase_c1_validation.md` — endpoint and protected-artifact verification.

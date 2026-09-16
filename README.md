@@ -5,9 +5,9 @@ Full147 and E000–E007. The latest stage runs only frozen E006/E007, with direc
 official XGBoost/LightGBM training, organizer scoring and preserved missing-label diagnostics.
 
 - Output index: [artifacts organized by research phase](outputs/README.md).
-- Current results: [Phase C0b bounded turnover optimization](outputs/phase_c0b/phase_c0b_turnover_comparison.md).
+- Current results: [Phase C1 E005/E006 daily-rank fusion](outputs/phase_c1/phase_c1_comparison.md).
 - Prior results: [E000–E007 comparison and Phase C candidates](outputs/e006_e007_comparison.md).
-- Validation: [Phase C0b checks](outputs/phase_c0b/phase_c0b_turnover_validation.md).
+- Validation: [Phase C1 checks](outputs/phase_c1/phase_c1_validation.md).
 - Reproduction: [model comparison commands and frozen-byte handling](docs/MODEL_COMPARISON.md).
 - Current model environment: `outputs/e006_e007_environment_lock.txt`; new model pin in `requirements-research.txt`.
 - Prior target results: [E003/E004/E005 comparison](outputs/e003_e004_e005_comparison.md).

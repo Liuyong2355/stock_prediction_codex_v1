@@ -67,6 +67,15 @@ New stages should use their own subdirectory, beginning with `phase_c0/`.
 - Complete F1/F2 grid: [phase_c0b_turnover_grid.csv](phase_c0b/phase_c0b_turnover_grid.csv)
 - Validation: [phase_c0b_turnover_validation.md](phase_c0b/phase_c0b_turnover_validation.md)
 
+## Phase C1 — E005/E006 daily-rank fusion
+
+- Stage directory: [phase_c1](phase_c1/)
+- Complementarity: [phase_c1_complementarity.md](phase_c1/phase_c1_complementarity.md)
+- Results: [phase_c1_comparison.md](phase_c1/phase_c1_comparison.md)
+- Full-precision results: [phase_c1_comparison.json](phase_c1/phase_c1_comparison.json)
+- Fusion grid: [phase_c1_fusion_grid.csv](phase_c1/phase_c1_fusion_grid.csv)
+- Validation: [phase_c1_validation.md](phase_c1/phase_c1_validation.md)
+
 ## Naming convention for future stages
 
 Use `outputs/phase_<id>/` and keep the minimum standard set:
