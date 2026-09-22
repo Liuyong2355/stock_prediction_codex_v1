@@ -51,7 +51,7 @@ New stages should use their own subdirectory, beginning with `phase_c0/`.
 - Validation: [e006_e007_validation.md](e006_e007_validation.md)
 - Local fold artifacts: `baselines/E006/`, `baselines/E007/`
 
-## Phase C0 — causal turnover optimization
+## Frozen evidence — Phase C0 causal turnover optimization
 
 - Stage directory: [phase_c0](phase_c0/)
 - Results: [phase_c0_turnover_comparison.md](phase_c0/phase_c0_turnover_comparison.md)
@@ -59,7 +59,7 @@ New stages should use their own subdirectory, beginning with `phase_c0/`.
 - Complete grid: [phase_c0_turnover_grid.csv](phase_c0/phase_c0_turnover_grid.csv)
 - Validation: [phase_c0_turnover_validation.md](phase_c0/phase_c0_turnover_validation.md)
 
-## Phase C0b — bounded turnover extension
+## Frozen evidence — Phase C0b bounded turnover extension
 
 - Stage directory: [phase_c0b](phase_c0b/)
 - Results: [phase_c0b_turnover_comparison.md](phase_c0b/phase_c0b_turnover_comparison.md)
@@ -67,7 +67,7 @@ New stages should use their own subdirectory, beginning with `phase_c0/`.
 - Complete F1/F2 grid: [phase_c0b_turnover_grid.csv](phase_c0b/phase_c0b_turnover_grid.csv)
 - Validation: [phase_c0b_turnover_validation.md](phase_c0b/phase_c0b_turnover_validation.md)
 
-## Phase C1 — E005/E006 daily-rank fusion
+## Frozen evidence — Phase C1 E005/E006 daily-rank fusion
 
 - Stage directory: [phase_c1](phase_c1/)
 - Complementarity: [phase_c1_complementarity.md](phase_c1/phase_c1_complementarity.md)
@@ -83,6 +83,20 @@ New stages should use their own subdirectory, beginning with `phase_c0/`.
 - Results: [phase_c2_comparison.md](phase_c2/phase_c2_comparison.md)
 - Full-precision results: [phase_c2_comparison.json](phase_c2/phase_c2_comparison.json)
 - Validation: [phase_c2_validation.md](phase_c2/phase_c2_validation.md)
+
+The uncommitted C2 early-stability and family-ablation/interaction branches were
+retired on 2026-09-22 and preserved under
+`archive/retired_research_2026-09-22/uncommitted/`.
+
+## Phase D0 — E006 mapped core rank view
+
+- Results: [comparison.md](phase_d0_e006_rank_view/comparison.md)
+- Full precision: [comparison.json](phase_d0_e006_rank_view/comparison.json)
+
+## Phase D1 — corrected LambdaRank mapped core rank view
+
+- Results: [comparison.md](phase_d1_lambdarank_rank_view/comparison.md)
+- Full precision: [comparison.json](phase_d1_lambdarank_rank_view/comparison.json)
 
 ## Naming convention for future stages
 

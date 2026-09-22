@@ -1,0 +1,70 @@
+phase: D0
+baseline: E006
+control_feature_view: Full147
+candidate_feature_view: Full147_plus_mapped_core_ranks
+representation: same_trade_date_percentile_rank_average_ties_finite_only
+source_feature_mapping:
+  # Closest Full147 equivalents of the teammate repository's 36 core factors.
+  - kmid
+  - gap_open
+  - klen
+  - kup
+  - klow
+  - ret_1
+  - ret_2
+  - ret_3
+  - ret_5
+  - ret_10
+  - ret_20
+  - ret_60
+  - madev_5
+  - madev_20
+  - madev_60
+  - stdret_5
+  - stdret_20
+  - stdret_60
+  - downvol_20
+  - volratio_5
+  - volratio_20
+  - volratio_60
+  - amtratio_20
+  - illiq_20
+  - corr_ret_dlogvol_20
+  - rsv_20
+  - rsv_60
+  - distmax_20
+  - ma_5_over_20
+  - ma_20_over_60
+existing_rank_dependencies:
+  ret_1: csr_ret_1
+  ret_3: csr_ret_3
+  ret_5: csr_ret_5
+  ret_10: csr_ret_10
+  ret_20: csr_ret_20
+  ret_60: csr_ret_60
+  madev_5: csr_madev_5
+  madev_20: csr_madev_20
+  stdret_5: csr_stdret_5
+  stdret_20: csr_stdret_20
+  volratio_5: csr_volratio_5
+  volratio_20: csr_volratio_20
+  amtratio_20: csr_amtratio_20
+  illiq_20: csr_illiq_20
+  rsv_20: csr_rsv_20
+new_feature_suffix: __csr_d0
+folds: [F1, F2, F3]
+model: xgboost_reg_v1
+target: rank
+seed: 2026
+postprocess: none
+selection_priority:
+  - ic_mean
+  - annual_excess
+  - cross_fold_stability
+  - final_score
+  - diagnostic_turnover
+  - missing_top_fraction
+success_rule: >-
+  Continue only if the candidate has a positive mean IC or excess increment,
+  improves at least two of three folds on the supporting signal metric, and the
+  result is not explained by worse missing-label Top occupancy.

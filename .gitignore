@@ -12,3 +12,6 @@ outputs/baselines/**/predictions.csv.gz
 outputs/baselines/**/model.joblib
 outputs/baselines/**/model.txt
 outputs/baselines/**/model.ubj
+outputs/phase_d*/**/predictions.csv.gz
+outputs/phase_d*/**/model.joblib
+outputs/phase_d*/**/model.ubj

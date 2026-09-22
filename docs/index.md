@@ -87,9 +87,9 @@ Read `DECISIONS.md`, record the new decision, update the canonical YAML/spec, an
 - `../outputs/e006_e007_comparison.json` — full-precision results and independent verification.
 - `../outputs/e006_e007_validation.md` — tests, provenance and reproduction evidence.
 
-## Phase C0 turnover optimization
+## Frozen historical evidence
 
-- `../outputs/phase_c0/phase_c0_turnover_comparison.md` — E005/E006 causal turnover results and conclusions.
+- `../outputs/phase_c0/phase_c0_turnover_comparison.md` — frozen E005/E006 causal turnover evidence; do not extend the grid.
 - `../outputs/phase_c0/phase_c0_turnover_comparison.json` — full-precision selection, metrics and verification.
 - `../outputs/phase_c0/phase_c0_turnover_grid.csv` — complete F1/F2 parameter grid plus frozen F3 confirmations.
 - `../outputs/phase_c0/phase_c0_turnover_validation.md` — executed tests and protected-artifact checks.
@@ -115,3 +115,15 @@ Read `DECISIONS.md`, record the new decision, update the canonical YAML/spec, an
 - `../outputs/phase_c2/phase_c2_comparison.md` — R1/R2 raw and fixed-postprocess comparison.
 - `../outputs/phase_c2/phase_c2_comparison.json` — full training, metrics, robustness and provenance.
 - `../outputs/phase_c2/phase_c2_validation.md` — executed protocol and protection checks.
+
+## Retired research archive
+
+- `../archive/retired_research_2026-09-22/README.md` — stopped routes, preserved
+  uncommitted research, and recovery instructions.
+
+## Phase D representation experiments
+
+- `../outputs/phase_d0_e006_rank_view/comparison.md` — E006 Full147 versus
+  Full147 plus 15 mapped core percentile-rank features.
+- `../outputs/phase_d1_lambdarank_rank_view/comparison.md` — the same feature
+  view under corrected LambdaRank, raw predictions only.

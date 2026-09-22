@@ -1,0 +1,24 @@
+phase: C2-family-interaction
+baseline: Full147-minus-market
+primary_variant: raw
+folds:
+  - {id: A2019, train_start: '2018-01-02', train_end: '2018-12-31', valid_start: '2019-01-01', valid_end: '2019-12-31'}
+  - {id: B2020, train_start: '2018-01-02', train_end: '2019-12-31', valid_start: '2020-01-01', valid_end: '2020-12-31'}
+purge_trading_days: 1
+feature_sets:
+  - {id: minus_market, remove_categories: [market], expected_count: 137}
+  - {id: minus_market_relative, remove_categories: [market, relative], expected_count: 129}
+  - {id: minus_market_cross_section_rank, remove_categories: [market, cross_section_rank], expected_count: 121}
+  - {id: minus_market_relative_cross_section_rank, remove_categories: [market, relative, cross_section_rank], expected_count: 113}
+family_counts: {market: 10, relative: 8, cross_section_rank: 16}
+anchor:
+  feature_set: minus_market
+  source: outputs/phase_c2_family_ablation/phase_c2_family_ablation_comparison.json
+selection_rule:
+  eligibility: delta_score_gte_zero_in_both_folds
+  order: [mean_score_desc, worst_fold_score_desc, feature_count_asc]
+constraints:
+  year_2021_unused: true
+  tuning: prohibited
+  postprocess_search: prohibited
+  other_family_experiments: prohibited

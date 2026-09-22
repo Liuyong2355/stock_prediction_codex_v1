@@ -167,3 +167,47 @@ using feature metadata while preserving date-level market features. Select on
 F1/F2 and use F3 only for robustness. Apply the locked C0b postprocess unchanged.
 **Reason:** Isolate E007 protocol design from input representation without broad
 tuning, feature selection, fusion or renewed turnover search.
+
+## D023 — Validate C2 representation stability on an earlier 2020 fold
+**Status:** Accepted for the early-stability experiment.  
+**Decision:** Train only on 2018–2019 with the existing one-trading-day purge and
+validate raw R1/R2 predictions on 2020. Reuse the complete C2 LambdaRank protocol
+unchanged; fixed C0b postprocessing is secondary only. Do not use 2021, which is
+reserved for a later one-time confirmation.
+**Reason:** Test whether the all-non-market cross-sectional rank representation
+generalizes to an earlier regime without feature research, tuning, or fusion.
+
+## D024 — First R1 family ablation uses only three metadata categories
+**Status:** Accepted for the first family-ablation round.  
+**Decision:** Compare Full147 with removal of exactly one of `cross_section_rank`,
+`relative`, or `market`, using frozen C2-R1 and raw predictions on 2019 and 2020.
+A family is retained when deletion lowers Score in both years, becomes a deletion
+candidate when deletion raises Score in both, and otherwise remains as unstable.
+**Reason:** Attribute broad cross-sectional representation value without single-
+feature selection, tuning, additional families, or use of reserved 2021 data.
+
+## D025 — Retire completed low-information-gain routes
+**Status:** Accepted on 2026-09-22.  
+**Decision:** Freeze historical E007, C0/C0b turnover search, C1 E005/E006 fusion,
+C2-R2 replacement view, early-stability checks and the completed C2 family
+ablation/interaction branch. Preserve their results as evidence, but remove their
+configs and dedicated tests from the default workflow. Archive all uncommitted
+research files before removal. Keep corrected LambdaRank only as a conditional
+second experiment after the E006 feature-view test succeeds.
+**Reason:** Concentrate research capacity on structural alpha improvements and
+avoid reopening exhausted grids, weak ensembles or low-upside follow-up tests.
+
+## D026 — Accept mapped core cross-sectional ranks as a structural representation gain
+**Status:** Accepted on 2026-09-22.  
+**Decision:** Add the 15 previously missing same-date percentile-rank views from
+the explicit teammate-core mapping while retaining all Full147 raw features. In
+E006, mean Rank IC, annual excess and Official Score improve by `0.002408`,
+`0.020199` and `0.006269`, respectively, with all three folds improving and mean
+missing-label Top fraction at `0.02%`. The same view in corrected LambdaRank
+improves Rank IC by `0.002273` in all three folds, but excess and Score improve
+in only one fold. Treat this as a robust ordering representation gain, not as
+stable proof of a LambdaRank tail-return or final-score gain. Do not expand the
+rank allowlist or add RSI/MACD/ATR/Bollinger in response to these results.
+**Reason:** The single-variable test confirms the teammate feature-view idea on
+clean E006 and independently on LambdaRank IC, while the mixed LambdaRank tail
+result supplies a clear stopping boundary against further opportunistic search.

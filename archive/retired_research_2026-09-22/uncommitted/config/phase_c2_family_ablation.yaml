@@ -1,0 +1,17 @@
+phase: C2-family-ablation-round-1
+baseline: Full147
+primary_variant: raw
+folds:
+  - {id: A2019, train_start: '2018-01-02', train_end: '2018-12-31', valid_start: '2019-01-01', valid_end: '2019-12-31'}
+  - {id: B2020, train_start: '2018-01-02', train_end: '2019-12-31', valid_start: '2020-01-01', valid_end: '2020-12-31'}
+purge_trading_days: 1
+feature_sets:
+  - {id: Full147, remove_category: null}
+  - {id: minus_cross_section_rank, remove_category: cross_section_rank}
+  - {id: minus_relative, remove_category: relative}
+  - {id: minus_market, remove_category: market}
+decision_rule:
+  both_scores_lower: retain
+  both_scores_higher: deletion_candidate
+  mixed: unstable_retain_for_now
+constraints: {year_2021_unused: true, tuning: prohibited, postprocess_search: prohibited}

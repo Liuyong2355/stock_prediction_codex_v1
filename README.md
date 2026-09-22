@@ -1,55 +1,43 @@
-# Stock prediction V1
+# A-share next-day ranking research
 
-Read AGENTS.md and docs/index.md first. Completed stages include audits, Basic40,
-Full147 and E000–E007. The latest stage runs only frozen E006/E007, with direct
-official XGBoost/LightGBM training, organizer scoring and preserved missing-label diagnostics.
+正式基线：`4c0aa59898156a6c53721e4d1645ee1a766417af`。
 
-- Output index: [artifacts organized by research phase](outputs/README.md).
-- Current results: [Phase C1 E005/E006 daily-rank fusion](outputs/phase_c1/phase_c1_comparison.md).
-- Prior results: [E000–E007 comparison and Phase C candidates](outputs/e006_e007_comparison.md).
-- Validation: [Phase C1 checks](outputs/phase_c1/phase_c1_validation.md).
-- Reproduction: [model comparison commands and frozen-byte handling](docs/MODEL_COMPARISON.md).
-- Current model environment: `outputs/e006_e007_environment_lock.txt`; new model pin in `requirements-research.txt`.
-- Prior target results: [E003/E004/E005 comparison](outputs/e003_e004_e005_comparison.md).
+## 当前研究结论
 
-Phase C, tuning, feature ablations, ensembles and turnover postprocessing have not been run.
+Phase D0 已固定 E006 的 XGBoost、Rank target、F1/F2/F3、参数与官方 evaluator，比较：
 
-## Initial audit setup — historical Windows / PowerShell instructions
+1. 原 Full147；
+2. Full147 加入更多现有基础因子的同日 percentile-rank 表示。
 
-```powershell
-py -3.14 -m venv .venv
-.venv/Scripts/python.exe -m pip install -r requirements.txt
-$env:PYTHONPATH = 'src'
-.venv/Scripts/python.exe -m stock_prediction.audit --root .
-.venv/Scripts/python.exe -m pytest
-```
+映射队友 36 个 core factors 后，在 Full147 中得到 30 个可比来源；其中 15 个已有
+`csr_*`，实际只新增 15 个同日 percentile-rank 特征。E006 的 Rank IC、Top10% excess
+和 Official Score 均为三折全胜，平均增量分别为 `+0.002408`、`+0.020199` 和
+`+0.006269`，missing-label Top fraction 仅 `0.02%`。
 
-To reproduce the exact audited environment including transitive dependencies, install from `outputs/environment-lock.txt` instead of `requirements.txt`. The optional model dependency pins were resolved with a dry run on Python 3.14; no model packages were installed and runtime model compatibility has not yet been tested.
+Phase D1 将完全相同的 feature view 放入 corrected LambdaRank。Rank IC 三折全胜，
+平均 `+0.002273`；excess 与 Score 仅 F2 改善，平均 Score `+0.003845`。因此该视图已被
+确认是稳定的排序表示增量，但不是稳定的 LambdaRank tail/Score 增量。停止继续扩展
+rank allowlist、技术指标和 turnover 参数。
 
-`requirements-models.txt` pins the additional Phase A model dependencies; they are not installed or used at the audit stage. XGBoost/Full147 are outside this stage.
+## 冻结基线
 
-Raw files live in `data/raw/` and are excluded from Git. The audit reads every row, preserves all raw values, and writes `outputs/data_audit_report.md` and `outputs/data_audit_summary.json`. `outputs/data_manifest.json` records raw-file provenance. `outputs/environment-lock.txt` records the installed environment. No missing trading dates or values are filled.
+- E006（Full147 + XGBoost + Rank）是当前干净 alpha baseline。
+- corrected LambdaRank 核心协议保留为条件性第二阶段候选。
+- E007、turnover 网格扩展、E005/E006 fusion、C2-R2 全量替换视图及已完成的早期消融
+  均已停止，不再从默认入口运行。
+- 历史结果仍保留在 `outputs/`；退役配置、测试和未提交研究文件保存在
+  `archive/retired_research_2026-09-22/`。
 
-The reader uses chunks; only identifiers, close, label and missingness masks are retained for temporal checks. The observed union of dates is an empirical market calendar, not an externally verified exchange calendar. No labels are reconstructed for training.
+## 入口
 
-## Basic40 generation (user stage B1)
+- 项目约束：`AGENTS.md`
+- 文档索引：`docs/index.md`
+- 冻结决策：`docs/DECISIONS.md`
+- E006/E007 证据：`outputs/e006_e007_comparison.md`
+- corrected LambdaRank 证据：`outputs/phase_c2/phase_c2_comparison.md`
+- E006 rank-view 结果：`outputs/phase_d0_e006_rank_view/comparison.md`
+- corrected LambdaRank rank-view 结果：`outputs/phase_d1_lambdarank_rank_view/comparison.md`
+- 历史产物索引：`outputs/README.md`
 
-```powershell
-$env:PYTHONPATH = 'src'
-.venv/Scripts/python.exe -m stock_prediction.build_basic40 --root .
-```
-
-This reads the accepted raw-data audit and verifies its data fingerprints. Complete stock histories span CSV chunks and the train/test boundary. Generated matrices and aligned keys are in `outputs/features/basic40/`; column order, shapes and SHA-256 values are in `outputs/basic40_manifest.json`. The builder refuses to overwrite completed artifacts. Generation uses only NumPy/pandas already installed, and no labels, fits, clipping or calendar filling.
-
-Read `docs/BASIC40_IMPLEMENTATION.md` for implementation details and loading instructions. Descriptive statistics and manual-check examples are in `outputs/basic40_audit_report.md` and `outputs/basic40_audit_summary.json`.
-
-## Frozen B2 baselines
-
-```powershell
-.venv/Scripts/python.exe -m pip install -r requirements-models.txt
-.venv/Scripts/python.exe -m pytest -q
-$env:PYTHONPATH = 'src'
-.venv/Scripts/python.exe -m stock_prediction.baselines --root .
-```
-
-Run only after the baseline tests and official-library smoke tests pass. The command verifies training input artifacts and runs E000, E001, E002 sequentially on F1–F3. It refuses to overwrite completed folds. `--experiment E001 --fold F2` selects one unfinished fold after input verification. Scores are provisional; read `docs/PROVISIONAL_EVALUATOR.md` for exact edge assumptions. Frozen config files remain unchanged. Predictions/model binaries are stored locally under outputs/baselines, with hashes in tracked per-fold result.json files. Summary and experiment logs are tracked.
+所有 rolling/lag 必须按 `ts_code` 且按日期升序计算；同日截面特征只能使用当日可见
+信息；验证必须使用冻结的 expanding-window folds 与一交易日 purge。
