@@ -13,6 +13,18 @@ high-score reference, while E005+C0b has a slightly higher test Score but
 historically severe missing-label Top occupancy. Do not combine raw and
 postprocessed scores as though they measured the same setup.
 
+The one-time fixed C0b transfer to saved D0 predictions is complete (D035):
+mean Score `0.360422`, only `+0.001823` over E006+C0b, with lower IC and
+Top10 excess than D0 raw. The already-viewed 2025–2026 period gives `0.368088`.
+This does not meet the predeclared meaningful-margin gate; do not promote it
+or reopen turnover tuning. See `../outputs/phase_d0_c0b_fixed/comparison.md`.
+
+The next validation gate is `NEXT_VALIDATION_GATE.md` (D036). The organizer PDF
+restricts competition feature engineering to the supplied train/test fields;
+external announcements or analyst data are out of scope. The current workspace
+has no unviewed later labels. The reconstructed 2025–2026 Y must not be used
+to select another competition strategy. No new model experiment has begun.
+
 D2-A/B target routes, D3 window search, ordinary D4 LightGBM tuning, C0/C0b
 turnover grids, C1 fusion and C2 LambdaRank expansion remain closed. D3 may be
 kept only as an auxiliary candidate. D5's original positive rank-difference

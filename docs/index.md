@@ -3,7 +3,8 @@
 This repository is designed for Codex-driven implementation. `AGENTS.md` is the entry point; this file is the map.
 
 Current entry points: `../README.md`, `MAIN_MODEL.md`,
-`MODEL_AUDIT_2026-09-24.md`, and `NEXT_RESEARCH_HANDOFF.md`. Earlier Phase C/D
+`MODEL_AUDIT_2026-09-24.md`, `NEXT_VALIDATION_GATE.md`, and
+`NEXT_RESEARCH_HANDOFF.md`. Earlier Phase C/D
 documents below are historical evidence; see
 `../archive/completed_research_2026-09-24/README.md` for their status.
 

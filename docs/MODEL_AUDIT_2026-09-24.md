@@ -39,7 +39,8 @@ validation. Their scores cannot be read as clean evidence of stronger
 tradable alpha. E006+C0b is the strongest documented **low-missing** historical
 scoring strategy, but it is based on the older 147-feature model and gives up
 some IC and Top10 excess to reduce turnover. The C0b parameter search is closed.
-No untested D0+C0b combination is promoted here.
+D0+C0b was subsequently tested as a fixed transfer (D035). It reached mean
+Score `0.360422`, just `0.001823` above E006+C0b, and was not promoted.
 
 ## One later test period, frozen artifacts only
 

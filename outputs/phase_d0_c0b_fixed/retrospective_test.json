@@ -1,0 +1,36 @@
+{
+  "status": "retrospective corroboration only; labels already viewed",
+  "retrained_models": 0,
+  "parameters": {
+    "alpha": 0.3,
+    "exit_fraction": 0.25
+  },
+  "input_submission_sha256": "f529498fd3e1d0403232acb910c0d3a26b397f6277fa0a6700aca8e7f860b29b",
+  "evaluation_x_sha256": "0815ed57b4724d7f21db40ce8c5deb379612ff004ad543df2c156086ce12e32f",
+  "evaluation_y_sha256": "cd8e1b6bd933519ef717ada84658a23bcc3ed149bf2f0560eb99fcfe41317f7c",
+  "official_evaluator_sha256": "72dc59987e92ba8ae6b506e114dfe8591b5608c9beccd0769d5d1f778f9189c2",
+  "D0_raw": {
+    "ic_mean": 0.12941819127822343,
+    "annual_excess": 0.46151491564026004,
+    "mean_turnover": 0.8403803017814817,
+    "final_score": 0.23810766066892286,
+    "diagnostic_turnover": 0.8432683317007672,
+    "missing_top_fraction": 0.0003317998226147102
+  },
+  "D0_C0b": {
+    "ic_mean": 0.11006324380985104,
+    "annual_excess": 0.2636014919809734,
+    "mean_turnover": 0.18339287652928013,
+    "final_score": 0.3680878821594484,
+    "diagnostic_turnover": 0.21060931659607585,
+    "missing_top_fraction": 0.0002871344618781146
+  },
+  "E006_C0b": {
+    "ic_mean": 0.10806689278298624,
+    "annual_excess": 0.2540353390127599,
+    "mean_turnover": 0.17671229601499922,
+    "final_score": 0.3664236700125227,
+    "diagnostic_turnover": 0.20364037471677435,
+    "missing_top_fraction": 0.0002871344618781146
+  }
+}

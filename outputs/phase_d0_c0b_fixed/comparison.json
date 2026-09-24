@@ -1,0 +1,222 @@
+{
+  "experiment": "D0+C0b fixed transfer",
+  "model_retrained": false,
+  "alpha": 0.3,
+  "exit_fraction": 0.25,
+  "official_evaluator_sha256": "72dc59987e92ba8ae6b506e114dfe8591b5608c9beccd0769d5d1f778f9189c2",
+  "c0b_source_sha256": "e108ef6e1acb7bc53153e443f6e7f22c05caa71bee2859aa8c0bf419ce1b2c73",
+  "folds": [
+    {
+      "fold": "F1",
+      "rows": 1125300,
+      "input_sha256": "939544aa6c7cea447eddc303749b0c479e22847318b0918fdbfef2bec39a1097",
+      "raw": {
+        "ic_mean": 0.1280352217657182,
+        "annual_excess": 0.5601906337815575,
+        "mean_turnover": 0.829204964471271,
+        "final_score": 0.2705097894993732,
+        "diagnostic_turnover": 0.8388610183256378,
+        "missing_top_fraction": 0.00026210898310752794
+      },
+      "D0_C0b": {
+        "ic_mean": 0.10391317203972048,
+        "annual_excess": 0.36603564879424544,
+        "mean_turnover": 0.20913610273592706,
+        "final_score": 0.3886351326333837,
+        "diagnostic_turnover": 0.27947582334387566,
+        "missing_top_fraction": 0.00026210898310752794
+      },
+      "delta": {
+        "ic_mean": -0.024122049725997713,
+        "annual_excess": -0.1941549849873121,
+        "mean_turnover": -0.6200688617353439,
+        "final_score": 0.11812534313401046,
+        "diagnostic_turnover": -0.5593851949817621,
+        "missing_top_fraction": 0.0
+      }
+    },
+    {
+      "fold": "F2",
+      "rows": 1125300,
+      "input_sha256": "a90da5e31e01ee068f3e747a9b8a938c0c6da68c7f019ef45ad58072d93bebc5",
+      "raw": {
+        "ic_mean": 0.10773099904962508,
+        "annual_excess": 0.3677257481245431,
+        "mean_turnover": 0.8587079556548952,
+        "final_score": 0.1957977373607444,
+        "diagnostic_turnover": 0.8641973918677368,
+        "missing_top_fraction": 0.00025129236071223435
+      },
+      "D0_C0b": {
+        "ic_mean": 0.09049212974785534,
+        "annual_excess": 0.16993091733782895,
+        "mean_turnover": 0.21631237701535147,
+        "final_score": 0.3222824139958854,
+        "diagnostic_turnover": 0.2648260799722656,
+        "missing_top_fraction": 0.0001705198161975876
+      },
+      "delta": {
+        "ic_mean": -0.017238869301769738,
+        "annual_excess": -0.19779483078671417,
+        "mean_turnover": -0.6423955786395438,
+        "final_score": 0.126484676635141,
+        "diagnostic_turnover": -0.5993713118954712,
+        "missing_top_fraction": -8.077254451464676e-05
+      }
+    },
+    {
+      "fold": "F3",
+      "rows": 1125300,
+      "input_sha256": "68455c68ed4b662739899148c0204ffdf5cc700242a8ed826442a28f6dfcb7d1",
+      "raw": {
+        "ic_mean": 0.12673920567107455,
+        "annual_excess": 0.505309531907456,
+        "mean_turnover": 0.8273932991041778,
+        "final_score": 0.25407055210941326,
+        "diagnostic_turnover": 0.8303553833872954,
+        "missing_top_fraction": 0.00023558620189737502
+      },
+      "D0_C0b": {
+        "ic_mean": 0.10490595433424159,
+        "annual_excess": 0.30066898580041124,
+        "mean_turnover": 0.2060453075898481,
+        "final_score": 0.37034948519686556,
+        "diagnostic_turnover": 0.23068550734363327,
+        "missing_top_fraction": 0.00023558620189737502
+      },
+      "delta": {
+        "ic_mean": -0.021833251336832962,
+        "annual_excess": -0.20464054610704474,
+        "mean_turnover": -0.6213479915143297,
+        "final_score": 0.1162789330874523,
+        "diagnostic_turnover": -0.5996698760436622,
+        "missing_top_fraction": 0.0
+      }
+    }
+  ],
+  "summary": {
+    "raw": {
+      "ic_mean": {
+        "mean": 0.12083514216213927,
+        "worst": 0.10773099904962508,
+        "std": 0.009281122039363335
+      },
+      "annual_excess": {
+        "mean": 0.4777419712711855,
+        "worst": 0.3677257481245431,
+        "std": 0.08095538216539505
+      },
+      "mean_turnover": {
+        "mean": 0.8384354064101146,
+        "worst": 0.8587079556548952,
+        "std": 0.014353924492674938
+      },
+      "final_score": {
+        "mean": 0.24012602632317695,
+        "worst": 0.1957977373607444,
+        "std": 0.03205526512388206
+      },
+      "diagnostic_turnover": {
+        "mean": 0.84447126452689,
+        "worst": 0.8641973918677368,
+        "std": 0.014374202153547297
+      },
+      "missing_top_fraction": {
+        "mean": 0.00024966251523904576,
+        "worst": 0.00026210898310752794,
+        "std": 1.0889039687694082e-05
+      }
+    },
+    "D0_C0b": {
+      "ic_mean": {
+        "mean": 0.09977041870727248,
+        "worst": 0.09049212974785534,
+        "std": 0.006573248242277684
+      },
+      "annual_excess": {
+        "mean": 0.2788785173108285,
+        "worst": 0.16993091733782895,
+        "std": 0.08152866494939036
+      },
+      "mean_turnover": {
+        "mean": 0.21049792911370888,
+        "worst": 0.21631237701535147,
+        "std": 0.004300705907905762
+      },
+      "final_score": {
+        "mean": 0.36042234394204486,
+        "worst": 0.3222824139958854,
+        "std": 0.027983112976300833
+      },
+      "diagnostic_turnover": {
+        "mean": 0.2583291368865915,
+        "worst": 0.27947582334387566,
+        "std": 0.020441484550536657
+      },
+      "missing_top_fraction": {
+        "mean": 0.00022273833373416354,
+        "worst": 0.00026210898310752794,
+        "std": 3.847895235119823e-05
+      }
+    },
+    "delta": {
+      "ic_mean": {
+        "mean": -0.021064723454866804,
+        "worst": -0.024122049725997713,
+        "std": 0.002862111052718295
+      },
+      "annual_excess": {
+        "mean": -0.198863453960357,
+        "worst": -0.20464054610704474,
+        "std": 0.00434689273039544
+      },
+      "mean_turnover": {
+        "mean": -0.6279374772964058,
+        "worst": -0.6200688617353439,
+        "std": 0.010236749617080867
+      },
+      "final_score": {
+        "mean": 0.12029631761886793,
+        "worst": 0.1162789330874523,
+        "std": 0.004440281372520144
+      },
+      "diagnostic_turnover": {
+        "mean": -0.5861421276402985,
+        "worst": -0.5593851949817621,
+        "std": 0.018920401142818215
+      },
+      "missing_top_fraction": {
+        "mean": -2.6924181504882252e-05,
+        "worst": 0.0,
+        "std": 3.8076542639999333e-05
+      }
+    }
+  },
+  "E006_C0b": {
+    "F1": {
+      "ic_mean": 0.1026340034813297,
+      "annual_excess": 0.3673322612597254,
+      "mean_turnover": 0.2129364952965257,
+      "final_score": 0.3873723311814917,
+      "diagnostic_turnover": 0.2824218468996054,
+      "missing_top_fraction": 0.0003163384278882
+    },
+    "F2": {
+      "ic_mean": 0.0884422334864962,
+      "annual_excess": 0.1693810557623736,
+      "mean_turnover": 0.2211209917952989,
+      "final_score": 0.3198549125847208,
+      "diagnostic_turnover": 0.2693622850153966,
+      "missing_top_fraction": 0.0001525703618609
+    },
+    "F3": {
+      "ic_mean": 0.10295071195388264,
+      "annual_excess": 0.28959909810765777,
+      "mean_turnover": 0.19830031406191193,
+      "final_score": 0.3685699199952768,
+      "diagnostic_turnover": 0.2229389125415047,
+      "missing_top_fraction": 0.00019028116307095674
+    }
+  },
+  "interpretation": "F1/F2 tuned C0b policy transfer; F3 also previously exposed. All folds exploratory, not independent holdouts."
+}

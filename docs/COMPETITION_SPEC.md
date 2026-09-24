@@ -3,6 +3,14 @@
 **Status:** V1 transcription of the organizer task PDF.  
 **Primary source:** `reference/赛题五-更新.pdf`
 
+## Organizer data boundary
+
+The PDF's section 6 states that feature engineering may use only fields in
+the supplied training/test datasets and may not use future information.
+Test Y is reserved for scoring after the competition. External announcements,
+analyst data, and retrospectively reconstructed test Y therefore must not be
+used to choose or fit a competition submission strategy.
+
 ## 1. Task
 
 For every `(ts_code, trade_date)` row in the test set, predict `y_ret_1d`, the next-trading-day return:

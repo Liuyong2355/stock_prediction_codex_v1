@@ -351,3 +351,47 @@ X/Y and transfer archive from Git.
 **Reason:** The identified three files occupy about 14.3 GiB and are
 superseded, but repository documentation must not claim a cleanup that did
 not occur.
+
+## D035 — Fixed C0b transfer to D0 improves Score but does not justify promotion
+**Status:** Accepted on 2026-09-24.  
+**Decision:** Apply only the previously frozen C0b policy (causal daily-rank
+EMA alpha `0.30`, Top10 hysteresis exit fraction `0.25`) to saved D0
+predictions, with no model fitting or parameter search. Raw D0 replay exactly
+matched its three official fold scores. D0+C0b mean Rank IC is `0.099770`,
+Top10 annual excess `0.278879`, official turnover `0.210498`, diagnostic
+turnover `0.258329`, missing-label Top `0.02%`, and Official Score `0.360422`.
+Score improves over D0 raw by `0.120296`, mainly from turnover, but exceeds
+the already frozen low-missing E006+C0b reference (`0.358599`) by only
+`0.001823`, well below the predeclared `0.01` practical margin. F2 Top10
+excess is weak (`0.169931`). A fixed retrospective check on the already-viewed
+2025–2026 local labels scores `0.368088` versus E006+C0b `0.366424`, likewise
+too small to change the decision. Preserve D0 raw as primary Alpha and E006+C0b
+as high-Score reference. Record D0+C0b as a completed transfer check; do not
+promote it or reopen turnover tuning. See
+`outputs/phase_d0_c0b_fixed/comparison.md` and `retrospective_test.md`.
+**Reason:** Official and diagnostic turnover both fall, while missing-label
+Top remains negligible, so the Score gain is real under the evaluator.
+However, IC and Top10 excess fall materially, the incremental advantage over
+the existing clean high-Score strategy is tiny, and F1–F3 plus 2025–2026 are
+already-exposed research periods rather than fresh confirmation.
+
+## D036 — Enforce competition-only data and close the current validation gate
+**Status:** Accepted on 2026-09-24.  
+**Decision:** The organizer PDF section 6(1) explicitly restricts feature
+engineering to fields in the supplied training/test datasets and prohibits
+future information; section 6(2) reserves test Y for post-competition scoring.
+Therefore do not use announcements, analyst forecasts, or other external data
+as competition features. Correct the earlier exploratory suggestion to pursue
+such sources. The supplied test X ends `2026-06-08`; the local retrospectively
+reconstructed Y ends `2026-06-05` and has already been viewed. There is no
+unseen later labeled panel in the workspace. Do not use this reconstructed Y
+for another competition model or parameter choice. Freeze D035 as completed
+evidence, without promoting D0+C0b. If a fixed competition submission is the
+goal, define a separate deployment/refit protocol using only eligible original
+training labels and supplied X; if prospective live research is the goal,
+acquire genuinely later data and keep that evaluation separate from official
+competition-Score claims. See `docs/NEXT_VALIDATION_GATE.md`.
+**Reason:** The organizer's explicit data boundary overrides the prior plan's
+external-data branch. A future live period cannot serve as an independent
+official Score for the already fixed competition test dates, and the local
+reconstructed test labels are no longer a blind holdout.
