@@ -1,0 +1,513 @@
+{
+  "scope": "previously frozen E005/E006 F3 models and C0b postprocess",
+  "new_training": false,
+  "parameter_search": false,
+  "test_labels_used_for_choice": false,
+  "evaluation_manifest": {
+    "version": 1,
+    "source": "data/raw/测试集_X.csv",
+    "source_sha256": "dceffbf68bbab07a254bc6caa4d8a1e33de8de9c15489d936c5d15020dbfa90f",
+    "formula": "y_ret_1d(t) = close(t+1) / close(t) - 1",
+    "excluded_date": 20260608,
+    "date_min": 20250102,
+    "date_max": 20260605,
+    "dates": 343,
+    "stocks": 4650,
+    "rows": 1594950,
+    "label_missing": 45515,
+    "train_formula_check_rows": 19770,
+    "train_formula_max_abs_diff": 5.421010862427522e-16,
+    "x_sha256": "0815ed57b4724d7f21db40ce8c5deb379612ff004ad543df2c156086ce12e32f",
+    "y_sha256": "cd8e1b6bd933519ef717ada84658a23bcc3ed149bf2f0560eb99fcfe41317f7c"
+  },
+  "models": {
+    "E005": {
+      "raw": {
+        "official": {
+          "ic_mean": 0.09647002074430021,
+          "ic_std": 0.11291534785696389,
+          "icir": 0.8543570256410503,
+          "ic_positive_ratio": 0.8134110787172012,
+          "annual_excess": 0.498467645086966,
+          "top1_annual_ret": 0.6817914597994288,
+          "mean_turnover": 0.8674733152985484,
+          "final_score": 0.22788630723424536
+        },
+        "diagnostic": {
+          "official_turnover": 0.8674733152985484,
+          "diagnostic_exclude_missing_y_turnover": 0.8688396036921234,
+          "diagnostic_minus_official": 0.0013662883935749992,
+          "missing_y_rows": 45515,
+          "top_rows": 156721,
+          "missing_top_rows": 4225,
+          "missing_share_of_top": 0.026958735587445205,
+          "missing_top_prediction_distribution": {
+            "min": 0.0026670429169420805,
+            "p01": 0.003286256070478687,
+            "p25": 0.004464975045245894,
+            "median": 0.005825956055522986,
+            "p75": 0.0068087180371762795,
+            "p99": 0.008478383083389307,
+            "max": 0.019699823347774745
+          },
+          "missing_top_duplicate_fraction": 0.8634319526627219,
+          "dates_boundary_splits_tie": 3,
+          "persistence": {
+            "stocks": 399,
+            "runs": 3231,
+            "run_days": {
+              "min": 1.0,
+              "p01": 1.0,
+              "p25": 1.0,
+              "median": 1.0,
+              "p75": 1.0,
+              "p99": 3.0,
+              "max": 5.0
+            },
+            "stock_longest_run_days": {
+              "min": 1.0,
+              "p01": 1.0,
+              "p25": 1.0,
+              "median": 1.0,
+              "p75": 3.0,
+              "p99": 4.0,
+              "max": 5.0
+            },
+            "stocks_run_ge20": 0,
+            "stocks_run_ge60": 0,
+            "stocks_run_full_fold": 0,
+            "longest_examples": [
+              {
+                "ts_code": "000622.SZ",
+                "start": 20250716,
+                "end": 20250722,
+                "days": 5
+              },
+              {
+                "ts_code": "603003.SH",
+                "start": 20250716,
+                "end": 20250721,
+                "days": 4
+              },
+              {
+                "ts_code": "600387.SH",
+                "start": 20250716,
+                "end": 20250721,
+                "days": 4
+              },
+              {
+                "ts_code": "600804.SH",
+                "start": 20250716,
+                "end": 20250721,
+                "days": 4
+              },
+              {
+                "ts_code": "002336.SZ",
+                "start": 20250716,
+                "end": 20250721,
+                "days": 4
+              },
+              {
+                "ts_code": "002113.SZ",
+                "start": 20250717,
+                "end": 20250721,
+                "days": 3
+              },
+              {
+                "ts_code": "600532.SH",
+                "start": 20250717,
+                "end": 20250721,
+                "days": 3
+              },
+              {
+                "ts_code": "000851.SZ",
+                "start": 20260121,
+                "end": 20260123,
+                "days": 3
+              },
+              {
+                "ts_code": "002435.SZ",
+                "start": 20260506,
+                "end": 20260508,
+                "days": 3
+              },
+              {
+                "ts_code": "002002.SZ",
+                "start": 20250717,
+                "end": 20250721,
+                "days": 3
+              }
+            ]
+          }
+        },
+        "submission_sha256": "806a798a97505c1218d99be5cd8bfc4addbdd31dd1cb4c8d22d169d7f2f6daf0",
+        "model_sha256": "cc669a7319b938d6081d14bd96bed5dc1bfe24e22365f19a4a655ad0a2bc07f1"
+      },
+      "C0b": {
+        "official": {
+          "ic_mean": 0.08548416125831135,
+          "ic_std": 0.11451413549639919,
+          "icir": 0.7464944034005245,
+          "ic_positive_ratio": 0.7725947521865889,
+          "annual_excess": 0.34590017097993475,
+          "top1_annual_ret": 0.5292239856923976,
+          "mean_turnover": 0.22887902643390284,
+          "final_score": 0.3693000078671341
+        },
+        "diagnostic": {
+          "official_turnover": 0.22887902643390284,
+          "diagnostic_exclude_missing_y_turnover": 0.25476795635498345,
+          "diagnostic_minus_official": 0.025888929921080606,
+          "missing_y_rows": 45515,
+          "top_rows": 156721,
+          "missing_top_rows": 980,
+          "missing_share_of_top": 0.006253150503123385,
+          "missing_top_prediction_distribution": {
+            "min": 4193.0,
+            "p01": 4198.79,
+            "p25": 4328.75,
+            "median": 4428.5,
+            "p75": 4551.25,
+            "p99": 4650.0,
+            "max": 4650.0
+          },
+          "missing_top_duplicate_fraction": 0.0,
+          "dates_boundary_splits_tie": 0,
+          "persistence": {
+            "stocks": 270,
+            "runs": 337,
+            "run_days": {
+              "min": 1.0,
+              "p01": 1.0,
+              "p25": 1.0,
+              "median": 2.0,
+              "p75": 4.0,
+              "p99": 6.0,
+              "max": 6.0
+            },
+            "stock_longest_run_days": {
+              "min": 1.0,
+              "p01": 1.0,
+              "p25": 2.0,
+              "median": 3.0,
+              "p75": 5.75,
+              "p99": 6.0,
+              "max": 6.0
+            },
+            "stocks_run_ge20": 0,
+            "stocks_run_ge60": 0,
+            "stocks_run_full_fold": 0,
+            "longest_examples": [
+              {
+                "ts_code": "000005.SZ",
+                "start": 20260119,
+                "end": 20260126,
+                "days": 6
+              },
+              {
+                "ts_code": "000851.SZ",
+                "start": 20260119,
+                "end": 20260126,
+                "days": 6
+              },
+              {
+                "ts_code": "000836.SZ",
+                "start": 20260119,
+                "end": 20260126,
+                "days": 6
+              },
+              {
+                "ts_code": "000806.SZ",
+                "start": 20260119,
+                "end": 20260126,
+                "days": 6
+              },
+              {
+                "ts_code": "600499.SH",
+                "start": 20260119,
+                "end": 20260126,
+                "days": 6
+              },
+              {
+                "ts_code": "000732.SZ",
+                "start": 20260119,
+                "end": 20260126,
+                "days": 6
+              },
+              {
+                "ts_code": "002621.SZ",
+                "start": 20260119,
+                "end": 20260126,
+                "days": 6
+              },
+              {
+                "ts_code": "002699.SZ",
+                "start": 20260119,
+                "end": 20260126,
+                "days": 6
+              },
+              {
+                "ts_code": "002504.SZ",
+                "start": 20260119,
+                "end": 20260126,
+                "days": 6
+              },
+              {
+                "ts_code": "002411.SZ",
+                "start": 20260119,
+                "end": 20260126,
+                "days": 6
+              }
+            ]
+          }
+        },
+        "submission_sha256": "61ca3ba57ef1761e2353bbe6ead14d4c32f3e628c717768b7cfde43aa77ccb84",
+        "model_sha256": "cc669a7319b938d6081d14bd96bed5dc1bfe24e22365f19a4a655ad0a2bc07f1"
+      }
+    },
+    "E006": {
+      "raw": {
+        "official": {
+          "ic_mean": 0.12575031913668072,
+          "ic_std": 0.1317112931564027,
+          "icir": 0.9547421190934362,
+          "ic_positive_ratio": 0.8367346938775511,
+          "annual_excess": 0.43140586421806076,
+          "top1_annual_ret": 0.6147296789305235,
+          "mean_turnover": 0.8309182927365013,
+          "final_score": 0.2304463990991401
+        },
+        "diagnostic": {
+          "official_turnover": 0.8309182927365013,
+          "diagnostic_exclude_missing_y_turnover": 0.8339773817869741,
+          "diagnostic_minus_official": 0.0030590890504728074,
+          "missing_y_rows": 45515,
+          "top_rows": 156721,
+          "missing_top_rows": 44,
+          "missing_share_of_top": 0.00028075369605860096,
+          "missing_top_prediction_distribution": {
+            "min": 0.038507215678691864,
+            "p01": 0.03927757650613785,
+            "p25": 0.05203145928680897,
+            "median": 0.059048520401120186,
+            "p75": 0.06956513784825802,
+            "p99": 0.15513861373066906,
+            "max": 0.198993518948555
+          },
+          "missing_top_duplicate_fraction": 0.0,
+          "dates_boundary_splits_tie": 0,
+          "persistence": {
+            "stocks": 41,
+            "runs": 44,
+            "run_days": {
+              "min": 1.0,
+              "p01": 1.0,
+              "p25": 1.0,
+              "median": 1.0,
+              "p75": 1.0,
+              "p99": 1.0,
+              "max": 1.0
+            },
+            "stock_longest_run_days": {
+              "min": 1.0,
+              "p01": 1.0,
+              "p25": 1.0,
+              "median": 1.0,
+              "p75": 1.0,
+              "p99": 1.0,
+              "max": 1.0
+            },
+            "stocks_run_ge20": 0,
+            "stocks_run_ge60": 0,
+            "stocks_run_full_fold": 0,
+            "longest_examples": [
+              {
+                "ts_code": "000004.SZ",
+                "start": 20250428,
+                "end": 20250428,
+                "days": 1
+              },
+              {
+                "ts_code": "000736.SZ",
+                "start": 20260601,
+                "end": 20260601,
+                "days": 1
+              },
+              {
+                "ts_code": "000820.SZ",
+                "start": 20250428,
+                "end": 20250428,
+                "days": 1
+              },
+              {
+                "ts_code": "000909.SZ",
+                "start": 20260330,
+                "end": 20260330,
+                "days": 1
+              },
+              {
+                "ts_code": "000972.SZ",
+                "start": 20250328,
+                "end": 20250328,
+                "days": 1
+              },
+              {
+                "ts_code": "002717.SZ",
+                "start": 20250428,
+                "end": 20250428,
+                "days": 1
+              },
+              {
+                "ts_code": "002742.SZ",
+                "start": 20260429,
+                "end": 20260429,
+                "days": 1
+              },
+              {
+                "ts_code": "002789.SZ",
+                "start": 20250424,
+                "end": 20250424,
+                "days": 1
+              },
+              {
+                "ts_code": "002848.SZ",
+                "start": 20250424,
+                "end": 20250424,
+                "days": 1
+              },
+              {
+                "ts_code": "002951.SZ",
+                "start": 20250521,
+                "end": 20250521,
+                "days": 1
+              }
+            ]
+          }
+        },
+        "submission_sha256": "c89f5a08b6188aca8da2b7b8bd6642cc15aaf0b616da0c72231afb301fb9fc44",
+        "model_sha256": "9f444e7a3b7032284e8b0b1fc8b5d3aec026b5a22b2c6a92680bb82fded7d898"
+      },
+      "C0b": {
+        "official": {
+          "ic_mean": 0.10806689278298624,
+          "ic_std": 0.13889581741935692,
+          "icir": 0.7780428150453848,
+          "ic_positive_ratio": 0.7638483965014577,
+          "annual_excess": 0.2540353390127599,
+          "top1_annual_ret": 0.43735915372522266,
+          "mean_turnover": 0.17671229601499922,
+          "final_score": 0.3664236700125227
+        },
+        "diagnostic": {
+          "official_turnover": 0.17671229601499922,
+          "diagnostic_exclude_missing_y_turnover": 0.20364037471677435,
+          "diagnostic_minus_official": 0.026928078701775132,
+          "missing_y_rows": 45515,
+          "top_rows": 156721,
+          "missing_top_rows": 45,
+          "missing_share_of_top": 0.0002871344618781146,
+          "missing_top_prediction_distribution": {
+            "min": 4193.0,
+            "p01": 4194.32,
+            "p25": 4238.0,
+            "median": 4435.0,
+            "p75": 4568.0,
+            "p99": 4644.92,
+            "max": 4648.0
+          },
+          "missing_top_duplicate_fraction": 0.0,
+          "dates_boundary_splits_tie": 0,
+          "persistence": {
+            "stocks": 40,
+            "runs": 41,
+            "run_days": {
+              "min": 1.0,
+              "p01": 1.0,
+              "p25": 1.0,
+              "median": 1.0,
+              "p75": 1.0,
+              "p99": 2.0,
+              "max": 2.0
+            },
+            "stock_longest_run_days": {
+              "min": 1.0,
+              "p01": 1.0,
+              "p25": 1.0,
+              "median": 1.0,
+              "p75": 1.0,
+              "p99": 2.0,
+              "max": 2.0
+            },
+            "stocks_run_ge20": 0,
+            "stocks_run_ge60": 0,
+            "stocks_run_full_fold": 0,
+            "longest_examples": [
+              {
+                "ts_code": "000608.SZ",
+                "start": 20250418,
+                "end": 20250421,
+                "days": 2
+              },
+              {
+                "ts_code": "300051.SZ",
+                "start": 20250403,
+                "end": 20250407,
+                "days": 2
+              },
+              {
+                "ts_code": "603557.SH",
+                "start": 20260429,
+                "end": 20260430,
+                "days": 2
+              },
+              {
+                "ts_code": "002424.SZ",
+                "start": 20250626,
+                "end": 20250627,
+                "days": 2
+              },
+              {
+                "ts_code": "000430.SZ",
+                "start": 20251103,
+                "end": 20251103,
+                "days": 1
+              },
+              {
+                "ts_code": "000736.SZ",
+                "start": 20260601,
+                "end": 20260601,
+                "days": 1
+              },
+              {
+                "ts_code": "000695.SZ",
+                "start": 20250429,
+                "end": 20250429,
+                "days": 1
+              },
+              {
+                "ts_code": "000697.SZ",
+                "start": 20250923,
+                "end": 20250923,
+                "days": 1
+              },
+              {
+                "ts_code": "000698.SZ",
+                "start": 20250930,
+                "end": 20250930,
+                "days": 1
+              },
+              {
+                "ts_code": "000929.SZ",
+                "start": 20250428,
+                "end": 20250428,
+                "days": 1
+              }
+            ]
+          }
+        },
+        "submission_sha256": "6719355976aa0b6be8deb50131395297e90c6cb5a4b4ebeb301e6b7cf65e5f1e",
+        "model_sha256": "9f444e7a3b7032284e8b0b1fc8b5d3aec026b5a22b2c6a92680bb82fded7d898"
+      }
+    }
+  }
+}

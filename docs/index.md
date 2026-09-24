@@ -2,6 +2,11 @@
 
 This repository is designed for Codex-driven implementation. `AGENTS.md` is the entry point; this file is the map.
 
+Current entry points: `../README.md`, `MAIN_MODEL.md`,
+`MODEL_AUDIT_2026-09-24.md`, and `NEXT_RESEARCH_HANDOFF.md`. Earlier Phase C/D
+documents below are historical evidence; see
+`../archive/completed_research_2026-09-24/README.md` for their status.
+
 ## Source documents
 
 - `../reference/赛题五-更新.pdf` — organizer task statement.
@@ -13,6 +18,7 @@ This repository is designed for Codex-driven implementation. `AGENTS.md` is the 
 - `FEATURE_SPEC_V1.md` — human-readable Feature Set V1 definitions and implementation invariants.
 - `EXPERIMENT_PROTOCOL_V1.md` — validation, targets, baseline models, experiments and logging rules.
 - `DECISIONS.md` — frozen design decisions and rationale.
+- `SWANLAB.md` — optional, failure-safe experiment tracking and upload boundary.
 
 ## Machine-readable contracts
 
@@ -127,3 +133,26 @@ Read `DECISIONS.md`, record the new decision, update the canonical YAML/spec, an
   Full147 plus 15 mapped core percentile-rank features.
 - `../outputs/phase_d1_lambdarank_rank_view/comparison.md` — the same feature
   view under corrected LambdaRank, raw predictions only.
+- `../outputs/phase_d2a_top10_stretched_rank/comparison.md` — D0 Candidate with
+  only the continuous rank target's true-return Top10% region stretched by 10.
+- `../outputs/phase_d2a_top10_stretched_rank/validation.md` — D2-A target,
+  control, test and official saved-prediction replay checks.
+- `../outputs/phase_d2b_top10_binary/comparison.md` — D0 Candidate features
+  trained on the fixed same-date Top10% binary label, including D0 correlation
+  and Top10-set complementarity diagnostics.
+- `../outputs/phase_d2b_top10_binary/validation.md` — D2-B label/model controls,
+  full tests, official replay and complementarity replay checks.
+- `../outputs/phase_d3_recent_2y/comparison.md` — D0 expanding history versus
+  the fixed Recent-2Y training window, with D0 complementarity diagnostics.
+- `../outputs/phase_d3_recent_2y/validation.md` — D3 window, purge, control,
+  official replay and complementarity replay checks.
+- `../outputs/phase_d4_lightgbm_rank_regression/comparison.md` — frozen E004
+  LightGBM regression on the D0 feature view with D0 complementarity.
+- `../outputs/phase_d4_lightgbm_rank_regression/validation.md` — D4 controls,
+  SwanLab status and independent replay checks.
+- `../outputs/phase_d5_residual_alpha/comparison.md` — original D5 family
+  diagnostic with a prominent interpretation correction.
+- `../outputs/phase_d5_residual_alpha/partial_audit.md` — direct and D0-controlled
+  IC check for volatility and volume-price families.
+- `../outputs/frozen_test_2025_2026/comparison.md` — one-time local test-period
+  scores from frozen D0/D3/D4 F3 models.

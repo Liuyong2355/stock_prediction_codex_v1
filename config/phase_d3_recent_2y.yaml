@@ -1,0 +1,15 @@
+phase: D3
+baseline: phase_d0_e006_rank_view
+feature_view: Full147_plus_mapped_core_ranks
+feature_config: config/phase_d0_e006_rank_view.yaml
+folds:
+  F1: {train_start: 20200101, train_end: 20211231, valid_year: 2022}
+  F2: {train_start: 20210101, train_end: 20221231, valid_year: 2023}
+  F3: {train_start: 20220101, train_end: 20231231, valid_year: 2024}
+model: xgboost_reg_v1
+target: rank
+seed_source: config/experiments_v1.yaml
+purge: one_trading_day_from_frozen_fold_protocol
+postprocess: none
+single_variable: training_history_length
+comparison_baseline: D0 Candidate

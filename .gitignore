@@ -3,6 +3,8 @@ __pycache__/
 .pytest_cache/
 *.egg-info/
 data/**/*.csv
+/data/raw/evaluation/
+/data/raw/evaluation_*.tar.gz
 outputs/*.tmp
 outputs/models/
 outputs/features/
@@ -15,3 +17,8 @@ outputs/baselines/**/model.ubj
 outputs/phase_d*/**/predictions.csv.gz
 outputs/phase_d*/**/model.joblib
 outputs/phase_d*/**/model.ubj
+outputs/phase_d*/**/model.txt
+swanlog/
+outputs/swanlab/
+outputs/frozen_test_2025_2026/*_submission.csv
+.env

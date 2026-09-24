@@ -1,0 +1,17 @@
+phase: D4
+baseline: phase_d0_e006_rank_view
+feature_view: Full147_plus_mapped_core_ranks
+feature_config: config/phase_d0_e006_rank_view.yaml
+folds: [F1, F2, F3]
+model: lightgbm_reg_v1
+model_params_source: config/experiments_v1.yaml#model_catalog.lightgbm_reg_v1.params
+target: rank
+training_history: frozen_expanding_history
+purge: one_trading_day_from_frozen_fold_protocol
+seed_source: config/experiments_v1.yaml
+postprocess: none
+single_variable: model_family
+comparison_baseline: D0 Candidate
+swanlab:
+  group: D4_lightgbm_rank_regression
+  aggregate_metrics_only: true

@@ -1,0 +1,21 @@
+schema_version: '1.0'
+model_id: main_alpha_xgb_rank162
+historical_alias: D0
+role: primary_raw_alpha_model
+artifact: models/main_alpha_xgb_rank162/model.ubj
+artifact_sha256: 096f50d7b306be28b22a1645c95d5e9e536478fb9423f0e1b3da8d48a84066ac
+source_artifact: outputs/phase_d0_e006_rank_view/F3/model.ubj
+features:
+  base_spec: config/features_v1.yaml
+  base_set: Full147
+  rank_view_config: config/phase_d0_e006_rank_view.yaml
+  count: 162
+model: xgboost_reg_v1
+target: rank
+rounds: 800
+validation_fold: F3
+training_end_after_purge: 20231228
+validation_period: 2024
+test_period: 20250102-20260605
+postprocess: none
+note: This is the existing F3 model, renamed and copied byte-for-byte; it was not retrained.

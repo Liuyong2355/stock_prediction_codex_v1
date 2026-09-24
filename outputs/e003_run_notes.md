@@ -4,6 +4,12 @@ Before any E003 fold completed, numerical review identified that mean subtractio
 
 The initial E003/F1 process was stopped before any result, predictions, model export or experiment-log row existed. Only its materialized scratch matrix existed. It is archived under outputs/baselines/cache/e003_interrupted_zero_variance_fix. The first Full147 build and reports are archived under outputs/features/full147_before_zero_variance_fix. They are not final results.
 
+Cleanup update (2026-09-24): the superseded scratch `.npy` and old pre-fix
+Full147 `.npy` matrices were verified as removable after the current corrected
+matrices and historical audit records were checked. Automated deletion was
+rejected by the execution policy; the three large files remain pending manual
+cleanup. The small JSON/Markdown audit records remain protected; see D034.
+
 Full147 is regenerated from raw data and re-audited before restarting the identical frozen E003 run. No score-based model selection or parameter search occurred. All completed E002 files remain unchanged.
 
 Independent comparison of old/new feature matrices found changes only in R-squared outputs for exact constant-price windows: {"train/rsq_5": 3715, "train/rsq_10": 9937, "train/rsq_20": 14877, "train/rsq_60": 6568, "test/rsq_5": 5}. All other feature values, including every Basic40 column, were unchanged. These are feature-cell counts, not unique row counts.

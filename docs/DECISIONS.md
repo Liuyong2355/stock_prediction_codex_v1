@@ -211,3 +211,143 @@ rank allowlist or add RSI/MACD/ATR/Bollinger in response to these results.
 **Reason:** The single-variable test confirms the teammate feature-view idea on
 clean E006 and independently on LambdaRank IC, while the mixed LambdaRank tail
 result supplies a clear stopping boundary against further opportunistic search.
+
+## D027 — Stop Top10-stretched continuous rank target
+**Status:** Accepted on 2026-09-22.  
+**Decision:** Reject D2-A and stop this continuous target-stretch route. Relative
+to the D0 Candidate, stretching only the daily-label top decile by the fixed
+coefficient 10 reduces mean Rank IC from `0.120835` to `0.080186`, Top10% annual
+excess from `0.477742` to `0.398918`, and Official Score from `0.240126` to
+`0.201676`. All three folds regress on IC, excess and Score; F2 Score falls by
+`0.074236`. The small mean turnover benefit contributes only `+0.001457` to
+Score and cannot offset the IC (`-0.016260`) and excess (`-0.023647`) losses.
+Missing-label Top occupancy also rises from `0.02%` to `0.72%`, while official
+and diagnostic turnover move consistently, so there is no clean hidden tail
+gain masked by the turnover convention. Do not tune the threshold/coefficient
+or append another continuous target formula in response.
+**Reason:** The fixed single-variable test fails every predeclared success check,
+including the 2/3-fold excess and Score rules, F2 non-degradation, stable IC and
+the `0.250` mean-Score threshold. The evidence is broad deterioration rather
+than a near miss.
+
+## D028 — Reject Top10 binary target and stop dedicated Tail-target research
+**Status:** Accepted on 2026-09-22.  
+**Decision:** Reject D2-B and formally stop the dedicated Tail-target route. With
+the D0 feature view and all other controls fixed, an XGBoost binary classifier
+for same-date finite-label `rank_pct > 0.9` produces mean Rank IC `-0.066144`,
+Top10% annual excess `-0.403016`, and Official Score `-0.027615`. Top10% excess
+is negative and below D0 in all three folds, including F2 delta `-0.860885`.
+Although D2-B is very different from D0 (mean daily prediction Spearman
+`-0.390155`, Top10 Jaccard `0.043645`, overlap `0.079474`), this is consistently
+anti-predictive rather than useful complementary alpha. Mean missing-label Top
+occupancy rises from `0.02%` to `15.65%`; the apparent turnover reduction is
+therefore not a clean portfolio-stability gain and does not rescue the negative
+finite-label excess. Do not modify the Top10 threshold, add class weights, tune
+the classifier, create another classification target, or fuse D2-B with D0.
+**Reason:** D2-B fails every predeclared tail-signal criterion. The three-fold
+direction is consistently adverse, F2 deteriorates materially, and large signal
+difference without positive realized tail return is not independent tail alpha.
+
+## D029 — Retain Recent-2Y as a second Alpha candidate; stop window-length search
+**Status:** Accepted on 2026-09-23.  
+**Decision:** Do not replace D0 with D3 Recent-2Y. Shortening training history to
+the two calendar years before validation reduces mean Rank IC from `0.120835`
+to `0.104569`, Top10% annual excess from `0.477742` to `0.419696`, and Official
+Score from `0.240126` to `0.216125`; IC, excess, and Score are below D0 in all
+three folds, including F2 Score delta `-0.014736`. However, D3 remains a valid
+second Alpha candidate because every fold retains positive IC, excess, and
+Score, while mean daily prediction Spearman versus D0 is `0.786118` and mean
+Top10 overlap is only `0.489518` (`0.334588` Jaccard). Missing-label Top
+occupancy remains negligible at `0.03%`, and official/diagnostic turnover show
+no anomalous advantage. Stop all further window-length experiments (including
+1Y, 3Y, 4Y, 18-month, grids, and time decay). Preserve D3 only for a separately
+authorized future complementarity/fusion decision; do not fuse in D3.
+**Reason:** Recent history alone is consistently weaker than expanding history,
+so there is no evidence for replacing the main model or tuning the window. Its
+stable standalone alpha and materially different Top10 selections nevertheless
+satisfy the predeclared second-Alpha route without relying on missing labels or
+turnover artifacts.
+
+## D030 — Reject plain LightGBM regression as a clean second-model candidate
+**Status:** Accepted on 2026-09-23.  
+**Decision:** Keep D0 XGBoost as the main model and stop ordinary LightGBM rank
+regression without tuning. D4 produces stable positive alpha: mean Rank IC
+`0.120923`, Top10% excess `0.450875`, and Score `0.236052`. Score exceeds D0
+only in F2 and trails by `0.004074` on average. Missing-label Top occupancy
+averages `7.49%` and reaches `19.53%` in F2, so its lower official turnover and
+part of its selection difference are not clean. Prediction Spearman versus D0
+averages `0.787081`, Top10 Jaccard `0.552922`, overlap `0.701200`, and each
+model's exclusive Top10 fraction `29.88%`. Do not promote D4, tune it, fuse it,
+or prioritize a third generic model-family experiment.
+**Reason:** Frozen LightGBM preserves broad ranking alpha, but it is neither a
+stronger main model nor a clean differentiated portfolio signal. The
+missing-label anomaly violates the predeclared second-model criterion.
+
+## D031 — D5 residual diagnostic requires a mechanical-effect correction
+**Status:** Corrected on 2026-09-24 after a conditional audit.  
+**Decision:** D5 correctly computed `rank(y_ret_1d)-rank(D0 prediction)` from the
+frozen OOF predictions and trained no model. Its large positive volatility and
+volume-price IC cannot be interpreted as independent positive alpha: subtracting
+D0 prediction rank mechanically rewards any feature negatively correlated with
+D0. A follow-up read-only audit measured direct true-return IC and same-date
+partial rank correlation with true return controlling D0 prediction. Volatility
+partial IC is `-0.023417/-0.030414/-0.014442` in F1/F2/F3 for the full section;
+volume-price is `-0.011025/-0.018337/-0.014619`. Middle60 is also consistently
+negative, while Top20 is weak or unstable. These are small possible inverse
+correction signals, not evidence that a residual model will improve Score.
+Suspend the proposed residual-model training until a leakage-safe training design
+and validation criterion are frozen; do not train a residual target on in-sample
+D0 predictions or use the newly visible test labels to choose a correction.
+**Reason:** Direct and conditional IC reverse the interpretation of the original
+positive rank-difference IC. The corrected finding is narrower and does not
+justify immediate second-model promotion.
+
+## D032 — First local test-period evaluation of frozen F3 models
+**Status:** Accepted on 2026-09-24.  
+**Decision:** Score the previously frozen D0, D3 and D4 F3 models once on the
+locally reconstructed 2025-01-02 to 2026-06-05 test labels (343 dates,
+1,594,950 rows). Use the unchanged archived organizer evaluator, not the
+evaluation-folder copy with an optional logger-import modification. No model is
+retrained and all predictions are saved before labels are read for scoring.
+Official Scores are D0 `0.238108`, D3 `0.208391`, D4 `0.232123`; Rank IC is
+`0.129418/0.110341/0.127397`, and annual Top10 excess is
+`0.461515/0.379274/0.436533`, respectively. D0 remains strongest of the three.
+The test labels are retrospective returns reconstructed from the next test row's
+close and are reserved as a one-time holdout observation, not a tuning fold.
+**Reason:** This checks temporal generalization of existing artifacts on one
+later period without reusing its labels for model development.
+
+## D033 — Distinguish the primary Alpha model from high-Score strategies
+**Status:** Accepted on 2026-09-24.  
+**Decision:** Name the unchanged D0 F3 artifact `main_alpha_xgb_rank162` and
+retain it as the primary raw Alpha model. This does not claim that D0 has the
+highest Official Score of all historical strategies. F1/F2/F3 are validation
+folds, not another model family. In those folds, E005+C0b Score is `0.371482`,
+E006+C0b is `0.358599`, and corrected C2-R1 with postprocess is `0.399444`,
+all above D0 raw `0.240126`. E005 and C2 scores have severe missing-label Top
+occupancy (about `39%` and `56%`), whereas E006+C0b is about `0.02%`. A fixed,
+one-time comparison on reconstructed 2025–2026 labels gives E005+C0b `0.369300`
+and E006+C0b `0.366424`, versus D0 raw `0.238108`; E005's tiny test lead does
+not erase its earlier missing-label failure mode. Preserve E006+C0b as a frozen
+low-missing high-Score reference, but do not relabel it as the 162-feature main
+model or reopen turnover tuning. See `docs/MODEL_AUDIT_2026-09-24.md`.
+**Reason:** Model signal strength and full-strategy Score answer different
+questions. The new naming must not hide better recorded E-series Scores or
+mistake missing-label-driven turnover gains for clean Alpha.
+
+## D034 — Archive completed work and identify obsolete scratch
+**Status:** Archive accepted on 2026-09-24; physical deletion pending.  
+**Decision:** Keep the canonical F3 model binary in Git with a hash-checked
+identity contract. Preserve stopped-route reports at their original paths and
+index them under `archive/completed_research_2026-09-24/`; replace the active
+README/handoff with concise current guidance while archiving prior versions.
+The unfinished E003 training scratch and obsolete Full147 `.npy` copies from
+before the zero-variance fix are verified cleanup targets, while their small
+audit records remain protected. The automated deletion was rejected by the
+execution policy, so the three `.npy` files still exist and require manual
+cleanup. Keep current raw data, current feature matrices, labels, validation
+artifacts and test submissions locally. Exclude the user-supplied evaluation
+X/Y and transfer archive from Git.
+**Reason:** The identified three files occupy about 14.3 GiB and are
+superseded, but repository documentation must not claim a cleanup that did
+not occur.

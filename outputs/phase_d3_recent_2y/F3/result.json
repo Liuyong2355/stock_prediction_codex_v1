@@ -1,0 +1,317 @@
+{
+  "phase": "D3",
+  "fold": "F3",
+  "baseline": "D0 Candidate",
+  "single_variable": "training_history_length",
+  "feature_view": "Full147_plus_mapped_core_ranks",
+  "feature_count": 162,
+  "model": "xgboost_reg_v1",
+  "target": "rank",
+  "recent_window": {
+    "train_start": 20220101,
+    "train_end": 20231231,
+    "valid_year": 2024
+  },
+  "full_d0_train_rows": 5659954,
+  "train_rows": 2086906,
+  "train_dates": 483,
+  "actual_train_start": 20220104,
+  "actual_train_end": 20231228,
+  "valid_rows": 1125300,
+  "split": {
+    "fold_id": "F3",
+    "configured_periods": {
+      "id": "F3",
+      "train_start": "2018-01-02",
+      "train_end": "2023-12-31",
+      "valid_start": "2024-01-01",
+      "valid_end": "2024-12-31"
+    },
+    "candidate_train_rows": 6775050,
+    "candidate_train_dates": 1457,
+    "candidate_train_start": 20180102,
+    "candidate_train_end": 20231229,
+    "purge_dates": [
+      20231229
+    ],
+    "purge_rows": 4650,
+    "purge_finite_label_rows": 4522,
+    "train_rows_after_purge_before_label_filter": 6770400,
+    "excluded_nonfinite_train_label_rows": 1110446,
+    "train_rows": 5659954,
+    "train_start": 20180102,
+    "train_end": 20231228,
+    "valid_rows": 1125300,
+    "valid_finite_label_rows": 1094055,
+    "valid_start": 20240102,
+    "valid_end": 20241231,
+    "train_dates_after_purge": 1456,
+    "valid_dates": 242,
+    "feature_history": "Full causal Basic40 reused; purge applies to supervised fitting, not historical feature rows."
+  },
+  "official": {
+    "ic_mean": 0.11170488806331051,
+    "ic_std": 0.17002648289440514,
+    "icir": 0.6569852305460249,
+    "ic_positive_ratio": 0.78099173553719,
+    "annual_excess": 0.4409861995777304,
+    "top1_annual_ret": 0.4269415485774334,
+    "mean_turnover": 0.8333011142014775,
+    "final_score": 0.22698748083820006
+  },
+  "diagnostic": {
+    "official_turnover": 0.8333011142014775,
+    "diagnostic_exclude_missing_y_turnover": 0.8362588771565652,
+    "diagnostic_minus_official": 0.0029577629550877615,
+    "missing_y_rows": 31245,
+    "top_rows": 110363,
+    "missing_top_rows": 30,
+    "missing_share_of_top": 0.00027183023295850967,
+    "missing_top_prediction_distribution": {
+      "min": 0.024068694561719894,
+      "p01": 0.02681496672332287,
+      "p25": 0.04884165991097689,
+      "median": 0.06312085688114166,
+      "p75": 0.0812173131853342,
+      "p99": 0.1338159091025591,
+      "max": 0.14144976437091827
+    },
+    "missing_top_duplicate_fraction": 0.0,
+    "dates_boundary_splits_tie": 0,
+    "persistence": {
+      "stocks": 30,
+      "runs": 30,
+      "run_days": {
+        "min": 1.0,
+        "p01": 1.0,
+        "p25": 1.0,
+        "median": 1.0,
+        "p75": 1.0,
+        "p99": 1.0,
+        "max": 1.0
+      },
+      "stock_longest_run_days": {
+        "min": 1.0,
+        "p01": 1.0,
+        "p25": 1.0,
+        "median": 1.0,
+        "p75": 1.0,
+        "p99": 1.0,
+        "max": 1.0
+      },
+      "stocks_run_ge20": 0,
+      "stocks_run_ge60": 0,
+      "stocks_run_full_fold": 0,
+      "longest_examples": [
+        {
+          "ts_code": "000023.SZ",
+          "start": 20240429,
+          "end": 20240429,
+          "days": 1
+        },
+        {
+          "ts_code": "000070.SZ",
+          "start": 20240510,
+          "end": 20240510,
+          "days": 1
+        },
+        {
+          "ts_code": "000584.SZ",
+          "start": 20240429,
+          "end": 20240429,
+          "days": 1
+        },
+        {
+          "ts_code": "000836.SZ",
+          "start": 20240429,
+          "end": 20240429,
+          "days": 1
+        },
+        {
+          "ts_code": "000908.SZ",
+          "start": 20240429,
+          "end": 20240429,
+          "days": 1
+        },
+        {
+          "ts_code": "002217.SZ",
+          "start": 20240429,
+          "end": 20240429,
+          "days": 1
+        },
+        {
+          "ts_code": "002280.SZ",
+          "start": 20240429,
+          "end": 20240429,
+          "days": 1
+        },
+        {
+          "ts_code": "002288.SZ",
+          "start": 20240429,
+          "end": 20240429,
+          "days": 1
+        },
+        {
+          "ts_code": "002325.SZ",
+          "start": 20240429,
+          "end": 20240429,
+          "days": 1
+        },
+        {
+          "ts_code": "002336.SZ",
+          "start": 20240418,
+          "end": 20240418,
+          "days": 1
+        }
+      ]
+    }
+  },
+  "complementarity": {
+    "prediction_spearman": {
+      "mean": 0.7606664783125227,
+      "worst": 0.9317634882274152,
+      "std_ddof0": 0.12403224730373626
+    },
+    "top10_jaccard": {
+      "mean": 0.30349041631108786,
+      "worst": 0.5456110154905336,
+      "std_ddof0": 0.10560765842371277
+    },
+    "top10_overlap": {
+      "mean": 0.45523075116342177,
+      "worst": 0.7060133630289532,
+      "std_ddof0": 0.1295876746787538
+    }
+  },
+  "baseline_official": {
+    "ic_mean": 0.12673920567107455,
+    "ic_std": 0.1665767279967337,
+    "icir": 0.7608458107879253,
+    "ic_positive_ratio": 0.8140495867768595,
+    "annual_excess": 0.505309531907456,
+    "top1_annual_ret": 0.4912648809071589,
+    "mean_turnover": 0.8273932991041778,
+    "final_score": 0.25407055210941326
+  },
+  "baseline_diagnostic": {
+    "official_turnover": 0.8273932991041778,
+    "diagnostic_exclude_missing_y_turnover": 0.8303553833872954,
+    "diagnostic_minus_official": 0.0029620842831176164,
+    "missing_y_rows": 31245,
+    "top_rows": 110363,
+    "missing_top_rows": 26,
+    "missing_share_of_top": 0.00023558620189737502,
+    "missing_top_prediction_distribution": {
+      "min": -0.021988162770867348,
+      "p01": -0.008405300322920084,
+      "p25": 0.04605631344020367,
+      "median": 0.05920469015836716,
+      "p75": 0.06826699525117874,
+      "p99": 0.08848114870488644,
+      "max": 0.09049596637487411
+    },
+    "missing_top_duplicate_fraction": 0.0,
+    "dates_boundary_splits_tie": 0,
+    "persistence": {
+      "stocks": 26,
+      "runs": 26,
+      "run_days": {
+        "min": 1.0,
+        "p01": 1.0,
+        "p25": 1.0,
+        "median": 1.0,
+        "p75": 1.0,
+        "p99": 1.0,
+        "max": 1.0
+      },
+      "stock_longest_run_days": {
+        "min": 1.0,
+        "p01": 1.0,
+        "p25": 1.0,
+        "median": 1.0,
+        "p75": 1.0,
+        "p99": 1.0,
+        "max": 1.0
+      },
+      "stocks_run_ge20": 0,
+      "stocks_run_ge60": 0,
+      "stocks_run_full_fold": 0,
+      "longest_examples": [
+        {
+          "ts_code": "000615.SZ",
+          "start": 20240626,
+          "end": 20240626,
+          "days": 1
+        },
+        {
+          "ts_code": "000836.SZ",
+          "start": 20240429,
+          "end": 20240429,
+          "days": 1
+        },
+        {
+          "ts_code": "002141.SZ",
+          "start": 20240425,
+          "end": 20240425,
+          "days": 1
+        },
+        {
+          "ts_code": "002252.SZ",
+          "start": 20241220,
+          "end": 20241220,
+          "days": 1
+        },
+        {
+          "ts_code": "002280.SZ",
+          "start": 20240429,
+          "end": 20240429,
+          "days": 1
+        },
+        {
+          "ts_code": "002288.SZ",
+          "start": 20240429,
+          "end": 20240429,
+          "days": 1
+        },
+        {
+          "ts_code": "002336.SZ",
+          "start": 20240418,
+          "end": 20240418,
+          "days": 1
+        },
+        {
+          "ts_code": "002490.SZ",
+          "start": 20240328,
+          "end": 20240328,
+          "days": 1
+        },
+        {
+          "ts_code": "002650.SZ",
+          "start": 20240426,
+          "end": 20240426,
+          "days": 1
+        },
+        {
+          "ts_code": "002721.SZ",
+          "start": 20240607,
+          "end": 20240607,
+          "days": 1
+        }
+      ]
+    }
+  },
+  "delta_candidate_minus_d0": {
+    "ic_mean": -0.015034317607764039,
+    "annual_excess": -0.06432333232972559,
+    "mean_turnover": 0.005907815097299651,
+    "final_score": -0.027083071271213205
+  },
+  "fit_seconds": 234.21765769999956,
+  "elapsed_seconds": 559.0161140999999,
+  "peak_memory_gb": 8.086544036865234,
+  "seed": 42,
+  "postprocess": null,
+  "config_sha256": "d449d896b478adac8f431edfa10d32befe61b66ad61f53e7449d88486db0e4b1",
+  "feature_config_sha256": "44745ce785dc17c947ca02ba68a4317be3e44e7ca0a33c5b433dd08f83fa6351",
+  "official_evaluator_sha256": "72dc59987e92ba8ae6b506e114dfe8591b5608c9beccd0769d5d1f778f9189c2"
+}

@@ -1,0 +1,17 @@
+phase: D2-B
+baseline: phase_d0_e006_rank_view
+feature_view: Full147_plus_mapped_core_ranks
+feature_config: config/phase_d0_e006_rank_view.yaml
+folds: [F1, F2, F3]
+model: xgboost_binary_classifier
+model_params_source: config/experiments_v1.yaml#model_catalog.xgboost_reg_v1.params
+required_parameter_change:
+  objective: binary:logistic
+target:
+  name: top10_binary
+  percentile_rank: same_trade_date_average_ties_finite_labels_only
+  formula: 1 if u>0.9 else 0
+  threshold: 0.9
+prediction: positive_class_probability
+postprocess: none
+comparison_baseline: D0 Candidate

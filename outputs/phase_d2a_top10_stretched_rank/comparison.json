@@ -1,0 +1,1074 @@
+{
+  "phase": "D2-A",
+  "comparison": "D0 Candidate vs Top10-stretched continuous rank target",
+  "fold_results": [
+    {
+      "phase": "D2-A",
+      "fold": "F1",
+      "baseline": "D0 Candidate",
+      "feature_view": "Full147_plus_mapped_core_ranks",
+      "feature_count": 162,
+      "model": "xgboost_reg_v1",
+      "target": {
+        "name": "top10_stretched_continuous_rank",
+        "percentile_rank": "same_trade_date_average_ties_finite_labels_only",
+        "formula": "T(u)-0.5, where T(u)=u for u<=0.9 and T(u)=0.9+10*(u-0.9) for u>0.9",
+        "top_threshold": 0.9,
+        "stretch_coefficient": 10.0,
+        "centering_note": "Subtract 0.5 exactly as in the frozen E006 rank target; all u<=0.9 labels remain unchanged."
+      },
+      "split": {
+        "fold_id": "F1",
+        "configured_periods": {
+          "id": "F1",
+          "train_start": "2018-01-02",
+          "train_end": "2021-12-31",
+          "valid_start": "2022-01-01",
+          "valid_end": "2022-12-31"
+        },
+        "candidate_train_rows": 4524450,
+        "candidate_train_dates": 973,
+        "candidate_train_start": 20180102,
+        "candidate_train_end": 20211231,
+        "purge_dates": [
+          20211231
+        ],
+        "purge_rows": 4650,
+        "purge_finite_label_rows": 4170,
+        "train_rows_after_purge_before_label_filter": 4519800,
+        "excluded_nonfinite_train_label_rows": 950922,
+        "train_rows": 3568878,
+        "train_start": 20180102,
+        "train_end": 20211230,
+        "valid_rows": 1125300,
+        "valid_finite_label_rows": 1029017,
+        "valid_start": 20220104,
+        "valid_end": 20221230,
+        "train_dates_after_purge": 972,
+        "valid_dates": 242,
+        "feature_history": "Full causal Basic40 reused; purge applies to supervised fitting, not historical feature rows."
+      },
+      "train_rows": 3568878,
+      "valid_rows": 1125300,
+      "official": {
+        "ic_mean": 0.0933819912683497,
+        "ic_std": 0.12027628380168166,
+        "icir": 0.7763957142400841,
+        "ic_positive_ratio": 0.8016528925619835,
+        "annual_excess": 0.5466210963645731,
+        "top1_annual_ret": 0.4154928792998033,
+        "mean_turnover": 0.8432822788223172,
+        "final_score": 0.24835444177001664
+      },
+      "diagnostic": {
+        "official_turnover": 0.8432822788223172,
+        "diagnostic_exclude_missing_y_turnover": 0.8463564445668571,
+        "diagnostic_minus_official": 0.0030741657445398918,
+        "missing_y_rows": 96283,
+        "top_rows": 110641,
+        "missing_top_rows": 1655,
+        "missing_share_of_top": 0.014958288518722716,
+        "missing_top_prediction_distribution": {
+          "min": 0.0659252405166626,
+          "p01": 0.07543336600065231,
+          "p25": 0.09464896470308304,
+          "median": 0.09622926265001297,
+          "p75": 0.1545228809118271,
+          "p99": 0.2148740223050119,
+          "max": 0.3394753634929657
+        },
+        "missing_top_duplicate_fraction": 0.8332326283987915,
+        "dates_boundary_splits_tie": 7,
+        "persistence": {
+          "stocks": 511,
+          "runs": 1522,
+          "run_days": {
+            "min": 1.0,
+            "p01": 1.0,
+            "p25": 1.0,
+            "median": 1.0,
+            "p75": 1.0,
+            "p99": 3.0,
+            "max": 5.0
+          },
+          "stock_longest_run_days": {
+            "min": 1.0,
+            "p01": 1.0,
+            "p25": 1.0,
+            "median": 1.0,
+            "p75": 1.0,
+            "p99": 4.0,
+            "max": 5.0
+          },
+          "stocks_run_ge20": 0,
+          "stocks_run_ge60": 0,
+          "stocks_run_full_fold": 0,
+          "longest_examples": [
+            {
+              "ts_code": "002776.SZ",
+              "start": 20220530,
+              "end": 20220606,
+              "days": 5
+            },
+            {
+              "ts_code": "600078.SH",
+              "start": 20220225,
+              "end": 20220303,
+              "days": 5
+            },
+            {
+              "ts_code": "600555.SH",
+              "start": 20220530,
+              "end": 20220606,
+              "days": 5
+            },
+            {
+              "ts_code": "600781.SH",
+              "start": 20220530,
+              "end": 20220606,
+              "days": 5
+            },
+            {
+              "ts_code": "600896.SH",
+              "start": 20220530,
+              "end": 20220606,
+              "days": 5
+            },
+            {
+              "ts_code": "600734.SH",
+              "start": 20220318,
+              "end": 20220323,
+              "days": 4
+            },
+            {
+              "ts_code": "603066.SH",
+              "start": 20220530,
+              "end": 20220602,
+              "days": 4
+            },
+            {
+              "ts_code": "000957.SZ",
+              "start": 20220602,
+              "end": 20220608,
+              "days": 4
+            },
+            {
+              "ts_code": "000957.SZ",
+              "start": 20220623,
+              "end": 20220628,
+              "days": 4
+            },
+            {
+              "ts_code": "002433.SZ",
+              "start": 20220601,
+              "end": 20220606,
+              "days": 3
+            }
+          ]
+        }
+      },
+      "baseline_official": {
+        "ic_mean": 0.1280352217657182,
+        "ic_std": 0.1151090713359482,
+        "icir": 1.1122948024838526,
+        "ic_positive_ratio": 0.8636363636363636,
+        "annual_excess": 0.5601906337815575,
+        "top1_annual_ret": 0.42906241671678763,
+        "mean_turnover": 0.829204964471271,
+        "final_score": 0.2705097894993732
+      },
+      "baseline_diagnostic": {
+        "official_turnover": 0.829204964471271,
+        "diagnostic_exclude_missing_y_turnover": 0.8388610183256378,
+        "diagnostic_minus_official": 0.009656053854366742,
+        "missing_y_rows": 96283,
+        "top_rows": 110641,
+        "missing_top_rows": 29,
+        "missing_share_of_top": 0.00026210898310752794,
+        "missing_top_prediction_distribution": {
+          "min": 0.042717095464468,
+          "p01": 0.043610188961029056,
+          "p25": 0.0629236027598381,
+          "median": 0.08088801801204681,
+          "p75": 0.11532466858625412,
+          "p99": 0.16320570766925813,
+          "max": 0.1636158972978592
+        },
+        "missing_top_duplicate_fraction": 0.0,
+        "dates_boundary_splits_tie": 0,
+        "persistence": {
+          "stocks": 29,
+          "runs": 29,
+          "run_days": {
+            "min": 1.0,
+            "p01": 1.0,
+            "p25": 1.0,
+            "median": 1.0,
+            "p75": 1.0,
+            "p99": 1.0,
+            "max": 1.0
+          },
+          "stock_longest_run_days": {
+            "min": 1.0,
+            "p01": 1.0,
+            "p25": 1.0,
+            "median": 1.0,
+            "p75": 1.0,
+            "p99": 1.0,
+            "max": 1.0
+          },
+          "stocks_run_ge20": 0,
+          "stocks_run_ge60": 0,
+          "stocks_run_full_fold": 0,
+          "longest_examples": [
+            {
+              "ts_code": "000732.SZ",
+              "start": 20220429,
+              "end": 20220429,
+              "days": 1
+            },
+            {
+              "ts_code": "000820.SZ",
+              "start": 20220816,
+              "end": 20220816,
+              "days": 1
+            },
+            {
+              "ts_code": "000830.SZ",
+              "start": 20220415,
+              "end": 20220415,
+              "days": 1
+            },
+            {
+              "ts_code": "000889.SZ",
+              "start": 20220429,
+              "end": 20220429,
+              "days": 1
+            },
+            {
+              "ts_code": "002069.SZ",
+              "start": 20220429,
+              "end": 20220429,
+              "days": 1
+            },
+            {
+              "ts_code": "002309.SZ",
+              "start": 20220527,
+              "end": 20220527,
+              "days": 1
+            },
+            {
+              "ts_code": "002321.SZ",
+              "start": 20220623,
+              "end": 20220623,
+              "days": 1
+            },
+            {
+              "ts_code": "002366.SZ",
+              "start": 20220429,
+              "end": 20220429,
+              "days": 1
+            },
+            {
+              "ts_code": "002429.SZ",
+              "start": 20220221,
+              "end": 20220221,
+              "days": 1
+            },
+            {
+              "ts_code": "002575.SZ",
+              "start": 20220601,
+              "end": 20220601,
+              "days": 1
+            }
+          ]
+        }
+      },
+      "delta_candidate_minus_d0": {
+        "ic_mean": -0.03465323049736849,
+        "annual_excess": -0.013569537416984412,
+        "mean_turnover": 0.0140773143510462,
+        "final_score": -0.022155347729356567
+      },
+      "fit_seconds": 317.4810699000009,
+      "elapsed_seconds": 865.8968530000002,
+      "peak_memory_gb": 7.6456146240234375,
+      "seed": 42,
+      "postprocess": null,
+      "config_sha256": "8e10d3a27a1e16d4926846c7b8c43eb626158f2d525c94c286acd34843eb443d",
+      "feature_config_sha256": "44745ce785dc17c947ca02ba68a4317be3e44e7ca0a33c5b433dd08f83fa6351",
+      "official_evaluator_sha256": "72dc59987e92ba8ae6b506e114dfe8591b5608c9beccd0769d5d1f778f9189c2"
+    },
+    {
+      "phase": "D2-A",
+      "fold": "F2",
+      "baseline": "D0 Candidate",
+      "feature_view": "Full147_plus_mapped_core_ranks",
+      "feature_count": 162,
+      "model": "xgboost_reg_v1",
+      "target": {
+        "name": "top10_stretched_continuous_rank",
+        "percentile_rank": "same_trade_date_average_ties_finite_labels_only",
+        "formula": "T(u)-0.5, where T(u)=u for u<=0.9 and T(u)=0.9+10*(u-0.9) for u>0.9",
+        "top_threshold": 0.9,
+        "stretch_coefficient": 10.0,
+        "centering_note": "Subtract 0.5 exactly as in the frozen E006 rank target; all u<=0.9 labels remain unchanged."
+      },
+      "split": {
+        "fold_id": "F2",
+        "configured_periods": {
+          "id": "F2",
+          "train_start": "2018-01-02",
+          "train_end": "2022-12-31",
+          "valid_start": "2023-01-01",
+          "valid_end": "2023-12-31"
+        },
+        "candidate_train_rows": 5649750,
+        "candidate_train_dates": 1215,
+        "candidate_train_start": 20180102,
+        "candidate_train_end": 20221230,
+        "purge_dates": [
+          20221230
+        ],
+        "purge_rows": 4650,
+        "purge_finite_label_rows": 4280,
+        "train_rows_after_purge_before_label_filter": 5645100,
+        "excluded_nonfinite_train_label_rows": 1047315,
+        "train_rows": 4597785,
+        "train_start": 20180102,
+        "train_end": 20221229,
+        "valid_rows": 1125300,
+        "valid_finite_label_rows": 1062411,
+        "valid_start": 20230103,
+        "valid_end": 20231229,
+        "train_dates_after_purge": 1214,
+        "valid_dates": 242,
+        "feature_history": "Full causal Basic40 reused; purge applies to supervised fitting, not historical feature rows."
+      },
+      "train_rows": 4597785,
+      "valid_rows": 1125300,
+      "official": {
+        "ic_mean": 0.05300715297169046,
+        "ic_std": 0.10283029651610254,
+        "icir": 0.5154818644657889,
+        "ic_positive_ratio": 0.7272727272727273,
+        "annual_excess": 0.15555860568078655,
+        "top1_annual_ret": 0.1749818430009039,
+        "mean_turnover": 0.821029549839121,
+        "final_score": 0.12156157794117584
+      },
+      "diagnostic": {
+        "official_turnover": 0.821029549839121,
+        "diagnostic_exclude_missing_y_turnover": 0.8241508053924846,
+        "diagnostic_minus_official": 0.003121255553363622,
+        "missing_y_rows": 62889,
+        "top_rows": 111424,
+        "missing_top_rows": 125,
+        "missing_share_of_top": 0.0011218408960367604,
+        "missing_top_prediction_distribution": {
+          "min": 0.06322850286960602,
+          "p01": 0.06665327489376068,
+          "p25": 0.08254129439592361,
+          "median": 0.09827090054750443,
+          "p75": 0.12084031105041504,
+          "p99": 0.2661082887649536,
+          "max": 0.2912465035915375
+        },
+        "missing_top_duplicate_fraction": 0.016,
+        "dates_boundary_splits_tie": 0,
+        "persistence": {
+          "stocks": 93,
+          "runs": 119,
+          "run_days": {
+            "min": 1.0,
+            "p01": 1.0,
+            "p25": 1.0,
+            "median": 1.0,
+            "p75": 1.0,
+            "p99": 2.0,
+            "max": 2.0
+          },
+          "stock_longest_run_days": {
+            "min": 1.0,
+            "p01": 1.0,
+            "p25": 1.0,
+            "median": 1.0,
+            "p75": 1.0,
+            "p99": 2.0,
+            "max": 2.0
+          },
+          "stocks_run_ge20": 0,
+          "stocks_run_ge60": 0,
+          "stocks_run_full_fold": 0,
+          "longest_examples": [
+            {
+              "ts_code": "000606.SZ",
+              "start": 20230705,
+              "end": 20230706,
+              "days": 2
+            },
+            {
+              "ts_code": "300965.SZ",
+              "start": 20230915,
+              "end": 20230918,
+              "days": 2
+            },
+            {
+              "ts_code": "600666.SH",
+              "start": 20230308,
+              "end": 20230309,
+              "days": 2
+            },
+            {
+              "ts_code": "600781.SH",
+              "start": 20230428,
+              "end": 20230504,
+              "days": 2
+            },
+            {
+              "ts_code": "600781.SH",
+              "start": 20230517,
+              "end": 20230518,
+              "days": 2
+            },
+            {
+              "ts_code": "600139.SH",
+              "start": 20230228,
+              "end": 20230301,
+              "days": 2
+            },
+            {
+              "ts_code": "000023.SZ",
+              "start": 20230428,
+              "end": 20230428,
+              "days": 1
+            },
+            {
+              "ts_code": "000150.SZ",
+              "start": 20230517,
+              "end": 20230517,
+              "days": 1
+            },
+            {
+              "ts_code": "000546.SZ",
+              "start": 20231017,
+              "end": 20231017,
+              "days": 1
+            },
+            {
+              "ts_code": "000587.SZ",
+              "start": 20230209,
+              "end": 20230209,
+              "days": 1
+            }
+          ]
+        }
+      },
+      "baseline_official": {
+        "ic_mean": 0.10773099904962508,
+        "ic_std": 0.106939519327562,
+        "icir": 1.0074011901964766,
+        "ic_positive_ratio": 0.8636363636363636,
+        "annual_excess": 0.3677257481245431,
+        "top1_annual_ret": 0.3871489854446604,
+        "mean_turnover": 0.8587079556548952,
+        "final_score": 0.1957977373607444
+      },
+      "baseline_diagnostic": {
+        "official_turnover": 0.8587079556548952,
+        "diagnostic_exclude_missing_y_turnover": 0.8641973918677368,
+        "diagnostic_minus_official": 0.005489436212841592,
+        "missing_y_rows": 62889,
+        "top_rows": 111424,
+        "missing_top_rows": 28,
+        "missing_share_of_top": 0.00025129236071223435,
+        "missing_top_prediction_distribution": {
+          "min": 0.038092054426670074,
+          "p01": 0.039690322764217856,
+          "p25": 0.055021148175001144,
+          "median": 0.06065663695335388,
+          "p75": 0.07586504705250263,
+          "p99": 0.13135730259120465,
+          "max": 0.1448129266500473
+        },
+        "missing_top_duplicate_fraction": 0.0,
+        "dates_boundary_splits_tie": 0,
+        "persistence": {
+          "stocks": 28,
+          "runs": 28,
+          "run_days": {
+            "min": 1.0,
+            "p01": 1.0,
+            "p25": 1.0,
+            "median": 1.0,
+            "p75": 1.0,
+            "p99": 1.0,
+            "max": 1.0
+          },
+          "stock_longest_run_days": {
+            "min": 1.0,
+            "p01": 1.0,
+            "p25": 1.0,
+            "median": 1.0,
+            "p75": 1.0,
+            "p99": 1.0,
+            "max": 1.0
+          },
+          "stocks_run_ge20": 0,
+          "stocks_run_ge60": 0,
+          "stocks_run_full_fold": 0,
+          "longest_examples": [
+            {
+              "ts_code": "000004.SZ",
+              "start": 20230626,
+              "end": 20230626,
+              "days": 1
+            },
+            {
+              "ts_code": "000023.SZ",
+              "start": 20230428,
+              "end": 20230428,
+              "days": 1
+            },
+            {
+              "ts_code": "000637.SZ",
+              "start": 20230428,
+              "end": 20230428,
+              "days": 1
+            },
+            {
+              "ts_code": "000667.SZ",
+              "start": 20230428,
+              "end": 20230428,
+              "days": 1
+            },
+            {
+              "ts_code": "000671.SZ",
+              "start": 20230428,
+              "end": 20230428,
+              "days": 1
+            },
+            {
+              "ts_code": "000809.SZ",
+              "start": 20230531,
+              "end": 20230531,
+              "days": 1
+            },
+            {
+              "ts_code": "000909.SZ",
+              "start": 20230427,
+              "end": 20230427,
+              "days": 1
+            },
+            {
+              "ts_code": "002086.SZ",
+              "start": 20230428,
+              "end": 20230428,
+              "days": 1
+            },
+            {
+              "ts_code": "002113.SZ",
+              "start": 20230428,
+              "end": 20230428,
+              "days": 1
+            },
+            {
+              "ts_code": "002157.SZ",
+              "start": 20230428,
+              "end": 20230428,
+              "days": 1
+            }
+          ]
+        }
+      },
+      "delta_candidate_minus_d0": {
+        "ic_mean": -0.05472384607793462,
+        "annual_excess": -0.21216714244375656,
+        "mean_turnover": -0.037678405815774196,
+        "final_score": -0.07423615941956857
+      },
+      "fit_seconds": 430.9097624999995,
+      "elapsed_seconds": 962.5540504,
+      "peak_memory_gb": 8.803886413574219,
+      "seed": 42,
+      "postprocess": null,
+      "config_sha256": "8e10d3a27a1e16d4926846c7b8c43eb626158f2d525c94c286acd34843eb443d",
+      "feature_config_sha256": "44745ce785dc17c947ca02ba68a4317be3e44e7ca0a33c5b433dd08f83fa6351",
+      "official_evaluator_sha256": "72dc59987e92ba8ae6b506e114dfe8591b5608c9beccd0769d5d1f778f9189c2"
+    },
+    {
+      "phase": "D2-A",
+      "fold": "F3",
+      "baseline": "D0 Candidate",
+      "feature_view": "Full147_plus_mapped_core_ranks",
+      "feature_count": 162,
+      "model": "xgboost_reg_v1",
+      "target": {
+        "name": "top10_stretched_continuous_rank",
+        "percentile_rank": "same_trade_date_average_ties_finite_labels_only",
+        "formula": "T(u)-0.5, where T(u)=u for u<=0.9 and T(u)=0.9+10*(u-0.9) for u>0.9",
+        "top_threshold": 0.9,
+        "stretch_coefficient": 10.0,
+        "centering_note": "Subtract 0.5 exactly as in the frozen E006 rank target; all u<=0.9 labels remain unchanged."
+      },
+      "split": {
+        "fold_id": "F3",
+        "configured_periods": {
+          "id": "F3",
+          "train_start": "2018-01-02",
+          "train_end": "2023-12-31",
+          "valid_start": "2024-01-01",
+          "valid_end": "2024-12-31"
+        },
+        "candidate_train_rows": 6775050,
+        "candidate_train_dates": 1457,
+        "candidate_train_start": 20180102,
+        "candidate_train_end": 20231229,
+        "purge_dates": [
+          20231229
+        ],
+        "purge_rows": 4650,
+        "purge_finite_label_rows": 4522,
+        "train_rows_after_purge_before_label_filter": 6770400,
+        "excluded_nonfinite_train_label_rows": 1110446,
+        "train_rows": 5659954,
+        "train_start": 20180102,
+        "train_end": 20231228,
+        "valid_rows": 1125300,
+        "valid_finite_label_rows": 1094055,
+        "valid_start": 20240102,
+        "valid_end": 20241231,
+        "train_dates_after_purge": 1456,
+        "valid_dates": 242,
+        "feature_history": "Full causal Basic40 reused; purge applies to supervised fitting, not historical feature rows."
+      },
+      "train_rows": 5659954,
+      "valid_rows": 1125300,
+      "official": {
+        "ic_mean": 0.09416895926551576,
+        "ic_std": 0.17820906029514125,
+        "icir": 0.5284184715948654,
+        "ic_positive_ratio": 0.756198347107438,
+        "annual_excess": 0.494573753307117,
+        "top1_annual_ret": 0.4805291023068199,
+        "mean_turnover": 0.8364253994625798,
+        "final_score": 0.23511208985956744
+      },
+      "diagnostic": {
+        "official_turnover": 0.8364253994625798,
+        "diagnostic_exclude_missing_y_turnover": 0.8386005669983724,
+        "diagnostic_minus_official": 0.0021751675357926104,
+        "missing_y_rows": 31245,
+        "top_rows": 110363,
+        "missing_top_rows": 597,
+        "missing_share_of_top": 0.005409421635874342,
+        "missing_top_prediction_distribution": {
+          "min": 0.060221198946237564,
+          "p01": 0.06635725528001785,
+          "p25": 0.07455199211835861,
+          "median": 0.0809495747089386,
+          "p75": 0.10746350884437561,
+          "p99": 0.1919394320249557,
+          "max": 0.26273640990257263
+        },
+        "missing_top_duplicate_fraction": 0.6130653266331658,
+        "dates_boundary_splits_tie": 3,
+        "persistence": {
+          "stocks": 200,
+          "runs": 409,
+          "run_days": {
+            "min": 1.0,
+            "p01": 1.0,
+            "p25": 1.0,
+            "median": 1.0,
+            "p75": 2.0,
+            "p99": 3.0,
+            "max": 7.0
+          },
+          "stock_longest_run_days": {
+            "min": 1.0,
+            "p01": 1.0,
+            "p25": 1.0,
+            "median": 2.0,
+            "p75": 2.0,
+            "p99": 4.0,
+            "max": 7.0
+          },
+          "stocks_run_ge20": 0,
+          "stocks_run_ge60": 0,
+          "stocks_run_full_fold": 0,
+          "longest_examples": [
+            {
+              "ts_code": "603196.SH",
+              "start": 20241018,
+              "end": 20241028,
+              "days": 7
+            },
+            {
+              "ts_code": "600112.SH",
+              "start": 20240725,
+              "end": 20240730,
+              "days": 4
+            },
+            {
+              "ts_code": "000023.SZ",
+              "start": 20240725,
+              "end": 20240730,
+              "days": 4
+            },
+            {
+              "ts_code": "002308.SZ",
+              "start": 20240926,
+              "end": 20241008,
+              "days": 4
+            },
+            {
+              "ts_code": "600823.SH",
+              "start": 20240927,
+              "end": 20241008,
+              "days": 3
+            },
+            {
+              "ts_code": "000005.SZ",
+              "start": 20240311,
+              "end": 20240313,
+              "days": 3
+            },
+            {
+              "ts_code": "000416.SZ",
+              "start": 20240927,
+              "end": 20241008,
+              "days": 3
+            },
+            {
+              "ts_code": "000413.SZ",
+              "start": 20240927,
+              "end": 20241008,
+              "days": 3
+            },
+            {
+              "ts_code": "301592.SZ",
+              "start": 20240927,
+              "end": 20241008,
+              "days": 3
+            },
+            {
+              "ts_code": "301602.SZ",
+              "start": 20240927,
+              "end": 20241008,
+              "days": 3
+            }
+          ]
+        }
+      },
+      "baseline_official": {
+        "ic_mean": 0.12673920567107455,
+        "ic_std": 0.1665767279967337,
+        "icir": 0.7608458107879253,
+        "ic_positive_ratio": 0.8140495867768595,
+        "annual_excess": 0.505309531907456,
+        "top1_annual_ret": 0.4912648809071589,
+        "mean_turnover": 0.8273932991041778,
+        "final_score": 0.25407055210941326
+      },
+      "baseline_diagnostic": {
+        "official_turnover": 0.8273932991041778,
+        "diagnostic_exclude_missing_y_turnover": 0.8303553833872954,
+        "diagnostic_minus_official": 0.0029620842831176164,
+        "missing_y_rows": 31245,
+        "top_rows": 110363,
+        "missing_top_rows": 26,
+        "missing_share_of_top": 0.00023558620189737502,
+        "missing_top_prediction_distribution": {
+          "min": -0.021988162770867348,
+          "p01": -0.008405300322920084,
+          "p25": 0.04605631344020367,
+          "median": 0.05920469015836716,
+          "p75": 0.06826699525117874,
+          "p99": 0.08848114870488644,
+          "max": 0.09049596637487411
+        },
+        "missing_top_duplicate_fraction": 0.0,
+        "dates_boundary_splits_tie": 0,
+        "persistence": {
+          "stocks": 26,
+          "runs": 26,
+          "run_days": {
+            "min": 1.0,
+            "p01": 1.0,
+            "p25": 1.0,
+            "median": 1.0,
+            "p75": 1.0,
+            "p99": 1.0,
+            "max": 1.0
+          },
+          "stock_longest_run_days": {
+            "min": 1.0,
+            "p01": 1.0,
+            "p25": 1.0,
+            "median": 1.0,
+            "p75": 1.0,
+            "p99": 1.0,
+            "max": 1.0
+          },
+          "stocks_run_ge20": 0,
+          "stocks_run_ge60": 0,
+          "stocks_run_full_fold": 0,
+          "longest_examples": [
+            {
+              "ts_code": "000615.SZ",
+              "start": 20240626,
+              "end": 20240626,
+              "days": 1
+            },
+            {
+              "ts_code": "000836.SZ",
+              "start": 20240429,
+              "end": 20240429,
+              "days": 1
+            },
+            {
+              "ts_code": "002141.SZ",
+              "start": 20240425,
+              "end": 20240425,
+              "days": 1
+            },
+            {
+              "ts_code": "002252.SZ",
+              "start": 20241220,
+              "end": 20241220,
+              "days": 1
+            },
+            {
+              "ts_code": "002280.SZ",
+              "start": 20240429,
+              "end": 20240429,
+              "days": 1
+            },
+            {
+              "ts_code": "002288.SZ",
+              "start": 20240429,
+              "end": 20240429,
+              "days": 1
+            },
+            {
+              "ts_code": "002336.SZ",
+              "start": 20240418,
+              "end": 20240418,
+              "days": 1
+            },
+            {
+              "ts_code": "002490.SZ",
+              "start": 20240328,
+              "end": 20240328,
+              "days": 1
+            },
+            {
+              "ts_code": "002650.SZ",
+              "start": 20240426,
+              "end": 20240426,
+              "days": 1
+            },
+            {
+              "ts_code": "002721.SZ",
+              "start": 20240607,
+              "end": 20240607,
+              "days": 1
+            }
+          ]
+        }
+      },
+      "delta_candidate_minus_d0": {
+        "ic_mean": -0.03257024640555879,
+        "annual_excess": -0.010735778600338974,
+        "mean_turnover": 0.009032100358401962,
+        "final_score": -0.01895846224984582
+      },
+      "fit_seconds": 494.52397680000104,
+      "elapsed_seconds": 1163.3224575999993,
+      "peak_memory_gb": 9.562416076660156,
+      "seed": 42,
+      "postprocess": null,
+      "config_sha256": "8e10d3a27a1e16d4926846c7b8c43eb626158f2d525c94c286acd34843eb443d",
+      "feature_config_sha256": "44745ce785dc17c947ca02ba68a4317be3e44e7ca0a33c5b433dd08f83fa6351",
+      "official_evaluator_sha256": "72dc59987e92ba8ae6b506e114dfe8591b5608c9beccd0769d5d1f778f9189c2"
+    }
+  ],
+  "summary": {
+    "ic_mean": {
+      "d0_mean": 0.12083514216213927,
+      "candidate_mean": 0.08018603450185197,
+      "mean_delta": -0.0406491076602873,
+      "improved_folds": 0,
+      "d0_worst": 0.10773099904962508,
+      "d0_std_ddof0": 0.009281122039363335,
+      "candidate_worst": 0.05300715297169046,
+      "candidate_std_ddof0": 0.01922105669277068,
+      "folds": {
+        "F1": {
+          "d0": 0.1280352217657182,
+          "candidate": 0.0933819912683497,
+          "delta": -0.03465323049736849
+        },
+        "F2": {
+          "d0": 0.10773099904962508,
+          "candidate": 0.05300715297169046,
+          "delta": -0.05472384607793462
+        },
+        "F3": {
+          "d0": 0.12673920567107455,
+          "candidate": 0.09416895926551576,
+          "delta": -0.03257024640555879
+        }
+      }
+    },
+    "annual_excess": {
+      "d0_mean": 0.4777419712711855,
+      "candidate_mean": 0.3989178184508256,
+      "mean_delta": -0.07882415282035998,
+      "improved_folds": 0,
+      "d0_worst": 0.3677257481245431,
+      "d0_std_ddof0": 0.08095538216539505,
+      "candidate_worst": 0.15555860568078655,
+      "candidate_std_ddof0": 0.1733878336944377,
+      "folds": {
+        "F1": {
+          "d0": 0.5601906337815575,
+          "candidate": 0.5466210963645731,
+          "delta": -0.013569537416984412
+        },
+        "F2": {
+          "d0": 0.3677257481245431,
+          "candidate": 0.15555860568078655,
+          "delta": -0.21216714244375656
+        },
+        "F3": {
+          "d0": 0.505309531907456,
+          "candidate": 0.494573753307117,
+          "delta": -0.010735778600338974
+        }
+      }
+    },
+    "mean_turnover": {
+      "d0_mean": 0.8384354064101146,
+      "candidate_mean": 0.8335790760413393,
+      "mean_delta": -0.004856330368775345,
+      "improved_folds": 1,
+      "d0_worst": 0.8587079556548952,
+      "d0_std_ddof0": 0.014353924492674938,
+      "candidate_worst": 0.8432822788223172,
+      "candidate_std_ddof0": 0.009304914635597017,
+      "folds": {
+        "F1": {
+          "d0": 0.829204964471271,
+          "candidate": 0.8432822788223172,
+          "delta": 0.0140773143510462
+        },
+        "F2": {
+          "d0": 0.8587079556548952,
+          "candidate": 0.821029549839121,
+          "delta": -0.037678405815774196
+        },
+        "F3": {
+          "d0": 0.8273932991041778,
+          "candidate": 0.8364253994625798,
+          "delta": 0.009032100358401962
+        }
+      }
+    },
+    "final_score": {
+      "d0_mean": 0.24012602632317695,
+      "candidate_mean": 0.20167603652358665,
+      "mean_delta": -0.03844998979959032,
+      "improved_folds": 0,
+      "d0_worst": 0.1957977373607444,
+      "d0_std_ddof0": 0.03205526512388206,
+      "candidate_worst": 0.12156157794117584,
+      "candidate_std_ddof0": 0.05690685270096889,
+      "folds": {
+        "F1": {
+          "d0": 0.2705097894993732,
+          "candidate": 0.24835444177001664,
+          "delta": -0.022155347729356567
+        },
+        "F2": {
+          "d0": 0.1957977373607444,
+          "candidate": 0.12156157794117584,
+          "delta": -0.07423615941956857
+        },
+        "F3": {
+          "d0": 0.25407055210941326,
+          "candidate": 0.23511208985956744,
+          "delta": -0.01895846224984582
+        }
+      }
+    },
+    "diagnostic_turnover": {
+      "d0_mean": 0.84447126452689,
+      "candidate_mean": 0.8363692723192381,
+      "mean_delta": -0.008101992207651953,
+      "improved_folds": 1,
+      "d0_worst": 0.8641973918677368,
+      "d0_std_ddof0": 0.014374202153547297,
+      "candidate_worst": 0.8463564445668571,
+      "candidate_std_ddof0": 0.009201688603890631,
+      "folds": {
+        "F1": {
+          "d0": 0.8388610183256378,
+          "candidate": 0.8463564445668571,
+          "delta": 0.0074954262412193495
+        },
+        "F2": {
+          "d0": 0.8641973918677368,
+          "candidate": 0.8241508053924846,
+          "delta": -0.040046586475252166
+        },
+        "F3": {
+          "d0": 0.8303553833872954,
+          "candidate": 0.8386005669983724,
+          "delta": 0.008245183611076956
+        }
+      }
+    },
+    "missing_top_fraction": {
+      "d0_mean": 0.00024966251523904576,
+      "candidate_mean": 0.007163183683544606,
+      "mean_delta": 0.00691352116830556,
+      "improved_folds": 0,
+      "d0_worst": 0.00026210898310752794,
+      "d0_std_ddof0": 1.0889039687694082e-05,
+      "candidate_worst": 0.014958288518722716,
+      "candidate_std_ddof0": 0.005783227570236733,
+      "folds": {
+        "F1": {
+          "d0": 0.00026210898310752794,
+          "candidate": 0.014958288518722716,
+          "delta": 0.014696179535615188
+        },
+        "F2": {
+          "d0": 0.00025129236071223435,
+          "candidate": 0.0011218408960367604,
+          "delta": 0.0008705485353245261
+        },
+        "F3": {
+          "d0": 0.00023558620189737502,
+          "candidate": 0.005409421635874342,
+          "delta": 0.005173835433976967
+        }
+      }
+    }
+  },
+  "score_delta_decomposition": {
+    "ic_contribution": -0.016259643064114922,
+    "top10_excess_contribution": -0.023647245846107993,
+    "turnover_contribution": 0.0014568991106326036
+  },
+  "decision_checks": {
+    "top10_excess_improves_2_of_3": false,
+    "score_improves_2_of_3": false,
+    "f2_score_non_degraded": false,
+    "rank_ic_basic_stability": false,
+    "mean_score_at_least_0_250": false
+  },
+  "structural_breakthrough_candidate": false
+}

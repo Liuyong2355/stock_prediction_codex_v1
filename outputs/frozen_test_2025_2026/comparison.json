@@ -1,0 +1,394 @@
+{
+  "evaluation": "retrospectively reconstructed 2025-01-02 to 2026-06-05 test labels",
+  "first_look": true,
+  "retrained_models": 0,
+  "training_cutoff": "F3 model-specific training ends no later than 2023-12-28",
+  "evaluation_manifest": {
+    "version": 1,
+    "source": "data/raw/测试集_X.csv",
+    "source_sha256": "dceffbf68bbab07a254bc6caa4d8a1e33de8de9c15489d936c5d15020dbfa90f",
+    "formula": "y_ret_1d(t) = close(t+1) / close(t) - 1",
+    "excluded_date": 20260608,
+    "date_min": 20250102,
+    "date_max": 20260605,
+    "dates": 343,
+    "stocks": 4650,
+    "rows": 1594950,
+    "label_missing": 45515,
+    "train_formula_check_rows": 19770,
+    "train_formula_max_abs_diff": 5.421010862427522e-16,
+    "x_sha256": "0815ed57b4724d7f21db40ce8c5deb379612ff004ad543df2c156086ce12e32f",
+    "y_sha256": "cd8e1b6bd933519ef717ada84658a23bcc3ed149bf2f0560eb99fcfe41317f7c"
+  },
+  "evaluator_sha256": "72dc59987e92ba8ae6b506e114dfe8591b5608c9beccd0769d5d1f778f9189c2",
+  "evaluation_folder_evaluator_sha256": "d0c2eb7e95f0ffdb4b8e3455ff1e64e66a76eaaf06b7d6b2c2aaf02cb26b3e76",
+  "feature_matrix_sha256_recorded": "c8fb2a8597051f9d85daffd3a9e90a4999a413b8c3b6fd41ff75fc286c89de41",
+  "models": {
+    "D0": {
+      "official": {
+        "ic_mean": 0.12941819127822343,
+        "ic_std": 0.1277970314382144,
+        "icir": 1.0126854264278653,
+        "ic_positive_ratio": 0.8513119533527697,
+        "annual_excess": 0.46151491564026004,
+        "top1_annual_ret": 0.6448387303527228,
+        "mean_turnover": 0.8403803017814817,
+        "final_score": 0.23810766066892286
+      },
+      "diagnostic": {
+        "official_turnover": 0.8403803017814817,
+        "diagnostic_exclude_missing_y_turnover": 0.8432683317007672,
+        "diagnostic_minus_official": 0.0028880299192854952,
+        "missing_y_rows": 45515,
+        "top_rows": 156721,
+        "missing_top_rows": 52,
+        "missing_share_of_top": 0.0003317998226147102,
+        "missing_top_prediction_distribution": {
+          "min": 0.029291514307260513,
+          "p01": 0.03168621800839901,
+          "p25": 0.04946860857307911,
+          "median": 0.06067699007689953,
+          "p75": 0.07240162789821625,
+          "p99": 0.15246455997228633,
+          "max": 0.1780984252691269
+        },
+        "missing_top_duplicate_fraction": 0.0,
+        "dates_boundary_splits_tie": 0,
+        "persistence": {
+          "stocks": 50,
+          "runs": 52,
+          "run_days": {
+            "min": 1.0,
+            "p01": 1.0,
+            "p25": 1.0,
+            "median": 1.0,
+            "p75": 1.0,
+            "p99": 1.0,
+            "max": 1.0
+          },
+          "stock_longest_run_days": {
+            "min": 1.0,
+            "p01": 1.0,
+            "p25": 1.0,
+            "median": 1.0,
+            "p75": 1.0,
+            "p99": 1.0,
+            "max": 1.0
+          },
+          "stocks_run_ge20": 0,
+          "stocks_run_ge60": 0,
+          "stocks_run_full_fold": 0,
+          "longest_examples": [
+            {
+              "ts_code": "000004.SZ",
+              "start": 20250428,
+              "end": 20250428,
+              "days": 1
+            },
+            {
+              "ts_code": "000736.SZ",
+              "start": 20260601,
+              "end": 20260601,
+              "days": 1
+            },
+            {
+              "ts_code": "000820.SZ",
+              "start": 20250428,
+              "end": 20250428,
+              "days": 1
+            },
+            {
+              "ts_code": "000909.SZ",
+              "start": 20260330,
+              "end": 20260330,
+              "days": 1
+            },
+            {
+              "ts_code": "000972.SZ",
+              "start": 20250328,
+              "end": 20250328,
+              "days": 1
+            },
+            {
+              "ts_code": "002200.SZ",
+              "start": 20251210,
+              "end": 20251210,
+              "days": 1
+            },
+            {
+              "ts_code": "002253.SZ",
+              "start": 20250425,
+              "end": 20250425,
+              "days": 1
+            },
+            {
+              "ts_code": "002490.SZ",
+              "start": 20250429,
+              "end": 20250429,
+              "days": 1
+            },
+            {
+              "ts_code": "002569.SZ",
+              "start": 20260313,
+              "end": 20260313,
+              "days": 1
+            },
+            {
+              "ts_code": "002717.SZ",
+              "start": 20250428,
+              "end": 20250428,
+              "days": 1
+            }
+          ]
+        }
+      },
+      "submission": "outputs\\frozen_test_2025_2026\\D0_submission.csv",
+      "submission_sha256": "f529498fd3e1d0403232acb910c0d3a26b397f6277fa0a6700aca8e7f860b29b",
+      "model_sha256": "096f50d7b306be28b22a1645c95d5e9e536478fb9423f0e1b3da8d48a84066ac"
+    },
+    "D3": {
+      "official": {
+        "ic_mean": 0.11034136095167031,
+        "ic_std": 0.13478084153253087,
+        "icir": 0.8186724440731303,
+        "ic_positive_ratio": 0.7959183673469388,
+        "annual_excess": 0.3792741679639858,
+        "top1_annual_ret": 0.5625979826764487,
+        "mean_turnover": 0.8317585731459353,
+        "final_score": 0.2083912228260833
+      },
+      "diagnostic": {
+        "official_turnover": 0.8317585731459353,
+        "diagnostic_exclude_missing_y_turnover": 0.8346517569834973,
+        "diagnostic_minus_official": 0.0028931838375619856,
+        "missing_y_rows": 45515,
+        "top_rows": 156721,
+        "missing_top_rows": 48,
+        "missing_share_of_top": 0.0003062767593366556,
+        "missing_top_prediction_distribution": {
+          "min": 0.02705172449350357,
+          "p01": 0.031217237412929536,
+          "p25": 0.0509426798671484,
+          "median": 0.060658955946564674,
+          "p75": 0.08839621394872665,
+          "p99": 0.14122595295310023,
+          "max": 0.1529131829738617
+        },
+        "missing_top_duplicate_fraction": 0.0,
+        "dates_boundary_splits_tie": 0,
+        "persistence": {
+          "stocks": 48,
+          "runs": 48,
+          "run_days": {
+            "min": 1.0,
+            "p01": 1.0,
+            "p25": 1.0,
+            "median": 1.0,
+            "p75": 1.0,
+            "p99": 1.0,
+            "max": 1.0
+          },
+          "stock_longest_run_days": {
+            "min": 1.0,
+            "p01": 1.0,
+            "p25": 1.0,
+            "median": 1.0,
+            "p75": 1.0,
+            "p99": 1.0,
+            "max": 1.0
+          },
+          "stocks_run_ge20": 0,
+          "stocks_run_ge60": 0,
+          "stocks_run_full_fold": 0,
+          "longest_examples": [
+            {
+              "ts_code": "000430.SZ",
+              "start": 20260210,
+              "end": 20260210,
+              "days": 1
+            },
+            {
+              "ts_code": "000608.SZ",
+              "start": 20250418,
+              "end": 20250418,
+              "days": 1
+            },
+            {
+              "ts_code": "000610.SZ",
+              "start": 20260423,
+              "end": 20260423,
+              "days": 1
+            },
+            {
+              "ts_code": "000697.SZ",
+              "start": 20250923,
+              "end": 20250923,
+              "days": 1
+            },
+            {
+              "ts_code": "000736.SZ",
+              "start": 20260601,
+              "end": 20260601,
+              "days": 1
+            },
+            {
+              "ts_code": "000889.SZ",
+              "start": 20250530,
+              "end": 20250530,
+              "days": 1
+            },
+            {
+              "ts_code": "000909.SZ",
+              "start": 20260330,
+              "end": 20260330,
+              "days": 1
+            },
+            {
+              "ts_code": "000972.SZ",
+              "start": 20250328,
+              "end": 20250328,
+              "days": 1
+            },
+            {
+              "ts_code": "002199.SZ",
+              "start": 20250324,
+              "end": 20250324,
+              "days": 1
+            },
+            {
+              "ts_code": "002200.SZ",
+              "start": 20260601,
+              "end": 20260601,
+              "days": 1
+            }
+          ]
+        }
+      },
+      "submission": "outputs\\frozen_test_2025_2026\\D3_submission.csv",
+      "submission_sha256": "b9e3d7eff2da074e213ea42506c09a6db78d1b1cb39430da62b28565a0f526a1",
+      "model_sha256": "18d98c12072cf58bd83b2e7b3bf5ab25adc0a342dadf4ddff3a269e7a55b30e9"
+    },
+    "D4": {
+      "official": {
+        "ic_mean": 0.12739666229995644,
+        "ic_std": 0.13051589926612014,
+        "icir": 0.9761007127583466,
+        "ic_positive_ratio": 0.8396501457725948,
+        "annual_excess": 0.43653270396722377,
+        "top1_annual_ret": 0.6198565186796865,
+        "mean_turnover": 0.832652799769969,
+        "final_score": 0.232122636179159
+      },
+      "diagnostic": {
+        "official_turnover": 0.832652799769969,
+        "diagnostic_exclude_missing_y_turnover": 0.8355939885072758,
+        "diagnostic_minus_official": 0.0029411887373068657,
+        "missing_y_rows": 45515,
+        "top_rows": 156721,
+        "missing_top_rows": 177,
+        "missing_share_of_top": 0.0011293955500539174,
+        "missing_top_prediction_distribution": {
+          "min": 0.023497860403900037,
+          "p01": 0.027749442776705237,
+          "p25": 0.02931980603807383,
+          "median": 0.02931980603807383,
+          "p75": 0.04733421880709944,
+          "p99": 0.08835857051338873,
+          "max": 0.24193002598019114
+        },
+        "missing_top_duplicate_fraction": 0.5423728813559322,
+        "dates_boundary_splits_tie": 2,
+        "persistence": {
+          "stocks": 159,
+          "runs": 177,
+          "run_days": {
+            "min": 1.0,
+            "p01": 1.0,
+            "p25": 1.0,
+            "median": 1.0,
+            "p75": 1.0,
+            "p99": 1.0,
+            "max": 1.0
+          },
+          "stock_longest_run_days": {
+            "min": 1.0,
+            "p01": 1.0,
+            "p25": 1.0,
+            "median": 1.0,
+            "p75": 1.0,
+            "p99": 1.0,
+            "max": 1.0
+          },
+          "stocks_run_ge20": 0,
+          "stocks_run_ge60": 0,
+          "stocks_run_full_fold": 0,
+          "longest_examples": [
+            {
+              "ts_code": "000005.SZ",
+              "start": 20251208,
+              "end": 20251208,
+              "days": 1
+            },
+            {
+              "ts_code": "000023.SZ",
+              "start": 20251208,
+              "end": 20251208,
+              "days": 1
+            },
+            {
+              "ts_code": "000038.SZ",
+              "start": 20250908,
+              "end": 20250908,
+              "days": 1
+            },
+            {
+              "ts_code": "000038.SZ",
+              "start": 20251208,
+              "end": 20251208,
+              "days": 1
+            },
+            {
+              "ts_code": "000040.SZ",
+              "start": 20251208,
+              "end": 20251208,
+              "days": 1
+            },
+            {
+              "ts_code": "000046.SZ",
+              "start": 20251208,
+              "end": 20251208,
+              "days": 1
+            },
+            {
+              "ts_code": "000150.SZ",
+              "start": 20251208,
+              "end": 20251208,
+              "days": 1
+            },
+            {
+              "ts_code": "000413.SZ",
+              "start": 20251208,
+              "end": 20251208,
+              "days": 1
+            },
+            {
+              "ts_code": "000416.SZ",
+              "start": 20250908,
+              "end": 20250908,
+              "days": 1
+            },
+            {
+              "ts_code": "000416.SZ",
+              "start": 20251208,
+              "end": 20251208,
+              "days": 1
+            }
+          ]
+        }
+      },
+      "submission": "outputs\\frozen_test_2025_2026\\D4_submission.csv",
+      "submission_sha256": "0adc899f75b5f0296753674861249a808d55cfbdb2176b0af3a6d89251c0f892",
+      "model_sha256": "4948c37d7da00fa5e05029b0d6e8b33766a2c8bee04e33839e0c594d7f61dc77"
+    }
+  }
+}

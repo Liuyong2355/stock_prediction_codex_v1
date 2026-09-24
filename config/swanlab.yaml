@@ -1,0 +1,17 @@
+schema_version: '1.0'
+project: stock-prediction-codex
+default_mode: disabled
+selected_deployment: cloud
+log_dir: outputs/swanlab
+public: false
+upload_policy: aggregate_metrics_and_reproducibility_metadata_only
+forbidden_artifacts:
+  - raw_market_data
+  - feature_matrices
+  - row_level_predictions
+  - stock_codes
+  - trained_models
+environment_overrides:
+  mode: STOCK_SWANLAB_MODE
+  project: STOCK_SWANLAB_PROJECT
+  workspace: STOCK_SWANLAB_WORKSPACE

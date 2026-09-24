@@ -98,6 +98,37 @@ retired on 2026-09-22 and preserved under
 - Results: [comparison.md](phase_d1_lambdarank_rank_view/comparison.md)
 - Full precision: [comparison.json](phase_d1_lambdarank_rank_view/comparison.json)
 
+## Phase D2-A — Top10-stretched continuous rank target
+
+- Results: [comparison.md](phase_d2a_top10_stretched_rank/comparison.md)
+- Full precision: [comparison.json](phase_d2a_top10_stretched_rank/comparison.json)
+- Validation: [validation.md](phase_d2a_top10_stretched_rank/validation.md)
+- Per-fold results: `phase_d2a_top10_stretched_rank/F1/`, `F2/`, `F3/`
+
+## Phase D2-B — Top10 binary target
+
+- Results: [comparison.md](phase_d2b_top10_binary/comparison.md)
+- Full precision: [comparison.json](phase_d2b_top10_binary/comparison.json)
+- Validation: [validation.md](phase_d2b_top10_binary/validation.md)
+- Per-fold results and daily complementarity: `phase_d2b_top10_binary/F1/`,
+  `F2/`, `F3/`
+
+## Phase D3 — Recent-2Y training window
+
+- Results: [comparison.md](phase_d3_recent_2y/comparison.md)
+- Full precision: [comparison.json](phase_d3_recent_2y/comparison.json)
+- Validation: [validation.md](phase_d3_recent_2y/validation.md)
+- Per-fold results and daily complementarity: `phase_d3_recent_2y/F1/`, `F2/`,
+  `F3/`
+
+## Phase D4 — LightGBM Rank Regression
+
+- Results: [comparison.md](phase_d4_lightgbm_rank_regression/comparison.md)
+- Full precision: [comparison.json](phase_d4_lightgbm_rank_regression/comparison.json)
+- Validation: [validation.md](phase_d4_lightgbm_rank_regression/validation.md)
+- Per-fold results and daily complementarity: `phase_d4_lightgbm_rank_regression/F1/`,
+  `F2/`, `F3/`
+
 ## Naming convention for future stages
 
 Use `outputs/phase_<id>/` and keep the minimum standard set:
@@ -106,3 +137,21 @@ Use `outputs/phase_<id>/` and keep the minimum standard set:
 - `<stage>_comparison.json` for full-precision provenance and metrics;
 - `<stage>_grid.csv` when a parameter grid exists;
 - `<stage>_validation.md` for executed checks.
+# D5 residual alpha diagnostic
+
+`phase_d5_residual_alpha/` contains the diagnostic-only analysis of frozen D0
+validation predictions against all 162 frozen features. `comparison.md` is the
+family report, `family_summary.csv` and `feature_residual_ic.csv` contain the
+auditable aggregates, `result.json` records fold hashes and row checks, and
+`validation.md` documents the no-training/no-fusion boundary.
+
+`phase_d5_residual_alpha/partial_audit.md` corrects the interpretation of the
+rank-difference IC by reporting true-return and D0-controlled partial IC.
+`frozen_test_2025_2026/` contains the first local test-period evaluation of
+frozen D0/D3/D4 F3 models; large row-level submissions remain local and ignored.
+
+`frozen_test_2025_2026/legacy_strategies.md` records the fixed E005/E006 raw
+and C0b test-period comparison. The canonical main model is described in
+`docs/MAIN_MODEL.md`; the broader E/F comparison is in
+`docs/MODEL_AUDIT_2026-09-24.md`. Completed Phase C/D directories remain here
+as historical evidence so their result hashes and paths are not broken.

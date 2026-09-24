@@ -6,6 +6,7 @@
 *.txt text eol=lf
 *.md text eol=lf whitespace=-blank-at-eol
 *.pdf binary
+*.ubj binary
 *.csv -text whitespace=cr-at-eol
 evaluate.py -text whitespace=cr-at-eol
 reference/evaluate_official.py -text whitespace=cr-at-eol

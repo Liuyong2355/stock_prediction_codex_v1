@@ -1,0 +1,297 @@
+{
+  "phase": "D2-A",
+  "fold": "F2",
+  "baseline": "D0 Candidate",
+  "feature_view": "Full147_plus_mapped_core_ranks",
+  "feature_count": 162,
+  "model": "xgboost_reg_v1",
+  "target": {
+    "name": "top10_stretched_continuous_rank",
+    "percentile_rank": "same_trade_date_average_ties_finite_labels_only",
+    "formula": "T(u)-0.5, where T(u)=u for u<=0.9 and T(u)=0.9+10*(u-0.9) for u>0.9",
+    "top_threshold": 0.9,
+    "stretch_coefficient": 10.0,
+    "centering_note": "Subtract 0.5 exactly as in the frozen E006 rank target; all u<=0.9 labels remain unchanged."
+  },
+  "split": {
+    "fold_id": "F2",
+    "configured_periods": {
+      "id": "F2",
+      "train_start": "2018-01-02",
+      "train_end": "2022-12-31",
+      "valid_start": "2023-01-01",
+      "valid_end": "2023-12-31"
+    },
+    "candidate_train_rows": 5649750,
+    "candidate_train_dates": 1215,
+    "candidate_train_start": 20180102,
+    "candidate_train_end": 20221230,
+    "purge_dates": [
+      20221230
+    ],
+    "purge_rows": 4650,
+    "purge_finite_label_rows": 4280,
+    "train_rows_after_purge_before_label_filter": 5645100,
+    "excluded_nonfinite_train_label_rows": 1047315,
+    "train_rows": 4597785,
+    "train_start": 20180102,
+    "train_end": 20221229,
+    "valid_rows": 1125300,
+    "valid_finite_label_rows": 1062411,
+    "valid_start": 20230103,
+    "valid_end": 20231229,
+    "train_dates_after_purge": 1214,
+    "valid_dates": 242,
+    "feature_history": "Full causal Basic40 reused; purge applies to supervised fitting, not historical feature rows."
+  },
+  "train_rows": 4597785,
+  "valid_rows": 1125300,
+  "official": {
+    "ic_mean": 0.05300715297169046,
+    "ic_std": 0.10283029651610254,
+    "icir": 0.5154818644657889,
+    "ic_positive_ratio": 0.7272727272727273,
+    "annual_excess": 0.15555860568078655,
+    "top1_annual_ret": 0.1749818430009039,
+    "mean_turnover": 0.821029549839121,
+    "final_score": 0.12156157794117584
+  },
+  "diagnostic": {
+    "official_turnover": 0.821029549839121,
+    "diagnostic_exclude_missing_y_turnover": 0.8241508053924846,
+    "diagnostic_minus_official": 0.003121255553363622,
+    "missing_y_rows": 62889,
+    "top_rows": 111424,
+    "missing_top_rows": 125,
+    "missing_share_of_top": 0.0011218408960367604,
+    "missing_top_prediction_distribution": {
+      "min": 0.06322850286960602,
+      "p01": 0.06665327489376068,
+      "p25": 0.08254129439592361,
+      "median": 0.09827090054750443,
+      "p75": 0.12084031105041504,
+      "p99": 0.2661082887649536,
+      "max": 0.2912465035915375
+    },
+    "missing_top_duplicate_fraction": 0.016,
+    "dates_boundary_splits_tie": 0,
+    "persistence": {
+      "stocks": 93,
+      "runs": 119,
+      "run_days": {
+        "min": 1.0,
+        "p01": 1.0,
+        "p25": 1.0,
+        "median": 1.0,
+        "p75": 1.0,
+        "p99": 2.0,
+        "max": 2.0
+      },
+      "stock_longest_run_days": {
+        "min": 1.0,
+        "p01": 1.0,
+        "p25": 1.0,
+        "median": 1.0,
+        "p75": 1.0,
+        "p99": 2.0,
+        "max": 2.0
+      },
+      "stocks_run_ge20": 0,
+      "stocks_run_ge60": 0,
+      "stocks_run_full_fold": 0,
+      "longest_examples": [
+        {
+          "ts_code": "000606.SZ",
+          "start": 20230705,
+          "end": 20230706,
+          "days": 2
+        },
+        {
+          "ts_code": "300965.SZ",
+          "start": 20230915,
+          "end": 20230918,
+          "days": 2
+        },
+        {
+          "ts_code": "600666.SH",
+          "start": 20230308,
+          "end": 20230309,
+          "days": 2
+        },
+        {
+          "ts_code": "600781.SH",
+          "start": 20230428,
+          "end": 20230504,
+          "days": 2
+        },
+        {
+          "ts_code": "600781.SH",
+          "start": 20230517,
+          "end": 20230518,
+          "days": 2
+        },
+        {
+          "ts_code": "600139.SH",
+          "start": 20230228,
+          "end": 20230301,
+          "days": 2
+        },
+        {
+          "ts_code": "000023.SZ",
+          "start": 20230428,
+          "end": 20230428,
+          "days": 1
+        },
+        {
+          "ts_code": "000150.SZ",
+          "start": 20230517,
+          "end": 20230517,
+          "days": 1
+        },
+        {
+          "ts_code": "000546.SZ",
+          "start": 20231017,
+          "end": 20231017,
+          "days": 1
+        },
+        {
+          "ts_code": "000587.SZ",
+          "start": 20230209,
+          "end": 20230209,
+          "days": 1
+        }
+      ]
+    }
+  },
+  "baseline_official": {
+    "ic_mean": 0.10773099904962508,
+    "ic_std": 0.106939519327562,
+    "icir": 1.0074011901964766,
+    "ic_positive_ratio": 0.8636363636363636,
+    "annual_excess": 0.3677257481245431,
+    "top1_annual_ret": 0.3871489854446604,
+    "mean_turnover": 0.8587079556548952,
+    "final_score": 0.1957977373607444
+  },
+  "baseline_diagnostic": {
+    "official_turnover": 0.8587079556548952,
+    "diagnostic_exclude_missing_y_turnover": 0.8641973918677368,
+    "diagnostic_minus_official": 0.005489436212841592,
+    "missing_y_rows": 62889,
+    "top_rows": 111424,
+    "missing_top_rows": 28,
+    "missing_share_of_top": 0.00025129236071223435,
+    "missing_top_prediction_distribution": {
+      "min": 0.038092054426670074,
+      "p01": 0.039690322764217856,
+      "p25": 0.055021148175001144,
+      "median": 0.06065663695335388,
+      "p75": 0.07586504705250263,
+      "p99": 0.13135730259120465,
+      "max": 0.1448129266500473
+    },
+    "missing_top_duplicate_fraction": 0.0,
+    "dates_boundary_splits_tie": 0,
+    "persistence": {
+      "stocks": 28,
+      "runs": 28,
+      "run_days": {
+        "min": 1.0,
+        "p01": 1.0,
+        "p25": 1.0,
+        "median": 1.0,
+        "p75": 1.0,
+        "p99": 1.0,
+        "max": 1.0
+      },
+      "stock_longest_run_days": {
+        "min": 1.0,
+        "p01": 1.0,
+        "p25": 1.0,
+        "median": 1.0,
+        "p75": 1.0,
+        "p99": 1.0,
+        "max": 1.0
+      },
+      "stocks_run_ge20": 0,
+      "stocks_run_ge60": 0,
+      "stocks_run_full_fold": 0,
+      "longest_examples": [
+        {
+          "ts_code": "000004.SZ",
+          "start": 20230626,
+          "end": 20230626,
+          "days": 1
+        },
+        {
+          "ts_code": "000023.SZ",
+          "start": 20230428,
+          "end": 20230428,
+          "days": 1
+        },
+        {
+          "ts_code": "000637.SZ",
+          "start": 20230428,
+          "end": 20230428,
+          "days": 1
+        },
+        {
+          "ts_code": "000667.SZ",
+          "start": 20230428,
+          "end": 20230428,
+          "days": 1
+        },
+        {
+          "ts_code": "000671.SZ",
+          "start": 20230428,
+          "end": 20230428,
+          "days": 1
+        },
+        {
+          "ts_code": "000809.SZ",
+          "start": 20230531,
+          "end": 20230531,
+          "days": 1
+        },
+        {
+          "ts_code": "000909.SZ",
+          "start": 20230427,
+          "end": 20230427,
+          "days": 1
+        },
+        {
+          "ts_code": "002086.SZ",
+          "start": 20230428,
+          "end": 20230428,
+          "days": 1
+        },
+        {
+          "ts_code": "002113.SZ",
+          "start": 20230428,
+          "end": 20230428,
+          "days": 1
+        },
+        {
+          "ts_code": "002157.SZ",
+          "start": 20230428,
+          "end": 20230428,
+          "days": 1
+        }
+      ]
+    }
+  },
+  "delta_candidate_minus_d0": {
+    "ic_mean": -0.05472384607793462,
+    "annual_excess": -0.21216714244375656,
+    "mean_turnover": -0.037678405815774196,
+    "final_score": -0.07423615941956857
+  },
+  "fit_seconds": 430.9097624999995,
+  "elapsed_seconds": 962.5540504,
+  "peak_memory_gb": 8.803886413574219,
+  "seed": 42,
+  "postprocess": null,
+  "config_sha256": "8e10d3a27a1e16d4926846c7b8c43eb626158f2d525c94c286acd34843eb443d",
+  "feature_config_sha256": "44745ce785dc17c947ca02ba68a4317be3e44e7ca0a33c5b433dd08f83fa6351",
+  "official_evaluator_sha256": "72dc59987e92ba8ae6b506e114dfe8591b5608c9beccd0769d5d1f778f9189c2"
+}

@@ -1,0 +1,17 @@
+phase: D5
+control: D0
+prediction_path: outputs/phase_d0_e006_rank_view/{fold}/predictions.csv.gz
+folds: [F1, F2, F3]
+residual: daily_rank_y_minus_daily_rank_d0_prediction
+rank_rule: average_ties_percentile_finite_labels_only
+regions:
+  full: all_finite_labels
+  top20: d0_prediction_rank_gt_0.8
+  middle60: d0_prediction_rank_gt_0.2_and_le_0.8
+minimum_daily_region_rows: 30
+new_rank_feature_family: cross_section_rank
+stable_feature_rule:
+  same_direction_all_folds: true
+  minimum_absolute_ic_in_at_least_two_folds: 0.01
+training: none
+fusion: none

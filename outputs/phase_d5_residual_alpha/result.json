@@ -1,0 +1,338 @@
+{
+  "phase": "D5",
+  "diagnostic_only": true,
+  "trained_models": 0,
+  "residual_definition": "daily_rank(y_ret_1d)-daily_rank(D0_prediction)",
+  "regions": {
+    "full": "all finite labels",
+    "top20": "D0 prediction rank > 0.8",
+    "middle60": "0.2 < D0 prediction rank <= 0.8"
+  },
+  "fold_audits": [
+    {
+      "fold": "F1",
+      "split": {
+        "fold_id": "F1",
+        "configured_periods": {
+          "id": "F1",
+          "train_start": "2018-01-02",
+          "train_end": "2021-12-31",
+          "valid_start": "2022-01-01",
+          "valid_end": "2022-12-31"
+        },
+        "candidate_train_rows": 4524450,
+        "candidate_train_dates": 973,
+        "candidate_train_start": 20180102,
+        "candidate_train_end": 20211231,
+        "purge_dates": [
+          20211231
+        ],
+        "purge_rows": 4650,
+        "purge_finite_label_rows": 4170,
+        "train_rows_after_purge_before_label_filter": 4519800,
+        "excluded_nonfinite_train_label_rows": 950922,
+        "train_rows": 3568878,
+        "train_start": 20180102,
+        "train_end": 20211230,
+        "valid_rows": 1125300,
+        "valid_finite_label_rows": 1029017,
+        "valid_start": 20220104,
+        "valid_end": 20221230,
+        "train_dates_after_purge": 972,
+        "valid_dates": 242,
+        "feature_history": "Full causal Basic40 reused; purge applies to supervised fitting, not historical feature rows."
+      },
+      "prediction_path": "outputs\\phase_d0_e006_rank_view\\F1\\predictions.csv.gz",
+      "prediction_sha256": "939544aa6c7cea447eddc303749b0c479e22847318b0918fdbfef2bec39a1097",
+      "validation_rows": 1125300,
+      "finite_label_rows": 1029017,
+      "validation_days": 242,
+      "trained_models": 0
+    },
+    {
+      "fold": "F2",
+      "split": {
+        "fold_id": "F2",
+        "configured_periods": {
+          "id": "F2",
+          "train_start": "2018-01-02",
+          "train_end": "2022-12-31",
+          "valid_start": "2023-01-01",
+          "valid_end": "2023-12-31"
+        },
+        "candidate_train_rows": 5649750,
+        "candidate_train_dates": 1215,
+        "candidate_train_start": 20180102,
+        "candidate_train_end": 20221230,
+        "purge_dates": [
+          20221230
+        ],
+        "purge_rows": 4650,
+        "purge_finite_label_rows": 4280,
+        "train_rows_after_purge_before_label_filter": 5645100,
+        "excluded_nonfinite_train_label_rows": 1047315,
+        "train_rows": 4597785,
+        "train_start": 20180102,
+        "train_end": 20221229,
+        "valid_rows": 1125300,
+        "valid_finite_label_rows": 1062411,
+        "valid_start": 20230103,
+        "valid_end": 20231229,
+        "train_dates_after_purge": 1214,
+        "valid_dates": 242,
+        "feature_history": "Full causal Basic40 reused; purge applies to supervised fitting, not historical feature rows."
+      },
+      "prediction_path": "outputs\\phase_d0_e006_rank_view\\F2\\predictions.csv.gz",
+      "prediction_sha256": "a90da5e31e01ee068f3e747a9b8a938c0c6da68c7f019ef45ad58072d93bebc5",
+      "validation_rows": 1125300,
+      "finite_label_rows": 1062411,
+      "validation_days": 242,
+      "trained_models": 0
+    },
+    {
+      "fold": "F3",
+      "split": {
+        "fold_id": "F3",
+        "configured_periods": {
+          "id": "F3",
+          "train_start": "2018-01-02",
+          "train_end": "2023-12-31",
+          "valid_start": "2024-01-01",
+          "valid_end": "2024-12-31"
+        },
+        "candidate_train_rows": 6775050,
+        "candidate_train_dates": 1457,
+        "candidate_train_start": 20180102,
+        "candidate_train_end": 20231229,
+        "purge_dates": [
+          20231229
+        ],
+        "purge_rows": 4650,
+        "purge_finite_label_rows": 4522,
+        "train_rows_after_purge_before_label_filter": 6770400,
+        "excluded_nonfinite_train_label_rows": 1110446,
+        "train_rows": 5659954,
+        "train_start": 20180102,
+        "train_end": 20231228,
+        "valid_rows": 1125300,
+        "valid_finite_label_rows": 1094055,
+        "valid_start": 20240102,
+        "valid_end": 20241231,
+        "train_dates_after_purge": 1456,
+        "valid_dates": 242,
+        "feature_history": "Full causal Basic40 reused; purge applies to supervised fitting, not historical feature rows."
+      },
+      "prediction_path": "outputs\\phase_d0_e006_rank_view\\F3\\predictions.csv.gz",
+      "prediction_sha256": "68455c68ed4b662739899148c0204ffdf5cc700242a8ed826442a28f6dfcb7d1",
+      "validation_rows": 1125300,
+      "finite_label_rows": 1094055,
+      "validation_days": 242,
+      "trained_models": 0
+    }
+  ],
+  "candidate_family_regions": [
+    {
+      "region": "full",
+      "family": "cross_section_rank",
+      "stable_meaningful_feature_count": 26,
+      "mean_absolute_residual_ic": 0.11979067705376344,
+      "stable_features": "klen__csr_d0, klow__csr_d0, csr_stdret_20, stdret_60__csr_d0, volratio_60__csr_d0"
+    },
+    {
+      "region": "middle60",
+      "family": "cross_section_rank",
+      "stable_meaningful_feature_count": 21,
+      "mean_absolute_residual_ic": 0.043638404591397846,
+      "stable_features": "klen__csr_d0, klow__csr_d0, csr_stdret_20, kmid__csr_d0, stdret_60__csr_d0"
+    },
+    {
+      "region": "full",
+      "family": "volatility",
+      "stable_meaningful_feature_count": 20,
+      "mean_absolute_residual_ic": 0.17416039141666667,
+      "stable_features": "gkvol_5, parkinson_5, gkvol_10, atr_5, parkinson_10"
+    },
+    {
+      "region": "full",
+      "family": "trend",
+      "stable_meaningful_feature_count": 20,
+      "mean_absolute_residual_ic": 0.09161633088172043,
+      "stable_features": "distmin_5, distmin_20, distmin_60, emadev_5, madev_3"
+    },
+    {
+      "region": "middle60",
+      "family": "volatility",
+      "stable_meaningful_feature_count": 19,
+      "mean_absolute_residual_ic": 0.06967657736666669,
+      "stable_features": "gkvol_5, gkvol_10, parkinson_5, gkvol_20, parkinson_10"
+    },
+    {
+      "region": "middle60",
+      "family": "trend",
+      "stable_meaningful_feature_count": 13,
+      "mean_absolute_residual_ic": 0.035071608086021513,
+      "stable_features": "distmin_5, distmin_20, madev_3, distmin_60, emadev_5"
+    },
+    {
+      "region": "full",
+      "family": "kbar",
+      "stable_meaningful_feature_count": 12,
+      "mean_absolute_residual_ic": 0.13225644580555557,
+      "stable_features": "klen, klow, ksft2, ksft, kmid"
+    },
+    {
+      "region": "middle60",
+      "family": "kbar",
+      "stable_meaningful_feature_count": 12,
+      "mean_absolute_residual_ic": 0.05421075841666667,
+      "stable_features": "ksft, ksft2, klen, klow, kmid"
+    },
+    {
+      "region": "top20",
+      "family": "cross_section_rank",
+      "stable_meaningful_feature_count": 12,
+      "mean_absolute_residual_ic": 0.012446941978494623,
+      "stable_features": "kup__csr_d0, csr_ret_1, csr_madev_5, ret_2__csr_d0, csr_ret_3"
+    },
+    {
+      "region": "full",
+      "family": "amount",
+      "stable_meaningful_feature_count": 11,
+      "mean_absolute_residual_ic": 0.1233096136969697,
+      "stable_features": "amtratio_60, logamt_std_20, logamt_std_5, amtchg_20, amtratio_20"
+    },
+    {
+      "region": "full",
+      "family": "volume",
+      "stable_meaningful_feature_count": 11,
+      "mean_absolute_residual_ic": 0.11959381742424241,
+      "stable_features": "volratio_60, logvol_std_20, volchg_20, logvol_std_5, volratio_20"
+    },
+    {
+      "region": "middle60",
+      "family": "amount",
+      "stable_meaningful_feature_count": 11,
+      "mean_absolute_residual_ic": 0.0400125453939394,
+      "stable_features": "logamt_std_20, logamt_std_5, amtratio_60, amtchg_20, logamt_std_60"
+    },
+    {
+      "region": "middle60",
+      "family": "volume",
+      "stable_meaningful_feature_count": 11,
+      "mean_absolute_residual_ic": 0.03844068527272728,
+      "stable_features": "logvol_std_20, volratio_60, logvol_std_5, volchg_20, logvol_std_60"
+    },
+    {
+      "region": "full",
+      "family": "limit",
+      "stable_meaningful_feature_count": 10,
+      "mean_absolute_residual_ic": 0.06278272986666666,
+      "stable_features": "days_since_limit_up, limit_up_count_60, limit_up_count_20, limit_down_count_60, days_since_limit_down"
+    },
+    {
+      "region": "top20",
+      "family": "kbar",
+      "stable_meaningful_feature_count": 9,
+      "mean_absolute_residual_ic": 0.020453017944444443,
+      "stable_features": "ksft, kup, ksft2, kup2, kmid"
+    },
+    {
+      "region": "full",
+      "family": "relative",
+      "stable_meaningful_feature_count": 8,
+      "mean_absolute_residual_ic": 0.12314692908333333,
+      "stable_features": "relstd_20, relret_1, relret_5, relamtratio_20, relvolratio_20"
+    },
+    {
+      "region": "full",
+      "family": "return",
+      "stable_meaningful_feature_count": 8,
+      "mean_absolute_residual_ic": 0.09766838763333333,
+      "stable_features": "ret_1, ret_2, ret_5, ret_3, ret_20"
+    },
+    {
+      "region": "top20",
+      "family": "trend",
+      "stable_meaningful_feature_count": 8,
+      "mean_absolute_residual_ic": 0.011355130247311827,
+      "stable_features": "distmax_5, madev_3, madev_5, emadev_5, rsv_5"
+    },
+    {
+      "region": "top20",
+      "family": "limit",
+      "stable_meaningful_feature_count": 7,
+      "mean_absolute_residual_ic": 0.021076347433333333,
+      "stable_features": "flag_limit_up, limit_up_count_5, limit_up_count_20, limit_down_count_20, limit_down_count_60"
+    },
+    {
+      "region": "middle60",
+      "family": "limit",
+      "stable_meaningful_feature_count": 7,
+      "mean_absolute_residual_ic": 0.020983840266666668,
+      "stable_features": "days_since_limit_up, limit_up_count_60, limit_up_count_20, limit_down_count_60, days_since_limit_down"
+    },
+    {
+      "region": "middle60",
+      "family": "relative",
+      "stable_meaningful_feature_count": 6,
+      "mean_absolute_residual_ic": 0.04597565941666666,
+      "stable_features": "relstd_20, relret_1, relret_5, relamtratio_20, relvolratio_20"
+    },
+    {
+      "region": "middle60",
+      "family": "return",
+      "stable_meaningful_feature_count": 6,
+      "mean_absolute_residual_ic": 0.038034864566666673,
+      "stable_features": "ret_1, ret_2, ret_5, ret_3, ret_60"
+    },
+    {
+      "region": "top20",
+      "family": "volume",
+      "stable_meaningful_feature_count": 6,
+      "mean_absolute_residual_ic": 0.012887455575757578,
+      "stable_features": "volratio_60, volratio_20, logvol_std_60, volchg_20, volratio_5"
+    },
+    {
+      "region": "full",
+      "family": "volume_price",
+      "stable_meaningful_feature_count": 4,
+      "mean_absolute_residual_ic": 0.14067816008333334,
+      "stable_features": "corr_ret_dlogamt_20, corr_ret_dlogamt_5, corr_ret_dlogvol_5, corr_ret_dlogvol_20"
+    },
+    {
+      "region": "full",
+      "family": "liquidity",
+      "stable_meaningful_feature_count": 4,
+      "mean_absolute_residual_ic": 0.08177411925,
+      "stable_features": "illiq_1, illiq_5, illiq_20, illiq_60"
+    },
+    {
+      "region": "middle60",
+      "family": "volume_price",
+      "stable_meaningful_feature_count": 4,
+      "mean_absolute_residual_ic": 0.04816492883333333,
+      "stable_features": "corr_ret_dlogamt_5, corr_ret_dlogvol_5, corr_ret_dlogamt_20, corr_ret_dlogvol_20"
+    },
+    {
+      "region": "top20",
+      "family": "relative",
+      "stable_meaningful_feature_count": 4,
+      "mean_absolute_residual_ic": 0.013940210666666666,
+      "stable_features": "relret_1, relret_5, relvolratio_20, relamtratio_20"
+    },
+    {
+      "region": "top20",
+      "family": "return",
+      "stable_meaningful_feature_count": 4,
+      "mean_absolute_residual_ic": 0.013805838300000001,
+      "stable_features": "ret_1, ret_2, ret_3, ret_5"
+    },
+    {
+      "region": "top20",
+      "family": "amount",
+      "stable_meaningful_feature_count": 4,
+      "mean_absolute_residual_ic": 0.011127971363636363,
+      "stable_features": "amtratio_60, amtratio_20, amtchg_20, amtratio_10"
+    }
+  ]
+}

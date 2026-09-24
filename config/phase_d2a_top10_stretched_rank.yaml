@@ -1,0 +1,17 @@
+phase: D2-A
+baseline: phase_d0_e006_rank_view
+feature_view: Full147_plus_mapped_core_ranks
+feature_config: config/phase_d0_e006_rank_view.yaml
+folds: [F1, F2, F3]
+model: xgboost_reg_v1
+model_params_source: config/experiments_v1.yaml
+target:
+  name: top10_stretched_continuous_rank
+  percentile_rank: same_trade_date_average_ties_finite_labels_only
+  formula: T(u)-0.5, where T(u)=u for u<=0.9 and T(u)=0.9+10*(u-0.9) for u>0.9
+  top_threshold: 0.9
+  stretch_coefficient: 10.0
+  centering_note: Subtract 0.5 exactly as in the frozen E006 rank target; all u<=0.9 labels remain unchanged.
+postprocess: none
+comparison_baseline: D0 Candidate
+breakthrough_threshold_mean_score: 0.250
