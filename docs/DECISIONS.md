@@ -395,3 +395,24 @@ competition-Score claims. See `docs/NEXT_VALIDATION_GATE.md`.
 external-data branch. A future live period cannot serve as an independent
 official Score for the already fixed competition test dates, and the local
 reconstructed test labels are no longer a blind holdout.
+
+## D037 — Build a locked, complete E006+C0b competition submission
+**Status:** Accepted on 2026-09-24; local file ready, not uploaded.  
+**Decision:** Choose the already frozen E006 F3 Full147 XGBoost Rank model and
+C0b (`alpha=0.30`, `exit_fraction=0.25`) as the fixed competition submission
+strategy. Do not refit, tune, fuse, or select using reconstructed test Y. Hash
+check the original test X, existing feature matrix/keys, model, saved raw and
+C0b predictions, and C0b selection record. Generate only the previously
+unpredicted `2026-06-08` rows with the same frozen model, then causally replay
+C0b over all test dates. The earlier 1,594,950 C0b predictions match their
+frozen copy exactly. Final local file has 1,599,600 unique complete test keys,
+344 dates, finite scores, and SHA-256
+`e6dfcdf3ec58b0ea7bac5c3e044008c4e7f637d83c5ccb0890277a93c2cee30b`.
+See `docs/COMPETITION_SUBMISSION.md`. The CSV remains local and ignored by Git;
+the manifest and reproducible builder are versioned. Do not claim an official
+full-test Score or that the file has been uploaded.
+**Reason:** E006+C0b is the established low-missing high-Score reference.
+D0+C0b did not pass its meaningful-margin promotion gate, and historical
+E005/C2 high Scores were missing-label sensitive. Reusing the frozen F3 model
+preserves the evaluated strategy and avoids introducing an unvalidated refit;
+the cost is that 2024 labels are not used for fitting.

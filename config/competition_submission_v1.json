@@ -1,0 +1,12 @@
+{
+  "strategy": "E006 F3 + C0b",
+  "model": "outputs/baselines/E006/F3/model.ubj",
+  "model_sha256": "9f444e7a3b7032284e8b0b1fc8b5d3aec026b5a22b2c6a92680bb82fded7d898",
+  "raw_prefix": "outputs/frozen_test_2025_2026/E006_raw_submission.csv",
+  "raw_prefix_sha256": "c89f5a08b6188aca8da2b7b8bd6642cc15aaf0b616da0c72231afb301fb9fc44",
+  "policy_prefix": "outputs/frozen_test_2025_2026/E006_C0b_submission.csv",
+  "policy_prefix_sha256": "6719355976aa0b6be8deb50131395297e90c6cb5a4b4ebeb301e6b7cf65e5f1e",
+  "alpha": 0.3,
+  "exit_fraction": 0.25,
+  "refit": false
+}

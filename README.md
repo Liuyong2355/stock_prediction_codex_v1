@@ -27,6 +27,7 @@ test-period evidence.
 - [Main model identity](docs/MAIN_MODEL.md) and [frozen configuration](config/main_model.yaml)
 - [Current handoff](docs/NEXT_RESEARCH_HANDOFF.md)
 - [Next validation and competition-data gate](docs/NEXT_VALIDATION_GATE.md)
+- [Locked competition submission](docs/COMPETITION_SUBMISSION.md)
 - [Research decisions](docs/DECISIONS.md)
 - [Completed research archive](archive/completed_research_2026-09-24/README.md)
 

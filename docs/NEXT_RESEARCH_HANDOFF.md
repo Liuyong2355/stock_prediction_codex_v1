@@ -5,6 +5,12 @@ F3 binary is `models/main_alpha_xgb_rank162/model.ubj`; the canonical feature
 and hash contract is `config/main_model.yaml`. It was trained only through
 2023-12-28 after the one-day purge. It has not been refit on 2024–2026 data.
 
+Competition submission preparation is complete (D037): the local, not-yet-uploaded
+`../submissions/E006_C0b_fixed/submission.csv` covers every test X key using
+the frozen E006+C0b policy. See `COMPETITION_SUBMISSION.md` and the adjacent
+manifest for the SHA-256. This deployment choice does not rename E006 as the
+primary raw Alpha model.
+
 The full model comparison is `docs/MODEL_AUDIT_2026-09-24.md`. F1/F2/F3 are
 validation years, not an additional model series. D0 has the strongest clean
 raw broad-ranking signal among the checked models; it is not the highest
